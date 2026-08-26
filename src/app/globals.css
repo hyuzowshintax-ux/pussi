@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   Background: 60% Purple (Dominant) & 40% Pink (Accent)
+   ========================================================================== */
+body {
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  background-color: #0a0118;
+  background-image: 
+    /* 60% Purple Radial Gradients */
+    radial-gradient(at 75% 20%, rgba(126, 34, 206, 0.45) 0px, transparent 55%),
+    radial-gradient(at 25% 75%, rgba(147, 51, 234, 0.4) 0px, transparent 55%),
+    radial-gradient(at 50% 45%, rgba(88, 28, 135, 0.38) 0px, transparent 60%),
+    /* 40% Pink Accent Gradients */
+    radial-gradient(at 10% 15%, rgba(236, 72, 153, 0.32) 0px, transparent 45%),
+    radial-gradient(at 90% 85%, rgba(244, 63, 94, 0.28) 0px, transparent 45%);
+  background-attachment: fixed;
+}
+
+.light body {
+  background-color: #faf5ff;
+  background-image: 
+    /* 60% Purple Light */
+    radial-gradient(at 75% 20%, rgba(216, 180, 254, 0.4) 0px, transparent 55%),
+    radial-gradient(at 25% 75%, rgba(192, 132, 252, 0.38) 0px, transparent 55%),
+    radial-gradient(at 50% 45%, rgba(233, 213, 255, 0.35) 0px, transparent 60%),
+    /* 40% Pink Light */
+    radial-gradient(at 10% 15%, rgba(244, 114, 182, 0.3) 0px, transparent 45%),
+    radial-gradient(at 90% 85%, rgba(251, 113, 133, 0.28) 0px, transparent 45%);
+  background-attachment: fixed;
+}
+
+/* Custom Scrollbar (60% Purple, 40% Pink) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 1, 24, 0.9);
+}
+
+.light ::-webkit-scrollbar-track {
+  background: rgba(250, 245, 255, 0.9);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #7c3aed 0%, #9333ea 60%, #ec4899 100%);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #6d28d9 0%, #7e22ce 60%, #db2777 100%);
+}
+
+/* Glassmorphism Styles (60% Purple Base & 40% Pink Glow) */
+.glass-nav {
+  background: rgba(14, 2, 32, 0.86);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.22);
+}
+
+.light .glass-nav {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(192, 132, 252, 0.25);
+}
+
+.glass-card {
+  background: rgba(22, 4, 40, 0.62);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  box-shadow: 0 12px 35px -10px rgba(126, 34, 206, 0.32);
+}
+
+.light .glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(216, 180, 254, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.2);
+}
+
+.glass-card:hover {
+  border-color: rgba(236, 72, 153, 0.45);
+  box-shadow: 0 16px 42px -10px rgba(147, 51, 234, 0.4);
+}
+
+/* Gradient Text Utilities (60% Purple Dominant, 40% Pink Accent) */
+.gradient-text {
+  background: linear-gradient(135deg, #c084fc 0%, #a855f7 35%, #9333ea 60%, #ec4899 85%, #f43f5e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-alt {
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 60%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ambient Background Blobs (60% Purple Dominance + 40% Pink Accents) */
+.ambient-glow {
+  position: absolute;
+  filter: blur(115px);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: float 9s ease-in-out infinite alternate;
+}
+
+/* Purple Glow Blob 1 (Dominant 60% Top-Right) */
+.ambient-glow-1 {
+  width: 580px;
+  height: 580px;
+  background: radial-gradient(circle, #7c3aed 0%, #4c1d95 70%);
+  top: 1%;
+  right: -10%;
+  opacity: 0.42;
+  animation-delay: -3s;
+}
+
+/* Purple Glow Blob 2 (Dominant 60% Center/Bottom-Left) */
+.ambient-glow-2 {
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, #9333ea 0%, #581c87 70%);
+  top: 35%;
+  left: -12%;
+  opacity: 0.38;
+  animation-delay: -5s;
+}
+
+/* Pink Glow Blob 3 (Accent 40% Top-Left) */
+.ambient-glow-3 {
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle, #ec4899 0%, #db2777 70%);
+  top: 8%;
+  left: 5%;
+  opacity: 0.32;
+}
+
+/* Pink Glow Blob 4 (Accent 40% Bottom-Right) */
+.ambient-glow-4 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, #f43f5e 0%, #d946ef 70%);
+  bottom: 3%;
+  right: 6%;
+  opacity: 0.30;
+  animation-delay: -6s;
+}
+
+.light .ambient-glow {
+  opacity: 0.24;
+}
+
+/* Typing Cursor Effect */
+.typing-cursor::after {
+  content: '|';
+  margin-left: 2px;
+  color: #a855f7;
+  font-weight: 700;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(4deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
