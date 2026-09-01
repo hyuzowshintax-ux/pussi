@@ -98,19 +98,19 @@ export const portfolioData: PortfolioData = {
         skills: ["Duta Intelegensia", "Public Speaking", "Problem Solving", "Kepemimpinan Sekolah", "Integritas"]
       },
       {
-        period: "2025 - Sekarang",
+        period: "2024 - Sekarang",
         role: "Pramuka Penegak Bantara & SAKA Bhayangkara",
         company: "Ambalan SMAN 1 Kandangan & Satuan Karya Bhayangkara",
         location: "Kediri, Jawa Timur",
-        description: "Aktif sebagai Pramuka Penegak Bantara yang memimpin kegiatan kepramukaan, serta mendalami ilmu ketertiban masyarakat, kepolisian, kedisiplinan hukum, dan tanggap darurat melalui SAKA Bhayangkara.",
+        description: "Aktif sebagai Pramuka Penegak Bantara yang memimpin kegiatan kepramukaan sejak tahun 2024, serta mendalami ilmu ketertiban masyarakat, kepolisian, kedisiplinan hukum, dan tanggap darurat melalui SAKA Bhayangkara.",
         skills: ["Penegak Bantara", "SAKA Bhayangkara", "Kamtibmas", "Kepemimpinan Lapangan", "Tanggap Darurat"]
       },
       {
-        period: "2025 - Sekarang",
+        period: "2024 - Sekarang",
         role: "Anggota Aktif Organisasi CODASKA (LKBB)",
         company: "CODASKA - SMAN 1 Kandangan",
         location: "Kandangan, Kediri",
-        description: "Sangat aktif dalam organisasi PBB/LKBB CODASKA di lingkungan SMAN 1 Kandangan, menjalani latihan formasi variasi baris-berbaris, ketahanan mental, serta memimpin koordinasi pleton.",
+        description: "Sangat aktif dalam organisasi PBB/LKBB CODASKA di lingkungan SMAN 1 Kandangan sejak tahun 2024, menjalani latihan formasi variasi baris-berbaris, ketahanan mental, serta memimpin koordinasi pleton.",
         skills: ["CODASKA", "LKBB", "Formasi Variasi PBB", "Koordinasi Pleton", "Kedisiplinan Tinggi"]
       },
       {
@@ -122,19 +122,19 @@ export const portfolioData: PortfolioData = {
         skills: ["Formasi PBB", "Ketangkasan Baris-Berbaris", "Kekompakan Pleton", "Kepemimpinan Regu", "Kedisiplinan"]
       },
       {
-        period: "2025",
+        period: "2024",
         role: "Anggota Paskibra Kecamatan Kandangan",
         company: "Paskibra Kec. Kandangan, Kab. Kediri",
         location: "Kandangan, Kediri",
-        description: "Bertugas dan berdedikasi sebagai Pasukan Pengibar Bendera (Paskibra) tingkat Kecamatan Kandangan dalam upacara kenegaraan dengan kedisiplinan tinggi, ketahanan fisik, dan integritas kepemimpinan.",
+        description: "Bertugas dan berdedikasi sebagai Pasukan Pengibar Bendera (Paskibra) tingkat Kecamatan Kandangan tahun 2024 dalam upacara kenegaraan dengan kedisiplinan tinggi, ketahanan fisik, dan integritas kepemimpinan.",
         skills: ["Paskibra", "Kedisiplinan Tinggi", "Ketahanan Fisik & Mental", "Kerjasama Tim", "Nasionalisme"]
       },
       {
-        period: "2024",
+        period: "2023",
         role: "Pramuka Garuda Penggalang",
         company: "Gerakan Pramuka Indonesia",
         location: "Indonesia",
-        description: "Meraih tingkatan tertinggi Pramuka Penggalang (Pramuka Garuda) melalui uji keteladanan, kepemimpinan regu, kecakapan umum & khusus, kedisiplinan, serta pengabdian masyarakat.",
+        description: "Meraih tingkatan tertinggi Pramuka Penggalang (Pramuka Garuda) tahun 2023 melalui uji keteladanan, kepemimpinan regu, kecakapan umum & khusus, kedisiplinan, serta pengabdian masyarakat.",
         skills: ["Kepemimpinan", "Kerjasama Tim", "Kedisiplinan", "Survival & Scouting", "Karakter & Etika"]
       }
     ],
@@ -151,7 +151,7 @@ export const portfolioData: PortfolioData = {
         degree: "Siswa / Alumni (SMP)",
         institution: "SMPN 2 Kasembon",
         location: "Kasembon, Kab. Malang",
-        description: "Menyelesaikan pendidikan menengah pertama dengan rekam jejak aktif kepanduan hingga dinobatkan meraih predikat Pramuka Garuda Penggalang (2024) serta aktif dalam kegiatan kepemimpinan siswa."
+        description: "Menyelesaikan pendidikan menengah pertama dengan rekam jejak aktif kepanduan hingga dinobatkan meraih predikat Pramuka Garuda Penggalang (2023) serta aktif dalam kegiatan kepemimpinan siswa."
       },
       {
         period: "2015 - 2021",
