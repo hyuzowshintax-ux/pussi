@@ -90,11 +90,11 @@ export const portfolioData: PortfolioData = {
   timeline: {
     experience: [
       {
-        period: "2025 - Sekarang",
+        period: "2025 - 2026",
         role: "Duta Intelegensia",
         company: "SMAN 1 Kandangan",
         location: "Kandangan, Kediri",
-        description: "Terpilih sebagai Duta Intelegensia di SMAN 1 Kandangan sebagai representasi teladan siswa berprestasi, berwawasan luas, berdaya pikir kritis, serta aktif berkontribusi dalam kegiatan akademik dan sosial sekolah.",
+        description: "Terpilih sebagai Duta Intelegensia di SMAN 1 Kandangan periode tahun 2025 - 2026 sebagai representasi teladan siswa berprestasi, berwawasan luas, berdaya pikir kritis, serta aktif berkontribusi dalam kegiatan akademik dan sosial sekolah.",
         skills: ["Duta Intelegensia", "Public Speaking", "Problem Solving", "Kepemimpinan Sekolah", "Integritas"]
       },
       {
