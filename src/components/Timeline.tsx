@@ -16,18 +16,18 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
   if (!hasExp && !hasEdu) return null;
 
   return (
-    <section id="experience" className="py-24 bg-slate-900/30 dark:bg-slate-900/30 light:bg-slate-50/50">
+    <section id="experience" className="py-24 bg-slate-950/20 dark:bg-slate-950/20 light:bg-slate-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 dark:text-indigo-400 light:text-indigo-600">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-400 dark:text-purple-400 light:text-purple-600">
             // Rekam Jejak
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white dark:text-white light:text-slate-900 tracking-tight">
-            Pengalaman Kerja & Pendidikan
+            Pengalaman & Prestasi
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-cyan-400 mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-gradient-to-r from-purple-500 via-purple-600 to-pink-500 mx-auto rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -36,20 +36,20 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
           {hasExp && (
             <div>
               <div className="flex items-center space-x-3 mb-8">
-                <div className="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shadow-md shadow-purple-500/10">
                   <Briefcase className="w-5 h-5" />
                 </div>
                 <h3 className="text-2xl font-bold text-white dark:text-white light:text-slate-900">
-                  Pengalaman Kerja
+                  Pengalaman & Prestasi
                 </h3>
               </div>
               
               <div className="space-y-4">
                 {experience.map((item, idx) => (
-                  <div key={idx} className="relative pl-8 pb-6 border-l-2 border-indigo-500/30 last:border-l-0 last:pb-0 group">
-                    <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-600 border-4 border-slate-900 dark:border-slate-900 light:border-white group-hover:scale-125 transition-transform" />
-                    <div className="glass-card rounded-xl p-5 ml-2 hover:border-indigo-500/40 transition-all">
-                      <span className="inline-block px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-indigo-500/10 text-indigo-400 dark:text-indigo-400 light:text-indigo-600 mb-2">
+                  <div key={idx} className="relative pl-8 pb-6 border-l-2 border-purple-500/30 last:border-l-0 last:pb-0 group">
+                    <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 border-4 border-slate-900 dark:border-slate-900 light:border-white group-hover:scale-125 transition-transform" />
+                    <div className="glass-card rounded-xl p-5 ml-2 hover:border-purple-500/40 transition-all">
+                      <span className="inline-block px-2.5 py-0.5 text-xs font-semibold font-mono rounded bg-purple-500/10 text-purple-400 dark:text-purple-400 light:text-purple-600 mb-2">
                         {item.period}
                       </span>
                       <h4 className="text-lg font-bold text-white dark:text-white light:text-slate-900">
@@ -66,7 +66,7 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
                           {item.skills.map((s, sIdx) => (
                             <span
                               key={sIdx}
-                              className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700"
+                              className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 border border-slate-700/50"
                             >
                               {s}
                             </span>

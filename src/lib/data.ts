@@ -182,9 +182,18 @@ export const portfolioData: PortfolioData = {
     }
   ],
 
-  // Riwayat Pengalaman & Pendidikan (Kosong - siap diisi oleh Anda)
+  // Riwayat Pengalaman & Prestasi
   timeline: {
-    experience: [],
+    experience: [
+      {
+        period: "2024",
+        role: "Pramuka Garuda Penggalang",
+        company: "Gerakan Pramuka Indonesia",
+        location: "Indonesia",
+        description: "Meraih tingkatan tertinggi Pramuka Penggalang (Pramuka Garuda) melalui uji keteladanan, kepemimpinan regu, kecakapan umum & khusus, kedisiplinan, serta pengabdian masyarakat.",
+        skills: ["Kepemimpinan", "Kerjasama Tim", "Kedisiplinan", "Survival & Scouting", "Karakter & Etika"]
+      }
+    ],
     education: []
   },
 
