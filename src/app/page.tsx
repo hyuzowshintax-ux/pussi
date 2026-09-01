@@ -51,11 +51,13 @@ export default function Home() {
       {/* Elegant Wallpaper Grid Texture */}
       <div className="wallpaper-grid" />
 
-      {/* Ambient Glowing Celestial Orbs */}
+      {/* Ambient Glowing Abstract Celestial Orbs */}
       <div className="ambient-glow ambient-glow-1" />
       <div className="ambient-glow ambient-glow-2" />
       <div className="ambient-glow ambient-glow-3" />
       <div className="ambient-glow ambient-glow-4" />
+      <div className="ambient-glow ambient-glow-5" />
+      <div className="ambient-glow ambient-glow-6" />
 
       {/* Navigation */}
       <Navbar

@@ -12,25 +12,27 @@ html {
 }
 
 /* ==========================================================================
-   Luxury & Elegant Wallpaper Background (60% Royal Purple & 40% Rose Pink)
+   Abstract Luxury Wallpaper Background (Purple & Pink Base + Cyan, Amber & Cobalt Accents)
    ========================================================================== */
 body {
   overflow-x: hidden;
   font-family: var(--font-sans);
   background-color: #06010e;
   background-image: 
-    /* Subtle Elegance Dot Grid */
+    /* Subtle Elegance Dot Grid Texture */
     radial-gradient(rgba(216, 180, 254, 0.07) 1px, transparent 1px),
     /* Central Dramatic Top Light Beam */
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(147, 51, 234, 0.38) 0%, transparent 60%),
-    /* 60% Royal Purple Nebula Clouds */
-    radial-gradient(at 80% 20%, rgba(124, 58, 237, 0.32) 0px, transparent 50%),
-    radial-gradient(at 20% 70%, rgba(107, 33, 168, 0.35) 0px, transparent 55%),
-    radial-gradient(at 50% 50%, rgba(76, 29, 149, 0.28) 0px, transparent 65%),
-    /* 40% Rose & Pink Crystal Accents */
-    radial-gradient(at 10% 15%, rgba(236, 72, 153, 0.25) 0px, transparent 40%),
-    radial-gradient(at 90% 85%, rgba(244, 63, 94, 0.22) 0px, transparent 40%);
-  background-size: 32px 32px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    radial-gradient(ellipse 85% 55% at 50% -10%, rgba(147, 51, 234, 0.38) 0%, transparent 60%),
+    /* Royal Purple & Magenta Core Nebulas */
+    radial-gradient(at 80% 18%, rgba(124, 58, 237, 0.32) 0px, transparent 50%),
+    radial-gradient(at 20% 70%, rgba(107, 33, 168, 0.34) 0px, transparent 55%),
+    radial-gradient(at 10% 15%, rgba(236, 72, 153, 0.26) 0px, transparent 40%),
+    /* Abstract Artistic Accents: Cyan, Sunset Amber, Electric Cobalt */
+    radial-gradient(at 92% 40%, rgba(6, 182, 212, 0.22) 0px, transparent 45%),
+    radial-gradient(at 12% 48%, rgba(245, 158, 11, 0.16) 0px, transparent 40%),
+    radial-gradient(at 65% 92%, rgba(59, 130, 246, 0.20) 0px, transparent 45%),
+    radial-gradient(at 88% 88%, rgba(244, 63, 94, 0.22) 0px, transparent 42%);
+  background-size: 32px 32px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
   background-attachment: fixed;
 }
 
@@ -41,14 +43,15 @@ body {
     radial-gradient(rgba(147, 51, 234, 0.08) 1px, transparent 1px),
     /* Central Top Beam */
     radial-gradient(ellipse 80% 50% at 50% -10%, rgba(216, 180, 254, 0.5) 0%, transparent 60%),
-    /* 60% Lavender & Soft Purple */
+    /* Soft Purple & Lavender */
     radial-gradient(at 80% 20%, rgba(216, 180, 254, 0.35) 0px, transparent 50%),
     radial-gradient(at 20% 70%, rgba(192, 132, 252, 0.3) 0px, transparent 55%),
-    radial-gradient(at 50% 50%, rgba(233, 213, 255, 0.3) 0px, transparent 65%),
-    /* 40% Soft Rose & Pastel Pink */
     radial-gradient(at 10% 15%, rgba(244, 114, 182, 0.28) 0px, transparent 40%),
-    radial-gradient(at 90% 85%, rgba(251, 113, 133, 0.25) 0px, transparent 40%);
-  background-size: 32px 32px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+    /* Abstract Light Accents: Soft Mint, Peach Amber, Sky Blue */
+    radial-gradient(at 92% 40%, rgba(165, 243, 252, 0.35) 0px, transparent 45%),
+    radial-gradient(at 12% 48%, rgba(254, 215, 170, 0.32) 0px, transparent 40%),
+    radial-gradient(at 65% 92%, rgba(191, 219, 254, 0.35) 0px, transparent 45%);
+  background-size: 32px 32px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
   background-attachment: fixed;
 }
 
@@ -80,13 +83,13 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #7c3aed 0%, #9333ea 60%, #ec4899 100%);
+  background: linear-gradient(to bottom, #7c3aed 0%, #9333ea 50%, #ec4899 80%, #06b6d4 100%);
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #6d28d9 0%, #7e22ce 60%, #db2777 100%);
+  background: linear-gradient(to bottom, #6d28d9 0%, #7e22ce 50%, #db2777 80%, #0891b2 100%);
 }
 
 /* Glassmorphism 2.0 (Ultra-Refined Luxury Cards) */
@@ -124,80 +127,108 @@ body {
 }
 
 .glass-card:hover {
-  border-color: rgba(236, 72, 153, 0.4);
+  border-color: rgba(236, 72, 153, 0.45);
   box-shadow: 
     0 20px 48px -12px rgba(217, 70, 239, 0.35),
+    0 0 25px -5px rgba(6, 182, 212, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
-/* Gradient Text Utilities (Velvet Purple & Radiant Pink) */
+/* Gradient Text Utilities (Abstract Prism Flow) */
 .gradient-text {
-  background: linear-gradient(135deg, #e9d5ff 0%, #c084fc 25%, #a855f7 50%, #ec4899 80%, #f43f5e 100%);
+  background: linear-gradient(135deg, #f0abfc 0%, #c084fc 25%, #60a5fa 55%, #ec4899 80%, #f59e0b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-alt {
-  background: linear-gradient(135deg, #c084fc 0%, #7c3aed 60%, #ec4899 100%);
+  background: linear-gradient(135deg, #c084fc 0%, #7c3aed 45%, #ec4899 80%, #06b6d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Ambient Background Celestial Glows */
+/* ==========================================================================
+   Abstract Ambient Organic Orbs (Multi-Color Fluid Blooms)
+   ========================================================================== */
 .ambient-glow {
   position: absolute;
-  filter: blur(140px);
+  filter: blur(135px);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
-  animation: float-celestial 12s ease-in-out infinite alternate;
 }
 
-/* Celestial Purple Glow 1 (Top-Right Dominance) */
+/* Orb 1: Royal Purple / Violet (Top Right) */
 .ambient-glow-1 {
-  width: 620px;
-  height: 620px;
+  width: 600px;
+  height: 600px;
   background: radial-gradient(circle, #7c3aed 0%, #4c1d95 65%, transparent 80%);
   top: -4%;
   right: -8%;
   opacity: 0.38;
-  animation-delay: -3s;
+  animation: float-abstract-1 14s ease-in-out infinite alternate;
 }
 
-/* Celestial Purple Glow 2 (Center-Left Dominance) */
+/* Orb 2: Electric Magenta / Pink (Center Left) */
 .ambient-glow-2 {
-  width: 680px;
-  height: 680px;
-  background: radial-gradient(circle, #9333ea 0%, #581c87 65%, transparent 80%);
-  top: 32%;
-  left: -14%;
-  opacity: 0.32;
-  animation-delay: -6s;
-}
-
-/* Rose Crystal Glow 3 (Top-Left Accent) */
-.ambient-glow-3 {
-  width: 480px;
-  height: 480px;
+  width: 580px;
+  height: 580px;
   background: radial-gradient(circle, #ec4899 0%, #be185d 65%, transparent 80%);
-  top: 6%;
-  left: 3%;
-  opacity: 0.28;
+  top: 30%;
+  left: -12%;
+  opacity: 0.30;
+  animation: float-abstract-2 16s ease-in-out infinite alternate;
 }
 
-/* Fuchsia Nebula Glow 4 (Bottom-Right Accent) */
+/* Orb 3: Cyber Cyan / Bioluminescent Teal (Mid Right Accent) */
+.ambient-glow-3 {
+  width: 440px;
+  height: 440px;
+  background: radial-gradient(circle, #06b6d4 0%, #0284c7 65%, transparent 80%);
+  top: 45%;
+  right: -6%;
+  opacity: 0.25;
+  animation: float-abstract-3 12s ease-in-out infinite alternate;
+}
+
+/* Orb 4: Sunset Amber / Gold Flare (Top Left Subtle Warmth) */
 .ambient-glow-4 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, #f59e0b 0%, #ea580c 65%, transparent 80%);
+  top: 8%;
+  left: 6%;
+  opacity: 0.20;
+  animation: float-abstract-1 15s ease-in-out infinite alternate;
+  animation-delay: -5s;
+}
+
+/* Orb 5: Electric Indigo / Ultramarine (Bottom Left) */
+.ambient-glow-5 {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, #6366f1 0%, #3b82f6 65%, transparent 80%);
+  bottom: 8%;
+  left: 4%;
+  opacity: 0.28;
+  animation: float-abstract-2 18s ease-in-out infinite alternate;
+  animation-delay: -8s;
+}
+
+/* Orb 6: Rose Quartz / Pink Prism (Bottom Right) */
+.ambient-glow-6 {
   width: 460px;
   height: 460px;
   background: radial-gradient(circle, #f43f5e 0%, #d946ef 65%, transparent 80%);
   bottom: 2%;
-  right: 4%;
+  right: 6%;
   opacity: 0.26;
-  animation-delay: -7s;
+  animation: float-abstract-3 13s ease-in-out infinite alternate;
+  animation-delay: -4s;
 }
 
 .light .ambient-glow {
-  opacity: 0.2;
+  opacity: 0.18;
 }
 
 /* Typing Cursor Effect */
@@ -214,14 +245,39 @@ body {
   50% { opacity: 0; }
 }
 
-@keyframes float-celestial {
+/* Abstract Organic Fluid Animations */
+@keyframes float-abstract-1 {
   0% {
-    transform: translateY(0px) scale(1) rotate(0deg);
+    transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
   }
   50% {
-    transform: translateY(-30px) scale(1.05) rotate(3deg);
+    transform: translateY(-35px) translateX(25px) scale(1.08) rotate(6deg);
   }
   100% {
-    transform: translateY(0px) scale(1) rotate(0deg);
+    transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes float-abstract-2 {
+  0% {
+    transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translateY(30px) translateX(-25px) scale(1.06) rotate(-5deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes float-abstract-3 {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-25px) scale(1.1) rotate(4deg);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
   }
 }
