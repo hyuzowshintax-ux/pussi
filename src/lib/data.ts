@@ -186,6 +186,22 @@ export const portfolioData: PortfolioData = {
   timeline: {
     experience: [
       {
+        period: "2026",
+        role: "Kontingen LBB Kab. Kediri Tingkat Pelajar",
+        company: "LBB Kabupaten Kediri",
+        location: "Kediri, Jawa Timur",
+        description: "Mengikuti dan berpartisipasi dalam Lomba Baris-Berbaris (LBB) tingkat pelajar se-Kabupaten Kediri dengan menampilkan ketegasan formasi PBB, kekompakan barisan, dan ketangkasan gerak pleton.",
+        skills: ["Formasi PBB", "Ketangkasan Baris-Berbaris", "Kekompakan Pleton", "Kepemimpinan Regu", "Kedisiplinan"]
+      },
+      {
+        period: "2025",
+        role: "Anggota Paskibra Kecamatan Kandangan",
+        company: "Paskibra Kec. Kandangan, Kab. Kediri",
+        location: "Kandangan, Kediri",
+        description: "Bertugas dan berdedikasi sebagai Pasukan Pengibar Bendera (Paskibra) tingkat Kecamatan Kandangan dalam upacara kenegaraan dengan kedisiplinan tinggi, ketahanan fisik, dan integritas kepemimpinan.",
+        skills: ["Paskibra", "Kedisiplinan Tinggi", "Ketahanan Fisik & Mental", "Kerjasama Tim", "Nasionalisme"]
+      },
+      {
         period: "2024",
         role: "Pramuka Garuda Penggalang",
         company: "Gerakan Pramuka Indonesia",
