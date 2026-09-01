@@ -63,15 +63,15 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
         {/* Projects Grid */}
         {filteredProjects.length === 0 ? (
-          <div className="glass-card rounded-2xl p-12 text-center max-w-xl mx-auto border border-dashed border-slate-700/60">
-            <div className="w-12 h-12 rounded-2xl bg-purple-500/15 text-purple-400 flex items-center justify-center mx-auto mb-4">
-              <ArrowRight className="w-5 h-5 rotate-45" />
+          <div className="glass-card rounded-3xl p-10 sm:p-12 text-center max-w-xl mx-auto border border-purple-500/20 shadow-xl space-y-4">
+            <div className="w-14 h-14 rounded-2xl bg-purple-500/15 text-purple-400 flex items-center justify-center mx-auto shadow-md">
+              <ExternalLink className="w-6 h-6" />
             </div>
-            <h3 className="text-lg font-bold text-white dark:text-white light:text-slate-900 mb-2">
-              Belum Ada Proyek
+            <h3 className="text-xl font-bold text-white dark:text-white light:text-slate-900">
+              Proyek Sedang Disiapkan
             </h3>
-            <p className="text-sm text-slate-400 dark:text-slate-400 light:text-slate-600">
-              Belum ada data proyek pada kategori ini. Anda dapat menambahkan proyek baru Anda di file <code className="text-purple-400 font-mono">src/lib/data.ts</code>.
+            <p className="text-sm text-slate-300 dark:text-slate-300 light:text-slate-600 leading-relaxed">
+              Daftar proyek telah dikosongkan terlebih dahulu dan sedang dalam tahap pembaruan karya. Proyek dan karya terbaru akan segera hadir di sini.
             </p>
           </div>
         ) : (

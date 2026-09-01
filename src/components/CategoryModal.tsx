@@ -309,65 +309,79 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
               </div>
 
               {/* Projects Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {filteredProjects.map((proj) => (
-                  <div
-                    key={proj.id}
-                    className="rounded-2xl overflow-hidden bg-slate-900/60 border border-purple-500/20 hover:border-pink-500/40 transition-all flex flex-col group shadow-lg"
-                  >
-                    <div className="h-40 relative overflow-hidden bg-slate-800">
-                      <img
-                        src={proj.image}
-                        alt={proj.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute top-2 left-2">
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow">
-                          {proj.categoryLabel}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
-                      <div>
-                        <h4 className="text-base font-bold text-white group-hover:text-purple-400 transition-colors">
-                          {proj.title}
-                        </h4>
-                        <p className="text-xs text-slate-400 line-clamp-2 mt-1">
-                          {proj.description}
-                        </p>
-                        <div className="flex flex-wrap gap-1 mt-3">
-                          {proj.tags.slice(0, 3).map((tag, tIdx) => (
-                            <span key={tIdx} className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700/50">
-                              {tag}
-                            </span>
-                          ))}
+              {filteredProjects.length === 0 ? (
+                <div className="p-8 sm:p-10 rounded-2xl bg-slate-900/50 border border-purple-500/20 text-center space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center mx-auto shadow-sm">
+                    <Layers className="w-5 h-5" />
+                  </div>
+                  <h4 className="text-base font-bold text-white">
+                    Proyek Sedang Disiapkan
+                  </h4>
+                  <p className="text-xs sm:text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
+                    Daftar proyek telah dikosongkan sementara dan siap diperbarui dengan karya serta portofolio baru Anda.
+                  </p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {filteredProjects.map((proj) => (
+                    <div
+                      key={proj.id}
+                      className="rounded-2xl overflow-hidden bg-slate-900/60 border border-purple-500/20 hover:border-pink-500/40 transition-all flex flex-col group shadow-lg"
+                    >
+                      <div className="h-40 relative overflow-hidden bg-slate-800">
+                        <img
+                          src={proj.image}
+                          alt={proj.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute top-2 left-2">
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow">
+                            {proj.categoryLabel}
+                          </span>
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between pt-2 border-t border-slate-800">
-                        <a
-                          href={proj.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs font-semibold text-purple-400 hover:text-pink-400 flex items-center space-x-1"
-                        >
-                          <span>Buka Proyek</span>
-                          <ExternalLink className="w-3.5 h-3.5" />
-                        </a>
-                        <a
-                          href={proj.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-slate-400 hover:text-white"
-                        >
-                          <Github className="w-4 h-4" />
-                        </a>
+                      <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                          <h4 className="text-base font-bold text-white group-hover:text-purple-400 transition-colors">
+                            {proj.title}
+                          </h4>
+                          <p className="text-xs text-slate-400 line-clamp-2 mt-1">
+                            {proj.description}
+                          </p>
+                          <div className="flex flex-wrap gap-1 mt-3">
+                            {proj.tags.slice(0, 3).map((tag, tIdx) => (
+                              <span key={tIdx} className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700/50">
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="flex items-center justify-between pt-2 border-t border-slate-800">
+                          <a
+                            href={proj.demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs font-semibold text-purple-400 hover:text-pink-400 flex items-center space-x-1"
+                          >
+                            <span>Buka Proyek</span>
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </a>
+                          <a
+                            href={proj.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-slate-400 hover:text-white"
+                          >
+                            <Github className="w-4 h-4" />
+                          </a>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
 
