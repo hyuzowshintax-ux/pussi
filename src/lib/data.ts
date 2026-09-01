@@ -5,9 +5,9 @@ export const portfolioData: PortfolioData = {
   profile: {
     name: "Samuel B K",
     roles: [
-      "Full Stack Web Developer",
-      "Software Engineer",
-      "UI/UX Designer"
+      "Pelajar Pemula",
+      "Web Developer Pemula",
+      "Tech Learner"
     ],
     tagline: "Seorang developer pemula yang bersemangat mempelajari teknologi web modern, antusias mengeksplorasi AI, dan terus berkembang dalam membangun solusi digital.",
     aboutShort: "Halo! Saya Samuel B K, seorang web developer pemula yang penuh antusiasme dan dedikasi untuk terus belajar, mengeksplorasi teknologi baru, dan menciptakan proyek-proyek kreatif.",
