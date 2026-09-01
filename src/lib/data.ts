@@ -182,9 +182,33 @@ export const portfolioData: PortfolioData = {
     }
   ],
 
-  // Riwayat Pengalaman & Prestasi
+  // Riwayat Pengalaman, Organisasi, & Prestasi
   timeline: {
     experience: [
+      {
+        period: "2025 - Sekarang",
+        role: "Duta Intelegensia",
+        company: "SMAN 1 Kandangan",
+        location: "Kandangan, Kediri",
+        description: "Terpilih sebagai Duta Intelegensia di SMAN 1 Kandangan sebagai representasi teladan siswa berprestasi, berwawasan luas, berdaya pikir kritis, serta aktif berkontribusi dalam kegiatan akademik dan sosial sekolah.",
+        skills: ["Duta Intelegensia", "Public Speaking", "Problem Solving", "Kepemimpinan Sekolah", "Integritas"]
+      },
+      {
+        period: "2025 - Sekarang",
+        role: "Pramuka Penegak Bantara & SAKA Bhayangkara",
+        company: "Ambalan SMAN 1 Kandangan & Satuan Karya Bhayangkara",
+        location: "Kediri, Jawa Timur",
+        description: "Aktif sebagai Pramuka Penegak Bantara yang memimpin kegiatan kepramukaan, serta mendalami ilmu ketertiban masyarakat, kepolisian, kedisiplinan hukum, dan tanggap darurat melalui SAKA Bhayangkara.",
+        skills: ["Penegak Bantara", "SAKA Bhayangkara", "Kamtibmas", "Kepemimpinan Lapangan", "Tanggap Darurat"]
+      },
+      {
+        period: "2025 - Sekarang",
+        role: "Anggota Aktif Organisasi CODASKA (LKBB)",
+        company: "CODASKA - SMAN 1 Kandangan",
+        location: "Kandangan, Kediri",
+        description: "Sangat aktif dalam organisasi PBB/LKBB CODASKA di lingkungan SMAN 1 Kandangan, menjalani latihan formasi variasi baris-berbaris, ketahanan mental, serta memimpin koordinasi pleton.",
+        skills: ["CODASKA", "LKBB", "Formasi Variasi PBB", "Koordinasi Pleton", "Kedisiplinan Tinggi"]
+      },
       {
         period: "2026",
         role: "Kontingen LBB Kab. Kediri Tingkat Pelajar",
@@ -210,7 +234,15 @@ export const portfolioData: PortfolioData = {
         skills: ["Kepemimpinan", "Kerjasama Tim", "Kedisiplinan", "Survival & Scouting", "Karakter & Etika"]
       }
     ],
-    education: []
+    education: [
+      {
+        period: "2024 - Sekarang",
+        degree: "Pelajar / Siswa",
+        institution: "SMAN 1 Kandangan",
+        location: "Kandangan, Kab. Kediri",
+        description: "Menempuh jenjang pendidikan tingkat menengah atas, aktif dalam pengembangan akademik, menyandang amanah Duta Intelegensia, serta berprestasi dalam organisasi kepanduan dan baris-berbaris."
+      }
+    ]
   },
 
   // Testimoni Klien (Kosong - siap diisi jika ada ulasan nyata)
