@@ -78,13 +78,19 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-xl animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-xl animate-in fade-in duration-300">
       
       {/* Centered Modal Container */}
-      <div className="glass-card w-full max-w-4xl max-h-[88vh] rounded-3xl border border-white/15 shadow-2xl flex flex-col overflow-hidden relative animate-in zoom-in-95 duration-200">
+      <div className="glass-card w-full max-w-4xl max-h-[88vh] rounded-3xl border border-white/15 shadow-2xl flex flex-col overflow-hidden relative animate-in zoom-in-95 duration-300">
         
+        {/* Soft Dreamy Cloud Mist Sweep on Slide Transition */}
+        <div 
+          key={`cloud-mist-${activeTab}`} 
+          className="pointer-events-none absolute -top-12 inset-x-0 h-44 bg-gradient-to-b from-purple-500/25 via-pink-500/20 to-transparent rounded-full animate-cloud-mist z-20" 
+        />
+
         {/* Modal Top Header */}
-        <div className="p-4 sm:p-6 border-b border-white/10 flex items-center justify-between bg-slate-900/60 backdrop-blur-md">
+        <div className="p-4 sm:p-6 border-b border-white/10 flex items-center justify-between bg-slate-900/60 backdrop-blur-md relative z-10">
           
           {/* Active Category Title */}
           <div className="flex items-center space-x-3">
@@ -122,7 +128,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
         </div>
 
         {/* Category Tabs Quick Bar */}
-        <div className="px-4 sm:px-6 py-2.5 bg-slate-950/40 border-b border-white/5 flex items-center gap-2 overflow-x-auto no-scrollbar">
+        <div className="px-4 sm:px-6 py-2.5 bg-slate-950/40 border-b border-white/5 flex items-center gap-2 overflow-x-auto no-scrollbar relative z-10">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -143,16 +149,16 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
           })}
         </div>
 
-        {/* Modal Scrollable Body */}
-        <div className="p-5 sm:p-8 overflow-y-auto flex-1 space-y-6">
+        {/* Modal Scrollable Body with Cloud Transition */}
+        <div className="p-5 sm:p-8 overflow-y-auto flex-1 space-y-6 relative z-10">
 
           {/* ================================================================
-              1. BERANDA (HOME)
+              1. BERANDA (HOME) - Animasi Transisi Awan
               ================================================================ */}
           {activeTab === "home" && (
-            <div className="space-y-6 animate-in fade-in duration-200">
-              <div className="flex flex-col md:flex-row items-center gap-6 p-6 rounded-2xl bg-slate-900/50 border border-purple-500/20">
-                <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden bg-slate-800 border-2 border-purple-500/40 shadow-xl flex-shrink-0">
+            <div key="slide-home" className="space-y-6 animate-cloud-enter">
+              <div className="flex flex-col md:flex-row items-center gap-6 p-6 rounded-2xl bg-slate-900/50 border border-purple-500/20 shadow-lg">
+                <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden bg-slate-800 border-2 border-purple-500/40 shadow-xl flex-shrink-0 animate-cloud-float">
                   <img
                     src={data.profile.avatarUrl}
                     alt={data.profile.name}
@@ -180,14 +186,14 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <button
                   onClick={() => onSelectTab("projects")}
-                  className="py-3 px-4 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-purple-500/20 text-white text-xs sm:text-sm font-semibold flex items-center justify-center space-x-2 transition-all"
+                  className="py-3 px-4 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-purple-500/20 text-white text-xs sm:text-sm font-semibold flex items-center justify-center space-x-2 transition-all shadow-sm"
                 >
                   <Layers className="w-4 h-4 text-purple-400" />
                   <span>Lihat Proyek AI</span>
                 </button>
                 <button
                   onClick={() => onSelectTab("experience")}
-                  className="py-3 px-4 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-purple-500/20 text-white text-xs sm:text-sm font-semibold flex items-center justify-center space-x-2 transition-all"
+                  className="py-3 px-4 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-purple-500/20 text-white text-xs sm:text-sm font-semibold flex items-center justify-center space-x-2 transition-all shadow-sm"
                 >
                   <Award className="w-4 h-4 text-pink-400" />
                   <span>Lihat Prestasi</span>
@@ -196,7 +202,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                   href={getWhatsAppLink(data.profile.phone)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-3 px-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-600 text-white text-xs sm:text-sm font-semibold flex items-center justify-center space-x-2 shadow-lg shadow-purple-600/30 transition-all"
+                  className="py-3 px-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white text-xs sm:text-sm font-semibold flex items-center justify-center space-x-2 shadow-lg shadow-purple-600/30 transition-all"
                 >
                   <MessageSquare className="w-4 h-4" />
                   <span>Hubungi via WhatsApp</span>
@@ -206,11 +212,11 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
           )}
 
           {/* ================================================================
-              2. TENTANG (ABOUT)
+              2. TENTANG (ABOUT) - Animasi Transisi Awan
               ================================================================ */}
           {activeTab === "about" && (
-            <div className="space-y-6 animate-in fade-in duration-200">
-              <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/50 border border-purple-500/20 space-y-4">
+            <div key="slide-about" className="space-y-6 animate-cloud-enter">
+              <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/50 border border-purple-500/20 space-y-4 shadow-lg">
                 <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-purple-400">
                   // Bio & Profil Pribadi
                 </h4>
@@ -242,13 +248,13 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
           )}
 
           {/* ================================================================
-              3. KEAHLIAN (SKILLS)
+              3. KEAHLIAN (SKILLS) - Animasi Transisi Awan
               ================================================================ */}
           {activeTab === "skills" && (
-            <div className="space-y-6 animate-in fade-in duration-200">
+            <div key="slide-skills" className="space-y-6 animate-cloud-enter">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {data.skills.map((cat, idx) => (
-                  <div key={idx} className="p-5 rounded-2xl bg-slate-900/50 border border-purple-500/20 space-y-4">
+                  <div key={idx} className="p-5 rounded-2xl bg-slate-900/50 border border-purple-500/20 space-y-4 shadow-lg">
                     <h4 className="text-sm font-bold text-white flex items-center space-x-2">
                       <span className="w-2 h-2 rounded-full bg-purple-400" />
                       <span>{cat.title}</span>
@@ -262,7 +268,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                           </div>
                           <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
                             <div
-                              className="h-full rounded-full bg-gradient-to-r from-purple-600 to-pink-500 transition-all duration-500"
+                              className="h-full rounded-full bg-gradient-to-r from-purple-600 to-pink-500 transition-all duration-700 ease-out"
                               style={{ width: `${skill.level}%` }}
                             />
                           </div>
@@ -276,10 +282,10 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
           )}
 
           {/* ================================================================
-              4. PROYEK (PROJECTS)
+              4. PROYEK (PROJECTS) - Animasi Transisi Awan
               ================================================================ */}
           {activeTab === "projects" && (
-            <div className="space-y-6 animate-in fade-in duration-200">
+            <div key="slide-projects" className="space-y-6 animate-cloud-enter">
               
               {/* Category Filter Tabs */}
               <div className="flex flex-wrap gap-2">
@@ -293,7 +299,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                     onClick={() => setProjectFilter(tab.value)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                       projectFilter === tab.value
-                        ? "bg-purple-600 text-white shadow"
+                        ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"
                         : "bg-slate-800 text-slate-400 hover:text-white"
                     }`}
                   >
@@ -307,7 +313,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                 {filteredProjects.map((proj) => (
                   <div
                     key={proj.id}
-                    className="rounded-2xl overflow-hidden bg-slate-900/60 border border-purple-500/20 hover:border-pink-500/40 transition-all flex flex-col group"
+                    className="rounded-2xl overflow-hidden bg-slate-900/60 border border-purple-500/20 hover:border-pink-500/40 transition-all flex flex-col group shadow-lg"
                   >
                     <div className="h-40 relative overflow-hidden bg-slate-800">
                       <img
@@ -366,10 +372,10 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
           )}
 
           {/* ================================================================
-              5. PENGALAMAN & PRESTASI (EXPERIENCE)
+              5. PENGALAMAN & PRESTASI (EXPERIENCE) - Animasi Transisi Awan
               ================================================================ */}
           {activeTab === "experience" && (
-            <div className="space-y-6 animate-in fade-in duration-200">
+            <div key="slide-experience" className="space-y-6 animate-cloud-enter">
               
               {/* Experience List */}
               <div className="space-y-4">
@@ -382,7 +388,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                   {data.timeline.experience.map((item, idx) => (
                     <div
                       key={idx}
-                      className="p-4 sm:p-5 rounded-2xl bg-slate-900/50 border border-purple-500/20 hover:border-pink-500/40 transition-all space-y-2"
+                      className="p-4 sm:p-5 rounded-2xl bg-slate-900/50 border border-purple-500/20 hover:border-pink-500/40 transition-all space-y-2 shadow-lg"
                     >
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-purple-500/15 text-purple-400 border border-purple-500/30">
@@ -426,7 +432,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                     <span>// Riwayat Pendidikan</span>
                   </h4>
                   {data.timeline.education.map((edu, idx) => (
-                    <div key={idx} className="p-4 sm:p-5 rounded-2xl bg-slate-900/50 border border-cyan-500/20 space-y-2">
+                    <div key={idx} className="p-4 sm:p-5 rounded-2xl bg-slate-900/50 border border-cyan-500/20 space-y-2 shadow-lg">
                       <div className="flex items-center justify-between">
                         <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-cyan-500/15 text-cyan-400 border border-cyan-500/30">
                           {edu.period}
@@ -444,16 +450,16 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
           )}
 
           {/* ================================================================
-              6. KONTAK (CONTACT)
+              6. KONTAK (CONTACT) - Animasi Transisi Awan
               ================================================================ */}
           {activeTab === "contact" && (
-            <div className="space-y-6 animate-in fade-in duration-200">
+            <div key="slide-contact" className="space-y-6 animate-cloud-enter">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
                 {/* Email Card */}
                 <a
                   href={`mailto:${data.contact.email}`}
-                  className="p-4 rounded-2xl bg-slate-900/50 border border-purple-500/20 hover:border-purple-500/50 transition-all flex items-center space-x-3 group"
+                  className="p-4 rounded-2xl bg-slate-900/50 border border-purple-500/20 hover:border-purple-500/50 transition-all flex items-center space-x-3 group shadow-lg"
                 >
                   <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center group-hover:scale-105 transition-transform">
                     <Mail className="w-5 h-5" />
@@ -471,7 +477,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                   href={getWhatsAppLink(data.contact.phone)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 rounded-2xl bg-slate-900/50 border border-pink-500/20 hover:border-pink-500/50 transition-all flex items-center space-x-3 group"
+                  className="p-4 rounded-2xl bg-slate-900/50 border border-pink-500/20 hover:border-pink-500/50 transition-all flex items-center space-x-3 group shadow-lg"
                 >
                   <div className="w-10 h-10 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center group-hover:scale-105 transition-transform">
                     <MessageSquare className="w-5 h-5" />
@@ -486,7 +492,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
               </div>
 
               {/* Form Message */}
-              <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/50 border border-purple-500/20 space-y-4">
+              <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/50 border border-purple-500/20 space-y-4 shadow-lg">
                 <h4 className="text-sm font-bold text-white">
                   Kirim Pesan Cepat ke Samuel
                 </h4>
