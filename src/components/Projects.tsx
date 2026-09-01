@@ -32,15 +32,15 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 dark:text-indigo-400 light:text-indigo-600">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-400 dark:text-purple-400 light:text-purple-600">
             // Portofolio Pilihan
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white dark:text-white light:text-slate-900 tracking-tight">
             Karya & Proyek Unggulan
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-cyan-400 mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-gradient-to-r from-purple-500 via-purple-600 to-pink-500 mx-auto rounded-full" />
           <p className="text-slate-400 dark:text-slate-400 light:text-slate-600 text-sm sm:text-base">
-            Berikut adalah beberapa proyek terbaik yang pernah saya rancang dan kembangkan.
+            Koleksi aplikasi mobile cerdas berbasis Artificial Intelligence dan Computer Vision.
           </p>
         </div>
 
@@ -52,7 +52,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               onClick={() => setFilter(tab.value)}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                 filter === tab.value
-                  ? "bg-indigo-600 text-white shadow-lg shadow-indigo-500/30"
+                  ? "bg-gradient-to-r from-purple-600 via-purple-700 to-pink-500 text-white shadow-lg shadow-purple-600/30"
                   : "bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white"
               }`}
             >
@@ -64,14 +64,14 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
         {/* Projects Grid */}
         {filteredProjects.length === 0 ? (
           <div className="glass-card rounded-2xl p-12 text-center max-w-xl mx-auto border border-dashed border-slate-700/60">
-            <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center mx-auto mb-4">
+            <div className="w-12 h-12 rounded-2xl bg-purple-500/15 text-purple-400 flex items-center justify-center mx-auto mb-4">
               <ArrowRight className="w-5 h-5 rotate-45" />
             </div>
             <h3 className="text-lg font-bold text-white dark:text-white light:text-slate-900 mb-2">
               Belum Ada Proyek
             </h3>
             <p className="text-sm text-slate-400 dark:text-slate-400 light:text-slate-600">
-              Belum ada data proyek pada kategori ini. Anda dapat menambahkan proyek baru Anda di file <code className="text-indigo-400 font-mono">src/lib/data.ts</code>.
+              Belum ada data proyek pada kategori ini. Anda dapat menambahkan proyek baru Anda di file <code className="text-purple-400 font-mono">src/lib/data.ts</code>.
             </p>
           </div>
         ) : (
@@ -91,7 +91,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-80" />
                 <div className="absolute top-3 left-3">
-                  <span className="px-3 py-1 text-xs font-semibold rounded-full bg-indigo-600/90 text-white backdrop-blur-md shadow-sm">
+                  <span className="px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white backdrop-blur-md shadow-sm">
                     {project.categoryLabel}
                   </span>
                 </div>
@@ -100,7 +100,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
               {/* Content */}
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-xl font-bold text-white dark:text-white light:text-slate-900 group-hover:text-indigo-400 transition-colors mb-2">
+                  <h3 className="text-xl font-bold text-white dark:text-white light:text-slate-900 group-hover:text-purple-400 transition-colors mb-2">
                     {project.title}
                   </h3>
                   <p className="text-slate-400 dark:text-slate-400 light:text-slate-600 text-sm mb-4 line-clamp-2 leading-relaxed">
@@ -124,7 +124,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                 <div className="flex items-center justify-between pt-4 border-t border-slate-700/40 dark:border-slate-700/40 light:border-slate-200">
                   <button
                     onClick={() => setSelectedProject(project)}
-                    className="text-xs font-semibold text-indigo-400 dark:text-indigo-400 light:text-indigo-600 hover:text-indigo-300 transition-colors flex items-center space-x-1"
+                    className="text-xs font-semibold text-purple-400 dark:text-purple-400 light:text-purple-600 hover:text-pink-400 transition-colors flex items-center space-x-1"
                   >
                     <span>Lihat Detail</span>
                     <ArrowRight className="w-3.5 h-3.5 ml-1" />
@@ -144,7 +144,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-indigo-400 transition-colors"
+                      className="text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-pink-400 transition-colors"
                       title="Live Preview"
                     >
                       <ExternalLink className="w-4 h-4" />

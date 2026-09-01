@@ -50,7 +50,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
           <div className="absolute bottom-4 left-6">
-            <span className="px-3 py-1 text-xs font-semibold rounded-full bg-indigo-600 text-white shadow">
+            <span className="px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow">
               {project.categoryLabel}
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-2">
@@ -62,7 +62,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Modal Body */}
         <div className="p-6 sm:p-8 space-y-6">
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500 mb-2">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-purple-400 dark:text-purple-400 light:text-purple-600 mb-2">
               Tentang Proyek
             </h4>
             <p className="text-slate-300 dark:text-slate-300 light:text-slate-700 text-sm sm:text-base leading-relaxed">
@@ -72,13 +72,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
           {project.highlights && (
             <div>
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500 mb-3">
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-purple-400 dark:text-purple-400 light:text-purple-600 mb-3">
                 Fitur Utama & Keunggulan
               </h4>
               <ul className="space-y-2">
                 {project.highlights.map((highlight, idx) => (
                   <li key={idx} className="flex items-start space-x-2 text-sm text-slate-300 dark:text-slate-300 light:text-slate-600">
-                    <Check className="w-4 h-4 text-indigo-400 mt-0.5 flex-shrink-0" />
+                    <Check className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" />
                     <span>{highlight}</span>
                   </li>
                 ))}
@@ -87,7 +87,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           )}
 
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500 mb-2">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-purple-400 dark:text-purple-400 light:text-purple-600 mb-2">
               Teknologi yang Digunakan
             </h4>
             <div className="flex flex-wrap gap-2">
@@ -108,7 +108,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-center font-bold text-sm shadow-md transition-all flex items-center justify-center space-x-2"
+              className="flex-1 py-3 rounded-xl bg-gradient-to-r from-purple-600 via-purple-700 to-pink-500 hover:from-purple-500 hover:to-pink-600 text-white text-center font-bold text-sm shadow-md shadow-purple-600/30 transition-all flex items-center justify-center space-x-2"
             >
               <ExternalLink className="w-4 h-4" />
               <span>Buka Live Demo</span>
