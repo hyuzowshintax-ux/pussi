@@ -30,11 +30,11 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
           <div className="w-16 h-1 bg-gradient-to-r from-purple-500 via-purple-600 to-pink-500 mx-auto rounded-full" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className={`grid grid-cols-1 ${hasExp && hasEdu ? "lg:grid-cols-2 gap-12" : "max-w-3xl mx-auto"}`}>
           
           {/* Experience */}
           {hasExp && (
-            <div>
+            <div className="w-full">
               <div className="flex items-center space-x-3 mb-8">
                 <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center shadow-md shadow-purple-500/10">
                   <Briefcase className="w-5 h-5" />
