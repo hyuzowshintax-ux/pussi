@@ -141,10 +141,24 @@ export const portfolioData: PortfolioData = {
     education: [
       {
         period: "2024 - Sekarang",
-        degree: "Pelajar / Siswa",
+        degree: "Pelajar / Siswa (SMA)",
         institution: "SMAN 1 Kandangan",
         location: "Kandangan, Kab. Kediri",
-        description: "Menempuh jenjang pendidikan tingkat menengah atas, aktif dalam pengembangan akademik, menyandang amanah Duta Intelegensia, serta berprestasi dalam organisasi kepanduan dan baris-berbaris."
+        description: "Menempuh jenjang pendidikan tingkat menengah atas, aktif dalam pengembangan akademik, menyandang amanah Duta Intelegensia, serta berprestasi dalam organisasi kepanduan (Penegak Bantara & SAKA Bhayangkara) dan baris-berbaris (CODASKA)."
+      },
+      {
+        period: "2021 - 2024",
+        degree: "Siswa / Alumni (SMP)",
+        institution: "SMPN 2 Kasembon",
+        location: "Kasembon, Kab. Malang",
+        description: "Menyelesaikan pendidikan menengah pertama dengan rekam jejak aktif kepanduan hingga dinobatkan meraih predikat Pramuka Garuda Penggalang (2024) serta aktif dalam kegiatan kepemimpinan siswa."
+      },
+      {
+        period: "2015 - 2021",
+        degree: "Siswa / Alumni (SD)",
+        institution: "SD Katolik Santo Yusup Karang Pilang Surabaya",
+        location: "Karangpilang, Kota Surabaya",
+        description: "Menempuh dan menuntaskan jenjang pendidikan dasar dengan penanaman karakter disiplin, budi pekerti, integritas, dan pondasi kepemimpinan."
       }
     ]
   },
