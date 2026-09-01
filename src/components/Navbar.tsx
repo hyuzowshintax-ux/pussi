@@ -8,9 +8,10 @@ interface NavbarProps {
   profile: Profile;
   darkMode: boolean;
   setDarkMode: (val: boolean | ((prev: boolean) => boolean)) => void;
+  onOpenCategory: (tab: "home" | "about" | "skills" | "projects" | "experience" | "contact") => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode }) => {
+export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode, onOpenCategory }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,13 +41,18 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode }
   }, []);
 
   const navLinks = [
-    { name: "Beranda", href: "#home", id: "home" },
-    { name: "Tentang", href: "#about", id: "about" },
-    { name: "Keahlian", href: "#skills", id: "skills" },
-    { name: "Proyek", href: "#projects", id: "projects" },
-    { name: "Pengalaman", href: "#experience", id: "experience" },
-    { name: "Kontak", href: "#contact", id: "contact" },
-  ];
+    { name: "Beranda", id: "home" },
+    { name: "Tentang", id: "about" },
+    { name: "Keahlian", id: "skills" },
+    { name: "Proyek", id: "projects" },
+    { name: "Pengalaman", id: "experience" },
+    { name: "Kontak", id: "contact" },
+  ] as const;
+
+  const handleNavClick = (id: "home" | "about" | "skills" | "projects" | "experience" | "contact") => {
+    onOpenCategory(id);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass-nav shadow-lg" : "bg-transparent"}`}>
@@ -54,32 +60,32 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode }
         <div className="flex items-center justify-between h-20">
           
           {/* Brand Logo */}
-          <a href="#home" className="flex items-center space-x-2.5 group">
+          <button onClick={() => handleNavClick("home")} className="flex items-center space-x-2.5 group text-left">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-purple-700 to-pink-500 flex items-center justify-center text-white shadow-lg shadow-purple-600/30 group-hover:scale-105 transition-transform">
               <Code className="w-5 h-5" />
             </div>
             <span className="text-xl font-extrabold tracking-tight text-white dark:text-white light:text-slate-900 group-hover:text-purple-400 transition-colors">
               {profile.name.split(" ")[0]}<span className="text-purple-500">.</span>
             </span>
-          </a>
+          </button>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.id}
-                href={link.href}
-                className={`text-sm font-medium transition-colors relative py-1 ${
+                onClick={() => handleNavClick(link.id)}
+                className={`text-sm font-medium transition-colors relative py-1 flex items-center space-x-1.5 ${
                   activeSection === link.id
                     ? "text-purple-400 font-semibold"
                     : "text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-purple-400"
                 }`}
               >
-                {link.name}
+                <span>{link.name}</span>
                 {activeSection === link.id && (
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 via-purple-600 to-pink-500 rounded-full" />
                 )}
-              </a>
+              </button>
             ))}
           </nav>
 
@@ -126,25 +132,21 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode }
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden glass-nav border-t border-slate-800 dark:border-slate-800 light:border-slate-200 px-6 py-5">
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col space-y-3">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.id}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`text-base font-medium transition-colors ${
-                  activeSection === link.id
-                    ? "text-indigo-400 font-bold"
-                    : "text-slate-300 dark:text-slate-300 light:text-slate-800 hover:text-indigo-400"
-                }`}
+                onClick={() => handleNavClick(link.id)}
+                className="text-left text-sm font-medium text-slate-200 dark:text-slate-200 light:text-slate-800 hover:text-purple-400 transition-colors py-2 flex items-center justify-between border-b border-white/5"
               >
-                {link.name}
-              </a>
+                <span>{link.name}</span>
+                <span className="text-xs text-purple-400 font-mono">Buka Box ➔</span>
+              </button>
             ))}
             <div className="pt-3 border-t border-slate-800 dark:border-slate-800 light:border-slate-200">
               <a
                 href={profile.cvLink || "#"}
-                className="w-full flex items-center justify-center space-x-2 py-3 rounded-xl bg-indigo-600 text-white font-semibold text-sm shadow-md"
+                className="w-full flex items-center justify-center space-x-2 py-3 rounded-xl bg-gradient-to-r from-purple-600 via-purple-700 to-pink-500 text-white font-semibold text-sm shadow-md shadow-purple-600/30"
               >
                 <Download className="w-4 h-4" />
                 <span>Unduh CV</span>

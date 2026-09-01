@@ -12,10 +12,18 @@ import { Timeline } from "@/components/Timeline";
 import { Testimonials } from "@/components/Testimonials";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { CategoryModal, CategoryTab } from "@/components/CategoryModal";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
   const [mounted, setMounted] = useState<boolean>(false);
+  const [categoryModalOpen, setCategoryModalOpen] = useState<boolean>(false);
+  const [activeCategory, setActiveCategory] = useState<CategoryTab>("home");
+
+  const handleOpenCategory = (tab: CategoryTab) => {
+    setActiveCategory(tab);
+    setCategoryModalOpen(true);
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -64,6 +72,16 @@ export default function Home() {
         profile={portfolioData.profile}
         darkMode={darkMode}
         setDarkMode={setDarkMode}
+        onOpenCategory={handleOpenCategory}
+      />
+
+      {/* Interactive Category Center Modal Box */}
+      <CategoryModal
+        isOpen={categoryModalOpen}
+        activeTab={activeCategory}
+        onClose={() => setCategoryModalOpen(false)}
+        onSelectTab={(tab) => setActiveCategory(tab)}
+        data={portfolioData}
       />
 
       {/* Main Content */}
