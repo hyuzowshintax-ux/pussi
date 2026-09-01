@@ -9,8 +9,8 @@ export const portfolioData: PortfolioData = {
       "Software Engineer",
       "UI/UX Designer"
     ],
-    tagline: "Membangun solusi digital modern, terstruktur, dan berkinerja tinggi yang memberikan pengalaman pengguna terbaik.",
-    aboutShort: "Halo! Saya Samuel B K, seorang Software Developer dengan pengalaman 5+ tahun dalam merancang dan mengembangkan aplikasi web modern, responsif, dan scalable.",
+    tagline: "Seorang developer pemula yang bersemangat mempelajari teknologi web modern, antusias mengeksplorasi AI, dan terus berkembang dalam membangun solusi digital.",
+    aboutShort: "Halo! Saya Samuel B K, seorang web developer pemula yang penuh antusiasme dan dedikasi untuk terus belajar, mengeksplorasi teknologi baru, dan menciptakan proyek-proyek kreatif.",
     avatarUrl: "/profile.jpg",
     location: "Indonesia",
     email: "hyuzowshintax@gmail.com",
@@ -36,8 +36,8 @@ export const portfolioData: PortfolioData = {
   // Tentang Saya
   about: {
     bio: [
-      "Saya adalah seorang developer yang bersemangat dalam membangun produk digital berkualitas tinggi dengan teknologi web modern.",
-      "Fokus utama saya adalah menciptakan kode yang bersih, arsitektur yang kokoh, dan antarmuka pengguna yang intuitif serta responsif di semua perangkat."
+      "Saya adalah seorang developer pemula yang memiliki rasa ingin tahu tinggi dan komitmen kuat untuk terus memperdalam dunia pemrograman dan teknologi digital.",
+      "Meskipun masih di awal perjalanan karier, saya aktif belajar praktik coding terbaik, membangun antarmuka web yang rapi, serta mengeksplorasi pengembangan aplikasi mobile dan integrasi kecerdasan buatan (AI)."
     ],
     details: [
       { label: "Nama Lengkap", value: "Samuel B K" },
