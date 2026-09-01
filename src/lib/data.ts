@@ -5,12 +5,12 @@ export const portfolioData: PortfolioData = {
   profile: {
     name: "Samuel B K",
     roles: [
-      "Pelajar Pemula",
-      "Web Developer Pemula",
-      "Tech Learner"
+      "Pelajar",
+      "Pelajar IT & Pemrograman",
+      "Pelajar Web Development"
     ],
-    tagline: "Seorang developer pemula yang bersemangat mempelajari teknologi web modern, antusias mengeksplorasi AI, dan terus berkembang dalam membangun solusi digital.",
-    aboutShort: "Halo! Saya Samuel B K, seorang web developer pemula yang penuh antusiasme dan dedikasi untuk terus belajar, mengeksplorasi teknologi baru, dan menciptakan proyek-proyek kreatif.",
+    tagline: "Seorang pelajar yang bersemangat mempelajari teknologi web modern, antusias mengeksplorasi AI, dan terus berkembang dalam membangun solusi digital.",
+    aboutShort: "Halo! Saya Samuel B K, seorang pelajar yang penuh antusiasme dan dedikasi untuk terus belajar, mengeksplorasi teknologi baru, dan menciptakan proyek-proyek kreatif.",
     avatarUrl: "/profile.jpg",
     location: "Indonesia",
     email: "hyuzowshintax@gmail.com",
@@ -36,8 +36,8 @@ export const portfolioData: PortfolioData = {
   // Tentang Saya
   about: {
     bio: [
-      "Saya adalah seorang developer pemula yang memiliki rasa ingin tahu tinggi dan komitmen kuat untuk terus memperdalam dunia pemrograman dan teknologi digital.",
-      "Meskipun masih di awal perjalanan karier, saya aktif belajar praktik coding terbaik, membangun antarmuka web yang rapi, serta mengeksplorasi pengembangan aplikasi mobile dan integrasi kecerdasan buatan (AI)."
+      "Saya adalah seorang pelajar yang memiliki rasa ingin tahu tinggi dan komitmen kuat untuk terus memperdalam dunia pemrograman dan teknologi digital.",
+      "Saya aktif belajar praktik coding modern, membangun antarmuka web yang rapi, serta mengeksplorasi pengembangan aplikasi mobile dan integrasi kecerdasan buatan (AI)."
     ],
     details: [
       { label: "Nama Lengkap", value: "Samuel B K" },
