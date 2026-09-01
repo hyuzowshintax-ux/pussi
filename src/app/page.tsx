@@ -48,7 +48,10 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen">
-      {/* Ambient Glowing Orbs Pink & Purple Mix */}
+      {/* Elegant Wallpaper Grid Texture */}
+      <div className="wallpaper-grid" />
+
+      {/* Ambient Glowing Celestial Orbs */}
       <div className="ambient-glow ambient-glow-1" />
       <div className="ambient-glow ambient-glow-2" />
       <div className="ambient-glow ambient-glow-3" />

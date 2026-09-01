@@ -12,165 +12,199 @@ html {
 }
 
 /* ==========================================================================
-   Background: 60% Purple (Dominant) & 40% Pink (Accent)
+   Luxury & Elegant Wallpaper Background (60% Royal Purple & 40% Rose Pink)
    ========================================================================== */
 body {
   overflow-x: hidden;
   font-family: var(--font-sans);
-  background-color: #0a0118;
+  background-color: #06010e;
   background-image: 
-    /* 60% Purple Radial Gradients */
-    radial-gradient(at 75% 20%, rgba(126, 34, 206, 0.45) 0px, transparent 55%),
-    radial-gradient(at 25% 75%, rgba(147, 51, 234, 0.4) 0px, transparent 55%),
-    radial-gradient(at 50% 45%, rgba(88, 28, 135, 0.38) 0px, transparent 60%),
-    /* 40% Pink Accent Gradients */
-    radial-gradient(at 10% 15%, rgba(236, 72, 153, 0.32) 0px, transparent 45%),
-    radial-gradient(at 90% 85%, rgba(244, 63, 94, 0.28) 0px, transparent 45%);
+    /* Subtle Elegance Dot Grid */
+    radial-gradient(rgba(216, 180, 254, 0.07) 1px, transparent 1px),
+    /* Central Dramatic Top Light Beam */
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(147, 51, 234, 0.38) 0%, transparent 60%),
+    /* 60% Royal Purple Nebula Clouds */
+    radial-gradient(at 80% 20%, rgba(124, 58, 237, 0.32) 0px, transparent 50%),
+    radial-gradient(at 20% 70%, rgba(107, 33, 168, 0.35) 0px, transparent 55%),
+    radial-gradient(at 50% 50%, rgba(76, 29, 149, 0.28) 0px, transparent 65%),
+    /* 40% Rose & Pink Crystal Accents */
+    radial-gradient(at 10% 15%, rgba(236, 72, 153, 0.25) 0px, transparent 40%),
+    radial-gradient(at 90% 85%, rgba(244, 63, 94, 0.22) 0px, transparent 40%);
+  background-size: 32px 32px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
   background-attachment: fixed;
 }
 
 .light body {
-  background-color: #faf5ff;
+  background-color: #fdfaff;
   background-image: 
-    /* 60% Purple Light */
-    radial-gradient(at 75% 20%, rgba(216, 180, 254, 0.4) 0px, transparent 55%),
-    radial-gradient(at 25% 75%, rgba(192, 132, 252, 0.38) 0px, transparent 55%),
-    radial-gradient(at 50% 45%, rgba(233, 213, 255, 0.35) 0px, transparent 60%),
-    /* 40% Pink Light */
-    radial-gradient(at 10% 15%, rgba(244, 114, 182, 0.3) 0px, transparent 45%),
-    radial-gradient(at 90% 85%, rgba(251, 113, 133, 0.28) 0px, transparent 45%);
+    /* Subtle Elegance Dot Grid */
+    radial-gradient(rgba(147, 51, 234, 0.08) 1px, transparent 1px),
+    /* Central Top Beam */
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(216, 180, 254, 0.5) 0%, transparent 60%),
+    /* 60% Lavender & Soft Purple */
+    radial-gradient(at 80% 20%, rgba(216, 180, 254, 0.35) 0px, transparent 50%),
+    radial-gradient(at 20% 70%, rgba(192, 132, 252, 0.3) 0px, transparent 55%),
+    radial-gradient(at 50% 50%, rgba(233, 213, 255, 0.3) 0px, transparent 65%),
+    /* 40% Soft Rose & Pastel Pink */
+    radial-gradient(at 10% 15%, rgba(244, 114, 182, 0.28) 0px, transparent 40%),
+    radial-gradient(at 90% 85%, rgba(251, 113, 133, 0.25) 0px, transparent 40%);
+  background-size: 32px 32px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
   background-attachment: fixed;
 }
 
-/* Custom Scrollbar (60% Purple, 40% Pink) */
+/* Elegant Wallpaper Grid Texture */
+.wallpaper-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: 
+    linear-gradient(to right, rgba(168, 85, 247, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* Custom Luxury Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(10, 1, 24, 0.9);
+  background: rgba(6, 1, 14, 0.95);
 }
 
 .light ::-webkit-scrollbar-track {
-  background: rgba(250, 245, 255, 0.9);
+  background: rgba(253, 250, 255, 0.95);
 }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #7c3aed 0%, #9333ea 60%, #ec4899 100%);
   border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(to bottom, #6d28d9 0%, #7e22ce 60%, #db2777 100%);
 }
 
-/* Glassmorphism Styles (60% Purple Base & 40% Pink Glow) */
+/* Glassmorphism 2.0 (Ultra-Refined Luxury Cards) */
 .glass-nav {
-  background: rgba(14, 2, 32, 0.86);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(168, 85, 247, 0.22);
+  background: rgba(10, 2, 22, 0.82);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(216, 180, 254, 0.12);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
 }
 
 .light .glass-nav {
-  background: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid rgba(192, 132, 252, 0.25);
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(192, 132, 252, 0.2);
+  box-shadow: 0 4px 20px rgba(147, 51, 234, 0.06);
 }
 
 .glass-card {
-  background: rgba(22, 4, 40, 0.62);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(168, 85, 247, 0.2);
-  box-shadow: 0 12px 35px -10px rgba(126, 34, 206, 0.32);
+  background: linear-gradient(135deg, rgba(24, 6, 42, 0.68) 0%, rgba(14, 3, 24, 0.78) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(216, 180, 254, 0.14);
+  box-shadow: 
+    0 16px 40px -12px rgba(124, 58, 237, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .light .glass-card {
-  background: rgba(255, 255, 255, 0.88);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 245, 255, 0.85) 100%);
   border: 1px solid rgba(216, 180, 254, 0.35);
-  box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.2);
+  box-shadow: 
+    0 14px 35px -12px rgba(168, 85, 247, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .glass-card:hover {
-  border-color: rgba(236, 72, 153, 0.45);
-  box-shadow: 0 16px 42px -10px rgba(147, 51, 234, 0.4);
+  border-color: rgba(236, 72, 153, 0.4);
+  box-shadow: 
+    0 20px 48px -12px rgba(217, 70, 239, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
-/* Gradient Text Utilities (60% Purple Dominant, 40% Pink Accent) */
+/* Gradient Text Utilities (Velvet Purple & Radiant Pink) */
 .gradient-text {
-  background: linear-gradient(135deg, #c084fc 0%, #a855f7 35%, #9333ea 60%, #ec4899 85%, #f43f5e 100%);
+  background: linear-gradient(135deg, #e9d5ff 0%, #c084fc 25%, #a855f7 50%, #ec4899 80%, #f43f5e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-alt {
-  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 60%, #ec4899 100%);
+  background: linear-gradient(135deg, #c084fc 0%, #7c3aed 60%, #ec4899 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Ambient Background Blobs (60% Purple Dominance + 40% Pink Accents) */
+/* Ambient Background Celestial Glows */
 .ambient-glow {
   position: absolute;
-  filter: blur(115px);
+  filter: blur(140px);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
-  animation: float 9s ease-in-out infinite alternate;
+  animation: float-celestial 12s ease-in-out infinite alternate;
 }
 
-/* Purple Glow Blob 1 (Dominant 60% Top-Right) */
+/* Celestial Purple Glow 1 (Top-Right Dominance) */
 .ambient-glow-1 {
-  width: 580px;
-  height: 580px;
-  background: radial-gradient(circle, #7c3aed 0%, #4c1d95 70%);
-  top: 1%;
-  right: -10%;
-  opacity: 0.42;
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, #7c3aed 0%, #4c1d95 65%, transparent 80%);
+  top: -4%;
+  right: -8%;
+  opacity: 0.38;
   animation-delay: -3s;
 }
 
-/* Purple Glow Blob 2 (Dominant 60% Center/Bottom-Left) */
+/* Celestial Purple Glow 2 (Center-Left Dominance) */
 .ambient-glow-2 {
-  width: 620px;
-  height: 620px;
-  background: radial-gradient(circle, #9333ea 0%, #581c87 70%);
-  top: 35%;
-  left: -12%;
-  opacity: 0.38;
-  animation-delay: -5s;
-}
-
-/* Pink Glow Blob 3 (Accent 40% Top-Left) */
-.ambient-glow-3 {
-  width: 440px;
-  height: 440px;
-  background: radial-gradient(circle, #ec4899 0%, #db2777 70%);
-  top: 8%;
-  left: 5%;
+  width: 680px;
+  height: 680px;
+  background: radial-gradient(circle, #9333ea 0%, #581c87 65%, transparent 80%);
+  top: 32%;
+  left: -14%;
   opacity: 0.32;
-}
-
-/* Pink Glow Blob 4 (Accent 40% Bottom-Right) */
-.ambient-glow-4 {
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, #f43f5e 0%, #d946ef 70%);
-  bottom: 3%;
-  right: 6%;
-  opacity: 0.30;
   animation-delay: -6s;
 }
 
+/* Rose Crystal Glow 3 (Top-Left Accent) */
+.ambient-glow-3 {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, #ec4899 0%, #be185d 65%, transparent 80%);
+  top: 6%;
+  left: 3%;
+  opacity: 0.28;
+}
+
+/* Fuchsia Nebula Glow 4 (Bottom-Right Accent) */
+.ambient-glow-4 {
+  width: 460px;
+  height: 460px;
+  background: radial-gradient(circle, #f43f5e 0%, #d946ef 65%, transparent 80%);
+  bottom: 2%;
+  right: 4%;
+  opacity: 0.26;
+  animation-delay: -7s;
+}
+
 .light .ambient-glow {
-  opacity: 0.24;
+  opacity: 0.2;
 }
 
 /* Typing Cursor Effect */
 .typing-cursor::after {
   content: '|';
   margin-left: 2px;
-  color: #a855f7;
+  color: #c084fc;
   font-weight: 700;
   animation: blink 1s step-end infinite;
 }
@@ -180,14 +214,14 @@ body {
   50% { opacity: 0; }
 }
 
-@keyframes float {
+@keyframes float-celestial {
   0% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px) scale(1) rotate(0deg);
   }
   50% {
-    transform: translateY(-25px) rotate(4deg);
+    transform: translateY(-30px) scale(1.05) rotate(3deg);
   }
   100% {
-    transform: translateY(0px) rotate(0deg);
+    transform: translateY(0px) scale(1) rotate(0deg);
   }
 }
