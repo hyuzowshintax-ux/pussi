@@ -14,6 +14,7 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { CategoryModal, CategoryTab } from "@/components/CategoryModal";
 import { InteractiveClickFX } from "@/components/InteractiveClickFX";
+import { DynamicAtmosphereCanvas } from "@/components/DynamicAtmosphereCanvas";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
@@ -56,7 +57,17 @@ export default function Home() {
   }, [darkMode, mounted]);
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen overflow-x-hidden">
+      {/* Interactive Living Atmosphere Canvas (Stardust, Constellations & Shooting Stars) */}
+      <DynamicAtmosphereCanvas darkMode={darkMode} />
+
+      {/* Living Breathing Aurora Mesh Ribbons */}
+      <div className="aurora-mesh-container">
+        <div className="aurora-ribbon aurora-ribbon-1" />
+        <div className="aurora-ribbon aurora-ribbon-2" />
+        <div className="aurora-ribbon aurora-ribbon-3" />
+      </div>
+
       {/* Elegant Wallpaper Grid Texture */}
       <div className="wallpaper-grid" />
 
