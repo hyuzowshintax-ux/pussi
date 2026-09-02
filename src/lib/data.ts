@@ -12,10 +12,10 @@ export const portfolioData: PortfolioData = {
     tagline: "Seorang pelajar yang bersemangat mempelajari teknologi web modern, antusias mengeksplorasi AI, dan terus berkembang dalam membangun solusi digital.",
     aboutShort: "Halo! Saya Samuel B K, seorang pelajar yang penuh antusiasme dan dedikasi untuk terus belajar, mengeksplorasi teknologi baru, dan menciptakan proyek-proyek kreatif.",
     avatarUrl: "/profile.jpg",
-    location: "Indonesia",
+    location: "Kediri, Jawa Timur, Indonesia",
     email: "hyuzowshintax@gmail.com",
     phone: "08133726102",
-    status: "Tersedia untuk Pekerjaan / Freelance",
+    status: "AI Design Engineer",
     cvLink: "#",
     socials: {
       github: "https://github.com/",
@@ -41,9 +41,9 @@ export const portfolioData: PortfolioData = {
     ],
     details: [
       { label: "Nama Lengkap", value: "Samuel B K" },
-      { label: "Domisili", value: "Indonesia" },
-      { label: "Status", value: "Tersedia untuk Freelance & Full-time" },
-      { label: "Bahasa", value: "Indonesia, English" }
+      { label: "Domisili", value: "Kediri, Jawa Timur, Indonesia" },
+      { label: "Status", value: "AI Design Engineer" },
+      { label: "Bahasa", value: "Indonesia, Jawa, Inggris" }
     ]
   },
 
@@ -194,7 +194,7 @@ export const portfolioData: PortfolioData = {
     subheading: "Punya ide proyek menarik atau ingin berdiskusi? Silakan hubungi saya melalui form di bawah atau kontak langsung.",
     email: "hyuzowshintax@gmail.com",
     phone: "08133726102",
-    location: "Indonesia",
+    location: "Kediri, Jawa Timur, Indonesia",
     workingHours: "Senin - Jumat: 09:00 - 18:00 WIB"
   }
 };
