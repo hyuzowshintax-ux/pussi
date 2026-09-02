@@ -18,6 +18,9 @@ import { DynamicAtmosphereCanvas } from "@/components/DynamicAtmosphereCanvas";
 import { Certificates } from "@/components/Certificates";
 import { AiChatbot } from "@/components/AiChatbot";
 import { ResumeModal } from "@/components/ResumeModal";
+import { CommandPalette } from "@/components/CommandPalette";
+import { AiPromptLab } from "@/components/AiPromptLab";
+import { GuestbookSupport } from "@/components/GuestbookSupport";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
@@ -83,6 +86,14 @@ export default function Home() {
       <div className="ambient-glow ambient-glow-5" />
       <div className="ambient-glow ambient-glow-6" />
 
+      {/* Quick Navigation Spotlight Command Palette (Ctrl + K) */}
+      <CommandPalette
+        onOpenCategory={handleOpenCategory}
+        onOpenResume={() => setResumeModalOpen(true)}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
+
       {/* Navigation */}
       <Navbar
         profile={portfolioData.profile}
@@ -122,11 +133,19 @@ export default function Home() {
         />
         <Skills skills={portfolioData.skills} />
         <Projects projects={portfolioData.projects} />
+        
+        {/* Interactive AI Prompt & Simulation Lab */}
+        <AiPromptLab />
+
         <Timeline
           experience={portfolioData.timeline.experience}
           education={portfolioData.timeline.education}
         />
         <Certificates certificates={portfolioData.certificates} />
+        
+        {/* Papan Dukungan & Pesan Semangat */}
+        <GuestbookSupport />
+
         <Testimonials testimonials={portfolioData.testimonials} />
         <Contact contact={portfolioData.contact} />
       </main>
