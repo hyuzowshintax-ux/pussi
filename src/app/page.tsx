@@ -15,12 +15,16 @@ import { Footer } from "@/components/Footer";
 import { CategoryModal, CategoryTab } from "@/components/CategoryModal";
 import { InteractiveClickFX } from "@/components/InteractiveClickFX";
 import { DynamicAtmosphereCanvas } from "@/components/DynamicAtmosphereCanvas";
+import { Certificates } from "@/components/Certificates";
+import { AiChatbot } from "@/components/AiChatbot";
+import { ResumeModal } from "@/components/ResumeModal";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
   const [mounted, setMounted] = useState<boolean>(false);
   const [categoryModalOpen, setCategoryModalOpen] = useState<boolean>(false);
   const [activeCategory, setActiveCategory] = useState<CategoryTab>("home");
+  const [resumeModalOpen, setResumeModalOpen] = useState<boolean>(false);
 
   const handleOpenCategory = (tab: CategoryTab) => {
     setActiveCategory(tab);
@@ -85,6 +89,7 @@ export default function Home() {
         darkMode={darkMode}
         setDarkMode={setDarkMode}
         onOpenCategory={handleOpenCategory}
+        onOpenResume={() => setResumeModalOpen(true)}
       />
 
       {/* Global Interactive Click Ripple Opening FX */}
@@ -99,20 +104,35 @@ export default function Home() {
         data={portfolioData}
       />
 
+      {/* Interactive Printable CV / Resume Modal */}
+      <ResumeModal
+        isOpen={resumeModalOpen}
+        onClose={() => setResumeModalOpen(false)}
+        data={portfolioData}
+      />
+
       {/* Main Content */}
       <main className="relative z-10 pt-20">
         <Hero profile={portfolioData.profile} />
         <Stats stats={portfolioData.stats} />
-        <About about={portfolioData.about} cvLink={portfolioData.profile.cvLink} />
+        <About
+          about={portfolioData.about}
+          cvLink={portfolioData.profile.cvLink}
+          onOpenResume={() => setResumeModalOpen(true)}
+        />
         <Skills skills={portfolioData.skills} />
         <Projects projects={portfolioData.projects} />
         <Timeline
           experience={portfolioData.timeline.experience}
           education={portfolioData.timeline.education}
         />
+        <Certificates certificates={portfolioData.certificates} />
         <Testimonials testimonials={portfolioData.testimonials} />
         <Contact contact={portfolioData.contact} />
       </main>
+
+      {/* Intelligent Interactive AI Chatbot Assistant */}
+      <AiChatbot data={portfolioData} />
 
       {/* Footer */}
       <Footer profile={portfolioData.profile} />

@@ -82,6 +82,18 @@ export interface ContactInfo {
   workingHours: string;
 }
 
+export interface Certificate {
+  id: string;
+  title: string;
+  issuer: string;
+  year: string;
+  category: string;
+  badgeUrl: string;
+  description: string;
+  credentialId?: string;
+  badgeColor?: string;
+}
+
 export interface PortfolioData {
   profile: Profile;
   stats: StatItem[];
@@ -95,6 +107,7 @@ export interface PortfolioData {
     experience: TimelineItem[];
     education: TimelineItem[];
   };
+  certificates?: Certificate[];
   testimonials: Testimonial[];
   contact: ContactInfo;
 }

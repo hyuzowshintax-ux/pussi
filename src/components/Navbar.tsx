@@ -1,17 +1,19 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Moon, Sun, Menu, X, Download, Code } from "lucide-react";
+import { Moon, Sun, Menu, X, FileText, Code } from "lucide-react";
 import { Profile } from "@/types/portfolio";
+import { AudioAmbience } from "@/components/AudioAmbience";
 
 interface NavbarProps {
   profile: Profile;
   darkMode: boolean;
   setDarkMode: (val: boolean | ((prev: boolean) => boolean)) => void;
   onOpenCategory: (tab: "home" | "about" | "skills" | "projects" | "experience" | "contact") => void;
+  onOpenResume?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode, onOpenCategory }) => {
+export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode, onOpenCategory, onOpenResume }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
@@ -90,7 +92,11 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode, 
           </nav>
 
           {/* Desktop Right Actions */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-3">
+            {/* Cosmic Ambient Lo-Fi Synth Toggle */}
+            <AudioAmbience />
+
+            {/* Dark / Light Toggle */}
             <button
               onClick={() => setDarkMode((prev) => !prev)}
               className="w-10 h-10 rounded-xl bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 border border-slate-700/60 dark:border-slate-700/60 light:border-slate-300 flex items-center justify-center hover:bg-slate-700 transition-all text-amber-400"
@@ -99,13 +105,14 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode, 
               {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5 text-slate-700" />}
             </button>
 
-            <a
-              href={profile.cvLink || "#"}
-              className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 via-purple-700 to-pink-500 hover:from-purple-500 hover:to-pink-600 text-white text-sm font-semibold shadow-lg shadow-purple-600/30 hover:shadow-purple-600/50 hover:-translate-y-0.5 transition-all"
+            {/* Resume Generator Modal Trigger */}
+            <button
+              onClick={onOpenResume}
+              className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 via-purple-700 to-pink-500 hover:from-purple-500 hover:to-pink-600 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-purple-600/30 hover:shadow-purple-600/50 hover:-translate-y-0.5 transition-all"
             >
-              <Download className="w-4 h-4" />
-              <span>Unduh CV</span>
-            </a>
+              <FileText className="w-4 h-4" />
+              <span>Resume / CV</span>
+            </button>
           </div>
 
           {/* Mobile Menu & Theme Toggle */}
@@ -144,13 +151,16 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode, 
               </button>
             ))}
             <div className="pt-3 border-t border-slate-800 dark:border-slate-800 light:border-slate-200">
-              <a
-                href={profile.cvLink || "#"}
+              <button
+                onClick={() => {
+                  onOpenResume?.();
+                  setMobileMenuOpen(false);
+                }}
                 className="w-full flex items-center justify-center space-x-2 py-3 rounded-xl bg-gradient-to-r from-purple-600 via-purple-700 to-pink-500 text-white font-semibold text-sm shadow-md shadow-purple-600/30"
               >
-                <Download className="w-4 h-4" />
-                <span>Unduh CV</span>
-              </a>
+                <FileText className="w-4 h-4" />
+                <span>Buka / Unduh CV Resmi</span>
+              </button>
             </div>
           </div>
         </div>

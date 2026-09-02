@@ -7,9 +7,10 @@ import { PortfolioData } from "@/types/portfolio";
 interface AboutProps {
   about: PortfolioData["about"];
   cvLink: string;
+  onOpenResume?: () => void;
 }
 
-export const About: React.FC<AboutProps> = ({ about, cvLink }) => {
+export const About: React.FC<AboutProps> = ({ about, cvLink, onOpenResume }) => {
   return (
     <section id="about" className="py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,13 +45,13 @@ export const About: React.FC<AboutProps> = ({ about, cvLink }) => {
               >
                 Mulai Kolaborasi
               </a>
-              <a
-                href={cvLink || "#"}
-                className="px-6 py-3 rounded-xl bg-slate-800 dark:bg-slate-800 light:bg-slate-200 hover:bg-slate-700 dark:hover:bg-slate-700 light:hover:bg-slate-300 text-slate-200 dark:text-slate-200 light:text-slate-800 font-semibold text-sm transition-all flex items-center space-x-2"
+              <button
+                onClick={onOpenResume}
+                className="px-6 py-3 rounded-xl bg-slate-800 dark:bg-slate-800 light:bg-slate-200 hover:bg-slate-700 dark:hover:bg-slate-700 light:hover:bg-slate-300 text-slate-200 dark:text-slate-200 light:text-slate-800 font-semibold text-sm transition-all flex items-center space-x-2 shadow"
               >
                 <FileText className="w-4 h-4 text-purple-400" />
-                <span>Download Resume (PDF)</span>
-              </a>
+                <span>Lihat & Download Resume (PDF)</span>
+              </button>
             </div>
           </div>
 
