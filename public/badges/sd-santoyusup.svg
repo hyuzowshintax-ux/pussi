@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sdWine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#991B1B"/>
+      <stop offset="50%" stop-color="#7F1D1D"/>
+      <stop offset="100%" stop-color="#450A0A"/>
+    </linearGradient>
+    <linearGradient id="sdGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="50%" stop-color="#EAB308"/>
+      <stop offset="100%" stop-color="#A16207"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Classic Catholic School Crest Shield -->
+  <path d="M80 8 Q142 16 146 68 Q146 120 80 154 Q14 120 14 68 Q18 16 80 8 Z" fill="url(#sdWine)" stroke="url(#sdGold)" stroke-width="3.5" filter="drop-shadow(0 6px 8px rgba(0,0,0,0.5))"/>
+
+  <!-- Holy Cross of Saint Joseph / Salib & Bunga Bakung -->
+  <!-- Cross -->
+  <g fill="url(#sdGold)" stroke="#78350F" stroke-width="1">
+    <rect x="74" y="24" width="12" height="46" rx="2"/>
+    <rect x="60" y="34" width="40" height="12" rx="2"/>
+  </g>
+  <circle cx="80" cy="40" r="3" fill="#FFF"/>
+
+  <!-- Saint Joseph Lily & Carpenter Square Motif -->
+  <!-- Carpenter Square -->
+  <path d="M54 78 L80 96 L106 78 L100 72 L80 86 L60 72 Z" fill="url(#sdGold)"/>
+
+  <!-- Open Book of Foundation -->
+  <g fill="#FFFFFF" stroke="#94A3B8" stroke-width="0.8" transform="translate(80, 102)">
+    <path d="M0 4 Q-16 -3 -28 0 L-28 -18 Q-16 -21 0 -15 Z"/>
+    <path d="M0 4 Q16 -3 28 0 L28 -18 Q16 -21 0 -15 Z"/>
+    <line x1="0" y1="-15" x2="0" y2="4" stroke="#475569" stroke-width="1.2"/>
+  </g>
+
+  <!-- Banner SDK SANTO YUSUP -->
+  <path d="M20 120 Q80 112 140 120 L132 138 Q80 128 28 138 Z" fill="url(#sdGold)" stroke="#78350F" stroke-width="1.5"/>
+  <text x="80" y="130" font-family="Arial, sans-serif" font-weight="900" font-size="7.2" fill="#7F1D1D" text-anchor="middle" letter-spacing="0.4">SDK SANTO YUSUP</text>
+  <text x="80" y="146" font-family="Arial, sans-serif" font-weight="800" font-size="6" fill="#FEF08A" text-anchor="middle">KARANG PILANG SURABAYA</text>
+</svg>

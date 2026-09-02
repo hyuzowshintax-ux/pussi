@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="dutaGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A"/>
+      <stop offset="50%" stop-color="#EAB308"/>
+      <stop offset="100%" stop-color="#A16207"/>
+    </linearGradient>
+    <linearGradient id="dutaPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#581C87"/>
+      <stop offset="50%" stop-color="#3B0764"/>
+      <stop offset="100%" stop-color="#1E1B4B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Royal Shield -->
+  <path d="M80 8 Q140 16 145 65 Q145 115 80 152 Q15 115 15 65 Q20 16 80 8 Z" fill="url(#dutaPurple)" stroke="url(#dutaGold)" stroke-width="3.5" filter="drop-shadow(0 6px 8px rgba(0,0,0,0.5))"/>
+
+  <!-- Golden Laurel Wreath (Left & Right) -->
+  <!-- Left Wreath -->
+  <g fill="url(#dutaGold)" stroke="#78350F" stroke-width="0.8">
+    <ellipse cx="40" cy="55" rx="5" ry="9" transform="rotate(-30 40 55)"/>
+    <ellipse cx="32" cy="75" rx="5" ry="9" transform="rotate(-10 32 75)"/>
+    <ellipse cx="34" cy="95" rx="5" ry="9" transform="rotate(20 34 95)"/>
+    <ellipse cx="46" cy="112" rx="5" ry="9" transform="rotate(45 46 112)"/>
+  </g>
+  <!-- Right Wreath -->
+  <g fill="url(#dutaGold)" stroke="#78350F" stroke-width="0.8">
+    <ellipse cx="120" cy="55" rx="5" ry="9" transform="rotate(30 120 55)"/>
+    <ellipse cx="128" cy="75" rx="5" ry="9" transform="rotate(10 128 75)"/>
+    <ellipse cx="126" cy="95" rx="5" ry="9" transform="rotate(-20 126 95)"/>
+    <ellipse cx="114" cy="112" rx="5" ry="9" transform="rotate(-45 114 112)"/>
+  </g>
+
+  <!-- Torch of Knowledge / Obor Intelegensia -->
+  <!-- Flame -->
+  <path d="M80 32 Q92 48 80 62 Q68 48 80 32 Z" fill="#F97316"/>
+  <path d="M80 38 Q87 50 80 58 Q73 50 80 38 Z" fill="#FDE047"/>
+  <!-- Torch Handle -->
+  <polygon points="74,62 86,62 83,86 77,86" fill="url(#dutaGold)" stroke="#78350F" stroke-width="1"/>
+  <rect x="72" y="60" width="16" height="4" rx="2" fill="url(#dutaGold)" stroke="#78350F" stroke-width="1"/>
+
+  <!-- Star of Intellect -->
+  <polygon points="80,18 82,24 88,24 83,28 85,34 80,30 75,34 77,28 72,24 78,24" fill="#FEF08A"/>
+
+  <!-- Golden Sash Banner -->
+  <path d="M22 120 Q80 112 138 120 L132 138 Q80 130 28 138 Z" fill="url(#dutaGold)" stroke="#78350F" stroke-width="1.5"/>
+  <text x="80" y="130" font-family="Arial, sans-serif" font-weight="900" font-size="7.8" fill="#3B0764" text-anchor="middle" letter-spacing="0.5">DUTA INTELEGENSIA</text>
+  <text x="80" y="102" font-family="Arial, sans-serif" font-weight="800" font-size="6.5" fill="#E9D5FF" text-anchor="middle">SMAN 1 KANDANGAN</text>
+</svg>

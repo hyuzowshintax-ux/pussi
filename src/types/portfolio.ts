@@ -61,6 +61,8 @@ export interface TimelineItem {
   location: string;
   description: string;
   skills?: string[];
+  logoUrl?: string;
+  badgeColor?: string;
 }
 
 export interface Testimonial {

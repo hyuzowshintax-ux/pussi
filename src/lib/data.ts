@@ -108,7 +108,8 @@ export const portfolioData: PortfolioData = {
         company: "SMAN 1 Kandangan",
         location: "Kandangan, Kediri",
         description: "Terpilih sebagai Duta Intelegensia di SMAN 1 Kandangan periode tahun 2025 - 2026 sebagai representasi teladan siswa berprestasi, berwawasan luas, berdaya pikir kritis, serta aktif berkontribusi dalam kegiatan akademik dan sosial sekolah.",
-        skills: ["Duta Intelegensia", "Public Speaking", "Problem Solving", "Kepemimpinan Sekolah", "Integritas"]
+        skills: ["Duta Intelegensia", "Public Speaking", "Problem Solving", "Kepemimpinan Sekolah", "Integritas"],
+        logoUrl: "/badges/duta-intelegensia.svg"
       },
       {
         period: "2024 - Sekarang",
@@ -116,7 +117,8 @@ export const portfolioData: PortfolioData = {
         company: "Ambalan SMAN 1 Kandangan & Satuan Karya Bhayangkara",
         location: "Kediri, Jawa Timur",
         description: "Aktif sebagai Pramuka Penegak Bantara yang memimpin kegiatan kepramukaan sejak tahun 2024, serta mendalami ilmu ketertiban masyarakat, kepolisian, kedisiplinan hukum, dan tanggap darurat melalui SAKA Bhayangkara.",
-        skills: ["Penegak Bantara", "SAKA Bhayangkara", "Kamtibmas", "Kepemimpinan Lapangan", "Tanggap Darurat"]
+        skills: ["Penegak Bantara", "SAKA Bhayangkara", "Kamtibmas", "Kepemimpinan Lapangan", "Tanggap Darurat"],
+        logoUrl: "/badges/pramuka-bantara-bhayangkara.svg"
       },
       {
         period: "2024 - Sekarang",
@@ -124,7 +126,8 @@ export const portfolioData: PortfolioData = {
         company: "CODASKA - SMAN 1 Kandangan",
         location: "Kandangan, Kediri",
         description: "Sangat aktif dalam organisasi PBB/LKBB CODASKA di lingkungan SMAN 1 Kandangan sejak tahun 2024, menjalani latihan formasi variasi baris-berbaris, ketahanan mental, serta memimpin koordinasi pleton.",
-        skills: ["CODASKA", "LKBB", "Formasi Variasi PBB", "Koordinasi Pleton", "Kedisiplinan Tinggi"]
+        skills: ["CODASKA", "LKBB", "Formasi Variasi PBB", "Koordinasi Pleton", "Kedisiplinan Tinggi"],
+        logoUrl: "/badges/codaska-lkbb.svg"
       },
       {
         period: "2026",
@@ -132,7 +135,8 @@ export const portfolioData: PortfolioData = {
         company: "LBB Kabupaten Kediri",
         location: "Kediri, Jawa Timur",
         description: "Mengikuti dan berpartisipasi dalam Lomba Baris-Berbaris (LBB) tingkat pelajar se-Kabupaten Kediri dengan menampilkan ketegasan formasi PBB, kekompakan barisan, dan ketangkasan gerak pleton.",
-        skills: ["Formasi PBB", "Ketangkasan Baris-Berbaris", "Kekompakan Pleton", "Kepemimpinan Regu", "Kedisiplinan"]
+        skills: ["Formasi PBB", "Ketangkasan Baris-Berbaris", "Kekompakan Pleton", "Kepemimpinan Regu", "Kedisiplinan"],
+        logoUrl: "/badges/lbb-kediri.svg"
       },
       {
         period: "2024",
@@ -140,7 +144,8 @@ export const portfolioData: PortfolioData = {
         company: "Paskibra Kec. Kandangan, Kab. Kediri",
         location: "Kandangan, Kediri",
         description: "Bertugas dan berdedikasi sebagai Pasukan Pengibar Bendera (Paskibra) tingkat Kecamatan Kandangan tahun 2024 dalam upacara kenegaraan dengan kedisiplinan tinggi, ketahanan fisik, dan integritas kepemimpinan.",
-        skills: ["Paskibra", "Kedisiplinan Tinggi", "Ketahanan Fisik & Mental", "Kerjasama Tim", "Nasionalisme"]
+        skills: ["Paskibra", "Kedisiplinan Tinggi", "Ketahanan Fisik & Mental", "Kerjasama Tim", "Nasionalisme"],
+        logoUrl: "/badges/paskibra-kandangan.svg"
       },
       {
         period: "2023",
@@ -148,7 +153,8 @@ export const portfolioData: PortfolioData = {
         company: "Gerakan Pramuka Indonesia",
         location: "Indonesia",
         description: "Meraih tingkatan tertinggi Pramuka Penggalang (Pramuka Garuda) tahun 2023 melalui uji keteladanan, kepemimpinan regu, kecakapan umum & khusus, kedisiplinan, serta pengabdian masyarakat.",
-        skills: ["Kepemimpinan", "Kerjasama Tim", "Kedisiplinan", "Survival & Scouting", "Karakter & Etika"]
+        skills: ["Kepemimpinan", "Kerjasama Tim", "Kedisiplinan", "Survival & Scouting", "Karakter & Etika"],
+        logoUrl: "/badges/pramuka-garuda.svg"
       }
     ],
     education: [
@@ -157,21 +163,24 @@ export const portfolioData: PortfolioData = {
         degree: "Pelajar / Siswa (SMA)",
         institution: "SMAN 1 Kandangan",
         location: "Kandangan, Kab. Kediri",
-        description: "Menempuh jenjang pendidikan tingkat menengah atas, aktif dalam pengembangan akademik, menyandang amanah Duta Intelegensia, serta berprestasi dalam organisasi kepanduan (Penegak Bantara & SAKA Bhayangkara) dan baris-berbaris (CODASKA)."
+        description: "Menempuh jenjang pendidikan tingkat menengah atas, aktif dalam pengembangan akademik, menyandang amanah Duta Intelegensia, serta berprestasi dalam organisasi kepanduan (Penegak Bantara & SAKA Bhayangkara) dan baris-berbaris (CODASKA).",
+        logoUrl: "/badges/sman1-kandangan.svg"
       },
       {
         period: "2021 - 2024",
         degree: "Siswa / Alumni (SMP)",
         institution: "SMPN 2 Kasembon",
         location: "Kasembon, Kab. Malang",
-        description: "Menyelesaikan pendidikan menengah pertama dengan rekam jejak aktif kepanduan hingga dinobatkan meraih predikat Pramuka Garuda Penggalang (2023) serta aktif dalam kegiatan kepemimpinan siswa."
+        description: "Menyelesaikan pendidikan menengah pertama dengan rekam jejak aktif kepanduan hingga dinobatkan meraih predikat Pramuka Garuda Penggalang (2023) serta aktif dalam kegiatan kepemimpinan siswa.",
+        logoUrl: "/badges/smpn2-kasembon.svg"
       },
       {
         period: "2015 - 2021",
         degree: "Siswa / Alumni (SD)",
         institution: "SD Katolik Santo Yusup Karang Pilang Surabaya",
         location: "Karangpilang, Kota Surabaya",
-        description: "Menempuh dan menuntaskan jenjang pendidikan dasar dengan penanaman karakter disiplin, budi pekerti, integritas, dan pondasi kepemimpinan."
+        description: "Menempuh dan menuntaskan jenjang pendidikan dasar dengan penanaman karakter disiplin, budi pekerti, integritas, dan pondasi kepemimpinan.",
+        logoUrl: "/badges/sd-santoyusup.svg"
       }
     ]
   },

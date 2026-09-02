@@ -408,37 +408,49 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                   {data.timeline.experience.map((item, idx) => (
                     <div
                       key={idx}
-                      className="p-4 sm:p-5 rounded-2xl bg-slate-900/50 border border-purple-500/20 hover:border-pink-500/40 transition-all space-y-2 shadow-lg"
+                      className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-purple-500/20 hover:border-pink-500/40 transition-all shadow-lg flex flex-col sm:flex-row items-start gap-4 group"
                     >
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-purple-500/15 text-purple-400 border border-purple-500/30">
-                          {item.period}
-                        </span>
-                        <span className="text-xs text-slate-400 font-medium">
-                          {item.location}
-                        </span>
-                      </div>
-                      <h4 className="text-base sm:text-lg font-bold text-white">
-                        {item.role}
-                      </h4>
-                      <p className="text-xs sm:text-sm text-purple-300 font-medium">
-                        {item.company}
-                      </p>
-                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                        {item.description}
-                      </p>
-                      {item.skills && (
-                        <div className="flex flex-wrap gap-1.5 pt-2">
-                          {item.skills.map((s, sIdx) => (
-                            <span
-                              key={sIdx}
-                              className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700/50"
-                            >
-                              {s}
-                            </span>
-                          ))}
+                      {item.logoUrl && (
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-slate-900/90 p-1 border border-purple-500/30 shadow-md group-hover:scale-105 transition-transform">
+                          <img
+                            src={item.logoUrl}
+                            alt={item.role}
+                            className="w-full h-full object-contain filter drop-shadow"
+                            loading="lazy"
+                          />
                         </div>
                       )}
+                      <div className="flex-1 min-w-0 space-y-1.5">
+                        <div className="flex flex-wrap items-center justify-between gap-2">
+                          <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-purple-500/15 text-purple-400 border border-purple-500/30">
+                            {item.period}
+                          </span>
+                          <span className="text-xs text-slate-400 font-medium">
+                            {item.location}
+                          </span>
+                        </div>
+                        <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-purple-300 transition-colors">
+                          {item.role}
+                        </h4>
+                        <p className="text-xs sm:text-sm text-purple-300 font-medium">
+                          {item.company}
+                        </p>
+                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                          {item.description}
+                        </p>
+                        {item.skills && (
+                          <div className="flex flex-wrap gap-1.5 pt-1">
+                            {item.skills.map((s, sIdx) => (
+                              <span
+                                key={sIdx}
+                                className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700/50"
+                              >
+                                {s}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -451,19 +463,33 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                     <GraduationCap className="w-4 h-4" />
                     <span>// Riwayat Pendidikan</span>
                   </h4>
-                  {data.timeline.education.map((edu, idx) => (
-                    <div key={idx} className="p-4 sm:p-5 rounded-2xl bg-slate-900/50 border border-cyan-500/20 space-y-2 shadow-lg">
-                      <div className="flex items-center justify-between">
-                        <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-cyan-500/15 text-cyan-400 border border-cyan-500/30">
-                          {edu.period}
-                        </span>
-                        <span className="text-xs text-slate-400">{edu.location}</span>
+                  <div className="space-y-3">
+                    {data.timeline.education.map((edu, idx) => (
+                      <div key={idx} className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-cyan-500/20 hover:border-cyan-400/40 transition-all shadow-lg flex flex-col sm:flex-row items-start gap-4 group">
+                        {edu.logoUrl && (
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-slate-900/90 p-1 border border-cyan-500/30 shadow-md group-hover:scale-105 transition-transform">
+                            <img
+                              src={edu.logoUrl}
+                              alt={edu.institution}
+                              className="w-full h-full object-contain filter drop-shadow"
+                              loading="lazy"
+                            />
+                          </div>
+                        )}
+                        <div className="flex-1 min-w-0 space-y-1.5">
+                          <div className="flex items-center justify-between">
+                            <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-cyan-500/15 text-cyan-400 border border-cyan-500/30">
+                              {edu.period}
+                            </span>
+                            <span className="text-xs text-slate-400">{edu.location}</span>
+                          </div>
+                          <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">{edu.degree}</h4>
+                          <p className="text-xs sm:text-sm text-cyan-300 font-medium">{edu.institution}</p>
+                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{edu.description}</p>
+                        </div>
                       </div>
-                      <h4 className="text-base sm:text-lg font-bold text-white">{edu.degree}</h4>
-                      <p className="text-xs sm:text-sm text-cyan-300 font-medium">{edu.institution}</p>
-                      <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{edu.description}</p>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               )}
             </div>

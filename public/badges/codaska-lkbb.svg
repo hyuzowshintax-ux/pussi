@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="codaskaRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="100%" stop-color="#7F1D1D"/>
+    </linearGradient>
+    <linearGradient id="codaskaGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="50%" stop-color="#EAB308"/>
+      <stop offset="100%" stop-color="#854D0E"/>
+    </linearGradient>
+    <linearGradient id="codaskaDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shield Base -->
+  <path d="M80 8 L146 32 L146 88 Q146 130 80 154 Q14 130 14 88 L14 32 Z" fill="url(#codaskaDark)" stroke="url(#codaskaGold)" stroke-width="3.5" filter="drop-shadow(0 6px 8px rgba(0,0,0,0.6))"/>
+
+  <!-- Inner Red Inset -->
+  <path d="M80 18 L136 38 L136 84 Q136 120 80 142 Q24 120 24 84 L24 38 Z" fill="url(#codaskaRed)" stroke="#FEF08A" stroke-width="1.5" opacity="0.9"/>
+
+  <!-- Crossed Command Sabres / Flags -->
+  <line x1="38" y1="42" x2="122" y2="108" stroke="url(#codaskaGold)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="122" y1="42" x2="38" y2="108" stroke="url(#codaskaGold)" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Eagle Wings (PBB / LKBB Formation) -->
+  <path d="M80 52 Q50 36 34 56 Q48 68 62 70 Q52 78 46 90 Q68 86 80 76 Q92 86 114 90 Q108 78 98 70 Q112 68 126 56 Q110 36 80 52 Z" fill="url(#codaskaGold)" stroke="#713F12" stroke-width="1.2"/>
+
+  <!-- Central Star of Discipline -->
+  <polygon points="80,56 83,64 91,64 85,69 87,77 80,72 73,77 75,69 69,64 77,64" fill="#FFFFFF"/>
+
+  <!-- Banner CODASKA -->
+  <path d="M26 116 Q80 108 134 116 L126 135 Q80 126 34 135 Z" fill="url(#codaskaGold)" stroke="#713F12" stroke-width="1.5"/>
+  <text x="80" y="127" font-family="Arial, sans-serif" font-weight="900" font-size="8.5" fill="#7F1D1D" text-anchor="middle" letter-spacing="1">CODASKA LKBB</text>
+  <text x="80" y="99" font-family="Arial, sans-serif" font-weight="800" font-size="6.5" fill="#FEF08A" text-anchor="middle">SMAN 1 KANDANGAN</text>
+</svg>

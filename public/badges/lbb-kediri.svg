@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="lbbBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="50%" stop-color="#0369A1"/>
+      <stop offset="100%" stop-color="#0C4A6E"/>
+    </linearGradient>
+    <linearGradient id="lbbGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="50%" stop-color="#EAB308"/>
+      <stop offset="100%" stop-color="#A16207"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shield Shape -->
+  <path d="M80 8 Q140 18 144 68 Q144 116 80 152 Q16 116 16 68 Q20 18 80 8 Z" fill="url(#lbbBlue)" stroke="url(#lbbGold)" stroke-width="3.5" filter="drop-shadow(0 6px 8px rgba(0,0,0,0.5))"/>
+
+  <!-- Marching Formation Chevron Arrows -->
+  <g fill="none" stroke="url(#lbbGold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+    <path d="M50 48 L80 32 L110 48"/>
+    <path d="M55 62 L80 48 L105 62"/>
+    <path d="M60 76 L80 64 L100 76"/>
+  </g>
+
+  <!-- Central Drill Compass & Star -->
+  <circle cx="80" cy="85" r="16" fill="#0F172A" stroke="url(#lbbGold)" stroke-width="2"/>
+  <polygon points="80,72 83,82 93,85 83,88 80,98 77,88 67,85 77,82" fill="#FDE047"/>
+
+  <!-- Regional Kediri Crown / Monumen Simpang Lima Gumul Motif -->
+  <path d="M68 98 L92 98 L88 110 L72 110 Z" fill="url(#lbbGold)" stroke="#78350F" stroke-width="1"/>
+
+  <!-- Banner LBB KEDIRI -->
+  <path d="M22 120 Q80 112 138 120 L130 138 Q80 128 30 138 Z" fill="url(#lbbGold)" stroke="#78350F" stroke-width="1.5"/>
+  <text x="80" y="130" font-family="Arial, sans-serif" font-weight="900" font-size="7.5" fill="#0C4A6E" text-anchor="middle" letter-spacing="0.5">LBB KAB. KEDIRI 2026</text>
+  <text x="80" y="24" font-family="Arial, sans-serif" font-weight="900" font-size="6.5" fill="#FEF08A" text-anchor="middle" letter-spacing="0.8">TINGKAT PELAJAR</text>
+</svg>
