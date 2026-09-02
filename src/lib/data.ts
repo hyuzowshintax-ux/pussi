@@ -62,6 +62,19 @@ export const portfolioData: PortfolioData = {
       ]
     },
     {
+      category: "AI",
+      title: "Kecerdasan Buatan (Artificial Intelligence)",
+      iconName: "Brain",
+      items: [
+        { name: "Prompt Engineering & LLM", level: 45, iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+        { name: "Generative AI & Image Gen", level: 48, iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+        { name: "Machine Learning Dasar", level: 40, iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" },
+        { name: "Computer Vision & OCR", level: 35, iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg" },
+        { name: "Speech & Whisper AI", level: 32, iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+        { name: "Deep Learning & Neural Net", level: 25, iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" }
+      ]
+    },
+    {
       category: "Backend",
       title: "Backend & Database",
       iconName: "Server",
