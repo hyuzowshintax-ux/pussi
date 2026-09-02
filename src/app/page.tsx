@@ -13,6 +13,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { CategoryModal, CategoryTab } from "@/components/CategoryModal";
+import { InteractiveClickFX } from "@/components/InteractiveClickFX";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
@@ -74,6 +75,9 @@ export default function Home() {
         setDarkMode={setDarkMode}
         onOpenCategory={handleOpenCategory}
       />
+
+      {/* Global Interactive Click Ripple Opening FX */}
+      <InteractiveClickFX />
 
       {/* Interactive Category Center Modal Box */}
       <CategoryModal

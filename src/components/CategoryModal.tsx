@@ -80,9 +80,15 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-xl animate-in fade-in duration-300">
       
-      {/* Centered Modal Container */}
-      <div className="glass-card w-full max-w-4xl max-h-[88vh] rounded-3xl border border-white/15 shadow-2xl flex flex-col overflow-hidden relative animate-in zoom-in-95 duration-300">
+      {/* Centered Modal Container with Opening Aperture */}
+      <div className="glass-card w-full max-w-4xl max-h-[88vh] rounded-3xl border border-white/20 shadow-2xl flex flex-col overflow-hidden relative animate-opening-aperture">
         
+        {/* Cinematic Opening Radiant Light Beam Sweep */}
+        <div key={`beam-${activeTab}`} className="opening-shine-overlay animate-beam-sweep" />
+
+        {/* Cinematic Opening Glow Pulse */}
+        <div key={`glow-${activeTab}`} className="pointer-events-none absolute inset-0 rounded-3xl animate-opening-glow z-10" />
+
         {/* Soft Dreamy Cloud Mist Sweep on Slide Transition */}
         <div 
           key={`cloud-mist-${activeTab}`} 

@@ -342,3 +342,143 @@ body {
   animation: cloud-soft-float 6s ease-in-out infinite;
 }
 
+/* ==========================================================================
+   Cinematic Opening Animations (Animasi Opening saat Bidang / Kategori Diklik)
+   ========================================================================== */
+@keyframes opening-aperture {
+  0% {
+    opacity: 0;
+    transform: scale(0.72) translateY(40px);
+    filter: blur(24px) brightness(1.6);
+  }
+  55% {
+    opacity: 0.96;
+    transform: scale(1.025) translateY(-6px);
+    filter: blur(3px) brightness(1.15);
+  }
+  80% {
+    transform: scale(0.99) translateY(2px);
+    filter: blur(0.5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0px);
+    filter: blur(0px) brightness(1);
+  }
+}
+
+@keyframes opening-beam-sweep {
+  0% {
+    transform: translateX(-120%) rotate(25deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.75;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(220%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes opening-glow-ring {
+  0% {
+    transform: scale(0.3);
+    opacity: 0.95;
+    box-shadow: 0 0 0 0 rgba(192, 132, 252, 0.8), 0 0 40px rgba(236, 72, 153, 0.6);
+  }
+  60% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+    box-shadow: 0 0 0 60px rgba(192, 132, 252, 0), 0 0 100px rgba(236, 72, 153, 0);
+  }
+}
+
+@keyframes card-opening-pop {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(0.96) translateY(2px);
+  }
+  65% {
+    transform: scale(1.03) translateY(-4px);
+    filter: brightness(1.2);
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    filter: brightness(1);
+  }
+}
+
+.animate-opening-aperture {
+  animation: opening-aperture 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-beam-sweep {
+  animation: opening-beam-sweep 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-opening-glow {
+  animation: opening-glow-ring 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-opening-pop {
+  animation: card-opening-pop 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Opening Shine Beam Overlay */
+.opening-shine-overlay {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.03) 40%,
+    rgba(216, 180, 254, 0.25) 50%,
+    rgba(244, 114, 182, 0.2) 55%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 30;
+}
+
+/* Interactive Click Ripple Marker */
+.click-ripple-circle {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  animation: click-ripple-expand 0.65s cubic-bezier(0.1, 1, 0.2, 1) forwards;
+}
+
+@keyframes click-ripple-expand {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.9;
+    border: 2px solid rgba(192, 132, 252, 0.9);
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, rgba(147, 51, 234, 0.2) 60%, transparent 100%);
+    filter: drop-shadow(0 0 12px rgba(192, 132, 252, 0.8));
+  }
+  100% {
+    width: 140px;
+    height: 140px;
+    opacity: 0;
+    border: 1px solid rgba(236, 72, 153, 0);
+    background: radial-gradient(circle, rgba(236, 72, 153, 0) 0%, transparent 100%);
+    filter: drop-shadow(0 0 0px transparent);
+  }
+}
+
+
