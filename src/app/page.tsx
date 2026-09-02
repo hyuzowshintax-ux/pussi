@@ -21,6 +21,10 @@ import { ResumeModal } from "@/components/ResumeModal";
 import { CommandPalette } from "@/components/CommandPalette";
 import { AiPromptLab } from "@/components/AiPromptLab";
 import { GuestbookSupport } from "@/components/GuestbookSupport";
+import { HolographicTrophyShowcase } from "@/components/HolographicTrophyShowcase";
+import { LkbbDrillSimulator } from "@/components/LkbbDrillSimulator";
+import { SkillRadarMatrix } from "@/components/SkillRadarMatrix";
+import { SecretTerminalGame } from "@/components/SecretTerminalGame";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
@@ -132,10 +136,20 @@ export default function Home() {
           onOpenResume={() => setResumeModalOpen(true)}
         />
         <Skills skills={portfolioData.skills} />
+        
+        {/* Interactive Hexagonal Skill Radar & Roadmap Matrix */}
+        <SkillRadarMatrix />
+
         <Projects projects={portfolioData.projects} />
         
         {/* Interactive AI Prompt & Simulation Lab */}
         <AiPromptLab />
+
+        {/* 3D Holographic Vault & Trophy Showcase */}
+        <HolographicTrophyShowcase />
+
+        {/* CODASKA 2D Marching Drill Simulator */}
+        <LkbbDrillSimulator />
 
         <Timeline
           experience={portfolioData.timeline.experience}
@@ -152,6 +166,9 @@ export default function Home() {
 
       {/* Intelligent Interactive AI Chatbot Assistant */}
       <AiChatbot data={portfolioData} />
+
+      {/* Secret Cyber Challenge Mini-Game Easter Egg */}
+      <SecretTerminalGame />
 
       {/* Footer */}
       <Footer profile={portfolioData.profile} />
