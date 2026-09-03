@@ -67,20 +67,20 @@ export const DynamicAtmosphereCanvas: React.FC<{ darkMode?: boolean }> = ({ dark
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
     document.addEventListener("mouseleave", handleMouseLeave);
 
-    // Particle Palette (Emerald & Mint Jade Perfection)
+    // Particle Palette (Blue-to-Green Oceanic Stardust Spectrum)
     const colors = darkMode
       ? [
-          { c: "rgba(52, 211, 153, ", glow: "#34d399" }, // Mint Jade
-          { c: "rgba(16, 185, 129, ", glow: "#10b981" }, // Emerald
-          { c: "rgba(110, 231, 183, ", glow: "#6ee7b7" }, // Soft Mint
+          { c: "rgba(56, 189, 248, ", glow: "#38bdf8" }, // Electric Sky Blue
+          { c: "rgba(6, 182, 212, ", glow: "#06b6d4" },  // Bioluminescent Cyan
           { c: "rgba(45, 212, 191, ", glow: "#2dd4bf" },  // Teal Aqua
-          { c: "rgba(250, 204, 21, ", glow: "#facc15" }   // Champagne Gold
+          { c: "rgba(52, 211, 153, ", glow: "#34d399" }, // Mint Jade
+          { c: "rgba(16, 185, 129, ", glow: "#10b981" }  // Emerald Green
         ]
       : [
-          { c: "rgba(5, 150, 105, ", glow: "#059669" },
-          { c: "rgba(16, 185, 129, ", glow: "#10b981" },
+          { c: "rgba(2, 132, 199, ", glow: "#0284c7" },
           { c: "rgba(13, 148, 136, ", glow: "#0d9488" },
-          { c: "rgba(202, 138, 4, ", glow: "#ca8a04" }
+          { c: "rgba(16, 185, 129, ", glow: "#10b981" },
+          { c: "rgba(5, 150, 105, ", glow: "#059669" }
         ];
 
     const particleCount = Math.min(Math.floor((width * height) / 14000), 75);
@@ -113,7 +113,7 @@ export const DynamicAtmosphereCanvas: React.FC<{ darkMode?: boolean }> = ({ dark
     let nextShootingStarTime = Date.now() + 2000;
 
     const spawnShootingStar = () => {
-      const starColors = ["#ffffff", "#6ee7b7", "#a7f3d0", "#fef08a"];
+      const starColors = ["#ffffff", "#38bdf8", "#67e8f9", "#34d399", "#a7f3d0"];
       shootingStars.push({
         x: Math.random() * width * 0.8,
         y: Math.random() * height * 0.4,
@@ -226,7 +226,7 @@ export const DynamicAtmosphereCanvas: React.FC<{ darkMode?: boolean }> = ({ dark
 
           if (dist < 115) {
             const lineAlpha = (1 - dist / 115) * 0.18 * (darkMode ? 1 : 0.7);
-            ctx.strokeStyle = `rgba(52, 211, 153, ${lineAlpha})`;
+            ctx.strokeStyle = `rgba(56, 189, 248, ${lineAlpha})`;
             ctx.lineWidth = 0.75;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);

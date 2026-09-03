@@ -12,45 +12,46 @@ html {
 }
 
 /* ==========================================================================
-   Masterpiece Emerald & Jade Luxury Wallpaper (Bespoke Forest Obsidian Canvas)
+   Masterpiece Cyber Oceanic & Cosmic Aurora Wallpaper (Blue-to-Green Gradient)
    ========================================================================== */
 body {
   overflow-x: hidden;
   font-family: var(--font-sans);
-  background-color: #020b06;
+  background-color: #020d18;
   background-image: 
     /* Subtle Precision Micro Grid Texture */
-    radial-gradient(rgba(52, 211, 153, 0.08) 1px, transparent 1px),
-    /* Central Divine Emerald Top Light Beam */
-    radial-gradient(ellipse 85% 55% at 50% -10%, rgba(16, 185, 129, 0.32) 0%, transparent 60%),
-    /* Deep Forest Emerald & Jade Core Nebulas */
-    radial-gradient(at 80% 18%, rgba(5, 150, 105, 0.28) 0px, transparent 50%),
-    radial-gradient(at 20% 70%, rgba(4, 120, 87, 0.30) 0px, transparent 55%),
-    radial-gradient(at 10% 15%, rgba(52, 211, 153, 0.22) 0px, transparent 40%),
-    /* Organic Luminous Accents: Cyber Mint, Champagne Gold, Deep Teal */
-    radial-gradient(at 92% 40%, rgba(20, 184, 166, 0.22) 0px, transparent 45%),
-    radial-gradient(at 12% 48%, rgba(234, 179, 8, 0.14) 0px, transparent 40%),
-    radial-gradient(at 65% 92%, rgba(16, 185, 129, 0.24) 0px, transparent 45%),
-    radial-gradient(at 88% 88%, rgba(13, 148, 136, 0.22) 0px, transparent 42%);
+    radial-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+    /* Central Divine Cosmic Top Light Beam (Electric Blue to Emerald) */
+    radial-gradient(ellipse 90% 60% at 50% -12%, rgba(14, 165, 233, 0.38) 0%, rgba(6, 182, 212, 0.26) 35%, rgba(16, 185, 129, 0.22) 65%, transparent 75%),
+    /* Deep Sapphire & Ocean Blue Core Nebulas (Top & Right) */
+    radial-gradient(at 85% 15%, rgba(2, 132, 199, 0.35) 0px, transparent 50%),
+    radial-gradient(at 15% 25%, rgba(14, 165, 233, 0.30) 0px, transparent 48%),
+    /* Bioluminescent Cyan & Aquamarine (Mid Left & Center) */
+    radial-gradient(at 25% 65%, rgba(6, 182, 212, 0.32) 0px, transparent 55%),
+    radial-gradient(at 75% 55%, rgba(20, 184, 166, 0.28) 0px, transparent 50%),
+    /* Rich Emerald & Mint Green Nebulas (Bottom & Accents) */
+    radial-gradient(at 10% 85%, rgba(16, 185, 129, 0.34) 0px, transparent 50%),
+    radial-gradient(at 65% 92%, rgba(5, 150, 105, 0.30) 0px, transparent 48%),
+    radial-gradient(at 90% 85%, rgba(52, 211, 153, 0.25) 0px, transparent 45%);
   background-size: 32px 32px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
   background-attachment: fixed;
 }
 
 .light body {
-  background-color: #f4fdf8;
+  background-color: #f0fdfa;
   background-image: 
     /* Subtle Elegance Dot Grid */
-    radial-gradient(rgba(16, 185, 129, 0.10) 1px, transparent 1px),
+    radial-gradient(rgba(14, 165, 233, 0.10) 1px, transparent 1px),
     /* Central Top Beam */
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(167, 243, 208, 0.6) 0%, transparent 60%),
-    /* Soft Jade & Sage */
-    radial-gradient(at 80% 20%, rgba(167, 243, 208, 0.45) 0px, transparent 50%),
-    radial-gradient(at 20% 70%, rgba(110, 231, 183, 0.35) 0px, transparent 55%),
-    radial-gradient(at 10% 15%, rgba(52, 211, 153, 0.3) 0px, transparent 40%),
-    /* Abstract Light Accents: Soft Teal, Warm Champagne, Spring Mint */
-    radial-gradient(at 92% 40%, rgba(153, 246, 228, 0.4) 0px, transparent 45%),
-    radial-gradient(at 12% 48%, rgba(254, 240, 138, 0.3) 0px, transparent 40%),
-    radial-gradient(at 65% 92%, rgba(187, 247, 208, 0.4) 0px, transparent 45%);
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(186, 230, 253, 0.7) 0%, rgba(167, 243, 208, 0.5) 50%, transparent 70%),
+    /* Soft Sky Blue & Aquamarine */
+    radial-gradient(at 80% 20%, rgba(186, 230, 253, 0.5) 0px, transparent 50%),
+    radial-gradient(at 20% 70%, rgba(153, 246, 228, 0.45) 0px, transparent 55%),
+    radial-gradient(at 10% 15%, rgba(165, 243, 252, 0.4) 0px, transparent 40%),
+    /* Soft Mint & Emerald */
+    radial-gradient(at 92% 40%, rgba(167, 243, 208, 0.45) 0px, transparent 45%),
+    radial-gradient(at 12% 48%, rgba(204, 251, 241, 0.4) 0px, transparent 40%),
+    radial-gradient(at 65% 92%, rgba(187, 247, 208, 0.45) 0px, transparent 45%);
   background-size: 32px 32px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
   background-attachment: fixed;
 }
@@ -62,93 +63,93 @@ body {
   pointer-events: none;
   z-index: 1;
   background-image: 
-    linear-gradient(to right, rgba(52, 211, 153, 0.04) 1px, transparent 1px),
+    linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(52, 211, 153, 0.04) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 85% 65% at 50% 50%, black 45%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 85% 65% at 50% 50%, black 45%, transparent 100%);
 }
 
-/* Custom Luxury Scrollbar */
+/* Custom Luxury Scrollbar (Blue to Emerald Flow) */
 ::-webkit-scrollbar {
   width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(2, 11, 6, 0.95);
+  background: rgba(2, 13, 24, 0.95);
 }
 
 .light ::-webkit-scrollbar-track {
-  background: rgba(244, 253, 248, 0.95);
+  background: rgba(240, 253, 250, 0.95);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #10b981 0%, #059669 50%, #047857 80%, #0d9488 100%);
+  background: linear-gradient(to bottom, #0ea5e9 0%, #06b6d4 35%, #10b981 75%, #059669 100%);
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #34d399 0%, #10b981 50%, #059669 80%, #0f766e 100%);
+  background: linear-gradient(to bottom, #38bdf8 0%, #22d3ee 35%, #34d399 75%, #10b981 100%);
 }
 
-/* Glassmorphism 2.0 (Masterpiece Frosted Emerald Glass) */
+/* Glassmorphism 2.0 (Deep Ocean Teal & Emerald Frosted Glass) */
 .glass-nav {
-  background: rgba(2, 14, 8, 0.85);
+  background: rgba(2, 16, 28, 0.85);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(52, 211, 153, 0.15);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.18);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
 .light .glass-nav {
-  background: rgba(255, 255, 255, 0.88);
-  border-bottom: 1px solid rgba(16, 185, 129, 0.22);
-  box-shadow: 0 4px 20px rgba(5, 150, 105, 0.08);
+  background: rgba(255, 255, 255, 0.90);
+  border-bottom: 1px solid rgba(14, 165, 233, 0.22);
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.08);
 }
 
 .glass-card {
-  background: linear-gradient(135deg, rgba(4, 28, 17, 0.72) 0%, rgba(2, 16, 10, 0.82) 100%);
+  background: linear-gradient(135deg, rgba(3, 24, 40, 0.75) 0%, rgba(2, 18, 26, 0.85) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(52, 211, 153, 0.16);
+  border: 1px solid rgba(56, 189, 248, 0.18);
   box-shadow: 
-    0 16px 40px -12px rgba(5, 150, 105, 0.22),
+    0 16px 40px -12px rgba(2, 132, 199, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .light .glass-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(240, 253, 244, 0.88) 100%);
-  border: 1px solid rgba(52, 211, 153, 0.35);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(240, 253, 250, 0.90) 100%);
+  border: 1px solid rgba(14, 165, 233, 0.30);
   box-shadow: 
-    0 14px 35px -12px rgba(16, 185, 129, 0.12),
+    0 14px 35px -12px rgba(6, 182, 212, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .glass-card:hover {
-  border-color: rgba(52, 211, 153, 0.50);
+  border-color: rgba(45, 212, 191, 0.55);
   box-shadow: 
-    0 20px 48px -12px rgba(16, 185, 129, 0.35),
-    0 0 25px -5px rgba(52, 211, 153, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    0 20px 48px -12px rgba(14, 165, 233, 0.35),
+    0 0 25px -5px rgba(16, 185, 129, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
-/* Gradient Text Utilities (Perfect Emerald & Mint Gradient Flow) */
+/* Gradient Text Utilities (Seamless Blue-to-Green Flow) */
 .gradient-text {
-  background: linear-gradient(135deg, #a7f3d0 0%, #34d399 25%, #10b981 55%, #059669 80%, #6ee7b7 100%);
+  background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 25%, #2dd4bf 55%, #10b981 80%, #34d399 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-alt {
-  background: linear-gradient(135deg, #6ee7b7 0%, #10b981 45%, #047857 80%, #14b8a6 100%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #14b8a6 45%, #10b981 80%, #6ee7b7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 /* ==========================================================================
-   Abstract Ambient Organic Orbs (Emerald & Jade Fluid Blooms)
+   Abstract Ambient Organic Orbs (Ocean Blue to Emerald Fluid Blooms)
    ========================================================================== */
 .ambient-glow {
   position: absolute;
@@ -158,81 +159,81 @@ body {
   z-index: 0;
 }
 
-/* Orb 1: Imperial Emerald (Top Right) */
+/* Orb 1: Royal Sapphire Blue (Top Right) */
 .ambient-glow-1 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, #059669 0%, #064e3b 65%, transparent 80%);
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle, #0284c7 0%, #075985 65%, transparent 80%);
   top: -4%;
   right: -8%;
-  opacity: 0.38;
+  opacity: 0.40;
   animation: float-abstract-1 14s ease-in-out infinite alternate;
 }
 
-/* Orb 2: Vivid Mint / Spring Jade (Center Left) */
+/* Orb 2: Electric Cyan & Aquamarine (Center Left) */
 .ambient-glow-2 {
   width: 580px;
   height: 580px;
-  background: radial-gradient(circle, #10b981 0%, #047857 65%, transparent 80%);
-  top: 30%;
+  background: radial-gradient(circle, #06b6d4 0%, #0e7490 65%, transparent 80%);
+  top: 28%;
   left: -12%;
-  opacity: 0.32;
+  opacity: 0.35;
   animation: float-abstract-2 16s ease-in-out infinite alternate;
 }
 
-/* Orb 3: Bioluminescent Cyan-Teal (Mid Right Accent) */
+/* Orb 3: Vibrant Teal Aqua (Mid Right) */
 .ambient-glow-3 {
-  width: 440px;
-  height: 440px;
+  width: 480px;
+  height: 480px;
   background: radial-gradient(circle, #0d9488 0%, #115e59 65%, transparent 80%);
-  top: 45%;
+  top: 48%;
   right: -6%;
-  opacity: 0.28;
+  opacity: 0.32;
   animation: float-abstract-3 12s ease-in-out infinite alternate;
 }
 
-/* Orb 4: Warm Gold Champagne (Mid Left Accent) */
+/* Orb 4: Masterpiece Emerald Green (Mid Left) */
 .ambient-glow-4 {
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, #eab308 0%, #854d0e 65%, transparent 80%);
-  top: 60%;
-  left: 6%;
-  opacity: 0.18;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #10b981 0%, #064e3b 65%, transparent 80%);
+  top: 62%;
+  left: 4%;
+  opacity: 0.30;
   animation: float-abstract-1 15s ease-in-out infinite alternate;
   animation-delay: -5s;
 }
 
-/* Orb 5: Cyber Lime (Bottom Left) */
+/* Orb 5: Deep Marine Blue (Bottom Left) */
 .ambient-glow-5 {
   width: 520px;
   height: 520px;
-  background: radial-gradient(circle, #84cc16 0%, #047857 65%, transparent 80%);
+  background: radial-gradient(circle, #0369a1 0%, #0c4a6e 65%, transparent 80%);
   bottom: 8%;
-  left: 4%;
-  opacity: 0.26;
+  left: 2%;
+  opacity: 0.30;
   animation: float-abstract-2 18s ease-in-out infinite alternate;
   animation-delay: -8s;
 }
 
-/* Orb 6: Forest Obsidian Deep Green (Bottom Right) */
+/* Orb 6: Mint Jade Green (Bottom Right) */
 .ambient-glow-6 {
-  width: 460px;
-  height: 460px;
-  background: radial-gradient(circle, #10b981 0%, #022c22 65%, transparent 80%);
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, #34d399 0%, #047857 65%, transparent 80%);
   bottom: 2%;
-  right: 6%;
-  opacity: 0.28;
+  right: 4%;
+  opacity: 0.32;
   animation: float-abstract-3 13s ease-in-out infinite alternate;
   animation-delay: -4s;
 }
 
 .light .ambient-glow {
-  opacity: 0.18;
+  opacity: 0.22;
 }
 
 /* ==========================================================================
-   Living Aurora Atmosphere Mesh (Gelombang Aurora Hijau Zamrud Bernapas)
+   Living Aurora Atmosphere Mesh (Gelombang Aurora Biru Gradasi Hijau)
    ========================================================================== */
 .aurora-mesh-container {
   position: fixed;
@@ -246,39 +247,42 @@ body {
 .aurora-ribbon {
   position: absolute;
   border-radius: 50%;
-  opacity: 0.36;
+  opacity: 0.40;
   mix-blend-mode: screen;
 }
 
+/* Ribbon 1: Electric Blue to Cyan */
 .aurora-ribbon-1 {
   width: 95vw;
   height: 65vh;
   top: -15%;
   left: -10%;
-  background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.48) 0%, rgba(52, 211, 153, 0.32) 45%, transparent 75%);
+  background: radial-gradient(ellipse at center, rgba(14, 165, 233, 0.50) 0%, rgba(6, 182, 212, 0.38) 45%, transparent 75%);
   animation: aurora-flow-1 18s ease-in-out infinite alternate;
 }
 
+/* Ribbon 2: Cyan to Teal & Emerald */
 .aurora-ribbon-2 {
   width: 90vw;
   height: 70vh;
-  top: 32%;
+  top: 30%;
   right: -15%;
-  background: radial-gradient(ellipse at center, rgba(13, 148, 136, 0.38) 0%, rgba(5, 150, 105, 0.38) 45%, transparent 75%);
+  background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.45) 0%, rgba(16, 185, 129, 0.40) 45%, transparent 75%);
   animation: aurora-flow-2 22s ease-in-out infinite alternate;
 }
 
+/* Ribbon 3: Emerald to Mint Jade & Sky Blue */
 .aurora-ribbon-3 {
   width: 85vw;
   height: 65vh;
   bottom: -15%;
   left: 8%;
-  background: radial-gradient(ellipse at center, rgba(163, 230, 53, 0.32) 0%, rgba(234, 179, 8, 0.22) 45%, transparent 75%);
+  background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.45) 0%, rgba(52, 211, 153, 0.35) 45%, rgba(14, 165, 233, 0.20) 70%, transparent 75%);
   animation: aurora-flow-3 20s ease-in-out infinite alternate;
 }
 
 .light .aurora-ribbon {
-  opacity: 0.22;
+  opacity: 0.24;
   mix-blend-mode: multiply;
 }
 
