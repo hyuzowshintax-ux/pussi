@@ -51,9 +51,17 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode, 
     { name: "Kontak", id: "contact" },
   ] as const;
 
-  const handleNavClick = (id: "home" | "about" | "skills" | "projects" | "experience" | "contact") => {
-    onOpenCategory(id);
+  const handleNavClick = (id: string) => {
     setMobileMenuOpen(false);
+    if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) {
+      const topOffset = el.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top: topOffset, behavior: "smooth" });
+    }
   };
 
   return (
@@ -61,8 +69,8 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode, 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Brand Logo */}
-          <button onClick={() => handleNavClick("home")} className="flex items-center space-x-2.5 group text-left">
+          {/* Brand Logo - Scroll to Top Home Profile */}
+          <button onClick={() => handleNavClick("home")} className="flex items-center space-x-2.5 group text-left" title="Kembali ke Layar Utama">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 via-emerald-500 to-teal-400 flex items-center justify-center text-white shadow-lg shadow-emerald-600/30 group-hover:scale-105 transition-transform">
               <Code className="w-5 h-5" />
             </div>
@@ -147,7 +155,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode, 
                 className="text-left text-sm font-medium text-slate-200 dark:text-slate-200 light:text-slate-800 hover:text-emerald-400 transition-colors py-2 flex items-center justify-between border-b border-white/5"
               >
                 <span>{link.name}</span>
-                <span className="text-xs text-emerald-400 font-mono">Buka Box ➔</span>
+                <span className="text-xs text-emerald-400 font-mono">Lihat ➔</span>
               </button>
             ))}
             <div className="pt-3 border-t border-slate-800">

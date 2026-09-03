@@ -40,6 +40,11 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true);
+    // Pastikan user langsung melihat layar utama profil saat pertama kali membuka link
+    if (typeof window !== "undefined" && !window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+
     const savedTheme = localStorage.getItem("theme");
     const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
