@@ -92,7 +92,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
         {/* Soft Dreamy Cloud Mist Sweep on Slide Transition */}
         <div 
           key={`cloud-mist-${activeTab}`} 
-          className="pointer-events-none absolute -top-12 inset-x-0 h-44 bg-gradient-to-b from-purple-500/25 via-pink-500/20 to-transparent rounded-full animate-cloud-mist z-20" 
+          className="pointer-events-none absolute -top-12 inset-x-0 h-44 bg-gradient-to-b from-emerald-500/25 via-teal-500/20 to-transparent rounded-full animate-cloud-mist z-20" 
         />
 
         {/* Modal Top Header */}
@@ -100,7 +100,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
           
           {/* Active Category Title */}
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-md shadow-purple-600/30">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white shadow-md shadow-emerald-600/30">
               {activeTab === "home" && <Home className="w-5 h-5" />}
               {activeTab === "about" && <User className="w-5 h-5" />}
               {activeTab === "skills" && <Code2 className="w-5 h-5" />}
@@ -109,7 +109,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
               {activeTab === "contact" && <Mail className="w-5 h-5" />}
             </div>
             <div>
-              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-purple-400">
+              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-emerald-400">
                 Kategori Terpilih
               </span>
               <h3 className="text-xl sm:text-2xl font-black text-white capitalize">
@@ -144,7 +144,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                 onClick={() => onSelectTab(tab.id)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center space-x-1.5 transition-all flex-shrink-0 ${
                   isActive
-                    ? "bg-gradient-to-r from-purple-600 via-purple-700 to-pink-500 text-white shadow-md shadow-purple-600/30"
+                    ? "bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 text-white shadow-md shadow-emerald-600/30"
                     : "bg-slate-800/60 text-slate-400 hover:text-white hover:bg-slate-800"
                 }`}
               >
@@ -163,8 +163,8 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
               ================================================================ */}
           {activeTab === "home" && (
             <div key="slide-home" className="space-y-6 animate-cloud-enter">
-              <div className="flex flex-col md:flex-row items-center gap-6 p-6 rounded-2xl bg-slate-900/50 border border-purple-500/20 shadow-lg">
-                <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden bg-slate-800 border-2 border-purple-500/40 shadow-xl flex-shrink-0 animate-cloud-float">
+              <div className="flex flex-col md:flex-row items-center gap-6 p-6 rounded-2xl bg-slate-900/50 border border-emerald-500/20 shadow-lg">
+                <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl overflow-hidden bg-slate-800 border-2 border-emerald-500/40 shadow-xl flex-shrink-0 animate-cloud-float">
                   <img
                     src={data.profile.avatarUrl}
                     alt={data.profile.name}
@@ -172,14 +172,14 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                   />
                 </div>
                 <div className="text-center md:text-left space-y-2 flex-1">
-                  <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-semibold">
+                  <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-semibold">
                     <Sparkles className="w-3.5 h-3.5" />
                     <span>Duta Intelegensia & Pelajar Berprestasi</span>
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
                     {data.profile.name}
                   </h2>
-                  <p className="text-sm sm:text-base text-purple-300 font-medium">
+                  <p className="text-sm sm:text-base text-emerald-300 font-medium">
                     Saya seorang <span className="text-white font-bold">{data.profile.roles[0]}</span>
                   </p>
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -192,23 +192,23 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <button
                   onClick={() => onSelectTab("projects")}
-                  className="py-3 px-4 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-purple-500/20 text-white text-xs sm:text-sm font-semibold flex items-center justify-center space-x-2 transition-all shadow-sm"
+                  className="py-3 px-4 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-emerald-500/20 text-white text-xs sm:text-sm font-semibold flex items-center justify-center space-x-2 transition-all shadow-sm"
                 >
-                  <Layers className="w-4 h-4 text-purple-400" />
+                  <Layers className="w-4 h-4 text-emerald-400" />
                   <span>Lihat Proyek AI</span>
                 </button>
                 <button
                   onClick={() => onSelectTab("experience")}
-                  className="py-3 px-4 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-purple-500/20 text-white text-xs sm:text-sm font-semibold flex items-center justify-center space-x-2 transition-all shadow-sm"
+                  className="py-3 px-4 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 border border-emerald-500/20 text-white text-xs sm:text-sm font-semibold flex items-center justify-center space-x-2 transition-all shadow-sm"
                 >
-                  <Award className="w-4 h-4 text-pink-400" />
+                  <Award className="w-4 h-4 text-teal-400" />
                   <span>Lihat Prestasi</span>
                 </button>
                 <a
                   href={getWhatsAppLink(data.profile.phone)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-3 px-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white text-xs sm:text-sm font-semibold flex items-center justify-center space-x-2 shadow-lg shadow-purple-600/30 transition-all"
+                  className="py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white text-xs sm:text-sm font-semibold flex items-center justify-center space-x-2 shadow-lg shadow-emerald-600/30 transition-all"
                 >
                   <MessageSquare className="w-4 h-4" />
                   <span>Hubungi via WhatsApp</span>
@@ -222,8 +222,8 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
               ================================================================ */}
           {activeTab === "about" && (
             <div key="slide-about" className="space-y-6 animate-cloud-enter">
-              <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/50 border border-purple-500/20 space-y-4 shadow-lg">
-                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-purple-400">
+              <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/50 border border-emerald-500/20 space-y-4 shadow-lg">
+                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400">
                   // Bio & Profil Pribadi
                 </h4>
                 {data.about.bio.map((paragraph, idx) => (
@@ -236,17 +236,17 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
               {/* Key Details Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {data.about.details.map((detail, idx) => (
-                  <div key={idx} className="p-4 rounded-xl bg-slate-900/40 border border-white/5">
-                    <span className="text-xs text-slate-400 block mb-1">{detail.label}</span>
+                  <div key={idx} className="p-4 rounded-xl bg-slate-900/40 border border-emerald-500/10">
+                    <span className="text-xs text-slate-400 block mb-1 font-mono">{detail.label}</span>
                     <span className="text-sm font-bold text-white">{detail.value}</span>
                   </div>
                 ))}
-                <div className="p-4 rounded-xl bg-slate-900/40 border border-white/5">
-                  <span className="text-xs text-slate-400 block mb-1">Sekolah</span>
+                <div className="p-4 rounded-xl bg-slate-900/40 border border-emerald-500/10">
+                  <span className="text-xs text-slate-400 block mb-1 font-mono">Sekolah</span>
                   <span className="text-sm font-bold text-white">SMAN 1 Kandangan, Kab. Kediri</span>
                 </div>
-                <div className="p-4 rounded-xl bg-slate-900/40 border border-white/5">
-                  <span className="text-xs text-slate-400 block mb-1">Amanah & Gelar</span>
+                <div className="p-4 rounded-xl bg-slate-900/40 border border-emerald-500/10">
+                  <span className="text-xs text-slate-400 block mb-1 font-mono">Amanah & Gelar</span>
                   <span className="text-sm font-bold text-white">Duta Intelegensia & Penegak Bantara</span>
                 </div>
               </div>
@@ -260,9 +260,9 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
             <div key="slide-skills" className="space-y-6 animate-cloud-enter">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {data.skills.map((cat, idx) => (
-                  <div key={idx} className="p-5 rounded-2xl bg-slate-900/50 border border-purple-500/20 space-y-4 shadow-lg">
+                  <div key={idx} className="p-5 rounded-2xl bg-slate-900/50 border border-emerald-500/20 space-y-4 shadow-lg">
                     <h4 className="text-sm font-bold text-white flex items-center space-x-2">
-                      <span className="w-2 h-2 rounded-full bg-purple-400" />
+                      <span className="w-2 h-2 rounded-full bg-emerald-400" />
                       <span>{cat.title}</span>
                     </h4>
                     <div className="space-y-3">
@@ -270,11 +270,11 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                         <div key={sIdx} className="space-y-1">
                           <div className="flex justify-between text-xs font-semibold">
                             <span className="text-slate-300">{skill.name}</span>
-                            <span className="text-purple-400 font-mono">{skill.level}%</span>
+                            <span className="text-emerald-400 font-mono">{skill.level}%</span>
                           </div>
                           <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
                             <div
-                              className="h-full rounded-full bg-gradient-to-r from-purple-600 to-pink-500 transition-all duration-700 ease-out"
+                              className="h-full rounded-full bg-gradient-to-r from-emerald-600 to-teal-400 transition-all duration-700 ease-out"
                               style={{ width: `${skill.level}%` }}
                             />
                           </div>
@@ -305,7 +305,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                     onClick={() => setProjectFilter(tab.value)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                       projectFilter === tab.value
-                        ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md"
+                        ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-md shadow-emerald-600/30"
                         : "bg-slate-800 text-slate-400 hover:text-white"
                     }`}
                   >
@@ -316,8 +316,8 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
 
               {/* Projects Grid */}
               {filteredProjects.length === 0 ? (
-                <div className="p-8 sm:p-10 rounded-2xl bg-slate-900/50 border border-purple-500/20 text-center space-y-3">
-                  <div className="w-12 h-12 rounded-xl bg-purple-500/15 text-purple-400 flex items-center justify-center mx-auto shadow-sm">
+                <div className="p-8 sm:p-10 rounded-2xl bg-slate-900/50 border border-emerald-500/20 text-center space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center mx-auto shadow-sm">
                     <Layers className="w-5 h-5" />
                   </div>
                   <h4 className="text-base font-bold text-white">
@@ -332,7 +332,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                   {filteredProjects.map((proj) => (
                     <div
                       key={proj.id}
-                      className="rounded-2xl overflow-hidden bg-slate-900/60 border border-purple-500/20 hover:border-pink-500/40 transition-all flex flex-col group shadow-lg"
+                      className="rounded-2xl overflow-hidden bg-slate-900/60 border border-emerald-500/20 hover:border-emerald-400/40 transition-all flex flex-col group shadow-lg"
                     >
                       <div className="h-40 relative overflow-hidden bg-slate-800">
                         <img
@@ -341,7 +341,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute top-2 left-2">
-                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow">
+                          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow">
                             {proj.categoryLabel}
                           </span>
                         </div>
@@ -349,7 +349,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
 
                       <div className="p-4 flex-1 flex flex-col justify-between space-y-3">
                         <div>
-                          <h4 className="text-base font-bold text-white group-hover:text-purple-400 transition-colors">
+                          <h4 className="text-base font-bold text-white group-hover:text-emerald-400 transition-colors">
                             {proj.title}
                           </h4>
                           <p className="text-xs text-slate-400 line-clamp-2 mt-1">
@@ -369,7 +369,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                             href={proj.demoUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-xs font-semibold text-purple-400 hover:text-pink-400 flex items-center space-x-1"
+                            className="text-xs font-semibold text-emerald-400 hover:text-teal-300 flex items-center space-x-1"
                           >
                             <span>Buka Proyek</span>
                             <ExternalLink className="w-3.5 h-3.5" />
@@ -399,7 +399,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
               
               {/* Experience List */}
               <div className="space-y-4">
-                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-purple-400 flex items-center space-x-2">
+                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 flex items-center space-x-2">
                   <Award className="w-4 h-4" />
                   <span>// Rekam Jejak Prestasi & Organisasi</span>
                 </h4>
@@ -408,10 +408,10 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                   {data.timeline.experience.map((item, idx) => (
                     <div
                       key={idx}
-                      className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-purple-500/20 hover:border-pink-500/40 transition-all shadow-lg flex flex-col sm:flex-row items-start gap-4 group"
+                      className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-emerald-500/20 hover:border-emerald-400/40 transition-all shadow-lg flex flex-col sm:flex-row items-start gap-4 group"
                     >
                       {item.logoUrl && (
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-slate-900/90 p-1 border border-purple-500/30 shadow-md group-hover:scale-105 transition-transform">
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-slate-900/90 p-1 border border-emerald-500/30 shadow-md group-hover:scale-105 transition-transform">
                           <img
                             src={item.logoUrl}
                             alt={item.role}
@@ -422,17 +422,17 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                       )}
                       <div className="flex-1 min-w-0 space-y-1.5">
                         <div className="flex flex-wrap items-center justify-between gap-2">
-                          <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-purple-500/15 text-purple-400 border border-purple-500/30">
+                          <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                             {item.period}
                           </span>
                           <span className="text-xs text-slate-400 font-medium">
                             {item.location}
                           </span>
                         </div>
-                        <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-purple-300 transition-colors">
+                        <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">
                           {item.role}
                         </h4>
-                        <p className="text-xs sm:text-sm text-purple-300 font-medium">
+                        <p className="text-xs sm:text-sm text-emerald-300 font-medium">
                           {item.company}
                         </p>
                         <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -459,15 +459,15 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
               {/* Education */}
               {data.timeline.education.length > 0 && (
                 <div className="space-y-4 pt-4 border-t border-slate-800">
-                  <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 flex items-center space-x-2">
+                  <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center space-x-2">
                     <GraduationCap className="w-4 h-4" />
                     <span>// Riwayat Pendidikan</span>
                   </h4>
                   <div className="space-y-3">
                     {data.timeline.education.map((edu, idx) => (
-                      <div key={idx} className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-cyan-500/20 hover:border-cyan-400/40 transition-all shadow-lg flex flex-col sm:flex-row items-start gap-4 group">
+                      <div key={idx} className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-teal-500/20 hover:border-teal-400/40 transition-all shadow-lg flex flex-col sm:flex-row items-start gap-4 group">
                         {edu.logoUrl && (
-                          <div className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-slate-900/90 p-1 border border-cyan-500/30 shadow-md group-hover:scale-105 transition-transform">
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-slate-900/90 p-1 border border-teal-500/30 shadow-md group-hover:scale-105 transition-transform">
                             <img
                               src={edu.logoUrl}
                               alt={edu.institution}
@@ -478,13 +478,13 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                         )}
                         <div className="flex-1 min-w-0 space-y-1.5">
                           <div className="flex items-center justify-between">
-                            <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-cyan-500/15 text-cyan-400 border border-cyan-500/30">
+                            <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-teal-500/15 text-teal-400 border border-teal-500/30">
                               {edu.period}
                             </span>
                             <span className="text-xs text-slate-400">{edu.location}</span>
                           </div>
-                          <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">{edu.degree}</h4>
-                          <p className="text-xs sm:text-sm text-cyan-300 font-medium">{edu.institution}</p>
+                          <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-teal-300 transition-colors">{edu.degree}</h4>
+                          <p className="text-xs sm:text-sm text-teal-300 font-medium">{edu.institution}</p>
                           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{edu.description}</p>
                         </div>
                       </div>
@@ -505,14 +505,14 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                 {/* Email Card */}
                 <a
                   href={`mailto:${data.contact.email}`}
-                  className="p-4 rounded-2xl bg-slate-900/50 border border-purple-500/20 hover:border-purple-500/50 transition-all flex items-center space-x-3 group shadow-lg"
+                  className="p-4 rounded-2xl bg-slate-900/50 border border-emerald-500/20 hover:border-emerald-500/50 transition-all flex items-center space-x-3 group shadow-lg"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center group-hover:scale-105 transition-transform border border-emerald-500/30">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs text-slate-400 block">Email Resmi</span>
-                    <span className="text-sm font-bold text-white group-hover:text-purple-300 transition-colors">
+                    <span className="text-xs text-slate-400 block font-mono">Email Resmi</span>
+                    <span className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
                       {data.contact.email}
                     </span>
                   </div>
@@ -523,14 +523,14 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                   href={getWhatsAppLink(data.contact.phone)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-4 rounded-2xl bg-slate-900/50 border border-pink-500/20 hover:border-pink-500/50 transition-all flex items-center space-x-3 group shadow-lg"
+                  className="p-4 rounded-2xl bg-slate-900/50 border border-emerald-500/20 hover:border-emerald-500/50 transition-all flex items-center space-x-3 group shadow-lg"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center group-hover:scale-105 transition-transform border border-emerald-500/30">
                     <MessageSquare className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs text-slate-400 block">WhatsApp / Chat</span>
-                    <span className="text-sm font-bold text-white group-hover:text-pink-300 transition-colors">
+                    <span className="text-xs text-slate-400 block font-mono">WhatsApp / Chat</span>
+                    <span className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
                       {data.contact.phone}
                     </span>
                   </div>
@@ -538,7 +538,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
               </div>
 
               {/* Form Message */}
-              <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/50 border border-purple-500/20 space-y-4 shadow-lg">
+              <div className="p-5 sm:p-6 rounded-2xl bg-slate-900/50 border border-emerald-500/20 space-y-4 shadow-lg">
                 <h4 className="text-sm font-bold text-white">
                   Kirim Pesan Cepat ke Samuel
                 </h4>
@@ -560,7 +560,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                         type="text"
                         required
                         placeholder="Nama Lengkap Anda"
-                        className="w-full px-4 py-2.5 rounded-xl bg-slate-800/80 border border-slate-700 text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-purple-500"
+                        className="w-full px-4 py-2.5 rounded-xl bg-slate-800/80 border border-emerald-500/25 text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-emerald-400"
                       />
                     </div>
                     <div>
@@ -568,12 +568,12 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                         required
                         rows={3}
                         placeholder="Tulis pesan atau tawaran kolaborasi Anda di sini..."
-                        className="w-full px-4 py-2.5 rounded-xl bg-slate-800/80 border border-slate-700 text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-purple-500"
+                        className="w-full px-4 py-2.5 rounded-xl bg-slate-800/80 border border-emerald-500/25 text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-emerald-400"
                       />
                     </div>
                     <button
                       type="submit"
-                      className="w-full py-2.5 rounded-xl bg-gradient-to-r from-purple-600 via-purple-700 to-pink-500 hover:from-purple-500 hover:to-pink-600 text-white text-xs sm:text-sm font-bold shadow-md shadow-purple-600/30 flex items-center justify-center space-x-2 transition-all"
+                      className="w-full py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white text-xs sm:text-sm font-bold shadow-md shadow-emerald-600/30 flex items-center justify-center space-x-2 transition-all"
                     >
                       <Send className="w-4 h-4" />
                       <span>Kirim Pesan Sekarang</span>

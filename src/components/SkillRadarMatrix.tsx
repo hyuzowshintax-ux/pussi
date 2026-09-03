@@ -95,14 +95,14 @@ export const SkillRadarMatrix: React.FC = () => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-400 flex items-center justify-center space-x-1.5">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 flex items-center justify-center space-x-1.5">
             <Target className="w-4 h-4" />
             <span>// Matriks Kompetensi 360°</span>
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Radar Keahlian & Peta Visi Strategis
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-cyan-400 mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600 mx-auto rounded-full" />
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             Visualisasi integratif 6 pilar kekuatan Samuel B K yang memadukan teknologi AI, rekam jejak kepemimpinan Duta Intelegensia, dan ketangguhan kepanduan.
           </p>
@@ -110,12 +110,12 @@ export const SkillRadarMatrix: React.FC = () => {
 
         {/* Vision Timeline Switcher */}
         <div className="flex justify-center mb-12">
-          <div className="p-1.5 rounded-2xl glass-card border border-purple-500/30 flex items-center space-x-2 shadow-lg">
+          <div className="p-1.5 rounded-2xl glass-card border border-emerald-500/30 flex items-center space-x-2 shadow-lg">
             <button
               onClick={() => setVisionMode("current")}
               className={`px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                 visionMode === "current"
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-md shadow-purple-600/30"
+                  ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-md shadow-emerald-600/30"
                   : "text-slate-400 hover:text-white"
               }`}
             >
@@ -125,7 +125,7 @@ export const SkillRadarMatrix: React.FC = () => {
               onClick={() => setVisionMode("future")}
               className={`px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold flex items-center space-x-1.5 transition-all ${
                 visionMode === "future"
-                  ? "bg-gradient-to-r from-pink-600 to-cyan-500 text-white shadow-md shadow-pink-600/30"
+                  ? "bg-gradient-to-r from-teal-500 to-emerald-400 text-white shadow-md shadow-teal-500/30"
                   : "text-slate-400 hover:text-white"
               }`}
             >
@@ -140,7 +140,7 @@ export const SkillRadarMatrix: React.FC = () => {
           
           {/* Hexagon Radar SVG Chart */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-[320px] h-[320px] glass-card rounded-3xl p-4 border border-purple-500/30 shadow-2xl shadow-purple-950/40 flex items-center justify-center">
+            <div className="relative w-[320px] h-[320px] glass-card rounded-3xl p-4 border border-emerald-500/30 shadow-2xl shadow-emerald-950/40 flex items-center justify-center">
               <svg width={size} height={size} className="overflow-visible">
                 {/* Background Concentric Hexagons */}
                 {[0.25, 0.5, 0.75, 1].map((scale, i) => (
@@ -153,7 +153,7 @@ export const SkillRadarMatrix: React.FC = () => {
                       })
                       .join(" ")}
                     fill="none"
-                    stroke="rgba(168, 85, 247, 0.18)"
+                    stroke="rgba(52, 211, 153, 0.18)"
                     strokeWidth="1"
                     strokeDasharray={scale === 1 ? "none" : "2,2"}
                   />
@@ -169,7 +169,7 @@ export const SkillRadarMatrix: React.FC = () => {
                       y1={center}
                       x2={coords.x}
                       y2={coords.y}
-                      stroke="rgba(168, 85, 247, 0.2)"
+                      stroke="rgba(52, 211, 153, 0.2)"
                       strokeWidth="1"
                     />
                   );
@@ -179,8 +179,8 @@ export const SkillRadarMatrix: React.FC = () => {
                 <polygon
                   points={getPolygonPoints(visionMode === "future")}
                   className="transition-all duration-700 ease-out"
-                  fill={visionMode === "future" ? "rgba(236, 72, 153, 0.35)" : "rgba(124, 58, 237, 0.35)"}
-                  stroke={visionMode === "future" ? "#ec4899" : "#c084fc"}
+                  fill={visionMode === "future" ? "rgba(20, 184, 166, 0.38)" : "rgba(16, 185, 129, 0.35)"}
+                  stroke={visionMode === "future" ? "#2dd4bf" : "#34d399"}
                   strokeWidth="2.5"
                 />
 
@@ -194,13 +194,13 @@ export const SkillRadarMatrix: React.FC = () => {
                         cx={coords.x}
                         cy={coords.y}
                         r="5"
-                        className={visionMode === "future" ? "fill-pink-400" : "fill-purple-400"}
+                        className={visionMode === "future" ? "fill-teal-300" : "fill-emerald-400"}
                       />
                       <circle
                         cx={coords.x}
                         cy={coords.y}
                         r="8"
-                        className={`${visionMode === "future" ? "stroke-pink-400/40" : "stroke-purple-400/40"} fill-none animate-ping`}
+                        className={`${visionMode === "future" ? "stroke-teal-300/40" : "stroke-emerald-400/40"} fill-none animate-ping`}
                       />
                     </g>
                   );
@@ -216,16 +216,16 @@ export const SkillRadarMatrix: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className="p-4 rounded-2xl glass-card border border-purple-500/20 hover:border-pink-500/40 transition-all space-y-2.5"
+                  className="p-4 rounded-2xl glass-card border border-emerald-500/20 hover:border-emerald-400/40 transition-all space-y-2.5"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <div className="w-7 h-7 rounded-xl bg-slate-900/80 flex items-center justify-center border border-purple-500/30">
+                      <div className="w-7 h-7 rounded-xl bg-slate-900/80 flex items-center justify-center border border-emerald-500/30">
                         {pillar.icon}
                       </div>
                       <span className="text-xs font-bold text-white line-clamp-1">{pillar.name}</span>
                     </div>
-                    <span className="font-mono text-xs font-extrabold text-pink-400">{currentVal}%</span>
+                    <span className="font-mono text-xs font-extrabold text-emerald-400">{currentVal}%</span>
                   </div>
 
                   {/* Progress Bar */}
@@ -234,8 +234,8 @@ export const SkillRadarMatrix: React.FC = () => {
                       style={{ width: `${currentVal}%` }}
                       className={`h-full rounded-full transition-all duration-700 ${
                         visionMode === "future"
-                          ? "bg-gradient-to-r from-pink-500 to-cyan-400"
-                          : "bg-gradient-to-r from-purple-500 to-pink-500"
+                          ? "bg-gradient-to-r from-teal-400 to-emerald-300"
+                          : "bg-gradient-to-r from-emerald-600 to-teal-400"
                       }`}
                     ></div>
                   </div>

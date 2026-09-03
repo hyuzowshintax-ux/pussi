@@ -69,7 +69,7 @@ export const SecretTerminalGame: React.FC = () => {
       <div className="fixed bottom-20 right-6 z-40">
         <button
           onClick={() => setIsOpen(true)}
-          className="w-11 h-11 rounded-2xl glass-card border border-pink-500/30 hover:border-pink-500 text-pink-400 hover:text-white flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all"
+          className="w-11 h-11 rounded-2xl glass-card border border-emerald-500/30 hover:border-emerald-400 text-emerald-400 hover:text-white flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-all"
           title="Cyber Challenge Mini Game (Easter Egg)"
         >
           <Gamepad2 className="w-5 h-5 animate-pulse" />
@@ -79,7 +79,7 @@ export const SecretTerminalGame: React.FC = () => {
       {/* Mini Game Modal */}
       {isOpen && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 animate-cloud-enter">
-          <div className="relative w-full max-w-lg glass-card rounded-3xl p-6 sm:p-8 border border-pink-500/40 shadow-2xl shadow-pink-950/40 space-y-6">
+          <div className="relative w-full max-w-lg glass-card rounded-3xl p-6 sm:p-8 border border-emerald-500/35 shadow-2xl shadow-emerald-950/40 space-y-6">
             
             <button
               onClick={() => setIsOpen(false)}
@@ -90,12 +90,12 @@ export const SecretTerminalGame: React.FC = () => {
 
             {/* Header */}
             <div className="flex items-center space-x-2.5">
-              <div className="w-9 h-9 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center">
+              <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30">
                 <Gamepad2 className="w-5 h-5" />
               </div>
               <div>
                 <h3 className="text-base font-bold text-white">Samuel Cyber Trivia Challenge</h3>
-                <span className="text-[11px] font-mono text-pink-300">Uji Pengetahuan Seputar Portofolio</span>
+                <span className="text-[11px] font-mono text-emerald-300">Uji Pengetahuan Seputar Portofolio</span>
               </div>
             </div>
 
@@ -104,12 +104,12 @@ export const SecretTerminalGame: React.FC = () => {
                 {/* Progress Bar */}
                 <div className="flex items-center justify-between text-xs font-mono text-slate-400">
                   <span>Pertanyaan {currentQuestionIdx + 1} dari {questions.length}</span>
-                  <span className="text-pink-400 font-bold">Skor: {score}</span>
+                  <span className="text-emerald-400 font-bold">Skor: {score}</span>
                 </div>
                 <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
                   <div
                     style={{ width: `${((currentQuestionIdx + 1) / questions.length) * 100}%` }}
-                    className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all"
+                    className="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 transition-all"
                   ></div>
                 </div>
 
@@ -123,7 +123,7 @@ export const SecretTerminalGame: React.FC = () => {
                   {questions[currentQuestionIdx].options.map((opt, idx) => {
                     const isSelected = selectedAnswer === idx;
                     const isCorrect = idx === questions[currentQuestionIdx].correctAnswer;
-                    let btnClass = "bg-slate-900/80 border-purple-500/20 hover:border-pink-500/50 text-slate-200";
+                    let btnClass = "bg-slate-900/80 border-emerald-500/20 hover:border-emerald-400/50 text-slate-200";
 
                     if (selectedAnswer !== null) {
                       if (isCorrect) {
@@ -155,7 +155,7 @@ export const SecretTerminalGame: React.FC = () => {
             ) : (
               /* Completed Screen */
               <div className="text-center space-y-4 py-4">
-                <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-400 p-0.5 flex items-center justify-center shadow-xl">
+                <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-tr from-emerald-600 via-teal-400 to-amber-400 p-0.5 flex items-center justify-center shadow-xl">
                   <div className="w-full h-full rounded-3xl bg-slate-900 flex items-center justify-center text-amber-400">
                     <Trophy className="w-10 h-10" />
                   </div>
@@ -164,17 +164,17 @@ export const SecretTerminalGame: React.FC = () => {
                 <div className="space-y-1">
                   <h4 className="text-xl font-extrabold text-white">Tantangan Berhasil Selesai! 🎉</h4>
                   <p className="text-xs text-slate-300">
-                    Anda berhasil menjawab <strong className="text-pink-400">{score}</strong> dari <strong className="text-white">{questions.length}</strong> pertanyaan dengan tepat!
+                    Anda berhasil menjawab <strong className="text-emerald-400">{score}</strong> dari <strong className="text-white">{questions.length}</strong> pertanyaan dengan tepat!
                   </p>
                 </div>
 
-                <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-purple-500/30 text-xs text-purple-300 font-mono">
+                <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-emerald-500/30 text-xs text-emerald-300 font-mono">
                   🎖️ Gelar Terbuka: <strong>"Samuel Elite Explorer Badge"</strong>
                 </div>
 
                 <button
                   onClick={handleRestart}
-                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white text-xs font-semibold flex items-center justify-center space-x-2 mx-auto shadow transition-all"
+                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white text-xs font-semibold flex items-center justify-center space-x-2 mx-auto shadow transition-all"
                 >
                   <RefreshCcw className="w-3.5 h-3.5" />
                   <span>Mainkan Lagi</span>

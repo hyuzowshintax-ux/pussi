@@ -67,20 +67,20 @@ export const DynamicAtmosphereCanvas: React.FC<{ darkMode?: boolean }> = ({ dark
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
     document.addEventListener("mouseleave", handleMouseLeave);
 
-    // Particle Palette
+    // Particle Palette (Emerald & Mint Jade Perfection)
     const colors = darkMode
       ? [
-          { c: "rgba(192, 132, 252, ", glow: "#c084fc" }, // Purple
-          { c: "rgba(244, 114, 182, ", glow: "#f472b6" }, // Pink
-          { c: "rgba(56, 189, 248, ", glow: "#38bdf8" },  // Cyan
-          { c: "rgba(251, 191, 36, ", glow: "#fbbf24" },  // Amber
-          { c: "rgba(224, 231, 255, ", glow: "#e0e7ff" }  // White star
+          { c: "rgba(52, 211, 153, ", glow: "#34d399" }, // Mint Jade
+          { c: "rgba(16, 185, 129, ", glow: "#10b981" }, // Emerald
+          { c: "rgba(110, 231, 183, ", glow: "#6ee7b7" }, // Soft Mint
+          { c: "rgba(45, 212, 191, ", glow: "#2dd4bf" },  // Teal Aqua
+          { c: "rgba(250, 204, 21, ", glow: "#facc15" }   // Champagne Gold
         ]
       : [
-          { c: "rgba(147, 51, 234, ", glow: "#9333ea" },
-          { c: "rgba(219, 39, 119, ", glow: "#db2777" },
-          { c: "rgba(2, 132, 199, ", glow: "#0284c7" },
-          { c: "rgba(217, 119, 6, ", glow: "#d97706" }
+          { c: "rgba(5, 150, 105, ", glow: "#059669" },
+          { c: "rgba(16, 185, 129, ", glow: "#10b981" },
+          { c: "rgba(13, 148, 136, ", glow: "#0d9488" },
+          { c: "rgba(202, 138, 4, ", glow: "#ca8a04" }
         ];
 
     const particleCount = Math.min(Math.floor((width * height) / 14000), 75);
@@ -113,7 +113,7 @@ export const DynamicAtmosphereCanvas: React.FC<{ darkMode?: boolean }> = ({ dark
     let nextShootingStarTime = Date.now() + 2000;
 
     const spawnShootingStar = () => {
-      const starColors = ["#ffffff", "#f0abfc", "#bae6fd", "#fde047"];
+      const starColors = ["#ffffff", "#6ee7b7", "#a7f3d0", "#fef08a"];
       shootingStars.push({
         x: Math.random() * width * 0.8,
         y: Math.random() * height * 0.4,
@@ -148,7 +148,7 @@ export const DynamicAtmosphereCanvas: React.FC<{ darkMode?: boolean }> = ({ dark
 
         const grad = ctx.createLinearGradient(s.x, s.y, tailX, tailY);
         grad.addColorStop(0, s.color);
-        grad.addColorStop(0.3, "rgba(192, 132, 252, 0.6)");
+        grad.addColorStop(0.3, "rgba(52, 211, 153, 0.6)");
         grad.addColorStop(1, "transparent");
 
         ctx.strokeStyle = grad;
@@ -226,7 +226,7 @@ export const DynamicAtmosphereCanvas: React.FC<{ darkMode?: boolean }> = ({ dark
 
           if (dist < 115) {
             const lineAlpha = (1 - dist / 115) * 0.18 * (darkMode ? 1 : 0.7);
-            ctx.strokeStyle = `rgba(192, 132, 252, ${lineAlpha})`;
+            ctx.strokeStyle = `rgba(52, 211, 153, ${lineAlpha})`;
             ctx.lineWidth = 0.75;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);

@@ -52,14 +52,14 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 dark:text-indigo-400 light:text-indigo-600">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 dark:text-emerald-400 light:text-emerald-600">
             // Hubungi Saya
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white dark:text-white light:text-slate-900 tracking-tight">
             {contact.heading}
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-cyan-400 mx-auto rounded-full" />
-          <p className="text-slate-400 dark:text-slate-400 light:text-slate-600 text-sm sm:text-base">
+          <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600 mx-auto rounded-full" />
+          <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm sm:text-base">
             {contact.subheading}
           </p>
         </div>
@@ -70,26 +70,26 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Email */}
-            <div className="glass-card rounded-2xl p-5 flex items-start space-x-4 border border-white/10">
-              <div className="w-12 h-12 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center flex-shrink-0 text-xl">
+            <div className="glass-card rounded-2xl p-5 flex items-start space-x-4 border border-emerald-500/25">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 text-xl border border-emerald-500/30">
                 <Mail className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500">Email</h4>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500 font-mono">Email</h4>
                 <p className="text-base font-bold text-white dark:text-white light:text-slate-900 mt-0.5">{contact.email}</p>
-                <a href={`mailto:${contact.email}`} className="text-xs text-indigo-400 dark:text-indigo-400 light:text-indigo-600 hover:underline mt-1 inline-block">
+                <a href={`mailto:${contact.email}`} className="text-xs text-emerald-400 dark:text-emerald-400 light:text-emerald-600 hover:underline mt-1 inline-block">
                   Kirim email langsung &rarr;
                 </a>
               </div>
             </div>
 
             {/* Phone */}
-            <div className="glass-card rounded-2xl p-5 flex items-start space-x-4 border border-white/10">
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 text-xl">
+            <div className="glass-card rounded-2xl p-5 flex items-start space-x-4 border border-emerald-500/25">
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 text-xl border border-emerald-500/30">
                 <Phone className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500">WhatsApp / Telepon</h4>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500 font-mono">WhatsApp / Telepon</h4>
                 <p className="text-base font-bold text-white dark:text-white light:text-slate-900 mt-0.5">{contact.phone}</p>
                 <a
                   href={`https://wa.me/${contact.phone.replace(/[^0-9]/g, "").replace(/^0/, "62")}`}
@@ -103,12 +103,12 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
             </div>
 
             {/* Location */}
-            <div className="glass-card rounded-2xl p-5 flex items-start space-x-4 border border-white/10">
-              <div className="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center flex-shrink-0 text-xl">
+            <div className="glass-card rounded-2xl p-5 flex items-start space-x-4 border border-emerald-500/25">
+              <div className="w-12 h-12 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center flex-shrink-0 text-xl border border-teal-500/30">
                 <MapPin className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500">Lokasi & Jam Aktif</h4>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500 font-mono">Lokasi & Domisili</h4>
                 <p className="text-base font-bold text-white dark:text-white light:text-slate-900 mt-0.5">{contact.location}</p>
                 <p className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500 mt-1">{contact.workingHours}</p>
               </div>
@@ -118,11 +118,11 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
 
           {/* Form */}
           <div className="lg:col-span-7">
-            <div className="glass-card rounded-3xl p-6 sm:p-8 border border-white/10">
+            <div className="glass-card rounded-3xl p-6 sm:p-8 border border-emerald-500/25">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2">
+                    <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2 font-mono">
                       Nama Lengkap *
                     </label>
                     <input
@@ -131,12 +131,12 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Contoh: John Doe"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-100 border border-slate-700 dark:border-slate-700 light:border-slate-300 text-white dark:text-white light:text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all text-sm"
+                      placeholder="Contoh: Budi Santoso"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 border border-emerald-500/25 dark:border-emerald-500/25 light:border-slate-300 text-white dark:text-white light:text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all text-sm"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2">
+                    <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2 font-mono">
                       Alamat Email *
                     </label>
                     <input
@@ -146,13 +146,13 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="email@domain.com"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-100 border border-slate-700 dark:border-slate-700 light:border-slate-300 text-white dark:text-white light:text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all text-sm"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 border border-emerald-500/25 dark:border-emerald-500/25 light:border-slate-300 text-white dark:text-white light:text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all text-sm"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2">
+                  <label htmlFor="subject" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2 font-mono">
                     Subjek / Topik
                   </label>
                   <input
@@ -161,12 +161,12 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     placeholder="Tawaran Proyek / Pertanyaan"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-100 border border-slate-700 dark:border-slate-700 light:border-slate-300 text-white dark:text-white light:text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all text-sm"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 border border-emerald-500/25 dark:border-emerald-500/25 light:border-slate-300 text-white dark:text-white light:text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all text-sm"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2">
+                  <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2 font-mono">
                     Pesan Anda *
                   </label>
                   <textarea
@@ -175,15 +175,15 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Ceritakan detail proyek atau ide yang ingin Anda kembangkan bersama..."
-                    className="w-full px-4 py-3 rounded-xl bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-100 border border-slate-700 dark:border-slate-700 light:border-slate-300 text-white dark:text-white light:text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all text-sm resize-none"
+                    placeholder="Ceritakan detail proyek atau ide yang ingin Anda diskusikan bersama..."
+                    className="w-full px-4 py-3 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 border border-emerald-500/25 dark:border-emerald-500/25 light:border-slate-300 text-white dark:text-white light:text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all text-sm resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 via-purple-700 to-pink-500 hover:from-purple-500 hover:to-pink-600 text-white font-bold text-sm shadow-lg shadow-purple-600/30 hover:shadow-purple-600/50 hover:-translate-y-0.5 transition-all flex items-center justify-center space-x-2 disabled:opacity-50"
+                  className="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 hover:shadow-emerald-500/50 hover:-translate-y-0.5 transition-all flex items-center justify-center space-x-2 disabled:opacity-50"
                 >
                   {loading ? (
                     <>

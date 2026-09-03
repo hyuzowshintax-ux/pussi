@@ -33,13 +33,13 @@ export const Stats: React.FC<StatsProps> = ({ stats }) => {
               key={idx}
               className="glass-card rounded-2xl p-6 text-center transform transition duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-purple-500/15 flex items-center justify-center text-purple-400 dark:text-purple-400 light:text-purple-600">
+              <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-emerald-500/15 flex items-center justify-center text-emerald-400 dark:text-emerald-400 light:text-emerald-600 border border-emerald-500/25">
                 {getIcon(stat.iconName)}
               </div>
               <div className="text-3xl font-extrabold text-white dark:text-white light:text-slate-900 mb-1 tracking-tight gradient-text">
                 {stat.number}
               </div>
-              <div className="text-xs font-medium text-slate-400 dark:text-slate-400 light:text-slate-600">
+              <div className="text-xs font-medium text-slate-300 dark:text-slate-300 light:text-slate-600 font-mono">
                 {stat.label}
               </div>
             </div>

@@ -128,32 +128,32 @@ export const LkbbDrillSimulator: React.FC = () => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-red-400 flex items-center justify-center space-x-1.5">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 flex items-center justify-center space-x-1.5">
             <Flag className="w-4 h-4" />
             <span>// Simulasi Taktis CODASKA</span>
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Simulator Formasi Variasi Baris-Berbaris (LKBB)
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-red-500 via-pink-500 to-amber-400 mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600 mx-auto rounded-full" />
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             Eksplorasi simulasi 2D interaktif pergerakan 16 personil pleton CODASKA SMAN 1 Kandangan dalam menyusun formasi variasi ketangkasan PBB.
           </p>
         </div>
 
         {/* Simulator Grid & Controls */}
-        <div className="glass-card rounded-3xl border border-red-500/30 shadow-2xl shadow-red-950/30 overflow-hidden max-w-4xl mx-auto">
+        <div className="glass-card rounded-3xl border border-emerald-500/25 shadow-2xl shadow-emerald-950/30 overflow-hidden max-w-4xl mx-auto">
           
           {/* Top Status Bar */}
-          <div className="p-4 bg-slate-900/90 border-b border-red-500/20 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
+          <div className="p-4 bg-slate-900/90 border-b border-emerald-500/20 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
             <div className="flex items-center space-x-2 text-white">
-              <Compass className="w-4 h-4 text-red-400" />
+              <Compass className="w-4 h-4 text-emerald-400" />
               <span>Pleton: <strong>16 Pasukan CODASKA</strong></span>
             </div>
 
             <div className="flex items-center space-x-4">
               <span className="text-slate-300">Tempo: <strong>110 BPM</strong></span>
-              <span className="text-red-400 font-bold">Langkah Total: {stepCount}</span>
+              <span className="text-emerald-400 font-bold">Langkah Total: {stepCount}</span>
               <span className={`px-2.5 py-0.5 rounded-full font-bold ${isMarching ? "bg-amber-500/20 text-amber-300 animate-pulse" : "bg-emerald-500/20 text-emerald-400"}`}>
                 {isMarching ? "BERPINDAH..." : "SIAP SEMPURNA"}
               </span>
@@ -161,15 +161,15 @@ export const LkbbDrillSimulator: React.FC = () => {
           </div>
 
           {/* 2D Drill Field (Canvas Area) */}
-          <div className="relative w-full h-[360px] sm:h-[420px] bg-slate-950/90 p-4 sm:p-8 overflow-hidden">
+          <div className="relative w-full h-[360px] sm:h-[420px] bg-slate-950/95 p-4 sm:p-8 overflow-hidden">
             
             {/* Tactical Grid Background Lines */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(239,68,68,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(239,68,68,0.06)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(16,185,129,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(16,185,129,0.08)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
             
             {/* Compass Center Marker */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
-              <div className="w-48 h-48 rounded-full border border-red-500/50 flex items-center justify-center">
-                <div className="w-24 h-24 rounded-full border border-dashed border-red-500/60"></div>
+              <div className="w-48 h-48 rounded-full border border-emerald-500/50 flex items-center justify-center">
+                <div className="w-24 h-24 rounded-full border border-dashed border-emerald-500/60"></div>
               </div>
             </div>
 
@@ -189,15 +189,15 @@ export const LkbbDrillSimulator: React.FC = () => {
                   <div
                     className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-[11px] shadow-lg transition-transform group-hover:scale-125 ${
                       isLeader
-                        ? "bg-gradient-to-tr from-amber-400 to-red-500 text-slate-950 ring-4 ring-amber-400/40 font-mono font-extrabold"
-                        : "bg-gradient-to-tr from-red-600 to-pink-600 text-white ring-2 ring-red-500/30"
+                        ? "bg-gradient-to-tr from-amber-400 to-emerald-500 text-slate-950 ring-4 ring-amber-400/40 font-mono font-extrabold"
+                        : "bg-gradient-to-tr from-emerald-600 to-teal-500 text-white ring-2 ring-emerald-500/30"
                     }`}
                   >
                     {isLeader ? "★" : soldier.id}
                   </div>
 
                   {/* Tooltip Hover */}
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover:block whitespace-nowrap px-2.5 py-1 rounded-lg bg-slate-900 text-white text-[10px] font-mono border border-red-500/40 shadow-xl pointer-events-none z-30">
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover:block whitespace-nowrap px-2.5 py-1 rounded-lg bg-slate-900 text-white text-[10px] font-mono border border-emerald-500/40 shadow-xl pointer-events-none z-30">
                     #{soldier.id} {soldier.role}
                   </div>
                 </div>
@@ -206,13 +206,13 @@ export const LkbbDrillSimulator: React.FC = () => {
           </div>
 
           {/* Drill Formations Selector Bar */}
-          <div className="p-4 sm:p-6 bg-slate-900/90 border-t border-red-500/20 flex flex-wrap items-center justify-between gap-3">
+          <div className="p-4 sm:p-6 bg-slate-900/90 border-t border-emerald-500/20 flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => handleSwitchFormation("standard")}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                   formation === "standard"
-                    ? "bg-red-600 text-white shadow-lg shadow-red-600/30"
+                    ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/30"
                     : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                 }`}
               >
@@ -223,7 +223,7 @@ export const LkbbDrillSimulator: React.FC = () => {
                 onClick={() => handleSwitchFormation("garuda")}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                   formation === "garuda"
-                    ? "bg-red-600 text-white shadow-lg shadow-red-600/30"
+                    ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/30"
                     : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                 }`}
               >
@@ -234,7 +234,7 @@ export const LkbbDrillSimulator: React.FC = () => {
                 onClick={() => handleSwitchFormation("shield")}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                   formation === "shield"
-                    ? "bg-red-600 text-white shadow-lg shadow-red-600/30"
+                    ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/30"
                     : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                 }`}
               >
@@ -245,7 +245,7 @@ export const LkbbDrillSimulator: React.FC = () => {
                 onClick={() => handleSwitchFormation("varrow")}
                 className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                   formation === "varrow"
-                    ? "bg-red-600 text-white shadow-lg shadow-red-600/30"
+                    ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/30"
                     : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                 }`}
               >

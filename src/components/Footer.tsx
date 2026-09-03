@@ -42,7 +42,7 @@ export const Footer: React.FC<FooterProps> = ({ profile }) => {
               href={profile.socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full flex items-center justify-center bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-pink-600 transition-all"
+              className="w-9 h-9 rounded-full flex items-center justify-center bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-emerald-600 transition-all border border-emerald-500/20"
               aria-label="GitHub"
             >
               <Github className="w-4 h-4" />
@@ -51,7 +51,7 @@ export const Footer: React.FC<FooterProps> = ({ profile }) => {
               href={profile.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full flex items-center justify-center bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-pink-600 transition-all"
+              className="w-9 h-9 rounded-full flex items-center justify-center bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-emerald-600 transition-all border border-emerald-500/20"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-4 h-4" />
@@ -60,7 +60,7 @@ export const Footer: React.FC<FooterProps> = ({ profile }) => {
               href={profile.socials.twitter}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full flex items-center justify-center bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-pink-600 transition-all"
+              className="w-9 h-9 rounded-full flex items-center justify-center bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-emerald-600 transition-all border border-emerald-500/20"
               aria-label="Twitter"
             >
               <Twitter className="w-4 h-4" />
@@ -69,14 +69,14 @@ export const Footer: React.FC<FooterProps> = ({ profile }) => {
               href={profile.socials.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full flex items-center justify-center bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-pink-600 transition-all"
+              className="w-9 h-9 rounded-full flex items-center justify-center bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-emerald-600 transition-all border border-emerald-500/20"
               aria-label="Instagram"
             >
               <Instagram className="w-4 h-4" />
             </a>
             <a
               href={`mailto:${profile.email}`}
-              className="w-9 h-9 rounded-full flex items-center justify-center bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-pink-600 transition-all"
+              className="w-9 h-9 rounded-full flex items-center justify-center bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-emerald-600 transition-all border border-emerald-500/20"
               aria-label="Email"
             >
               <Mail className="w-4 h-4" />
@@ -90,7 +90,7 @@ export const Footer: React.FC<FooterProps> = ({ profile }) => {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 left-6 z-40 w-11 h-11 rounded-full bg-gradient-to-tr from-purple-600 via-purple-700 to-pink-500 text-white shadow-xl shadow-purple-600/40 flex items-center justify-center hover:scale-110 transition-all duration-300"
+          className="fixed bottom-6 left-6 z-40 w-11 h-11 rounded-full bg-gradient-to-tr from-emerald-600 via-emerald-500 to-teal-400 text-white shadow-xl shadow-emerald-600/40 flex items-center justify-center hover:scale-110 transition-all duration-300"
           aria-label="Kembali ke atas"
         >
           <ArrowUp className="w-5 h-5" />

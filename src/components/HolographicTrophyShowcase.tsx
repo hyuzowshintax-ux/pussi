@@ -114,14 +114,14 @@ export const HolographicTrophyShowcase: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-amber-400 flex items-center justify-center space-x-1.5">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 flex items-center justify-center space-x-1.5">
             <Trophy className="w-4 h-4" />
             <span>// 3D Holographic Vault</span>
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Galeri Lencana & Rekam Kehormatan 3D
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-amber-400 via-pink-500 to-purple-600 mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600 mx-auto rounded-full" />
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             Arahkan kursor ke kartu lencana untuk mengaktifkan efek hologram 3D interaktif dan rincian kemampuan yang terbuka (*skills unlocked*).
           </p>
@@ -135,11 +135,11 @@ export const HolographicTrophyShowcase: React.FC = () => {
               onClick={() => setActiveTrophyId(trophy.id)}
               className={`px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold flex items-center space-x-2 transition-all duration-300 ${
                 activeTrophyId === trophy.id
-                  ? "bg-gradient-to-r from-purple-600 via-purple-700 to-pink-600 text-white shadow-lg shadow-purple-600/40 scale-105 border border-white/20"
-                  : "glass-card text-slate-300 hover:text-white border border-purple-500/20 hover:border-pink-500/40"
+                  ? "bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-600/40 scale-105 border border-emerald-400/40"
+                  : "glass-card text-slate-300 hover:text-white border border-emerald-500/20 hover:border-emerald-400/40"
               }`}
             >
-              <span className="w-2 h-2 rounded-full bg-pink-400"></span>
+              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
               <span>{trophy.title}</span>
             </button>
           ))}
@@ -158,13 +158,13 @@ export const HolographicTrophyShowcase: React.FC = () => {
                 transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
                 transition: "transform 0.1s ease-out"
               }}
-              className="relative w-full max-w-[340px] sm:max-w-[380px] h-[460px] rounded-3xl p-6 sm:p-8 glass-card border-2 border-purple-500/40 shadow-2xl shadow-purple-950/60 flex flex-col justify-between items-center text-center overflow-hidden cursor-pointer group select-none"
+              className="relative w-full max-w-[340px] sm:max-w-[380px] h-[460px] rounded-3xl p-6 sm:p-8 glass-card border-2 border-emerald-500/35 shadow-2xl shadow-emerald-950/60 flex flex-col justify-between items-center text-center overflow-hidden cursor-pointer group select-none"
             >
-              {/* Holographic Rainbow Sheen Gradient Overlay */}
+              {/* Holographic Emerald Sheen Gradient Overlay */}
               <div
                 className="absolute inset-0 pointer-events-none opacity-40 group-hover:opacity-75 transition-opacity duration-300 rounded-3xl"
                 style={{
-                  background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255, 255, 255, 0.4) 0%, rgba(236, 72, 153, 0.25) 30%, rgba(6, 182, 212, 0.2) 60%, transparent 80%)`,
+                  background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255, 255, 255, 0.4) 0%, rgba(52, 211, 153, 0.25) 30%, rgba(20, 184, 166, 0.2) 60%, transparent 80%)`,
                   mixBlendMode: "overlay"
                 }}
               />
@@ -181,8 +181,8 @@ export const HolographicTrophyShowcase: React.FC = () => {
 
               {/* Center Emblem with Floating Halo */}
               <div className="relative my-auto z-10">
-                <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 to-pink-600/30 rounded-full blur-2xl group-hover:blur-3xl transition-all"></div>
-                <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-3xl bg-slate-900/90 p-4 border-2 border-purple-500/40 shadow-2xl shadow-purple-600/30 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-tr from-emerald-600/30 to-teal-500/30 rounded-full blur-2xl group-hover:blur-3xl transition-all"></div>
+                <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-3xl bg-slate-900/90 p-4 border-2 border-emerald-500/40 shadow-2xl shadow-emerald-600/30 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 flex items-center justify-center">
                   <img
                     src={currentTrophy.badgeUrl}
                     alt={currentTrophy.title}
@@ -196,7 +196,7 @@ export const HolographicTrophyShowcase: React.FC = () => {
                 <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
                   {currentTrophy.title}
                 </h3>
-                <p className="text-xs sm:text-sm font-semibold text-purple-300">
+                <p className="text-xs sm:text-sm font-semibold text-emerald-300">
                   {currentTrophy.role}
                 </p>
               </div>
@@ -212,20 +212,20 @@ export const HolographicTrophyShowcase: React.FC = () => {
           {/* Trophy Metadata & Unlocked Skill Buffs */}
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-3">
-              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-pink-500/15 text-pink-400 border border-pink-500/30 inline-block">
+              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 inline-block">
                 // Rincian Akreditasi
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
                 {currentTrophy.title}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed p-4 rounded-2xl bg-slate-900/60 border border-purple-500/20">
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed p-4 rounded-2xl bg-slate-900/60 border border-emerald-500/20">
                 {currentTrophy.description}
               </p>
             </div>
 
             {/* Unlocked Capabilities / Skill Buffs */}
             <div className="space-y-3">
-              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 flex items-center space-x-2">
+              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 flex items-center space-x-2">
                 <Sparkles className="w-4 h-4" />
                 <span>// Kemampuan & Kompetensi yang Terbuka</span>
               </h4>
@@ -233,7 +233,7 @@ export const HolographicTrophyShowcase: React.FC = () => {
                 {currentTrophy.skillsUnlocked.map((skill, idx) => (
                   <div
                     key={idx}
-                    className="p-3 rounded-xl bg-slate-900/80 border border-purple-500/30 flex items-center space-x-2.5 text-xs text-white font-medium"
+                    className="p-3 rounded-xl bg-slate-900/80 border border-emerald-500/30 flex items-center space-x-2.5 text-xs text-white font-medium"
                   >
                     <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                     <span>{skill}</span>
@@ -243,7 +243,7 @@ export const HolographicTrophyShowcase: React.FC = () => {
             </div>
 
             {/* Official Authentication Note */}
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-purple-900/30 via-pink-900/20 to-transparent border border-purple-500/30 flex items-center space-x-3 text-xs text-slate-300">
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-950/40 via-teal-950/30 to-transparent border border-emerald-500/30 flex items-center space-x-3 text-xs text-slate-300">
               <Shield className="w-5 h-5 text-amber-400 flex-shrink-0" />
               <span>
                 Dokumentasi terotentikasi dan terdaftar secara sah dalam portofolio resmi Samuel B K.

@@ -118,7 +118,7 @@ export const AudioAmbience: React.FC = () => {
       onClick={toggleAudio}
       className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center space-x-2 transition-all border ${
         isPlaying
-          ? "bg-purple-600/30 text-pink-300 border-pink-500/50 shadow-lg shadow-purple-600/20"
+          ? "bg-emerald-600/25 text-emerald-300 border-emerald-400/50 shadow-lg shadow-emerald-950/40"
           : "bg-slate-800/80 hover:bg-slate-700 text-slate-300 border-slate-700/60"
       }`}
       title={isPlaying ? "Matikan Musik Lo-Fi Ambient" : "Nyalakan Musik Lo-Fi Ambient"}
@@ -127,12 +127,12 @@ export const AudioAmbience: React.FC = () => {
       {isPlaying ? (
         <>
           <div className="flex items-end space-x-0.5 h-3.5">
-            <span className="w-0.5 bg-pink-400 rounded-full animate-[pulse_0.6s_ease-in-out_infinite] h-full"></span>
-            <span className="w-0.5 bg-purple-400 rounded-full animate-[pulse_0.9s_ease-in-out_infinite] h-2"></span>
-            <span className="w-0.5 bg-cyan-400 rounded-full animate-[pulse_0.7s_ease-in-out_infinite] h-3"></span>
-            <span className="w-0.5 bg-amber-400 rounded-full animate-[pulse_0.8s_ease-in-out_infinite] h-1.5"></span>
+            <span className="w-0.5 bg-emerald-400 rounded-full animate-[pulse_0.6s_ease-in-out_infinite] h-full"></span>
+            <span className="w-0.5 bg-teal-400 rounded-full animate-[pulse_0.9s_ease-in-out_infinite] h-2"></span>
+            <span className="w-0.5 bg-emerald-300 rounded-full animate-[pulse_0.7s_ease-in-out_infinite] h-3"></span>
+            <span className="w-0.5 bg-amber-300 rounded-full animate-[pulse_0.8s_ease-in-out_infinite] h-1.5"></span>
           </div>
-          <span className="hidden sm:inline font-mono">Lo-Fi ON</span>
+          <span className="hidden sm:inline font-mono text-emerald-300">Lo-Fi ON</span>
         </>
       ) : (
         <>

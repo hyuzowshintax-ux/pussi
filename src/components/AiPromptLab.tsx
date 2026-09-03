@@ -44,21 +44,21 @@ $$E_p + E_k = \\text{Konstan} \\quad \\rightarrow \\quad mgh_1 + \\frac{1}{2}mv_
 🚩 **Catatan Komando**: Ketukan tempo 110 BPM, pandangan lurus 15° ke atas dengan hentakan tegap seragam.`
     },
     palette: {
-      title: "Cosmic UI Palette & Prompt Engine",
-      defaultPrompt: "Generate palet warna futuristik bertema Intelegensia AI & Tailwind CSS class",
-      sampleResponse: `🎨 **Cosmic Intelegensia AI Color Palette**:
+      title: "Emerald UI Palette & Design Prompt Studio",
+      defaultPrompt: "Generate palet warna zamrud & mint futuristik bertema Intelegensia AI & Tailwind CSS class",
+      sampleResponse: `🌿 **Emerald Intelegensia AI Color Palette**:
 
 \`\`\`css
-/* Primary Cosmic Violet */   --cosmic-violet: #7c3aed; /* bg-violet-600 */
-/* Electric Cyber Pink */     --electric-pink: #ec4899; /* bg-pink-500 */
-/* Bioluminescent Cyan */     --bio-cyan:      #06b6d4; /* bg-cyan-500 */
-/* Deep Stellar Void */       --stellar-void:  #06010e; /* bg-slate-950 */
+/* Masterpiece Emerald */     --emerald-core:   #10b981; /* bg-emerald-500 */
+/* Mint Jade Sparkle */       --mint-jade:      #34d399; /* bg-emerald-400 */
+/* Bioluminescent Teal */     --bio-teal:       #0d9488; /* bg-teal-600 */
+/* Deep Obsidian Forest */    --forest-void:    #020b06; /* bg-slate-950 */
 \`\`\`
 
 **Tailwind CSS Component Card:**
 \`\`\`html
-<div class="p-6 rounded-3xl bg-slate-900/70 border border-purple-500/30 backdrop-blur-xl shadow-2xl shadow-purple-900/40 hover:border-pink-500/60 transition-all">
-  <span class="gradient-text font-bold text-lg">Intelegensia System</span>
+<div class="p-6 rounded-3xl bg-slate-900/80 border border-emerald-500/30 backdrop-blur-xl shadow-2xl shadow-emerald-950/50 hover:border-emerald-400/60 transition-all">
+  <span class="gradient-text font-bold text-lg">Intelegensia Emerald System</span>
 </div>
 \`\`\``
     }
@@ -99,23 +99,23 @@ $$E_p + E_k = \\text{Konstan} \\quad \\rightarrow \\quad mgh_1 + \\frac{1}{2}mv_
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-cyan-400">
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400">
             // Laboratorium Interaktif
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             AI Prompt Playground & Neural Simulation Lab
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600 mx-auto rounded-full" />
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             Eksperimen langsung dengan model inferensi AI rancangan Samuel: mulai dari asisten belajar siswa, taktik formasi LKBB, hingga peracik palet desain antarmuka.
           </p>
         </div>
 
         {/* Interactive Lab Container */}
-        <div className="glass-card rounded-3xl border border-purple-500/30 shadow-2xl shadow-purple-950/40 overflow-hidden">
+        <div className="glass-card rounded-3xl border border-emerald-500/25 shadow-2xl shadow-emerald-950/40 overflow-hidden">
           
           {/* Lab Toolbar */}
-          <div className="p-4 sm:p-5 bg-slate-900/90 border-b border-purple-500/20 flex flex-wrap items-center justify-between gap-4">
+          <div className="p-4 sm:p-5 bg-slate-900/90 border-b border-emerald-500/20 flex flex-wrap items-center justify-between gap-4">
             
             {/* Mode Selectors */}
             <div className="flex flex-wrap items-center gap-2">
@@ -123,7 +123,7 @@ $$E_p + E_k = \\text{Konstan} \\quad \\rightarrow \\quad mgh_1 + \\frac{1}{2}mv_
                 onClick={() => setActiveMode("edu")}
                 className={`px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center space-x-2 transition-all ${
                   activeMode === "edu"
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-600/30"
+                    ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/30"
                     : "bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700"
                 }`}
               >
@@ -135,7 +135,7 @@ $$E_p + E_k = \\text{Konstan} \\quad \\rightarrow \\quad mgh_1 + \\frac{1}{2}mv_
                 onClick={() => setActiveMode("drill")}
                 className={`px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center space-x-2 transition-all ${
                   activeMode === "drill"
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-600/30"
+                    ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/30"
                     : "bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700"
                 }`}
               >
@@ -147,12 +147,12 @@ $$E_p + E_k = \\text{Konstan} \\quad \\rightarrow \\quad mgh_1 + \\frac{1}{2}mv_
                 onClick={() => setActiveMode("palette")}
                 className={`px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center space-x-2 transition-all ${
                   activeMode === "palette"
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg shadow-purple-600/30"
+                    ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/30"
                     : "bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700"
                 }`}
               >
                 <Palette className="w-3.5 h-3.5" />
-                <span>Cosmic UI Studio</span>
+                <span>Emerald UI Studio</span>
               </button>
             </div>
 
@@ -168,7 +168,7 @@ $$E_p + E_k = \\text{Konstan} \\quad \\rightarrow \\quad mgh_1 + \\frac{1}{2}mv_
             
             {/* Input Prompt Box */}
             <div className="space-y-2">
-              <label className="text-xs font-mono text-purple-300 uppercase tracking-wider block">
+              <label className="text-xs font-mono text-emerald-400 uppercase tracking-wider block">
                 Prompt Masukan:
               </label>
               <div className="flex flex-col sm:flex-row gap-3">
@@ -176,13 +176,13 @@ $$E_p + E_k = \\text{Konstan} \\quad \\rightarrow \\quad mgh_1 + \\frac{1}{2}mv_
                   type="text"
                   value={customPrompt}
                   onChange={(e) => setCustomPrompt(e.target.value)}
-                  className="flex-1 bg-slate-900/80 border border-purple-500/30 rounded-2xl px-4 py-3 text-sm text-white focus:outline-none focus:border-pink-500 transition-colors"
+                  className="flex-1 bg-slate-900/80 border border-emerald-500/30 rounded-2xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-400 transition-colors"
                   placeholder="Masukkan instruksi prompt kustom..."
                 />
                 <button
                   onClick={handleSimulateStream}
                   disabled={isGenerating}
-                  className="px-6 py-3 rounded-2xl bg-gradient-to-r from-purple-600 via-purple-700 to-pink-500 hover:from-purple-500 hover:to-pink-600 text-white font-semibold text-sm flex items-center justify-center space-x-2 shadow-lg shadow-purple-600/30 transition-all disabled:opacity-50"
+                  className="px-6 py-3 rounded-2xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-semibold text-sm flex items-center justify-center space-x-2 shadow-lg shadow-emerald-600/30 transition-all disabled:opacity-50"
                 >
                   {isGenerating ? (
                     <>
@@ -202,7 +202,7 @@ $$E_p + E_k = \\text{Konstan} \\quad \\rightarrow \\quad mgh_1 + \\frac{1}{2}mv_
             {/* Output Display Terminal */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <label className="text-xs font-mono text-cyan-300 uppercase tracking-wider flex items-center space-x-1.5">
+                <label className="text-xs font-mono text-teal-300 uppercase tracking-wider flex items-center space-x-1.5">
                   <Terminal className="w-3.5 h-3.5" />
                   <span>Hasil Inferensi AI (Live Stream):</span>
                 </label>
@@ -215,11 +215,11 @@ $$E_p + E_k = \\text{Konstan} \\quad \\rightarrow \\quad mgh_1 + \\frac{1}{2}mv_
                 </button>
               </div>
 
-              <div className="p-5 sm:p-6 rounded-2xl bg-slate-950/80 border border-purple-500/20 font-mono text-xs sm:text-sm text-slate-200 leading-relaxed overflow-x-auto min-h-[160px] whitespace-pre-line shadow-inner">
+              <div className="p-5 sm:p-6 rounded-2xl bg-slate-950/90 border border-emerald-500/20 font-mono text-xs sm:text-sm text-slate-200 leading-relaxed overflow-x-auto min-h-[160px] whitespace-pre-line shadow-inner">
                 {outputResult || (
                   <span className="text-slate-500 animate-pulse">Menunggu eksekusi prompt...</span>
                 )}
-                {isGenerating && <span className="inline-block w-2 h-4 bg-purple-400 animate-pulse ml-1"></span>}
+                {isGenerating && <span className="inline-block w-2 h-4 bg-emerald-400 animate-pulse ml-1"></span>}
               </div>
             </div>
 

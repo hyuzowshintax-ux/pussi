@@ -36,14 +36,14 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-purple-400 dark:text-purple-400 light:text-purple-600">
-            // Tech Stack & Alat
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 dark:text-emerald-400 light:text-emerald-600">
+            // Tech Stack & Keahlian
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white dark:text-white light:text-slate-900 tracking-tight">
             Keahlian & Teknologi Unggulan
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-purple-500 via-purple-600 to-pink-500 mx-auto rounded-full" />
-          <p className="text-slate-400 dark:text-slate-400 light:text-slate-600 text-sm sm:text-base">
+          <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600 mx-auto rounded-full" />
+          <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm sm:text-base">
             Penguasaan teknologi pengembangan web dan eksplorasi kecerdasan buatan (AI) yang terus saya pelajari dan kembangkan.
           </p>
         </div>
@@ -52,11 +52,11 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
           {skills.map((group, idx) => (
             <div
               key={idx}
-              className="glass-card rounded-3xl p-6 sm:p-8 transform transition duration-300 hover:shadow-2xl hover:border-purple-500/40 flex flex-col justify-between"
+              className="glass-card rounded-3xl p-6 sm:p-8 transform transition duration-300 hover:shadow-2xl hover:border-emerald-500/40 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center space-x-3 mb-6 pb-4 border-b border-slate-700/40 dark:border-slate-700/40 light:border-slate-200">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-purple-700 to-pink-500 flex items-center justify-center text-white shadow-md shadow-purple-600/30">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 via-emerald-500 to-teal-400 flex items-center justify-center text-white shadow-md shadow-emerald-600/30">
                     {getIcon(group.iconName)}
                   </div>
                   <div>
@@ -64,7 +64,7 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
                       {group.title}
                     </h3>
                     {group.category === "AI" && (
-                      <span className="text-[11px] font-mono font-semibold text-pink-400">
+                      <span className="text-[11px] font-mono font-semibold text-emerald-400">
                         *Tahap Pembelajaran & Eksplorasi Dasar
                       </span>
                     )}
@@ -75,7 +75,7 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
                   {group.items.map((skill, sIdx) => (
                     <div
                       key={sIdx}
-                      className="p-3.5 rounded-2xl bg-slate-800/50 dark:bg-slate-800/50 light:bg-slate-100/80 border border-slate-700/40 dark:border-slate-700/40 light:border-slate-200 hover:border-purple-500/50 transition-all"
+                      className="p-3.5 rounded-2xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100/80 border border-emerald-500/20 dark:border-emerald-500/20 light:border-slate-200 hover:border-emerald-500/50 transition-all"
                     >
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center space-x-2.5">
@@ -93,15 +93,15 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
                             {skill.name}
                           </span>
                         </div>
-                        <span className="text-xs font-mono text-purple-400 dark:text-purple-400 light:text-purple-600 font-semibold">
+                        <span className="text-xs font-mono text-emerald-400 dark:text-emerald-400 light:text-emerald-600 font-semibold">
                           {skill.level}%
                         </span>
                       </div>
                       
                       {/* Bar */}
-                      <div className="w-full h-1.5 bg-slate-700 dark:bg-slate-700 light:bg-slate-300 rounded-full overflow-hidden">
+                      <div className="w-full h-1.5 bg-slate-800 dark:bg-slate-800 light:bg-slate-300 rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-gradient-to-r from-purple-600 via-purple-700 to-pink-500 rounded-full transition-all duration-700"
+                          className="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-400 rounded-full transition-all duration-700"
                           style={{ width: `${skill.level}%` }}
                         />
                       </div>
