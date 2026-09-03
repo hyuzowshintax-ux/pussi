@@ -266,20 +266,54 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                       <span>{cat.title}</span>
                     </h4>
                     <div className="space-y-3">
-                      {cat.items.map((skill, sIdx) => (
-                        <div key={sIdx} className="space-y-1">
-                          <div className="flex justify-between text-xs font-semibold">
-                            <span className="text-slate-300">{skill.name}</span>
-                            <span className="text-emerald-400 font-mono">{skill.level}%</span>
-                          </div>
-                          <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
-                            <div
-                              className="h-full rounded-full bg-gradient-to-r from-emerald-600 to-teal-400 transition-all duration-700 ease-out"
-                              style={{ width: `${skill.level}%` }}
-                            />
-                          </div>
-                        </div>
-                      ))}
+                      {cat.items.map((skill, sIdx) => {
+                        const skillMap: Record<string, string> = {
+                          "Next.js": "https://nextjs.org",
+                          "React": "https://react.dev",
+                          "TypeScript": "https://www.typescriptlang.org",
+                          "Tailwind CSS": "https://tailwindcss.com",
+                          "HTML5 / CSS3": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+                          "JavaScript": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+                          "Prompt Engineering & LLM": "https://platform.openai.com/docs/guides/prompt-engineering",
+                          "Generative AI & Image Gen": "https://ai.google.dev",
+                          "Machine Learning Dasar": "https://scikit-learn.org",
+                          "Computer Vision & OCR": "https://opencv.org",
+                          "Speech & Whisper AI": "https://openai.com/research/whisper",
+                          "Deep Learning & Neural Net": "https://pytorch.org",
+                          "Node.js": "https://nodejs.org",
+                          "PostgreSQL": "https://www.postgresql.org",
+                          "RESTful API": "https://restfulapi.net",
+                          "Git & GitHub": "https://github.com",
+                          "VS Code": "https://code.visualstudio.com",
+                          "Figma": "https://www.figma.com",
+                        };
+                        const url = skillMap[skill.name] || `https://www.google.com/search?q=${encodeURIComponent(skill.name + ' docs')}`;
+
+                        return (
+                          <a
+                            key={sIdx}
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block space-y-1 p-2 rounded-xl hover:bg-slate-800/80 transition-all group/sk"
+                            title={`Buka info ${skill.name} di tab baru`}
+                          >
+                            <div className="flex justify-between text-xs font-semibold">
+                              <span className="text-slate-300 group-hover/sk:text-emerald-300 transition-colors flex items-center space-x-1">
+                                <span>{skill.name}</span>
+                                <ExternalLink className="w-3 h-3 opacity-60" />
+                              </span>
+                              <span className="text-emerald-400 font-mono">{skill.level}%</span>
+                            </div>
+                            <div className="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                              <div
+                                className="h-full rounded-full bg-gradient-to-r from-emerald-600 to-teal-400 transition-all duration-700 ease-out"
+                                style={{ width: `${skill.level}%` }}
+                              />
+                            </div>
+                          </a>
+                        );
+                      })}
                     </div>
                   </div>
                 ))}
@@ -405,54 +439,72 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                 </h4>
 
                 <div className="space-y-3">
-                  {data.timeline.experience.map((item, idx) => (
-                    <div
-                      key={idx}
-                      className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-emerald-500/20 hover:border-emerald-400/40 transition-all shadow-lg flex flex-col sm:flex-row items-start gap-4 group"
-                    >
-                      {item.logoUrl && (
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-slate-900/90 p-1 border border-emerald-500/30 shadow-md group-hover:scale-105 transition-transform">
-                          <img
-                            src={item.logoUrl}
-                            alt={item.role}
-                            className="w-full h-full object-contain filter drop-shadow"
-                            loading="lazy"
-                          />
-                        </div>
-                      )}
-                      <div className="flex-1 min-w-0 space-y-1.5">
-                        <div className="flex flex-wrap items-center justify-between gap-2">
-                          <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
-                            {item.period}
-                          </span>
-                          <span className="text-xs text-slate-400 font-medium">
-                            {item.location}
-                          </span>
-                        </div>
-                        <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">
-                          {item.role}
-                        </h4>
-                        <p className="text-xs sm:text-sm text-emerald-300 font-medium">
-                          {item.company}
-                        </p>
-                        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                          {item.description}
-                        </p>
-                        {item.skills && (
-                          <div className="flex flex-wrap gap-1.5 pt-1">
-                            {item.skills.map((s, sIdx) => (
-                              <span
-                                key={sIdx}
-                                className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700/50"
-                              >
-                                {s}
-                              </span>
-                            ))}
+                  {data.timeline.experience.map((item, idx) => {
+                    let itemUrl = "#";
+                    if (item.role.includes("Duta Intelegensia") || item.company.includes("Kandangan")) {
+                      itemUrl = "https://sman1kandangan.sch.id";
+                    } else if (item.role.includes("Pramuka")) {
+                      itemUrl = "https://pramuka.or.id";
+                    } else if (item.role.includes("Paskibra") || item.role.includes("LBB")) {
+                      itemUrl = "https://kedirikab.go.id";
+                    } else {
+                      itemUrl = `https://www.google.com/search?q=${encodeURIComponent(item.role + " " + item.company)}`;
+                    }
+
+                    return (
+                      <a
+                        key={idx}
+                        href={itemUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-emerald-500/20 hover:border-emerald-400 hover:bg-slate-900/80 transition-all shadow-lg flex flex-col sm:flex-row items-start gap-4 group/exp block"
+                        title={`Buka info ${item.role} di tab baru`}
+                      >
+                        {item.logoUrl && (
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-slate-900/90 p-1 border border-emerald-500/30 shadow-md group-hover/exp:scale-105 transition-transform">
+                            <img
+                              src={item.logoUrl}
+                              alt={item.role}
+                              className="w-full h-full object-contain filter drop-shadow"
+                              loading="lazy"
+                            />
                           </div>
                         )}
-                      </div>
-                    </div>
-                  ))}
+                        <div className="flex-1 min-w-0 space-y-1.5">
+                          <div className="flex flex-wrap items-center justify-between gap-2">
+                            <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                              {item.period}
+                            </span>
+                            <span className="text-xs text-emerald-400 flex items-center space-x-1 font-mono">
+                              <span>Tab Baru</span>
+                              <ExternalLink className="w-3.5 h-3.5" />
+                            </span>
+                          </div>
+                          <h4 className="text-base sm:text-lg font-bold text-white group-hover/exp:text-emerald-300 transition-colors">
+                            {item.role}
+                          </h4>
+                          <p className="text-xs sm:text-sm text-emerald-300 font-medium">
+                            {item.company}
+                          </p>
+                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                            {item.description}
+                          </p>
+                          {item.skills && (
+                            <div className="flex flex-wrap gap-1.5 pt-1">
+                              {item.skills.map((s, sIdx) => (
+                                <span
+                                  key={sIdx}
+                                  className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700/50"
+                                >
+                                  {s}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -464,31 +516,44 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                     <span>// Riwayat Pendidikan</span>
                   </h4>
                   <div className="space-y-3">
-                    {data.timeline.education.map((edu, idx) => (
-                      <div key={idx} className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-teal-500/20 hover:border-teal-400/40 transition-all shadow-lg flex flex-col sm:flex-row items-start gap-4 group">
-                        {edu.logoUrl && (
-                          <div className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-slate-900/90 p-1 border border-teal-500/30 shadow-md group-hover:scale-105 transition-transform">
-                            <img
-                              src={edu.logoUrl}
-                              alt={edu.institution}
-                              className="w-full h-full object-contain filter drop-shadow"
-                              loading="lazy"
-                            />
+                    {data.timeline.education.map((edu, idx) => {
+                      const eduUrl = edu.institution.includes("Kandangan") ? "https://sman1kandangan.sch.id" : `https://www.google.com/search?q=${encodeURIComponent(edu.institution)}`;
+                      return (
+                        <a
+                          key={idx}
+                          href={eduUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-teal-500/20 hover:border-teal-400 hover:bg-slate-900/80 transition-all shadow-lg flex flex-col sm:flex-row items-start gap-4 group/edu block"
+                          title={`Buka info ${edu.institution} di tab baru`}
+                        >
+                          {edu.logoUrl && (
+                            <div className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-slate-900/90 p-1 border border-teal-500/30 shadow-md group-hover/edu:scale-105 transition-transform">
+                              <img
+                                src={edu.logoUrl}
+                                alt={edu.institution}
+                                className="w-full h-full object-contain filter drop-shadow"
+                                loading="lazy"
+                              />
+                            </div>
+                          )}
+                          <div className="flex-1 min-w-0 space-y-1.5">
+                            <div className="flex items-center justify-between">
+                              <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-teal-500/15 text-teal-400 border border-teal-500/30">
+                                {edu.period}
+                              </span>
+                              <span className="text-xs text-teal-400 flex items-center space-x-1 font-mono">
+                                <span>Tab Baru</span>
+                                <ExternalLink className="w-3.5 h-3.5" />
+                              </span>
+                            </div>
+                            <h4 className="text-base sm:text-lg font-bold text-white group-hover/edu:text-teal-300 transition-colors">{edu.degree}</h4>
+                            <p className="text-xs sm:text-sm text-teal-300 font-medium">{edu.institution}</p>
+                            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{edu.description}</p>
                           </div>
-                        )}
-                        <div className="flex-1 min-w-0 space-y-1.5">
-                          <div className="flex items-center justify-between">
-                            <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold bg-teal-500/15 text-teal-400 border border-teal-500/30">
-                              {edu.period}
-                            </span>
-                            <span className="text-xs text-slate-400">{edu.location}</span>
-                          </div>
-                          <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-teal-300 transition-colors">{edu.degree}</h4>
-                          <p className="text-xs sm:text-sm text-teal-300 font-medium">{edu.institution}</p>
-                          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{edu.description}</p>
-                        </div>
-                      </div>
-                    ))}
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
               )}
@@ -505,13 +570,16 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                 {/* Email Card */}
                 <a
                   href={`mailto:${data.contact.email}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-4 rounded-2xl bg-slate-900/50 border border-emerald-500/20 hover:border-emerald-500/50 transition-all flex items-center space-x-3 group shadow-lg"
+                  title="Kirim email di tab baru"
                 >
                   <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center group-hover:scale-105 transition-transform border border-emerald-500/30">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs text-slate-400 block font-mono">Email Resmi</span>
+                    <span className="text-xs text-slate-400 block font-mono">Email Resmi (Tab Baru)</span>
                     <span className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
                       {data.contact.email}
                     </span>

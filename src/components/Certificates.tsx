@@ -82,10 +82,17 @@ export const Certificates: React.FC<CertificatesProps> = ({ certificates = [] })
               {/* Action Preview */}
               <div className="pt-3 border-t border-emerald-500/15 flex items-center justify-between text-xs text-emerald-400 group-hover:text-teal-300 transition-colors">
                 <span className="font-mono text-[11px]">ID: {cert.credentialId || "VERIFIED"}</span>
-                <span className="font-semibold flex items-center space-x-1">
-                  <span>Lihat Piagam</span>
+                <a
+                  href={cert.badgeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="font-semibold flex items-center space-x-1 px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-300 transition-colors"
+                  title="Buka piagam resmi di tab baru"
+                >
+                  <span>Buka Tab Baru</span>
                   <ExternalLink className="w-3.5 h-3.5" />
-                </span>
+                </a>
               </div>
             </div>
           ))}
@@ -130,10 +137,15 @@ export const Certificates: React.FC<CertificatesProps> = ({ certificates = [] })
 
               <div className="flex items-center justify-between text-xs text-slate-400 font-mono pt-2">
                 <span>Credential ID: <strong className="text-white">{selectedCert.credentialId || "VALIDATED"}</strong></span>
-                <span className="text-emerald-400 font-semibold flex items-center space-x-1">
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>Sah & Terakreditasi</span>
-                </span>
+                <a
+                  href={selectedCert.badgeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-400 font-semibold flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 transition-colors"
+                >
+                  <span>Buka Dokumen Asli</span>
+                  <ExternalLink className="w-4 h-4" />
+                </a>
               </div>
             </div>
 

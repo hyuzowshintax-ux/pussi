@@ -77,7 +77,7 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
               <div>
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500 font-mono">Email</h4>
                 <p className="text-base font-bold text-white dark:text-white light:text-slate-900 mt-0.5">{contact.email}</p>
-                <a href={`mailto:${contact.email}`} className="text-xs text-emerald-400 dark:text-emerald-400 light:text-emerald-600 hover:underline mt-1 inline-block">
+                <a href={`mailto:${contact.email}`} target="_blank" rel="noopener noreferrer" className="text-xs text-emerald-400 dark:text-emerald-400 light:text-emerald-600 hover:underline mt-1 inline-block">
                   Kirim email langsung &rarr;
                 </a>
               </div>
@@ -92,12 +92,12 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500 font-mono">WhatsApp / Telepon</h4>
                 <p className="text-base font-bold text-white dark:text-white light:text-slate-900 mt-0.5">{contact.phone}</p>
                 <a
-                  href={`https://wa.me/${contact.phone.replace(/[^0-9]/g, "").replace(/^0/, "62")}`}
+                  href={`https://wa.me/${contact.phone.replace(/[^0-9]/g, "").replace(/^0/, "62")}?text=Halo%20Samuel,%20saya%20tertarik%20dengan%20portofolio%20Anda!`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs text-emerald-400 hover:underline mt-1 inline-block"
                 >
-                  Chat di WhatsApp &rarr;
+                  Chat di WhatsApp (Tab Baru) &rarr;
                 </a>
               </div>
             </div>
@@ -110,7 +110,14 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
               <div>
                 <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500 font-mono">Lokasi & Domisili</h4>
                 <p className="text-base font-bold text-white dark:text-white light:text-slate-900 mt-0.5">{contact.location}</p>
-                <p className="text-xs text-slate-400 dark:text-slate-400 light:text-slate-500 mt-1">{contact.workingHours}</p>
+                <a
+                  href="https://maps.google.com/?q=Kediri,+Jawa+Timur,+Indonesia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-emerald-400 hover:underline mt-1 inline-block"
+                >
+                  Buka Peta Google Maps (Tab Baru) &rarr;
+                </a>
               </div>
             </div>
 

@@ -30,6 +30,30 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
     }
   };
 
+  const getSkillDocUrl = (name: string) => {
+    const map: Record<string, string> = {
+      "Next.js": "https://nextjs.org",
+      "React": "https://react.dev",
+      "TypeScript": "https://www.typescriptlang.org",
+      "Tailwind CSS": "https://tailwindcss.com",
+      "HTML5 / CSS3": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      "JavaScript": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "Prompt Engineering & LLM": "https://platform.openai.com/docs/guides/prompt-engineering",
+      "Generative AI & Image Gen": "https://ai.google.dev",
+      "Machine Learning Dasar": "https://scikit-learn.org",
+      "Computer Vision & OCR": "https://opencv.org",
+      "Speech & Whisper AI": "https://openai.com/research/whisper",
+      "Deep Learning & Neural Net": "https://pytorch.org",
+      "Node.js": "https://nodejs.org",
+      "PostgreSQL": "https://www.postgresql.org",
+      "RESTful API": "https://restfulapi.net",
+      "Git & GitHub": "https://github.com",
+      "VS Code": "https://code.visualstudio.com",
+      "Figma": "https://www.figma.com",
+    };
+    return map[name] || `https://www.google.com/search?q=${encodeURIComponent(name + ' official documentation')}`;
+  };
+
   return (
     <section id="skills" className="py-24 bg-slate-900/30 dark:bg-slate-900/30 light:bg-slate-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,14 +61,14 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 dark:text-emerald-400 light:text-emerald-600">
-            // Tech Stack & Keahlian
+            // Tech Stack & Keahlian (Klik untuk Buka Tab Baru)
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white dark:text-white light:text-slate-900 tracking-tight">
             Keahlian & Teknologi Unggulan
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600 mx-auto rounded-full" />
           <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm sm:text-base">
-            Penguasaan teknologi pengembangan web dan eksplorasi kecerdasan buatan (AI) yang terus saya pelajari dan kembangkan.
+            Penguasaan teknologi pengembangan web dan eksplorasi kecerdasan buatan (AI). Klik bidang keahlian mana pun untuk membuka dokumentasi resmi di tab baru.
           </p>
         </div>
 
@@ -73,9 +97,13 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {group.items.map((skill, sIdx) => (
-                    <div
+                    <a
                       key={sIdx}
-                      className="p-3.5 rounded-2xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100/80 border border-emerald-500/20 dark:border-emerald-500/20 light:border-slate-200 hover:border-emerald-500/50 transition-all"
+                      href={getSkillDocUrl(skill.name)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3.5 rounded-2xl bg-slate-900/60 dark:bg-slate-900/60 light:bg-slate-100/80 border border-emerald-500/20 dark:border-emerald-500/20 light:border-slate-200 hover:border-emerald-400 hover:bg-slate-900/90 transition-all group/item block"
+                      title={`Buka dokumentasi resmi ${skill.name} di tab baru`}
                     >
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center space-x-2.5">
@@ -83,13 +111,13 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
                             <img
                               src={skill.iconUrl}
                               alt={skill.name}
-                              className="w-5 h-5 object-contain"
+                              className="w-5 h-5 object-contain group-hover/item:scale-110 transition-transform"
                               onError={(e) => {
                                 (e.target as HTMLElement).style.display = "none";
                               }}
                             />
                           )}
-                          <span className="text-sm font-semibold text-slate-200 dark:text-slate-200 light:text-slate-800">
+                          <span className="text-sm font-semibold text-slate-200 dark:text-slate-200 light:text-slate-800 group-hover/item:text-emerald-300 transition-colors">
                             {skill.name}
                           </span>
                         </div>
@@ -105,7 +133,7 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
                           style={{ width: `${skill.level}%` }}
                         />
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </div>

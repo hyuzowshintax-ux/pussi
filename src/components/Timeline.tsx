@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Briefcase, GraduationCap } from "lucide-react";
+import { Briefcase, GraduationCap, ExternalLink } from "lucide-react";
 import { TimelineItem } from "@/types/portfolio";
 
 interface TimelineProps {
@@ -15,6 +15,19 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
 
   if (!hasExp && !hasEdu) return null;
 
+  const getTimelineItemUrl = (roleOrDegree: string, companyOrInstitution: string) => {
+    if (roleOrDegree.includes("Duta Intelegensia") || companyOrInstitution.includes("Kandangan")) {
+      return "https://sman1kandangan.sch.id";
+    }
+    if (roleOrDegree.includes("Pramuka")) {
+      return "https://pramuka.or.id";
+    }
+    if (roleOrDegree.includes("Paskibra") || roleOrDegree.includes("LBB")) {
+      return "https://kedirikab.go.id";
+    }
+    return `https://www.google.com/search?q=${encodeURIComponent(roleOrDegree + " " + companyOrInstitution)}`;
+  };
+
   return (
     <section id="experience" className="py-24 bg-slate-950/20 dark:bg-slate-950/20 light:bg-slate-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,7 +35,7 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 dark:text-emerald-400 light:text-emerald-600">
-            // Rekam Jejak Resmi
+            // Rekam Jejak Resmi (Klik untuk Buka Tab Baru)
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white dark:text-white light:text-slate-900 tracking-tight">
             Pengalaman, Kepemimpinan & Pendidikan
@@ -48,11 +61,17 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
                 {experience.map((item, idx) => (
                   <div key={idx} className="relative pl-8 pb-6 border-l-2 border-emerald-500/30 last:border-l-0 last:pb-0 group">
                     <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 border-4 border-slate-900 dark:border-slate-900 light:border-white group-hover:scale-125 transition-transform shadow" />
-                    <div className="glass-card rounded-2xl p-5 ml-2 hover:border-emerald-500/50 transition-all flex flex-col sm:flex-row items-start gap-4">
+                    <a
+                      href={getTimelineItemUrl(item.role, item.company)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="glass-card rounded-2xl p-5 ml-2 hover:border-emerald-400/60 hover:bg-slate-900/80 transition-all flex flex-col sm:flex-row items-start gap-4 block group/card"
+                      title={`Buka informasi resmi ${item.role} di tab baru`}
+                    >
                       
                       {/* Official Badge Emblem Image */}
                       {item.logoUrl && (
-                        <div className="w-16 h-16 sm:w-18 sm:h-18 flex-shrink-0 rounded-2xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-white p-1.5 border border-emerald-500/30 shadow-lg shadow-emerald-500/10 group-hover:scale-105 group-hover:border-emerald-400/60 transition-all duration-300">
+                        <div className="w-16 h-16 sm:w-18 sm:h-18 flex-shrink-0 rounded-2xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-white p-1.5 border border-emerald-500/30 shadow-lg shadow-emerald-500/10 group-hover/card:scale-105 group-hover/card:border-emerald-400/60 transition-all duration-300">
                           <img
                             src={item.logoUrl}
                             alt={item.role}
@@ -63,10 +82,16 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
                       )}
 
                       <div className="flex-1 min-w-0">
-                        <span className="inline-block px-2.5 py-0.5 text-xs font-semibold font-mono rounded-md bg-emerald-500/10 text-emerald-300 dark:text-emerald-300 light:text-emerald-700 mb-2 border border-emerald-500/25">
-                          {item.period}
-                        </span>
-                        <h4 className="text-lg font-bold text-white dark:text-white light:text-slate-900 group-hover:text-emerald-300 transition-colors">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="inline-block px-2.5 py-0.5 text-xs font-semibold font-mono rounded-md bg-emerald-500/10 text-emerald-300 dark:text-emerald-300 light:text-emerald-700 border border-emerald-500/25">
+                            {item.period}
+                          </span>
+                          <span className="text-xs text-emerald-400 flex items-center space-x-1 font-mono group-hover/card:translate-x-0.5 transition-transform">
+                            <span>Tab Baru</span>
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </span>
+                        </div>
+                        <h4 className="text-lg font-bold text-white dark:text-white light:text-slate-900 group-hover/card:text-emerald-300 transition-colors">
                           {item.role}
                         </h4>
                         <p className="text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 mb-2">
@@ -89,7 +114,7 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
                         )}
                       </div>
 
-                    </div>
+                    </a>
                   </div>
                 ))}
               </div>
@@ -112,11 +137,17 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
                 {education.map((item, idx) => (
                   <div key={idx} className="relative pl-8 pb-6 border-l-2 border-teal-500/30 last:border-l-0 last:pb-0 group">
                     <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-teal-400 border-4 border-slate-900 dark:border-slate-900 light:border-white group-hover:scale-125 transition-transform" />
-                    <div className="glass-card rounded-2xl p-5 ml-2 hover:border-teal-500/50 transition-all flex flex-col sm:flex-row items-start gap-4">
+                    <a
+                      href={getTimelineItemUrl(item.degree, item.institution)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="glass-card rounded-2xl p-5 ml-2 hover:border-teal-400/60 hover:bg-slate-900/80 transition-all flex flex-col sm:flex-row items-start gap-4 block group/card"
+                      title={`Buka informasi resmi ${item.institution} di tab baru`}
+                    >
                       
                       {/* Official Education Badge Emblem Image */}
                       {item.logoUrl && (
-                        <div className="w-16 h-16 sm:w-18 sm:h-18 flex-shrink-0 rounded-2xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-white p-1.5 border border-teal-500/30 shadow-lg shadow-teal-500/10 group-hover:scale-105 group-hover:border-teal-400/50 transition-all duration-300">
+                        <div className="w-16 h-16 sm:w-18 sm:h-18 flex-shrink-0 rounded-2xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-white p-1.5 border border-teal-500/30 shadow-lg shadow-teal-500/10 group-hover/card:scale-105 group-hover/card:border-teal-400/50 transition-all duration-300">
                           <img
                             src={item.logoUrl}
                             alt={item.institution}
@@ -127,10 +158,16 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
                       )}
 
                       <div className="flex-1 min-w-0">
-                        <span className="inline-block px-2.5 py-0.5 text-xs font-semibold font-mono rounded-md bg-teal-500/10 text-teal-300 dark:text-teal-300 light:text-teal-700 mb-2 border border-teal-500/20">
-                          {item.period}
-                        </span>
-                        <h4 className="text-lg font-bold text-white dark:text-white light:text-slate-900 group-hover:text-teal-300 transition-colors">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="inline-block px-2.5 py-0.5 text-xs font-semibold font-mono rounded-md bg-teal-500/10 text-teal-300 dark:text-teal-300 light:text-teal-700 border border-teal-500/20">
+                            {item.period}
+                          </span>
+                          <span className="text-xs text-teal-400 flex items-center space-x-1 font-mono group-hover/card:translate-x-0.5 transition-transform">
+                            <span>Tab Baru</span>
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </span>
+                        </div>
+                        <h4 className="text-lg font-bold text-white dark:text-white light:text-slate-900 group-hover/card:text-teal-300 transition-colors">
                           {item.degree}
                         </h4>
                         <p className="text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 mb-2">
@@ -141,7 +178,7 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
                         </p>
                       </div>
 
-                    </div>
+                    </a>
                   </div>
                 ))}
               </div>

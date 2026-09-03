@@ -76,8 +76,11 @@ export const Footer: React.FC<FooterProps> = ({ profile }) => {
             </a>
             <a
               href={`mailto:${profile.email}`}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-9 h-9 rounded-full flex items-center justify-center bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-emerald-600 transition-all border border-emerald-500/20"
               aria-label="Email"
+              title="Kirim email di tab baru"
             >
               <Mail className="w-4 h-4" />
             </a>
