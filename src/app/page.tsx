@@ -26,6 +26,7 @@ import { LkbbDrillSimulator } from "@/components/LkbbDrillSimulator";
 import { SkillRadarMatrix } from "@/components/SkillRadarMatrix";
 import { SecretTerminalGame } from "@/components/SecretTerminalGame";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
+import { ZodiacCelestialCompendium } from "@/components/ZodiacCelestialCompendium";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
@@ -77,6 +78,9 @@ export default function Home() {
     <div className="relative min-h-screen overflow-x-hidden">
       {/* Interactive Living Atmosphere Canvas (Stardust, Constellations & Shooting Stars) */}
       <DynamicAtmosphereCanvas darkMode={darkMode} />
+
+      {/* Interactive Celestial Zodiac Constellations & Astro-Philosophy Compendium */}
+      <ZodiacCelestialCompendium />
 
       {/* Living Breathing Aurora Mesh Ribbons */}
       <div className="aurora-mesh-container">

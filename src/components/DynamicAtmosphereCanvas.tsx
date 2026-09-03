@@ -178,7 +178,24 @@ export const DynamicAtmosphereCanvas: React.FC<{ darkMode?: boolean }> = ({ dark
         }
       }
 
-      // 2. Draw Particles & Constellation Connections
+      // 2. Draw Ethereal Floating Zodiac Glyphs in the Deep Background
+      const zodiacGlyphs = ["♈", "♉", "♊", "♋", "♌", "♍", "♎", "♏", "♐", "♑", "♒", "♓"];
+      ctx.font = "16px 'Courier New', monospace";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+
+      for (let i = 0; i < Math.min(particles.length, 12); i++) {
+        const p = particles[i];
+        const glyph = zodiacGlyphs[i % zodiacGlyphs.length];
+        const glyphAlpha = Math.max(0.08, p.alpha * 0.28);
+        ctx.fillStyle = `rgba(52, 211, 153, ${glyphAlpha})`;
+        ctx.shadowColor = "#38bdf8";
+        ctx.shadowBlur = 8;
+        ctx.fillText(glyph, p.x + 10, p.y - 12);
+        ctx.shadowBlur = 0;
+      }
+
+      // 3. Draw Particles & Constellation Connections
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
 
