@@ -148,19 +148,19 @@ export const AiChatbot: React.FC<AiChatbotProps> = ({ data }) => {
   return (
     <>
       {/* Floating Launcher Button */}
-      <div className="fixed bottom-6 right-6 z-40">
+      <div className="fixed bottom-20 sm:bottom-6 right-3.5 sm:right-6 z-40">
         {!isOpen && (
           <button
             onClick={() => setIsOpen(true)}
-            className="group relative flex items-center space-x-3 px-4 py-3.5 rounded-full bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 text-white shadow-2xl shadow-emerald-600/40 hover:shadow-emerald-500/60 hover:scale-105 transition-all duration-300 border border-emerald-400/30 animate-opening-pop"
+            className="group relative flex items-center space-x-2.5 sm:space-x-3 px-3.5 sm:px-4 py-2.5 sm:py-3.5 rounded-full bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 text-white shadow-2xl shadow-emerald-600/40 hover:shadow-emerald-500/60 hover:scale-105 active:scale-95 transition-all duration-300 border border-emerald-400/30 animate-opening-pop"
             aria-label="Buka AI Assistant"
           >
             {/* Pulsing indicator */}
-            <span className="relative flex h-3.5 w-3.5">
+            <span className="relative flex h-3 w-3 sm:h-3.5 sm:w-3.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-300 border-2 border-slate-900"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 sm:h-3.5 sm:w-3.5 bg-emerald-300 border-2 border-slate-900"></span>
             </span>
-            <Bot className="w-5 h-5 text-emerald-100 group-hover:rotate-12 transition-transform" />
+            <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-100 group-hover:rotate-12 transition-transform" />
             <span className="text-xs sm:text-sm font-bold tracking-wide">
               Tanya Samuel AI
             </span>
@@ -170,7 +170,7 @@ export const AiChatbot: React.FC<AiChatbotProps> = ({ data }) => {
 
       {/* Chat Drawer Box */}
       {isOpen && (
-        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[400px] h-[540px] max-h-[85vh] glass-card rounded-3xl border border-emerald-500/30 shadow-2xl shadow-emerald-950/40 flex flex-col overflow-hidden animate-opening-aperture">
+        <div className="fixed bottom-3 sm:bottom-6 right-3 sm:right-6 z-50 w-[calc(100vw-1.5rem)] sm:w-[400px] h-[520px] max-h-[84vh] glass-card rounded-3xl border border-emerald-500/30 shadow-2xl shadow-emerald-950/40 flex flex-col overflow-hidden animate-opening-aperture">
           
           {/* Header */}
           <div className="p-4 bg-slate-900/90 border-b border-emerald-500/20 flex items-center justify-between backdrop-blur-md">

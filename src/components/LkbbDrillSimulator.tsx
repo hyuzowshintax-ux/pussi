@@ -206,50 +206,50 @@ export const LkbbDrillSimulator: React.FC = () => {
           </div>
 
           {/* Drill Formations Selector Bar */}
-          <div className="p-4 sm:p-6 bg-slate-900/90 border-t border-emerald-500/20 flex flex-wrap items-center justify-between gap-3">
-            <div className="flex flex-wrap gap-2">
+          <div className="p-3.5 sm:p-6 bg-slate-900/90 border-t border-emerald-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 w-full sm:w-auto">
               <button
                 onClick={() => handleSwitchFormation("standard")}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+                className={`px-3 sm:px-4 py-2 rounded-xl text-[11px] sm:text-xs font-semibold text-center transition-all ${
                   formation === "standard"
                     ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/30"
                     : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                 }`}
               >
-                1. Standar Siap (4x4)
+                1. Standar (4x4)
               </button>
 
               <button
                 onClick={() => handleSwitchFormation("garuda")}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+                className={`px-3 sm:px-4 py-2 rounded-xl text-[11px] sm:text-xs font-semibold text-center transition-all ${
                   formation === "garuda"
                     ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/30"
                     : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                 }`}
               >
-                2. Sayap Garuda CODASKA 🦅
+                2. Sayap Garuda 🦅
               </button>
 
               <button
                 onClick={() => handleSwitchFormation("shield")}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+                className={`px-3 sm:px-4 py-2 rounded-xl text-[11px] sm:text-xs font-semibold text-center transition-all ${
                   formation === "shield"
                     ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/30"
                     : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                 }`}
               >
-                3. Cakra Perisai Pleton 🛡️
+                3. Cakra Perisai 🛡️
               </button>
 
               <button
                 onClick={() => handleSwitchFormation("varrow")}
-                className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+                className={`px-3 sm:px-4 py-2 rounded-xl text-[11px] sm:text-xs font-semibold text-center transition-all ${
                   formation === "varrow"
                     ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/30"
                     : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                 }`}
               >
-                4. V-Formation Arrow ⚡
+                4. V-Arrow ⚡
               </button>
             </div>
 
@@ -258,10 +258,10 @@ export const LkbbDrillSimulator: React.FC = () => {
                 setStepCount(0);
                 setFormation("standard");
               }}
-              className="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white text-xs font-mono flex items-center space-x-1.5 transition-colors"
+              className="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white text-xs font-mono flex items-center justify-center space-x-1.5 transition-colors self-end sm:self-auto w-full sm:w-auto"
             >
               <RotateCcw className="w-3.5 h-3.5" />
-              <span>Reset</span>
+              <span>Reset Posisi</span>
             </button>
           </div>
 

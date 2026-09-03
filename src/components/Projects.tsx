@@ -128,17 +128,46 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [goToNextSlide, goToPrevSlide]);
 
+  // Touch Swipe Handling for Mobile Devices
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const minSwipeDistance = 40;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > minSwipeDistance) {
+      goToNextSlide();
+    } else if (distance < -minSwipeDistance) {
+      goToPrevSlide();
+    }
+  };
+
   return (
-    <section id="projects" className="py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="py-16 sm:py-24 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* =========================================================================
             GAMING ARCADE CONSOLE WRAPPER
             ========================================================================= */}
-        <div className="glass-card rounded-[2.5rem] p-6 sm:p-10 border border-emerald-500/30 shadow-[0_20px_60px_-15px_rgba(16,185,129,0.3)] relative backdrop-blur-2xl">
+        <div 
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          className="glass-card rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 lg:p-10 border border-emerald-500/30 shadow-[0_20px_60px_-15px_rgba(16,185,129,0.3)] relative backdrop-blur-2xl"
+        >
           
           {/* Top Cyber Console Header HUD */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between pb-6 mb-8 border-b border-emerald-500/20 gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-5 mb-6 sm:mb-8 border-b border-emerald-500/20 gap-4">
             
             {/* Title & Player HUD */}
             <div className="flex items-center space-x-3.5">
@@ -272,27 +301,28 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     </div>
 
                     {/* Cyber Gamepad Controls (Prev / Next & Level Status) */}
-                    <div className="flex items-center justify-between p-3 rounded-2xl bg-slate-900/80 border border-emerald-500/20">
+                    <div className="flex items-center justify-between p-2.5 sm:p-3 rounded-2xl bg-slate-900/85 border border-emerald-500/20 gap-2">
                       
                       {/* Prev Button */}
                       <button
                         onClick={goToPrevSlide}
-                        className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 hover:from-emerald-600 hover:to-teal-600 text-white text-xs font-mono font-bold flex items-center space-x-2 border border-emerald-500/30 shadow hover:shadow-emerald-500/30 active:scale-95 transition-all group"
+                        className="px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 hover:from-emerald-600 hover:to-teal-600 text-white text-[11px] sm:text-xs font-mono font-bold flex items-center space-x-1 sm:space-x-2 border border-emerald-500/30 shadow active:scale-95 transition-all group flex-shrink-0"
+                        title="Slide Sebelumnya (Geser Kiri atau Tekan A)"
                       >
-                        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                        <span>PREV STAGE [A]</span>
+                        <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+                        <span>PREV <span className="hidden sm:inline">STAGE [A]</span></span>
                       </button>
 
                       {/* Level Dots Indicator */}
-                      <div className="flex items-center space-x-2">
+                      <div className="flex items-center space-x-1.5 sm:space-x-2 overflow-hidden justify-center flex-1">
                         {filteredProjects.map((_, idx) => (
                           <button
                             key={idx}
                             onClick={() => jumpToSlide(idx)}
                             className={`transition-all rounded-full ${
                               safeSlideIndex === idx
-                                ? "w-8 h-2.5 bg-gradient-to-r from-emerald-400 to-teal-300 shadow-[0_0_12px_#34d399]"
-                                : "w-2.5 h-2.5 bg-slate-700 hover:bg-slate-500"
+                                ? "w-6 sm:w-8 h-2 sm:h-2.5 bg-gradient-to-r from-emerald-400 to-teal-300 shadow-[0_0_12px_#34d399]"
+                                : "w-2 sm:w-2.5 h-2 sm:h-2.5 bg-slate-700 hover:bg-slate-500"
                             }`}
                             aria-label={`Pindah ke slide ${idx + 1}`}
                           />
@@ -302,10 +332,11 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                       {/* Next Button */}
                       <button
                         onClick={goToNextSlide}
-                        className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-slate-950 text-xs font-mono font-black flex items-center space-x-2 shadow-lg shadow-emerald-500/30 active:scale-95 transition-all group"
+                        className="px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-slate-950 text-[11px] sm:text-xs font-mono font-black flex items-center space-x-1 sm:space-x-2 shadow-lg shadow-emerald-500/30 active:scale-95 transition-all group flex-shrink-0"
+                        title="Slide Berikutnya (Geser Kanan atau Tekan D)"
                       >
-                        <span>NEXT STAGE [D]</span>
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        <span>NEXT <span className="hidden sm:inline">STAGE [D]</span></span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                       </button>
 
                     </div>
@@ -313,30 +344,30 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                   </div>
 
                   {/* Right Column: Mission Intel, Features & Action Buttons */}
-                  <div className="lg:col-span-6 space-y-6">
+                  <div className="lg:col-span-6 space-y-5 sm:space-y-6">
                     
                     <div>
                       <div className="flex items-center space-x-2 text-xs font-mono text-emerald-400 font-bold uppercase tracking-widest mb-1.5">
                         <Cpu className="w-4 h-4" />
                         <span>// MISSION BRIEFING DATA</span>
                       </div>
-                      <h3 className="text-2xl sm:text-3xl font-black text-white dark:text-white light:text-slate-900 leading-tight mb-3">
+                      <h3 className="text-xl sm:text-3xl font-black text-white dark:text-white light:text-slate-900 leading-tight mb-2 sm:mb-3">
                         {activeProject.title}
                       </h3>
-                      <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm sm:text-base leading-relaxed">
+                      <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-xs sm:text-base leading-relaxed">
                         {activeProject.fullDescription || activeProject.description}
                       </p>
                     </div>
 
                     {/* Quest Objectives & Key Achievements */}
                     {activeProject.highlights && (
-                      <div className="p-4 rounded-2xl bg-slate-900/60 border border-emerald-500/20 space-y-2.5">
+                      <div className="p-3.5 sm:p-4 rounded-2xl bg-slate-900/60 border border-emerald-500/20 space-y-2">
                         <div className="flex items-center justify-between text-xs font-mono text-slate-300 font-bold">
                           <span className="flex items-center space-x-1.5 text-emerald-300">
                             <ShieldCheck className="w-4 h-4 text-emerald-400" />
                             <span>QUEST OBJECTIVES UNLOCKED:</span>
                           </span>
-                          <span className="text-emerald-400">100% COMPLETE</span>
+                          <span className="text-emerald-400 text-[11px]">100% COMPLETE</span>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
                           {activeProject.highlights.map((item, idx) => (
@@ -351,14 +382,14 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
 
                     {/* Loot & Tech Inventory */}
                     <div className="space-y-2">
-                      <p className="text-xs font-mono text-slate-400 uppercase tracking-wider font-semibold">
+                      <p className="text-[11px] sm:text-xs font-mono text-slate-400 uppercase tracking-wider font-semibold">
                         LOOT & TECH ARTIFACTS:
                       </p>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1.5 sm:gap-2">
                         {activeProject.tags.map((tag, idx) => (
                           <span
                             key={idx}
-                            className="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-900 text-emerald-300 border border-emerald-500/30 shadow-sm"
+                            className="px-2.5 py-0.5 sm:py-1 rounded-lg text-[11px] sm:text-xs font-mono bg-slate-900 text-emerald-300 border border-emerald-500/30 shadow-sm"
                           >
                             +{tag}
                           </span>
@@ -367,7 +398,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                     </div>
 
                     {/* Mission Launch Action Buttons */}
-                    <div className="flex flex-wrap items-center gap-3 pt-2">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                       
                       {/* Launch Live Mission Button */}
                       <a
@@ -375,35 +406,37 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => playCyberSound("start")}
-                        className="flex-1 sm:flex-initial px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 hover:from-emerald-400 hover:to-cyan-300 text-slate-950 font-black text-xs sm:text-sm font-mono tracking-wide shadow-xl shadow-emerald-500/40 hover:shadow-emerald-500/60 flex items-center justify-center space-x-2 active:scale-95 transition-all"
+                        className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 hover:from-emerald-400 hover:to-cyan-300 text-slate-950 font-black text-xs sm:text-sm font-mono tracking-wide shadow-xl shadow-emerald-500/40 hover:shadow-emerald-500/60 flex items-center justify-center space-x-2 active:scale-95 transition-all"
                       >
                         <Play className="w-4 h-4 fill-slate-950" />
                         <span>START MISSION (LIVE DEMO)</span>
                       </a>
 
-                      {/* Modal Intel Briefing Button */}
-                      <button
-                        onClick={() => {
-                          playCyberSound("select");
-                          setSelectedProject(activeProject);
-                        }}
-                        className="px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-white font-mono text-xs sm:text-sm font-bold border border-emerald-500/30 flex items-center space-x-2 active:scale-95 transition-all"
-                      >
-                        <ExternalLink className="w-4 h-4 text-emerald-400" />
-                        <span>INTEL BRIEFING</span>
-                      </button>
+                      <div className="flex items-center gap-3">
+                        {/* Modal Intel Briefing Button */}
+                        <button
+                          onClick={() => {
+                            playCyberSound("select");
+                            setSelectedProject(activeProject);
+                          }}
+                          className="flex-1 sm:flex-initial px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-white font-mono text-xs sm:text-sm font-bold border border-emerald-500/30 flex items-center justify-center space-x-2 active:scale-95 transition-all"
+                        >
+                          <ExternalLink className="w-4 h-4 text-emerald-400" />
+                          <span>INTEL BRIEFING</span>
+                        </button>
 
-                      {/* Source Code Button */}
-                      <a
-                        href={activeProject.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => playCyberSound("select")}
-                        className="p-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-white border border-emerald-500/30 flex items-center justify-center active:scale-95 transition-all"
-                        title="Source Code Repository"
-                      >
-                        <Github className="w-4 h-4" />
-                      </a>
+                        {/* Source Code Button */}
+                        <a
+                          href={activeProject.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => playCyberSound("select")}
+                          className="p-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-white border border-emerald-500/30 flex items-center justify-center active:scale-95 transition-all"
+                          title="Source Code Repository"
+                        >
+                          <Github className="w-4 h-4" />
+                        </a>
+                      </div>
 
                     </div>
 

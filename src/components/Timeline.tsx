@@ -59,19 +59,19 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
               
               <div className="space-y-4">
                 {experience.map((item, idx) => (
-                  <div key={idx} className="relative pl-8 pb-6 border-l-2 border-emerald-500/30 last:border-l-0 last:pb-0 group">
-                    <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 border-4 border-slate-900 dark:border-slate-900 light:border-white group-hover:scale-125 transition-transform shadow" />
+                  <div key={idx} className="relative pl-5 sm:pl-8 pb-6 border-l-2 border-emerald-500/30 last:border-l-0 last:pb-0 group">
+                    <div className="absolute -left-[7px] sm:-left-[9px] top-1.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 border-2 sm:border-4 border-slate-900 dark:border-slate-900 light:border-white group-hover:scale-125 transition-transform shadow" />
                     <a
                       href={getTimelineItemUrl(item.role, item.company)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="glass-card rounded-2xl p-5 ml-2 hover:border-emerald-400/60 hover:bg-slate-900/80 transition-all flex flex-col sm:flex-row items-start gap-4 block group/card"
+                      className="glass-card rounded-2xl p-4 sm:p-5 ml-1 sm:ml-2 hover:border-emerald-400/60 hover:bg-slate-900/80 transition-all flex flex-col sm:flex-row items-start gap-3.5 sm:gap-4 block group/card"
                       title={`Buka informasi resmi ${item.role} di tab baru`}
                     >
                       
                       {/* Official Badge Emblem Image */}
                       {item.logoUrl && (
-                        <div className="w-16 h-16 sm:w-18 sm:h-18 flex-shrink-0 rounded-2xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-white p-1.5 border border-emerald-500/30 shadow-lg shadow-emerald-500/10 group-hover/card:scale-105 group-hover/card:border-emerald-400/60 transition-all duration-300">
+                        <div className="w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0 rounded-xl sm:rounded-2xl bg-slate-900/80 p-1 sm:p-1.5 border border-emerald-500/30 shadow-lg shadow-emerald-500/10 group-hover/card:scale-105 group-hover/card:border-emerald-400/60 transition-all duration-300">
                           <img
                             src={item.logoUrl}
                             alt={item.role}
@@ -82,22 +82,22 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
                       )}
 
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="inline-block px-2.5 py-0.5 text-xs font-semibold font-mono rounded-md bg-emerald-500/10 text-emerald-300 dark:text-emerald-300 light:text-emerald-700 border border-emerald-500/25">
+                        <div className="flex items-center justify-between mb-1.5">
+                          <span className="inline-block px-2 sm:px-2.5 py-0.5 text-[11px] sm:text-xs font-semibold font-mono rounded-md bg-emerald-500/10 text-emerald-300 border border-emerald-500/25">
                             {item.period}
                           </span>
-                          <span className="text-xs text-emerald-400 flex items-center space-x-1 font-mono group-hover/card:translate-x-0.5 transition-transform">
+                          <span className="text-[11px] sm:text-xs text-emerald-400 flex items-center space-x-1 font-mono">
                             <span>Tab Baru</span>
-                            <ExternalLink className="w-3.5 h-3.5" />
+                            <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                           </span>
                         </div>
-                        <h4 className="text-lg font-bold text-white dark:text-white light:text-slate-900 group-hover/card:text-emerald-300 transition-colors">
+                        <h4 className="text-base sm:text-lg font-bold text-white group-hover/card:text-emerald-300 transition-colors">
                           {item.role}
                         </h4>
-                        <p className="text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 mb-2">
-                          {item.company} &bull; <span className="text-slate-400 dark:text-slate-400 light:text-slate-500">{item.location}</span>
+                        <p className="text-xs sm:text-sm font-medium text-slate-300 mb-2">
+                          {item.company} &bull; <span className="text-slate-400">{item.location}</span>
                         </p>
-                        <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-xs sm:text-sm leading-relaxed mb-3">
+                        <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-3">
                           {item.description}
                         </p>
                         {item.skills && (
@@ -105,7 +105,7 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
                             {item.skills.map((s, sIdx) => (
                               <span
                                 key={sIdx}
-                                className="text-[11px] font-mono px-2 py-0.5 rounded-md bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 border border-emerald-500/20"
+                                className="text-[10px] sm:text-[11px] font-mono px-2 py-0.5 rounded-md bg-slate-900/80 text-slate-300 border border-emerald-500/20"
                               >
                                 {s}
                               </span>
@@ -124,30 +124,30 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
           {/* Education */}
           {hasEdu && (
             <div>
-              <div className="flex items-center space-x-3 mb-8">
+              <div className="flex items-center space-x-3 mb-6 sm:mb-8">
                 <div className="w-10 h-10 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center border border-teal-500/30">
                   <GraduationCap className="w-5 h-5" />
                 </div>
-                <h3 className="text-2xl font-bold text-white dark:text-white light:text-slate-900">
+                <h3 className="text-xl sm:text-2xl font-bold text-white dark:text-white light:text-slate-900">
                   Pendidikan & Riwayat Sekolah
                 </h3>
               </div>
 
               <div className="space-y-4">
                 {education.map((item, idx) => (
-                  <div key={idx} className="relative pl-8 pb-6 border-l-2 border-teal-500/30 last:border-l-0 last:pb-0 group">
-                    <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-teal-400 border-4 border-slate-900 dark:border-slate-900 light:border-white group-hover:scale-125 transition-transform" />
+                  <div key={idx} className="relative pl-5 sm:pl-8 pb-6 border-l-2 border-teal-500/30 last:border-l-0 last:pb-0 group">
+                    <div className="absolute -left-[7px] sm:-left-[9px] top-1.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-teal-400 border-2 sm:border-4 border-slate-900 dark:border-slate-900 light:border-white group-hover:scale-125 transition-transform" />
                     <a
                       href={getTimelineItemUrl(item.degree, item.institution)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="glass-card rounded-2xl p-5 ml-2 hover:border-teal-400/60 hover:bg-slate-900/80 transition-all flex flex-col sm:flex-row items-start gap-4 block group/card"
+                      className="glass-card rounded-2xl p-4 sm:p-5 ml-1 sm:ml-2 hover:border-teal-400/60 hover:bg-slate-900/80 transition-all flex flex-col sm:flex-row items-start gap-3.5 sm:gap-4 block group/card"
                       title={`Buka informasi resmi ${item.institution} di tab baru`}
                     >
                       
                       {/* Official Education Badge Emblem Image */}
                       {item.logoUrl && (
-                        <div className="w-16 h-16 sm:w-18 sm:h-18 flex-shrink-0 rounded-2xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-white p-1.5 border border-teal-500/30 shadow-lg shadow-teal-500/10 group-hover/card:scale-105 group-hover/card:border-teal-400/50 transition-all duration-300">
+                        <div className="w-12 h-12 sm:w-16 sm:h-16 flex-shrink-0 rounded-xl sm:rounded-2xl bg-slate-900/80 p-1 sm:p-1.5 border border-teal-500/30 shadow-lg shadow-teal-500/10 group-hover/card:scale-105 group-hover/card:border-teal-400/50 transition-all duration-300">
                           <img
                             src={item.logoUrl}
                             alt={item.institution}
@@ -158,22 +158,22 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
                       )}
 
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="inline-block px-2.5 py-0.5 text-xs font-semibold font-mono rounded-md bg-teal-500/10 text-teal-300 dark:text-teal-300 light:text-teal-700 border border-teal-500/20">
+                        <div className="flex items-center justify-between mb-1.5">
+                          <span className="inline-block px-2 sm:px-2.5 py-0.5 text-[11px] sm:text-xs font-semibold font-mono rounded-md bg-teal-500/10 text-teal-300 border border-teal-500/20">
                             {item.period}
                           </span>
-                          <span className="text-xs text-teal-400 flex items-center space-x-1 font-mono group-hover/card:translate-x-0.5 transition-transform">
+                          <span className="text-[11px] sm:text-xs text-teal-400 flex items-center space-x-1 font-mono">
                             <span>Tab Baru</span>
-                            <ExternalLink className="w-3.5 h-3.5" />
+                            <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                           </span>
                         </div>
-                        <h4 className="text-lg font-bold text-white dark:text-white light:text-slate-900 group-hover/card:text-teal-300 transition-colors">
+                        <h4 className="text-base sm:text-lg font-bold text-white group-hover/card:text-teal-300 transition-colors">
                           {item.degree}
                         </h4>
-                        <p className="text-sm font-medium text-slate-300 dark:text-slate-300 light:text-slate-700 mb-2">
-                          {item.institution} &bull; <span className="text-slate-400 dark:text-slate-400 light:text-slate-500">{item.location}</span>
+                        <p className="text-xs sm:text-sm font-medium text-slate-300 mb-2">
+                          {item.institution} &bull; <span className="text-slate-400">{item.location}</span>
                         </p>
-                        <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
                           {item.description}
                         </p>
                       </div>

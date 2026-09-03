@@ -139,7 +139,7 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Contoh: Budi Santoso"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 border border-emerald-500/25 dark:border-emerald-500/25 light:border-slate-300 text-white dark:text-white light:text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all text-sm"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 border border-emerald-500/25 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all text-base sm:text-sm"
                     />
                   </div>
                   <div>
@@ -153,7 +153,7 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="email@domain.com"
-                      className="w-full px-4 py-3 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 border border-emerald-500/25 dark:border-emerald-500/25 light:border-slate-300 text-white dark:text-white light:text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all text-sm"
+                      className="w-full px-4 py-3 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 border border-emerald-500/25 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all text-base sm:text-sm"
                     />
                   </div>
                 </div>
@@ -168,7 +168,7 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     placeholder="Tawaran Proyek / Pertanyaan"
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 border border-emerald-500/25 dark:border-emerald-500/25 light:border-slate-300 text-white dark:text-white light:text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all text-sm"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 border border-emerald-500/25 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all text-base sm:text-sm"
                   />
                 </div>
 
@@ -178,23 +178,23 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
                   </label>
                   <textarea
                     id="message"
-                    rows={5}
+                    rows={4}
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Ceritakan detail proyek atau ide yang ingin Anda diskusikan bersama..."
-                    className="w-full px-4 py-3 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 border border-emerald-500/25 dark:border-emerald-500/25 light:border-slate-300 text-white dark:text-white light:text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all text-sm resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-100 border border-emerald-500/25 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all text-base sm:text-sm resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 hover:shadow-emerald-500/50 hover:-translate-y-0.5 transition-all flex items-center justify-center space-x-2 disabled:opacity-50"
+                  className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 hover:shadow-emerald-500/50 hover:-translate-y-0.5 transition-all flex items-center justify-center space-x-2 disabled:opacity-50 active:scale-95"
                 >
                   {loading ? (
                     <>
-                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <Loader2 className="w-4 h-4 animate-spin" />
                       <span>Mengirim Pesan...</span>
                     </>
                   ) : (

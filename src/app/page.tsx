@@ -25,6 +25,7 @@ import { HolographicTrophyShowcase } from "@/components/HolographicTrophyShowcas
 import { LkbbDrillSimulator } from "@/components/LkbbDrillSimulator";
 import { SkillRadarMatrix } from "@/components/SkillRadarMatrix";
 import { SecretTerminalGame } from "@/components/SecretTerminalGame";
+import { MobileBottomNav } from "@/components/MobileBottomNav";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
@@ -174,6 +175,9 @@ export default function Home() {
 
       {/* Secret Cyber Challenge Mini-Game Easter Egg */}
       <SecretTerminalGame />
+
+      {/* Mobile Floating Bottom Dock Navigation */}
+      <MobileBottomNav />
 
       {/* Footer */}
       <Footer profile={portfolioData.profile} />

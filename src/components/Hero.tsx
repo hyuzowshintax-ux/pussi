@@ -42,15 +42,31 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
   }, [text, isDeleting, roleIndex, profile.roles]);
 
   return (
-    <section id="home" className="min-h-[calc(100vh-5rem)] flex items-center justify-center py-20 lg:py-28 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <section id="home" className="min-h-[calc(100vh-5rem)] flex items-center justify-center py-12 sm:py-20 lg:py-28 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
+          {/* Avatar Card on Mobile (placed ergonomically) */}
+          <div className="lg:hidden flex justify-center order-1">
+            <div className="relative w-40 h-40 sm:w-56 sm:h-56">
+              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 opacity-30 blur-lg animate-pulse" />
+              <div className="glass-card rounded-3xl p-2.5 relative border border-emerald-500/40 shadow-xl w-full h-full">
+                <div className="aspect-square rounded-2xl overflow-hidden bg-slate-900 w-full h-full relative">
+                  <img
+                    src={profile.avatarUrl}
+                    alt={profile.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Left Column: Intro */}
-          <div className="lg:col-span-7 text-center lg:text-left space-y-6">
+          <div className="lg:col-span-7 text-center lg:text-left space-y-5 sm:space-y-6 order-2 lg:order-1">
             
             {/* Status Pill */}
-            <div className="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 backdrop-blur-md">
+            <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 backdrop-blur-md">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
               <span className="text-xs sm:text-sm font-semibold text-emerald-300 dark:text-emerald-300 light:text-emerald-700 font-mono">
                 {profile.status}
@@ -59,35 +75,35 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
 
             {/* Heading & Role */}
             <div className="space-y-2">
-              <p className="text-lg sm:text-xl font-medium text-slate-400 dark:text-slate-400 light:text-slate-600">
+              <p className="text-base sm:text-lg font-medium text-slate-400 dark:text-slate-400 light:text-slate-600">
                 Halo, Nama saya
               </p>
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white dark:text-white light:text-slate-900 leading-tight">
+              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white dark:text-white light:text-slate-900 leading-tight">
                 {profile.name}
               </h1>
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-bold pt-2 flex items-center justify-center lg:justify-start">
-                <span className="text-slate-300 dark:text-slate-300 light:text-slate-700 mr-2.5">Saya seorang</span>
-                <span className="gradient-text typing-cursor min-h-[40px]">{text}</span>
+              <div className="text-xl sm:text-3xl lg:text-4xl font-bold pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-1 sm:gap-2">
+                <span className="text-slate-300 dark:text-slate-300 light:text-slate-700">Saya seorang</span>
+                <span className="gradient-text typing-cursor min-h-[36px] sm:min-h-[44px]">{text}</span>
               </div>
             </div>
 
             {/* Tagline */}
-            <p className="text-base sm:text-lg text-slate-300 dark:text-slate-300 light:text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-slate-300 dark:text-slate-300 light:text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed px-1 sm:px-0">
               {profile.tagline}
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
               <a
                 href="#projects"
-                className="px-7 py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-semibold shadow-lg shadow-emerald-600/30 hover:shadow-emerald-500/50 hover:-translate-y-0.5 transition-all flex items-center space-x-2"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-semibold text-sm shadow-lg shadow-emerald-600/30 hover:shadow-emerald-500/50 flex items-center justify-center space-x-2 active:scale-95 transition-all"
               >
                 <span>Lihat Karya & Proyek</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
                 href="#contact"
-                className="px-7 py-3.5 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 hover:bg-slate-800 dark:hover:bg-slate-800 light:hover:bg-slate-300 text-slate-200 dark:text-slate-200 light:text-slate-800 font-semibold border border-emerald-500/25 dark:border-emerald-500/25 light:border-slate-300 hover:-translate-y-0.5 transition-all flex items-center space-x-2"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 hover:bg-slate-800 text-slate-200 dark:text-slate-200 light:text-slate-800 font-semibold text-sm border border-emerald-500/25 flex items-center justify-center space-x-2 active:scale-95 transition-all"
               >
                 <MessageSquare className="w-4 h-4 text-emerald-400" />
                 <span>Hubungi Saya</span>
@@ -95,15 +111,16 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
             </div>
 
             {/* Social Links */}
-            <div className="pt-6 border-t border-slate-800/80 dark:border-slate-800/80 light:border-slate-200/80">
-              <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 font-mono">// Media Sosial & Tautan Resmi</p>
-              <div className="flex items-center justify-center lg:justify-start space-x-3">
+            <div className="pt-5 border-t border-slate-800/80 dark:border-slate-800/80 light:border-slate-200/80">
+              <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 font-mono">// Media Sosial & Tautan Resmi</p>
+              <div className="flex items-center justify-center lg:justify-start gap-2.5 sm:gap-3 flex-wrap">
                 <a
                   href={profile.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full flex items-center justify-center bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-emerald-600 transition-all transform hover:-translate-y-1 shadow-sm border border-emerald-500/20"
+                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center bg-slate-900/80 text-slate-300 hover:text-white hover:bg-emerald-600 transition-all shadow-sm border border-emerald-500/20 active:scale-95"
                   aria-label="GitHub"
+                  title="Buka profil GitHub"
                 >
                   <Github className="w-5 h-5" />
                 </a>
@@ -111,8 +128,9 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                   href={profile.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full flex items-center justify-center bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-emerald-600 transition-all transform hover:-translate-y-1 shadow-sm border border-emerald-500/20"
+                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center bg-slate-900/80 text-slate-300 hover:text-white hover:bg-emerald-600 transition-all shadow-sm border border-emerald-500/20 active:scale-95"
                   aria-label="LinkedIn"
+                  title="Buka profil LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
@@ -120,8 +138,9 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                   href={profile.socials.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full flex items-center justify-center bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-emerald-600 transition-all transform hover:-translate-y-1 shadow-sm border border-emerald-500/20"
+                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center bg-slate-900/80 text-slate-300 hover:text-white hover:bg-emerald-600 transition-all shadow-sm border border-emerald-500/20 active:scale-95"
                   aria-label="Twitter"
+                  title="Buka Twitter"
                 >
                   <Twitter className="w-5 h-5" />
                 </a>
@@ -129,8 +148,9 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                   href={profile.socials.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full flex items-center justify-center bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-emerald-600 transition-all transform hover:-translate-y-1 shadow-sm border border-emerald-500/20"
+                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center bg-slate-900/80 text-slate-300 hover:text-white hover:bg-emerald-600 transition-all shadow-sm border border-emerald-500/20 active:scale-95"
                   aria-label="Instagram"
+                  title="Buka Instagram"
                 >
                   <Instagram className="w-5 h-5" />
                 </a>
@@ -138,7 +158,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                   href={`mailto:${profile.email}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full flex items-center justify-center bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white hover:bg-emerald-600 transition-all transform hover:-translate-y-1 shadow-sm border border-emerald-500/20"
+                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center bg-slate-900/80 text-slate-300 hover:text-white hover:bg-emerald-600 transition-all shadow-sm border border-emerald-500/20 active:scale-95"
                   aria-label="Email"
                   title="Kirim email di tab baru"
                 >
@@ -149,8 +169,8 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
 
           </div>
 
-          {/* Right Column: Visual Avatar Card */}
-          <div className="lg:col-span-5 flex justify-center">
+          {/* Right Column: Visual Avatar Card for Desktop */}
+          <div className="hidden lg:flex lg:col-span-5 justify-center order-2">
             <div className="relative w-72 sm:w-84 lg:w-96">
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-emerald-500 via-teal-400 to-green-600 opacity-25 blur-xl animate-pulse" />
               
