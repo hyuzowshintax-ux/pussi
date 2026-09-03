@@ -1,7 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
-import { ArrowRight, ArrowLeft, Github, ExternalLink, Sparkles, LayoutGrid, Layers, CheckCircle2 } from "lucide-react";
+import React, { useState, useEffect, useCallback } from "react";
+import { 
+  ArrowRight, 
+  ArrowLeft, 
+  Github, 
+  ExternalLink, 
+  Gamepad2, 
+  Sparkles, 
+  Volume2, 
+  VolumeX, 
+  CheckCircle2, 
+  Swords, 
+  Cpu, 
+  Play, 
+  ShieldCheck, 
+  Trophy,
+  Zap
+} from "lucide-react";
 import { Project } from "@/types/portfolio";
 import { ProjectModal } from "./ProjectModal";
 
@@ -11,15 +27,16 @@ interface ProjectsProps {
 
 export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const [filter, setFilter] = useState<string>("all");
-  const [activeProjectIndex, setActiveProjectIndex] = useState<number>(0);
-  const [viewMode, setViewMode] = useState<"tab" | "grid">("tab");
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isWarping, setIsWarping] = useState<boolean>(false);
 
   const filterTabs = [
-    { label: "Semua Proyek", value: "all" },
+    { label: "Semua Misi (All)", value: "all" },
     { label: "AI & Web Apps", value: "web" },
-    { label: "UI/UX Design", value: "uiux" },
-    { label: "Backend & Keamanan", value: "backend" },
+    { label: "UI/UX & Design", value: "uiux" },
+    { label: "Security & Backend", value: "backend" },
   ];
 
   const filteredProjects = projects.filter((project) => {
@@ -27,358 +44,415 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
     return project.category === filter;
   });
 
-  // Ensure active index is within bounds of filtered projects
-  const safeActiveIndex = Math.min(activeProjectIndex, Math.max(0, filteredProjects.length - 1));
-  const activeProject = filteredProjects[safeActiveIndex] || filteredProjects[0];
+  const safeSlideIndex = Math.min(currentSlide, Math.max(0, filteredProjects.length - 1));
+  const activeProject = filteredProjects[safeSlideIndex] || filteredProjects[0];
 
-  const handleNext = () => {
+  // Web Audio API Synth Sound Generator for Gaming Feedback
+  const playCyberSound = useCallback((type: "slide" | "select" | "start") => {
+    if (!soundEnabled || typeof window === "undefined") return;
+    try {
+      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      const ctx = new AudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      const now = ctx.currentTime;
+      if (type === "slide") {
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(440, now);
+        osc.frequency.exponentialRampToValueAtTime(880, now + 0.12);
+        gain.gain.setValueAtTime(0.08, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+        osc.start(now);
+        osc.stop(now + 0.12);
+      } else if (type === "select") {
+        osc.type = "triangle";
+        osc.frequency.setValueAtTime(600, now);
+        osc.frequency.setValueAtTime(900, now + 0.06);
+        gain.gain.setValueAtTime(0.1, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+        osc.start(now);
+        osc.stop(now + 0.15);
+      } else if (type === "start") {
+        osc.type = "sawtooth";
+        osc.frequency.setValueAtTime(300, now);
+        osc.frequency.exponentialRampToValueAtTime(1200, now + 0.25);
+        gain.gain.setValueAtTime(0.12, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+        osc.start(now);
+        osc.stop(now + 0.25);
+      }
+    } catch {
+      // Audio context fallback
+    }
+  }, [soundEnabled]);
+
+  const goToNextSlide = useCallback(() => {
     if (filteredProjects.length === 0) return;
-    setActiveProjectIndex((prev) => (prev + 1) % filteredProjects.length);
+    setIsWarping(true);
+    playCyberSound("slide");
+    setCurrentSlide((prev) => (prev + 1) % filteredProjects.length);
+    setTimeout(() => setIsWarping(false), 260);
+  }, [filteredProjects.length, playCyberSound]);
+
+  const goToPrevSlide = useCallback(() => {
+    if (filteredProjects.length === 0) return;
+    setIsWarping(true);
+    playCyberSound("slide");
+    setCurrentSlide((prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length);
+    setTimeout(() => setIsWarping(false), 260);
+  }, [filteredProjects.length, playCyberSound]);
+
+  const jumpToSlide = (index: number) => {
+    if (index === safeSlideIndex) return;
+    setIsWarping(true);
+    playCyberSound("select");
+    setCurrentSlide(index);
+    setTimeout(() => setIsWarping(false), 260);
   };
 
-  const handlePrev = () => {
-    if (filteredProjects.length === 0) return;
-    setActiveProjectIndex((prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length);
-  };
+  // Keyboard Gamepad Navigation (ArrowLeft, ArrowRight, A, D)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if (e.key === "ArrowRight" || e.key.toLowerCase() === "d") {
+        goToNextSlide();
+      } else if (e.key === "ArrowLeft" || e.key.toLowerCase() === "a") {
+        goToPrevSlide();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [goToNextSlide, goToPrevSlide]);
 
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header & View Mode Switcher */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 border-b border-emerald-500/15 pb-8">
-          <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-              <span>// ETALASE PORTOFOLIO TERPILIH</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white dark:text-white light:text-slate-900 tracking-tight">
-              Karya & Proyek Inovasi
-            </h2>
-            <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm sm:text-base leading-relaxed">
-              Jelajahi inovasi cerdas bertenaga AI, simulator kepramukaan LKBB, dan antarmuka web modern secara interaktif.
-            </p>
-          </div>
-
-          {/* View Mode Toggle (Tab vs Grid) */}
-          <div className="flex items-center space-x-2 bg-slate-900/90 dark:bg-slate-900/90 light:bg-slate-200 p-1.5 rounded-2xl border border-emerald-500/20 shadow-md self-start md:self-auto">
-            <button
-              onClick={() => setViewMode("tab")}
-              className={`px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center space-x-2 transition-all ${
-                viewMode === "tab"
-                  ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-md shadow-emerald-600/30"
-                  : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <Layers className="w-4 h-4" />
-              <span>Mode Tab (Kompak)</span>
-            </button>
-            <button
-              onClick={() => setViewMode("grid")}
-              className={`px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center space-x-2 transition-all ${
-                viewMode === "grid"
-                  ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-md shadow-emerald-600/30"
-                  : "text-slate-400 hover:text-white"
-              }`}
-            >
-              <LayoutGrid className="w-4 h-4" />
-              <span>Mode Grid</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Filter Category Tabs */}
-        <div className="flex flex-wrap items-center justify-start sm:justify-center gap-2 sm:gap-3 mb-8">
-          {filterTabs.map((tab) => (
-            <button
-              key={tab.value}
-              onClick={() => {
-                setFilter(tab.value);
-                setActiveProjectIndex(0);
-              }}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
-                filter === tab.value
-                  ? "bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-600/30 border border-emerald-400/30"
-                  : "bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 hover:text-white border border-emerald-500/15"
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
         {/* =========================================================================
-            MODE 1: TABBED SHOWCASE STAGE (DEFAULT, COMPACT & NO DOWNWARD SPRAWL)
+            GAMING ARCADE CONSOLE WRAPPER
             ========================================================================= */}
-        {viewMode === "tab" && (
-          filteredProjects.length === 0 ? (
-            <div className="glass-card rounded-3xl p-10 text-center max-w-xl mx-auto border border-emerald-500/20 shadow-xl space-y-4">
-              <ExternalLink className="w-8 h-8 text-emerald-400 mx-auto" />
-              <h3 className="text-xl font-bold text-white">Proyek Belum Tersedia</h3>
-              <p className="text-sm text-slate-300">Silakan pilih kategori lainnya.</p>
+        <div className="glass-card rounded-[2.5rem] p-6 sm:p-10 border border-emerald-500/30 shadow-[0_20px_60px_-15px_rgba(16,185,129,0.3)] relative backdrop-blur-2xl">
+          
+          {/* Top Cyber Console Header HUD */}
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between pb-6 mb-8 border-b border-emerald-500/20 gap-4">
+            
+            {/* Title & Player HUD */}
+            <div className="flex items-center space-x-3.5">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-400 flex items-center justify-center text-slate-950 shadow-lg shadow-emerald-500/40 animate-pulse">
+                <Gamepad2 className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="flex items-center space-x-2">
+                  <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300">
+                    MISSION STAGE SELECT // P1: SAMUEL
+                  </span>
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                </div>
+                <h2 className="text-2xl sm:text-3xl font-black text-white dark:text-white light:text-slate-900 tracking-tight mt-1">
+                  Proyek & Karya Interaktif
+                </h2>
+              </div>
             </div>
-          ) : (
-            <div className="space-y-6">
-              
-              {/* Horizontal Project Navigation Tabs */}
-              <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-                {filteredProjects.map((proj, idx) => (
-                  <button
-                    key={proj.id}
-                    onClick={() => setActiveProjectIndex(idx)}
-                    className={`flex-shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center space-x-2.5 border ${
-                      safeActiveIndex === idx
-                        ? "bg-gradient-to-r from-emerald-600/30 to-teal-500/30 border-emerald-400 text-white shadow-lg shadow-emerald-600/20"
-                        : "bg-slate-900/70 border-white/5 text-slate-400 hover:text-slate-200 hover:border-emerald-500/30"
-                    }`}
-                  >
-                    <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-mono font-bold ${
-                      safeActiveIndex === idx ? "bg-emerald-400 text-slate-950" : "bg-slate-800 text-slate-400"
-                    }`}>
-                      0{idx + 1}
-                    </span>
-                    <span className="truncate max-w-[180px] sm:max-w-[240px]">{proj.title.split("–")[0].trim()}</span>
-                  </button>
-                ))}
+
+            {/* Sound Toggle & Keyboard Cheat Hint */}
+            <div className="flex items-center space-x-3 self-end lg:self-auto">
+              <div className="hidden sm:flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-emerald-500/20 text-[11px] font-mono text-slate-300">
+                <span>Gunakan Tombol</span>
+                <kbd className="px-1.5 py-0.5 rounded bg-slate-800 border border-emerald-500/40 text-emerald-400 font-bold">◄ A</kbd>
+                <span>/</span>
+                <kbd className="px-1.5 py-0.5 rounded bg-slate-800 border border-emerald-500/40 text-emerald-400 font-bold">D ►</kbd>
               </div>
 
-              {/* Main Active Project Stage (Master-Detail Console) */}
-              {activeProject && (
-                <div className="glass-card rounded-3xl p-6 sm:p-8 border border-emerald-500/25 shadow-2xl relative overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-                  
-                  {/* Subtle Top Decorative Glow */}
-                  <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+              <button
+                onClick={() => setSoundEnabled((prev) => !prev)}
+                className={`px-3 py-1.5 rounded-xl text-xs font-mono font-semibold flex items-center space-x-1.5 border transition-all ${
+                  soundEnabled
+                    ? "bg-emerald-500/20 border-emerald-400/40 text-emerald-300 shadow-sm"
+                    : "bg-slate-900/80 border-slate-700 text-slate-400"
+                }`}
+                title={soundEnabled ? "Nonaktifkan Efek Suara Game" : "Aktifkan Efek Suara Game"}
+              >
+                {soundEnabled ? <Volume2 className="w-4 h-4 text-emerald-400" /> : <VolumeX className="w-4 h-4" />}
+                <span className="hidden sm:inline">{soundEnabled ? "SFX: ON" : "SFX: OFF"}</span>
+              </button>
+            </div>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    
-                    {/* Left: Image & Visual Showcase Card */}
-                    <div className="lg:col-span-6 space-y-4">
-                      <div className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-slate-950 border border-emerald-500/20 group">
-                        <img
-                          src={activeProject.image}
-                          alt={activeProject.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-                        
-                        {/* Top Category Badge */}
-                        <div className="absolute top-4 left-4 flex items-center space-x-2">
-                          <span className="px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-md border border-emerald-400/30">
+          </div>
+
+          {/* Mission Category Filter Pills */}
+          <div className="flex flex-wrap items-center gap-2 mb-8">
+            {filterTabs.map((tab) => (
+              <button
+                key={tab.value}
+                onClick={() => {
+                  setFilter(tab.value);
+                  setCurrentSlide(0);
+                  playCyberSound("select");
+                }}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-semibold transition-all ${
+                  filter === tab.value
+                    ? "bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-500 text-slate-950 font-bold shadow-md shadow-emerald-500/30 border border-emerald-300"
+                    : "bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-white/10 hover:border-emerald-500/30"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {/* =========================================================================
+              MAIN SLIDE SCREEN (HOLOGRAPHIC GAME STAGE)
+              ========================================================================= */}
+          {filteredProjects.length === 0 ? (
+            <div className="p-12 text-center rounded-2xl bg-slate-900/60 border border-emerald-500/20 space-y-3">
+              <Swords className="w-10 h-10 text-emerald-400 mx-auto" />
+              <h3 className="text-xl font-bold text-white font-mono">STAGE LOCKED // TIDAK ADA MISI</h3>
+              <p className="text-xs text-slate-400">Pilih kategori misi lainnya untuk membuka panggung proyek.</p>
+            </div>
+          ) : (
+            <div className="space-y-8">
+              
+              {/* Active Level Quest Container */}
+              <div 
+                className={`transition-all duration-300 transform ${
+                  isWarping ? "opacity-30 scale-[0.98] blur-sm" : "opacity-100 scale-100 blur-0"
+                }`}
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                  
+                  {/* Left Column: Visual Holo-Screen */}
+                  <div className="lg:col-span-6 space-y-4">
+                    <div className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-slate-950 border-2 border-emerald-500/40 shadow-2xl group">
+                      
+                      {/* Scanline CRT overlay */}
+                      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,24,27,0)_50%,rgba(0,0,0,0.4)_50%)] bg-[length:100%_4px] z-10 opacity-30" />
+                      
+                      <img
+                        src={activeProject.image}
+                        alt={activeProject.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                      
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
+                      
+                      {/* Top HUD Badges */}
+                      <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-20">
+                        <div className="flex items-center space-x-2">
+                          <span className="px-3 py-1 text-xs font-mono font-bold rounded-lg bg-emerald-500 text-slate-950 shadow-md flex items-center space-x-1">
+                            <Zap className="w-3.5 h-3.5 fill-slate-950" />
+                            <span>LEVEL 0{safeSlideIndex + 1}</span>
+                          </span>
+                          <span className="px-2.5 py-1 text-xs font-mono font-semibold rounded-lg bg-slate-900/90 text-emerald-300 border border-emerald-500/40">
                             {activeProject.categoryLabel}
                           </span>
-                          {activeProject.featured && (
-                            <span className="px-2.5 py-1 text-[11px] font-bold rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 font-mono">
-                              ⭐ Terpilih
-                            </span>
-                          )}
                         </div>
-
-                        {/* Bottom Overlay Info */}
-                        <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-slate-300 font-mono">
-                          <span>Status: Siap Diuji</span>
-                          <span>ID: PROJ-0{activeProject.id}</span>
-                        </div>
-                      </div>
-
-                      {/* Arrow Navigation Control Pill */}
-                      <div className="flex items-center justify-between pt-2">
-                        <button
-                          onClick={handlePrev}
-                          className="px-4 py-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-semibold flex items-center space-x-2 border border-white/10 transition-all"
-                        >
-                          <ArrowLeft className="w-4 h-4" />
-                          <span>Sebelumnya</span>
-                        </button>
-                        <span className="text-xs font-mono text-emerald-400">
-                          {safeActiveIndex + 1} / {filteredProjects.length} Proyek
-                        </span>
-                        <button
-                          onClick={handleNext}
-                          className="px-4 py-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-semibold flex items-center space-x-2 border border-white/10 transition-all"
-                        >
-                          <span>Berikutnya</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Right: Detailed Description & Features */}
-                    <div className="lg:col-span-6 space-y-6 flex flex-col justify-between">
-                      <div>
-                        <div className="text-xs font-mono text-emerald-400 font-semibold uppercase tracking-wider mb-2">
-                          // Rincian Inovasi Karya
-                        </div>
-                        <h3 className="text-2xl sm:text-3xl font-extrabold text-white dark:text-white light:text-slate-900 leading-tight mb-3">
-                          {activeProject.title}
-                        </h3>
-                        <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
-                          {activeProject.fullDescription || activeProject.description}
-                        </p>
-
-                        {/* Highlights List */}
-                        {activeProject.highlights && (
-                          <div className="space-y-2.5 mb-6">
-                            <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 font-mono">
-                              Fitur & Keunggulan Utama:
-                            </p>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                              {activeProject.highlights.map((item, idx) => (
-                                <div key={idx} className="flex items-start space-x-2 text-xs sm:text-sm text-slate-200 dark:text-slate-200 light:text-slate-700">
-                                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
-                                  <span>{item}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
+                        {activeProject.featured && (
+                          <span className="px-2.5 py-1 text-[11px] font-mono font-bold rounded-lg bg-amber-500/20 border border-amber-400 text-amber-300 flex items-center space-x-1">
+                            <Trophy className="w-3 h-3 text-amber-400" />
+                            <span>BOSS QUEST</span>
+                          </span>
                         )}
+                      </div>
 
-                        {/* Tech Stack Pills */}
-                        <div className="space-y-2 mb-6">
-                          <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 font-mono">
-                            Teknologi yang Digunakan:
-                          </p>
-                          <div className="flex flex-wrap gap-2">
-                            {activeProject.tags.map((tag, idx) => (
-                              <span
-                                key={idx}
-                                className="px-3 py-1 rounded-lg text-xs font-mono bg-slate-900/90 dark:bg-slate-900/90 light:bg-slate-200 text-emerald-300 dark:text-emerald-300 light:text-slate-800 border border-emerald-500/25 shadow-sm"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
+                      {/* Bottom Live Target Status */}
+                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-emerald-400 z-20">
+                        <div className="flex items-center space-x-2 bg-slate-950/80 px-2.5 py-1 rounded-md border border-emerald-500/30">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                          <span>STATUS: ONLINE & TESTED</span>
+                        </div>
+                        <span className="bg-slate-950/80 px-2.5 py-1 rounded-md border border-white/10 text-slate-300">
+                          CODE: PRJ-{activeProject.id}
+                        </span>
+                      </div>
+
+                    </div>
+
+                    {/* Cyber Gamepad Controls (Prev / Next & Level Status) */}
+                    <div className="flex items-center justify-between p-3 rounded-2xl bg-slate-900/80 border border-emerald-500/20">
+                      
+                      {/* Prev Button */}
+                      <button
+                        onClick={goToPrevSlide}
+                        className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-slate-800 to-slate-900 hover:from-emerald-600 hover:to-teal-600 text-white text-xs font-mono font-bold flex items-center space-x-2 border border-emerald-500/30 shadow hover:shadow-emerald-500/30 active:scale-95 transition-all group"
+                      >
+                        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                        <span>PREV STAGE [A]</span>
+                      </button>
+
+                      {/* Level Dots Indicator */}
+                      <div className="flex items-center space-x-2">
+                        {filteredProjects.map((_, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => jumpToSlide(idx)}
+                            className={`transition-all rounded-full ${
+                              safeSlideIndex === idx
+                                ? "w-8 h-2.5 bg-gradient-to-r from-emerald-400 to-teal-300 shadow-[0_0_12px_#34d399]"
+                                : "w-2.5 h-2.5 bg-slate-700 hover:bg-slate-500"
+                            }`}
+                            aria-label={`Pindah ke slide ${idx + 1}`}
+                          />
+                        ))}
+                      </div>
+
+                      {/* Next Button */}
+                      <button
+                        onClick={goToNextSlide}
+                        className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-slate-950 text-xs font-mono font-black flex items-center space-x-2 shadow-lg shadow-emerald-500/30 active:scale-95 transition-all group"
+                      >
+                        <span>NEXT STAGE [D]</span>
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </button>
+
+                    </div>
+
+                  </div>
+
+                  {/* Right Column: Mission Intel, Features & Action Buttons */}
+                  <div className="lg:col-span-6 space-y-6">
+                    
+                    <div>
+                      <div className="flex items-center space-x-2 text-xs font-mono text-emerald-400 font-bold uppercase tracking-widest mb-1.5">
+                        <Cpu className="w-4 h-4" />
+                        <span>// MISSION BRIEFING DATA</span>
+                      </div>
+                      <h3 className="text-2xl sm:text-3xl font-black text-white dark:text-white light:text-slate-900 leading-tight mb-3">
+                        {activeProject.title}
+                      </h3>
+                      <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-sm sm:text-base leading-relaxed">
+                        {activeProject.fullDescription || activeProject.description}
+                      </p>
+                    </div>
+
+                    {/* Quest Objectives & Key Achievements */}
+                    {activeProject.highlights && (
+                      <div className="p-4 rounded-2xl bg-slate-900/60 border border-emerald-500/20 space-y-2.5">
+                        <div className="flex items-center justify-between text-xs font-mono text-slate-300 font-bold">
+                          <span className="flex items-center space-x-1.5 text-emerald-300">
+                            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                            <span>QUEST OBJECTIVES UNLOCKED:</span>
+                          </span>
+                          <span className="text-emerald-400">100% COMPLETE</span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                          {activeProject.highlights.map((item, idx) => (
+                            <div key={idx} className="flex items-start space-x-2 text-xs text-slate-200">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                              <span className="leading-snug">{item}</span>
+                            </div>
+                          ))}
                         </div>
                       </div>
+                    )}
 
-                      {/* Action Links */}
-                      <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-700/40">
-                        <button
-                          onClick={() => setSelectedProject(activeProject)}
-                          className="px-5 py-3 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-emerald-600/30 flex items-center space-x-2 transition-all"
-                        >
-                          <span>Buka Modal Lengkap</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </button>
-                        <a
-                          href={activeProject.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-5 py-3 rounded-xl bg-slate-800 dark:bg-slate-800 light:bg-slate-200 hover:bg-slate-700 text-white text-xs sm:text-sm font-semibold flex items-center space-x-2 border border-slate-700 transition-all"
-                        >
-                          <ExternalLink className="w-4 h-4 text-emerald-400" />
-                          <span>Live Preview</span>
-                        </a>
-                        <a
-                          href={activeProject.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white border border-emerald-500/20 transition-all"
-                          title="Source Code"
-                        >
-                          <Github className="w-4 h-4" />
-                        </a>
+                    {/* Loot & Tech Inventory */}
+                    <div className="space-y-2">
+                      <p className="text-xs font-mono text-slate-400 uppercase tracking-wider font-semibold">
+                        LOOT & TECH ARTIFACTS:
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {activeProject.tags.map((tag, idx) => (
+                          <span
+                            key={idx}
+                            className="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-900 text-emerald-300 border border-emerald-500/30 shadow-sm"
+                          >
+                            +{tag}
+                          </span>
+                        ))}
                       </div>
-
                     </div>
 
-                  </div>
-                </div>
-              )}
-
-            </div>
-          )
-        )}
-
-        {/* =========================================================================
-            MODE 2: GRID VIEW (ALTERNATIF JIKA INGIN MELIHAT SEMUA)
-            ========================================================================= */}
-        {viewMode === "grid" && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
-              <div
-                key={project.id}
-                className="glass-card rounded-2xl overflow-hidden group transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl flex flex-col border border-emerald-500/20 hover:border-emerald-500/50"
-              >
-                {/* Thumbnail */}
-                <div className="relative h-52 overflow-hidden bg-slate-900">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-transparent to-transparent opacity-85" />
-                  <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-emerald-600 to-teal-500 text-white backdrop-blur-md shadow-sm border border-emerald-400/30">
-                      {project.categoryLabel}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-white dark:text-white light:text-slate-900 group-hover:text-emerald-400 transition-colors mb-2">
-                      {project.title}
-                    </h3>
-                    <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-xs sm:text-sm mb-4 line-clamp-2 leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-1.5 mb-6">
-                      {project.tags.map((tag, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2.5 py-0.5 rounded-md text-[11px] font-medium bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 text-slate-300 dark:text-slate-300 light:text-slate-700 border border-emerald-500/20 dark:border-emerald-500/20 light:border-slate-300 font-mono"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Footer Action Links */}
-                  <div className="flex items-center justify-between pt-4 border-t border-slate-700/40 dark:border-slate-700/40 light:border-slate-200">
-                    <button
-                      onClick={() => setSelectedProject(project)}
-                      className="text-xs font-semibold text-emerald-400 dark:text-emerald-400 light:text-emerald-600 hover:text-teal-300 transition-colors flex items-center space-x-1 font-mono"
-                    >
-                      <span>Lihat Detail</span>
-                      <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                    </button>
-                    
-                    <div className="flex items-center space-x-3">
+                    {/* Mission Launch Action Buttons */}
+                    <div className="flex flex-wrap items-center gap-3 pt-2">
+                      
+                      {/* Launch Live Mission Button */}
                       <a
-                        href={project.githubUrl}
+                        href={activeProject.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-white dark:hover:text-white light:hover:text-slate-900 text-base transition-colors"
-                        title="Source Code"
+                        onClick={() => playCyberSound("start")}
+                        className="flex-1 sm:flex-initial px-6 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 hover:from-emerald-400 hover:to-cyan-300 text-slate-950 font-black text-xs sm:text-sm font-mono tracking-wide shadow-xl shadow-emerald-500/40 hover:shadow-emerald-500/60 flex items-center justify-center space-x-2 active:scale-95 transition-all"
+                      >
+                        <Play className="w-4 h-4 fill-slate-950" />
+                        <span>START MISSION (LIVE DEMO)</span>
+                      </a>
+
+                      {/* Modal Intel Briefing Button */}
+                      <button
+                        onClick={() => {
+                          playCyberSound("select");
+                          setSelectedProject(activeProject);
+                        }}
+                        className="px-5 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-white font-mono text-xs sm:text-sm font-bold border border-emerald-500/30 flex items-center space-x-2 active:scale-95 transition-all"
+                      >
+                        <ExternalLink className="w-4 h-4 text-emerald-400" />
+                        <span>INTEL BRIEFING</span>
+                      </button>
+
+                      {/* Source Code Button */}
+                      <a
+                        href={activeProject.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => playCyberSound("select")}
+                        className="p-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-300 hover:text-white border border-emerald-500/30 flex items-center justify-center active:scale-95 transition-all"
+                        title="Source Code Repository"
                       >
                         <Github className="w-4 h-4" />
                       </a>
-                      <a
-                        href={project.demoUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-slate-400 dark:text-slate-400 light:text-slate-600 hover:text-emerald-400 transition-colors"
-                        title="Live Preview"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
+
                     </div>
+
                   </div>
 
                 </div>
               </div>
-            ))}
-          </div>
-        )}
+
+              {/* Bottom Level Select Slide Strip (Mini Quick-Access Nodes) */}
+              <div className="pt-6 border-t border-emerald-500/15">
+                <div className="flex items-center justify-between mb-3 text-xs font-mono text-slate-400">
+                  <span>QUICK STAGE WARP:</span>
+                  <span className="text-emerald-400">STAGE {safeSlideIndex + 1} OF {filteredProjects.length}</span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  {filteredProjects.map((proj, idx) => (
+                    <button
+                      key={proj.id}
+                      onClick={() => jumpToSlide(idx)}
+                      className={`p-3 rounded-xl text-left font-mono transition-all border flex flex-col justify-between ${
+                        safeSlideIndex === idx
+                          ? "bg-gradient-to-r from-emerald-600/30 to-teal-500/20 border-emerald-400 shadow-lg shadow-emerald-500/20"
+                          : "bg-slate-900/60 border-white/5 text-slate-400 hover:border-emerald-500/40 hover:text-slate-200"
+                      }`}
+                    >
+                      <div className="flex items-center justify-between text-[11px] font-bold mb-1">
+                        <span className={safeSlideIndex === idx ? "text-emerald-300" : "text-slate-500"}>
+                          STAGE 0{idx + 1}
+                        </span>
+                        {safeSlideIndex === idx && (
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                        )}
+                      </div>
+                      <span className="text-xs font-sans font-bold text-white truncate">
+                        {proj.title.split("–")[0].trim()}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+          )}
+
+        </div>
 
       </div>
 
-      {/* Modal Popup */}
+      {/* Full Modal Popup Details */}
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
