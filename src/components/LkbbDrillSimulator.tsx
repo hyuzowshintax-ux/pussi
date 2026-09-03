@@ -130,14 +130,14 @@ export const LkbbDrillSimulator: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 flex items-center justify-center space-x-1.5">
             <Flag className="w-4 h-4" />
-            <span>// Simulasi Taktis CODASKA</span>
+            <span>// Simulasi Taktis CODASKA (Comando Garuda SMANSAKA)</span>
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Simulator Formasi Variasi Baris-Berbaris (LKBB)
           </h2>
           <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600 mx-auto rounded-full" />
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Eksplorasi simulasi 2D interaktif pergerakan 16 personil pleton CODASKA SMAN 1 Kandangan dalam menyusun formasi variasi ketangkasan PBB.
+            Eksplorasi simulasi 2D interaktif pergerakan 16 personil pleton <strong>CODASKA (Comando Garuda SMANSAKA - SMAN 1 Kandangan)</strong> dalam menyusun formasi variasi ketangkasan PBB.
           </p>
         </div>
 
@@ -148,7 +148,7 @@ export const LkbbDrillSimulator: React.FC = () => {
           <div className="p-4 bg-slate-900/90 border-b border-emerald-500/20 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
             <div className="flex items-center space-x-2 text-white">
               <Compass className="w-4 h-4 text-emerald-400" />
-              <span>Pleton: <strong>16 Pasukan CODASKA</strong></span>
+              <span>Pleton: <strong>16 Pasukan CODASKA (Comando Garuda SMANSAKA)</strong></span>
             </div>
 
             <div className="flex items-center space-x-4">

@@ -199,11 +199,11 @@ export const portfolioData: PortfolioData = {
       },
       {
         period: "2024 - Sekarang",
-        role: "Anggota Aktif Organisasi CODASKA (LKBB)",
-        company: "CODASKA - SMAN 1 Kandangan",
+        role: "Anggota Aktif CODASKA (Comando Garuda SMANSAKA)",
+        company: "CODASKA – SMAN 1 Kandangan",
         location: "Kandangan, Kediri",
-        description: "Sangat aktif dalam organisasi PBB/LKBB CODASKA di lingkungan SMAN 1 Kandangan sejak tahun 2024, menjalani latihan formasi variasi baris-berbaris, ketahanan mental, serta memimpin koordinasi pleton.",
-        skills: ["CODASKA", "LKBB", "Formasi Variasi PBB", "Koordinasi Pleton", "Kedisiplinan Tinggi"],
+        description: "Aktif dalam CODASKA (Comando Garuda SMANSAKA), yaitu organisasi dan pleton baris-berbaris (LKBB & Paskibra) kebanggaan SMAN 1 Kandangan sejak tahun 2024. Menjalani latihan intensif formasi variasi PBB, ketangkasan komando pleton, kedisiplinan militeristik presisi, dan kekompakan barisan.",
+        skills: ["Comando Garuda SMANSAKA", "LKBB Presisi", "Formasi Variasi PBB", "Koordinasi Pleton", "Kedisiplinan Tinggi"],
         logoUrl: "/badges/codaska-lkbb.svg"
       },
       {

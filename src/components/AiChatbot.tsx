@@ -103,7 +103,7 @@ export const AiChatbot: React.FC<AiChatbotProps> = ({ data }) => {
 
     if (q.includes("codaska") || q.includes("paskibra") || q.includes("lbb") || q.includes("baris")) {
       return {
-        text: `Samuel sangat aktif di organisasi PBB/LKBB CODASKA SMAN 1 Kandangan sejak 2024, bertugas sebagai Paskibra Kecamatan Kandangan (2024), dan mewakili kontingen LBB Kabupaten Kediri (2026).`
+        text: `CODASKA merupakan singkatan dari Comando Garuda SMANSAKA (SMAN 1 Kandangan). Ini adalah organisasi dan pleton baris-berbaris (LKBB & Paskibra) kebanggaan SMAN 1 Kandangan. Samuel aktif di CODASKA sejak 2024, bertugas sebagai Paskibra Kec. Kandangan (2024), dan mewakili kontingen LBB Kabupaten Kediri (2026).`
       };
     }
 
