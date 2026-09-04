@@ -31,6 +31,7 @@ import { CosmicCardShareGenerator } from "@/components/CosmicCardShareGenerator"
 import { VisitorQuestBadge } from "@/components/VisitorQuestBadge";
 import { GameProvider } from "@/context/GameContext";
 import { CyberPlayerHud } from "@/components/CyberPlayerHud";
+import { CyberQuizGame } from "@/components/CyberQuizGame";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
@@ -92,6 +93,9 @@ export default function Home() {
 
         {/* Viral Holographic ID Card & Story Share Generator */}
         <CosmicCardShareGenerator />
+
+        {/* 10-Question Cyber Intelligence Trivia Quiz Game */}
+        <CyberQuizGame />
 
         {/* Gamification Quest & Explorer Badge Tracker */}
         <VisitorQuestBadge />
