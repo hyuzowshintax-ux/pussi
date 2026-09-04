@@ -15,17 +15,19 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
 
   if (!hasExp && !hasEdu) return null;
 
-  const getTimelineItemUrl = (roleOrDegree: string, companyOrInstitution: string) => {
-    if (roleOrDegree.includes("Duta Intelegensia") || companyOrInstitution.includes("Kandangan")) {
+  const getTimelineItemUrl = (roleOrDegree?: string, companyOrInstitution?: string) => {
+    const role = roleOrDegree || "";
+    const company = companyOrInstitution || "";
+    if (role.includes("Duta Intelegensia") || company.includes("Kandangan")) {
       return "https://sman1kandangan.sch.id";
     }
-    if (roleOrDegree.includes("Pramuka")) {
+    if (role.includes("Pramuka")) {
       return "https://pramuka.or.id";
     }
-    if (roleOrDegree.includes("Paskibra") || roleOrDegree.includes("LBB")) {
+    if (role.includes("Paskibra") || role.includes("LBB") || role.includes("CODASKA")) {
       return "https://kedirikab.go.id";
     }
-    return `https://www.google.com/search?q=${encodeURIComponent(roleOrDegree + " " + companyOrInstitution)}`;
+    return `https://www.google.com/search?q=${encodeURIComponent(`${role} ${company}`.trim() || "SMAN 1 Kandangan")}`;
   };
 
   return (

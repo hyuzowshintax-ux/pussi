@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { 
   ArrowRight, 
   ArrowLeft, 
@@ -47,12 +47,21 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   const safeSlideIndex = Math.min(currentSlide, Math.max(0, filteredProjects.length - 1));
   const activeProject = filteredProjects[safeSlideIndex] || filteredProjects[0];
 
+  const audioCtxRef = useRef<AudioContext | null>(null);
+
   // Web Audio API Synth Sound Generator for Gaming Feedback
   const playCyberSound = useCallback((type: "slide" | "select" | "start") => {
     if (!soundEnabled || typeof window === "undefined") return;
     try {
       const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-      const ctx = new AudioCtx();
+      if (!AudioCtx) return;
+      if (!audioCtxRef.current) {
+        audioCtxRef.current = new AudioCtx();
+      }
+      const ctx = audioCtxRef.current;
+      if (ctx.state === "suspended") {
+        ctx.resume().catch(() => {});
+      }
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
       osc.connect(gain);

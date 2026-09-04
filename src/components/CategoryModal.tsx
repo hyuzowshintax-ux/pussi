@@ -440,15 +440,17 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
 
                 <div className="space-y-3">
                   {data.timeline.experience.map((item, idx) => {
+                    const role = item.role || "";
+                    const company = item.company || "";
                     let itemUrl = "#";
-                    if (item.role.includes("Duta Intelegensia") || item.company.includes("Kandangan")) {
+                    if (role.includes("Duta Intelegensia") || company.includes("Kandangan")) {
                       itemUrl = "https://sman1kandangan.sch.id";
-                    } else if (item.role.includes("Pramuka")) {
+                    } else if (role.includes("Pramuka")) {
                       itemUrl = "https://pramuka.or.id";
-                    } else if (item.role.includes("Paskibra") || item.role.includes("LBB")) {
+                    } else if (role.includes("Paskibra") || role.includes("LBB") || role.includes("CODASKA")) {
                       itemUrl = "https://kedirikab.go.id";
                     } else {
-                      itemUrl = `https://www.google.com/search?q=${encodeURIComponent(item.role + " " + item.company)}`;
+                      itemUrl = `https://www.google.com/search?q=${encodeURIComponent(`${role} ${company}`.trim() || "SMAN 1 Kandangan")}`;
                     }
 
                     return (
@@ -458,13 +460,13 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-emerald-500/20 hover:border-emerald-400 hover:bg-slate-900/80 transition-all shadow-lg flex flex-col sm:flex-row items-start gap-4 group/exp block"
-                        title={`Buka info ${item.role} di tab baru`}
+                        title={`Buka info ${role} di tab baru`}
                       >
                         {item.logoUrl && (
                           <div className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-slate-900/90 p-1 border border-emerald-500/30 shadow-md group-hover/exp:scale-105 transition-transform">
                             <img
                               src={item.logoUrl}
-                              alt={item.role}
+                              alt={role}
                               className="w-full h-full object-contain filter drop-shadow"
                               loading="lazy"
                             />
@@ -481,10 +483,10 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                             </span>
                           </div>
                           <h4 className="text-base sm:text-lg font-bold text-white group-hover/exp:text-emerald-300 transition-colors">
-                            {item.role}
+                            {role}
                           </h4>
                           <p className="text-xs sm:text-sm text-emerald-300 font-medium">
-                            {item.company}
+                            {company}
                           </p>
                           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                             {item.description}
@@ -517,7 +519,8 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                   </h4>
                   <div className="space-y-3">
                     {data.timeline.education.map((edu, idx) => {
-                      const eduUrl = edu.institution.includes("Kandangan") ? "https://sman1kandangan.sch.id" : `https://www.google.com/search?q=${encodeURIComponent(edu.institution)}`;
+                      const inst = edu.institution || "";
+                      const eduUrl = inst.includes("Kandangan") ? "https://sman1kandangan.sch.id" : `https://www.google.com/search?q=${encodeURIComponent(inst || "SMAN 1 Kandangan")}`;
                       return (
                         <a
                           key={idx}
@@ -525,7 +528,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                           target="_blank"
                           rel="noopener noreferrer"
                           className="p-4 sm:p-5 rounded-2xl bg-slate-900/60 border border-teal-500/20 hover:border-teal-400 hover:bg-slate-900/80 transition-all shadow-lg flex flex-col sm:flex-row items-start gap-4 group/edu block"
-                          title={`Buka info ${edu.institution} di tab baru`}
+                          title={`Buka info ${inst} di tab baru`}
                         >
                           {edu.logoUrl && (
                             <div className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 rounded-2xl bg-slate-900/90 p-1 border border-teal-500/30 shadow-md group-hover/edu:scale-105 transition-transform">

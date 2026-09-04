@@ -78,15 +78,17 @@ export const CosmicCardShareGenerator: React.FC = () => {
   ];
 
   const handleCopyShareLink = () => {
-    const shareUrl = window.location.origin;
+    const shareUrl = typeof window !== "undefined" ? window.location.origin : "https://github.com/hyuzowshintax-ux/pussi";
     const shareText = `🚀 Lihat Portofolio Interaktif Cyber Arcade & AI Design Engineer karya Samuel B K! Buka di: ${shareUrl}`;
-    navigator.clipboard.writeText(shareText);
+    if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(shareText);
+    }
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
   };
 
   const handleShareToWhatsApp = () => {
-    const shareUrl = window.location.origin;
+    const shareUrl = typeof window !== "undefined" ? window.location.origin : "https://github.com/hyuzowshintax-ux/pussi";
     const msg = encodeURIComponent(
       `Halo! Saya baru saja mencoba Portofolio Interaktif Samuel B K (Duta Intelegensia & AI Design Engineer). Keren banget ada Game Arcade dan Simulator Taktis LKBB! 🎮✨\n\nCek di sini: ${shareUrl}`
     );
@@ -96,143 +98,147 @@ export const CosmicCardShareGenerator: React.FC = () => {
   const handleDownloadCard = () => {
     setIsDownloading(true);
 
-    // Create a high-res canvas (1080 x 1400) for IG Story / WA Status
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-    if (!ctx) {
-      setIsDownloading(false);
-      return;
-    }
+    try {
+      // Create a high-res canvas (1080 x 1400) for IG Story / WA Status
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        setIsDownloading(false);
+        return;
+      }
 
-    canvas.width = 1080;
-    canvas.height = 1400;
+      canvas.width = 1080;
+      canvas.height = 1400;
 
-    // Background Gradient (Deep Oceanic Abyssal Void)
-    const bgGrad = ctx.createLinearGradient(0, 0, 1080, 1400);
-    bgGrad.addColorStop(0, "#020d18");
-    bgGrad.addColorStop(0.5, "#031b2e");
-    bgGrad.addColorStop(1, "#021220");
-    ctx.fillStyle = bgGrad;
-    ctx.fillRect(0, 0, 1080, 1400);
+      // Background Gradient (Deep Oceanic Abyssal Void)
+      const bgGrad = ctx.createLinearGradient(0, 0, 1080, 1400);
+      bgGrad.addColorStop(0, "#020d18");
+      bgGrad.addColorStop(0.5, "#031b2e");
+      bgGrad.addColorStop(1, "#021220");
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, 1080, 1400);
 
-    // Glowing Nebula Circles
-    const drawGlow = (x: number, y: number, r: number, color: string) => {
-      const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-      g.addColorStop(0, color);
-      g.addColorStop(1, "transparent");
-      ctx.fillStyle = g;
-      ctx.beginPath();
-      ctx.arc(x, y, r, 0, Math.PI * 2);
-      ctx.fill();
-    };
+      // Glowing Nebula Circles
+      const drawGlow = (x: number, y: number, r: number, color: string) => {
+        const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+        g.addColorStop(0, color);
+        g.addColorStop(1, "transparent");
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, Math.PI * 2);
+        ctx.fill();
+      };
 
-    drawGlow(200, 250, 450, "rgba(56, 189, 248, 0.25)");
-    drawGlow(880, 1100, 500, "rgba(16, 185, 129, 0.22)");
+      drawGlow(200, 250, 450, "rgba(56, 189, 248, 0.25)");
+      drawGlow(880, 1100, 500, "rgba(16, 185, 129, 0.22)");
 
-    // Card Outer Border
-    ctx.strokeStyle = "rgba(16, 185, 129, 0.4)";
-    ctx.lineWidth = 4;
-    ctx.strokeRect(60, 60, 960, 1280);
+      // Card Outer Border
+      ctx.strokeStyle = "rgba(16, 185, 129, 0.4)";
+      ctx.lineWidth = 4;
+      ctx.strokeRect(60, 60, 960, 1280);
 
-    // Card Header Banner
-    ctx.fillStyle = "rgba(15, 23, 42, 0.9)";
-    ctx.fillRect(80, 80, 920, 120);
-
-    ctx.fillStyle = "#34d399";
-    ctx.font = "bold 28px 'Fira Code', monospace";
-    ctx.fillText("✦ SAMUEL B K // OFFICIAL VISITOR IDENTITY PASS", 120, 140);
-
-    ctx.fillStyle = "#94a3b8";
-    ctx.font = "22px 'Fira Code', monospace";
-    ctx.fillText("SMAN 1 KANDANGAN • DUTA INTELEGENSIA • CODASKA", 120, 175);
-
-    // Main Badge Center
-    ctx.fillStyle = "rgba(15, 23, 42, 0.85)";
-    ctx.fillRect(80, 220, 920, 880);
-
-    // Symbol Badge Circle
-    drawGlow(540, 360, 120, "rgba(45, 212, 191, 0.35)");
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "72px sans-serif";
-    ctx.textAlign = "center";
-    ctx.fillText(selectedArchetype.symbol, 540, 385);
-
-    // Visitor Name
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "bold 52px 'Plus Jakarta Sans', sans-serif";
-    ctx.fillText(visitorName.toUpperCase(), 540, 470);
-
-    // Archetype Tag
-    ctx.fillStyle = "#38bdf8";
-    ctx.font = "bold 32px 'Fira Code', monospace";
-    ctx.fillText(selectedArchetype.name, 540, 530);
-
-    // Tagline & Zodiac
-    ctx.fillStyle = "#cbd5e1";
-    ctx.font = "italic 26px 'Plus Jakarta Sans', sans-serif";
-    ctx.fillText(`"${selectedArchetype.tagline}"`, 540, 580);
-
-    ctx.fillStyle = "#34d399";
-    ctx.font = "bold 26px 'Fira Code', monospace";
-    ctx.fillText(`ZODIAC: ${selectedZodiac.toUpperCase()} • ELEMEN: ${selectedArchetype.element.toUpperCase()}`, 540, 630);
-
-    // Stat Bars
-    const stats = [
-      { label: "INTELLIGENCE", val: selectedArchetype.stats.intel },
-      { label: "AGILITY & SPEED", val: selectedArchetype.stats.agility },
-      { label: "INTEGRITY & HONOR", val: selectedArchetype.stats.integrity },
-      { label: "COSMIC SYNERGY", val: selectedArchetype.stats.synergy },
-    ];
-
-    ctx.textAlign = "left";
-    let startY = 700;
-    stats.forEach((s) => {
-      ctx.fillStyle = "#94a3b8";
-      ctx.font = "bold 22px 'Fira Code', monospace";
-      ctx.fillText(s.label, 150, startY);
+      // Card Header Banner
+      ctx.fillStyle = "rgba(15, 23, 42, 0.9)";
+      ctx.fillRect(80, 80, 920, 120);
 
       ctx.fillStyle = "#34d399";
-      ctx.font = "bold 22px 'Fira Code', monospace";
-      ctx.fillText(`${s.val}%`, 850, startY);
+      ctx.font = "bold 28px 'Fira Code', monospace";
+      ctx.fillText("✦ SAMUEL B K // OFFICIAL VISITOR IDENTITY PASS", 120, 140);
 
-      // Background Bar
-      ctx.fillStyle = "rgba(30, 41, 59, 0.8)";
-      ctx.fillRect(150, startY + 15, 780, 16);
+      ctx.fillStyle = "#94a3b8";
+      ctx.font = "22px 'Fira Code', monospace";
+      ctx.fillText("SMAN 1 KANDANGAN • DUTA INTELEGENSIA • CODASKA", 120, 175);
 
-      // Fill Bar
-      const barWidth = (780 * s.val) / 100;
-      const barGrad = ctx.createLinearGradient(150, 0, 150 + barWidth, 0);
-      barGrad.addColorStop(0, "#0ea5e9");
-      barGrad.addColorStop(1, "#10b981");
-      ctx.fillStyle = barGrad;
-      ctx.fillRect(150, startY + 15, barWidth, 16);
+      // Main Badge Center
+      ctx.fillStyle = "rgba(15, 23, 42, 0.85)";
+      ctx.fillRect(80, 220, 920, 880);
 
-      startY += 75;
-    });
+      // Symbol Badge Circle
+      drawGlow(540, 360, 120, "rgba(45, 212, 191, 0.35)");
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "72px sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText(selectedArchetype.symbol, 540, 385);
 
-    // Watermark Footer
-    ctx.fillStyle = "rgba(15, 23, 42, 0.95)";
-    ctx.fillRect(80, 1120, 920, 200);
+      // Visitor Name
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 52px 'Plus Jakarta Sans', sans-serif";
+      ctx.fillText(visitorName.toUpperCase(), 540, 470);
 
-    ctx.textAlign = "center";
-    ctx.fillStyle = "#38bdf8";
-    ctx.font = "bold 28px 'Fira Code', monospace";
-    ctx.fillText("🔗 Buka Portofolio: samuelbk.vercel.app", 540, 1190);
+      // Archetype Tag
+      ctx.fillStyle = "#38bdf8";
+      ctx.font = "bold 32px 'Fira Code', monospace";
+      ctx.fillText(selectedArchetype.name, 540, 530);
 
-    ctx.fillStyle = "#64748b";
-    ctx.font = "20px 'Fira Code', monospace";
-    ctx.fillText("Next.js 14 • Cyber Arcade Game Stage • LKBB CODASKA Simulator", 540, 1240);
+      // Tagline & Zodiac
+      ctx.fillStyle = "#cbd5e1";
+      ctx.font = "italic 26px 'Plus Jakarta Sans', sans-serif";
+      ctx.fillText(`"${selectedArchetype.tagline}"`, 540, 580);
 
-    // Export & Trigger Download
-    const dataUrl = canvas.toDataURL("image/png");
-    const a = document.createElement("a");
-    a.href = dataUrl;
-    a.download = `Cosmic-ID-${visitorName.replace(/\s+/g, "-")}.png`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+      ctx.fillStyle = "#34d399";
+      ctx.font = "bold 26px 'Fira Code', monospace";
+      ctx.fillText(`ZODIAC: ${selectedZodiac.toUpperCase()} • ELEMEN: ${selectedArchetype.element.toUpperCase()}`, 540, 630);
 
-    setIsDownloading(false);
+      // Stat Bars
+      const stats = [
+        { label: "INTELLIGENCE", val: selectedArchetype.stats.intel },
+        { label: "AGILITY & SPEED", val: selectedArchetype.stats.agility },
+        { label: "INTEGRITY & HONOR", val: selectedArchetype.stats.integrity },
+        { label: "COSMIC SYNERGY", val: selectedArchetype.stats.synergy },
+      ];
+
+      ctx.textAlign = "left";
+      let startY = 700;
+      stats.forEach((s) => {
+        ctx.fillStyle = "#94a3b8";
+        ctx.font = "bold 22px 'Fira Code', monospace";
+        ctx.fillText(s.label, 150, startY);
+
+        ctx.fillStyle = "#34d399";
+        ctx.font = "bold 22px 'Fira Code', monospace";
+        ctx.fillText(`${s.val}%`, 850, startY);
+
+        // Background Bar
+        ctx.fillStyle = "rgba(30, 41, 59, 0.8)";
+        ctx.fillRect(150, startY + 15, 780, 16);
+
+        // Fill Bar
+        const barWidth = (780 * s.val) / 100;
+        const barGrad = ctx.createLinearGradient(150, 0, 150 + barWidth, 0);
+        barGrad.addColorStop(0, "#0ea5e9");
+        barGrad.addColorStop(1, "#10b981");
+        ctx.fillStyle = barGrad;
+        ctx.fillRect(150, startY + 15, barWidth, 16);
+
+        startY += 75;
+      });
+
+      // Watermark Footer
+      ctx.fillStyle = "rgba(15, 23, 42, 0.95)";
+      ctx.fillRect(80, 1120, 920, 200);
+
+      ctx.textAlign = "center";
+      ctx.fillStyle = "#38bdf8";
+      ctx.font = "bold 28px 'Fira Code', monospace";
+      ctx.fillText("🔗 Buka Portofolio: samuelbk.vercel.app", 540, 1190);
+
+      ctx.fillStyle = "#64748b";
+      ctx.font = "20px 'Fira Code', monospace";
+      ctx.fillText("Next.js 14 • Cyber Arcade Game Stage • LKBB CODASKA Simulator", 540, 1240);
+
+      // Export & Trigger Download
+      const dataUrl = canvas.toDataURL("image/png");
+      const a = document.createElement("a");
+      a.href = dataUrl;
+      a.download = `Cosmic-ID-${visitorName.replace(/\s+/g, "-")}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } catch {
+      // Safe export fallback
+    } finally {
+      setIsDownloading(false);
+    }
   };
 
   return (
