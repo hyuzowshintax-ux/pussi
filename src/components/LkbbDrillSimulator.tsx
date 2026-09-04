@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Shield, Play, RotateCcw, Volume2, Sparkles, Award, Compass, Flag } from "lucide-react";
+import { FloatingStarItem } from "./GameStarPickups";
 
 type FormationType = "standard" | "garuda" | "shield" | "varrow";
 
@@ -151,12 +152,12 @@ export const LkbbDrillSimulator: React.FC = () => {
               <span>Pleton: <strong>16 Pasukan CODASKA (Comando Garuda SMANSAKA)</strong></span>
             </div>
 
-            <div className="flex items-center space-x-4">
-              <span className="text-slate-300">Tempo: <strong>110 BPM</strong></span>
-              <span className="text-emerald-400 font-bold">Langkah Total: {stepCount}</span>
-              <span className={`px-2.5 py-0.5 rounded-full font-bold ${isMarching ? "bg-amber-500/20 text-amber-300 animate-pulse" : "bg-emerald-500/20 text-emerald-400"}`}>
-                {isMarching ? "BERPINDAH..." : "SIAP SEMPURNA"}
-              </span>
+            <div className="flex items-center space-x-3 sm:space-x-4">
+              <span className="text-slate-300 hidden sm:inline">Tempo: <strong>110 BPM</strong></span>
+              <span className="text-emerald-400 font-bold">Langkah: {stepCount}</span>
+              
+              {/* Star Collectible for LKBB Commander */}
+              <FloatingStarItem id="star-lkbb" name="Tactical Commander Star (CODASKA)" xpValue={150} />
             </div>
           </div>
 

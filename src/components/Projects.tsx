@@ -16,10 +16,12 @@ import {
   Play, 
   ShieldCheck, 
   Trophy,
-  Zap
+  Zap,
+  Star
 } from "lucide-react";
 import { Project } from "@/types/portfolio";
 import { ProjectModal } from "./ProjectModal";
+import { FloatingStarItem } from "./GameStarPickups";
 
 interface ProjectsProps {
   projects: Project[];
@@ -366,6 +368,32 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                       <p className="text-slate-300 dark:text-slate-300 light:text-slate-600 text-xs sm:text-base leading-relaxed">
                         {activeProject.fullDescription || activeProject.description}
                       </p>
+                    </div>
+
+                    {/* 3-Star Mission Rating & Stage Boss Star Collectible */}
+                    <div className="p-3 sm:p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-slate-900 to-emerald-500/10 border border-amber-400/30 flex items-center justify-between gap-3">
+                      <div className="flex items-center space-x-2.5">
+                        <div className="flex items-center space-x-1 text-amber-400">
+                          <Star className="w-4 h-4 fill-amber-400" />
+                          <Star className="w-4 h-4 fill-amber-400" />
+                          <Star className="w-4 h-4 fill-amber-400" />
+                        </div>
+                        <div>
+                          <div className="text-[11px] font-mono font-bold text-amber-300">
+                            STAGE CLEAR RATING (3/3 STARS)
+                          </div>
+                          <div className="text-[10px] text-slate-400 font-mono">
+                            Klaim Bintang Misi untuk menaikkan Player XP!
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Collectible Star Button for this Project Stage */}
+                      <FloatingStarItem 
+                        id={`star-stage-${activeProject.id}`} 
+                        name={`Stage ${safeSlideIndex + 1} Star: ${activeProject.title}`} 
+                        xpValue={150} 
+                      />
                     </div>
 
                     {/* Quest Objectives & Key Achievements */}

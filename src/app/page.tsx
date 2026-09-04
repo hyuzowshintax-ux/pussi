@@ -29,6 +29,8 @@ import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { ZodiacCelestialCompendium } from "@/components/ZodiacCelestialCompendium";
 import { CosmicCardShareGenerator } from "@/components/CosmicCardShareGenerator";
 import { VisitorQuestBadge } from "@/components/VisitorQuestBadge";
+import { GameProvider } from "@/context/GameContext";
+import { CyberPlayerHud } from "@/components/CyberPlayerHud";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
@@ -77,18 +79,22 @@ export default function Home() {
   }, [darkMode, mounted]);
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
-      {/* Interactive Living Atmosphere Canvas (Stardust, Constellations & Shooting Stars) */}
-      <DynamicAtmosphereCanvas darkMode={darkMode} />
+    <GameProvider>
+      <div className="relative min-h-screen overflow-x-hidden">
+        {/* Interactive Cyber Game Player HUD (Health, Energy, Level & Stars) */}
+        <CyberPlayerHud />
 
-      {/* Interactive Celestial Zodiac Constellations & Astro-Philosophy Compendium */}
-      <ZodiacCelestialCompendium />
+        {/* Interactive Living Atmosphere Canvas (Stardust, Constellations & Shooting Stars) */}
+        <DynamicAtmosphereCanvas darkMode={darkMode} />
 
-      {/* Viral Holographic ID Card & Story Share Generator */}
-      <CosmicCardShareGenerator />
+        {/* Interactive Celestial Zodiac Constellations & Astro-Philosophy Compendium */}
+        <ZodiacCelestialCompendium />
 
-      {/* Gamification Quest & Explorer Badge Tracker */}
-      <VisitorQuestBadge />
+        {/* Viral Holographic ID Card & Story Share Generator */}
+        <CosmicCardShareGenerator />
+
+        {/* Gamification Quest & Explorer Badge Tracker */}
+        <VisitorQuestBadge />
 
       {/* Living Breathing Aurora Mesh Ribbons */}
       <div className="aurora-mesh-container">
@@ -194,5 +200,6 @@ export default function Home() {
       {/* Footer */}
       <Footer profile={portfolioData.profile} />
     </div>
+  </GameProvider>
   );
 }
