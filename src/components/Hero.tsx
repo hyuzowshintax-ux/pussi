@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { ArrowRight, MessageSquare, Github, Linkedin, Twitter, Instagram, Mail, Sparkles } from "lucide-react";
+import { ArrowRight, MessageSquare, Github, Linkedin, Twitter, Instagram, Mail, Sparkles, Share2 } from "lucide-react";
 import { Profile } from "@/types/portfolio";
 
 interface HeroProps {
@@ -164,6 +164,20 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                 >
                   <Mail className="w-5 h-5" />
                 </a>
+
+                {/* Direct Share to WhatsApp Button */}
+                <button
+                  onClick={() => {
+                    const shareUrl = typeof window !== "undefined" ? window.location.origin : "https://github.com/hyuzowshintax-ux/pussi";
+                    const msg = encodeURIComponent(`Halo! Cek portofolio interaktif Cyber Arcade & AI Design Engineer karya Samuel B K di: ${shareUrl}`);
+                    window.open(`https://wa.me/?text=${msg}`, "_blank");
+                  }}
+                  className="px-3.5 h-11 sm:h-10 rounded-xl flex items-center space-x-1.5 bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 text-xs font-mono font-semibold transition-all shadow-sm active:scale-95"
+                  title="Bagikan portofolio ini ke WhatsApp"
+                >
+                  <Share2 className="w-4 h-4" />
+                  <span>Share WA</span>
+                </button>
               </div>
             </div>
 

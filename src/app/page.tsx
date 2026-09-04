@@ -27,6 +27,8 @@ import { SkillRadarMatrix } from "@/components/SkillRadarMatrix";
 import { SecretTerminalGame } from "@/components/SecretTerminalGame";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { ZodiacCelestialCompendium } from "@/components/ZodiacCelestialCompendium";
+import { CosmicCardShareGenerator } from "@/components/CosmicCardShareGenerator";
+import { VisitorQuestBadge } from "@/components/VisitorQuestBadge";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
@@ -81,6 +83,12 @@ export default function Home() {
 
       {/* Interactive Celestial Zodiac Constellations & Astro-Philosophy Compendium */}
       <ZodiacCelestialCompendium />
+
+      {/* Viral Holographic ID Card & Story Share Generator */}
+      <CosmicCardShareGenerator />
+
+      {/* Gamification Quest & Explorer Badge Tracker */}
+      <VisitorQuestBadge />
 
       {/* Living Breathing Aurora Mesh Ribbons */}
       <div className="aurora-mesh-container">
