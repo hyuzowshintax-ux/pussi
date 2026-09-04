@@ -32,6 +32,20 @@ interface QuizQuestion {
 const quizQuestions: QuizQuestion[] = [
   {
     id: 1,
+    category: "Identitas Pemilik Portofolio",
+    categoryBadge: "PROFIL PORTOFOLIO",
+    question: "Siapakah pemilik dan pengembang utama dari website portofolio interaktif Cyber Arcade ini?",
+    options: [
+      "Samuel B K",
+      "Alex Pratama",
+      "Dimas Aditya",
+      "Rizky Ramadhan"
+    ],
+    correctIndex: 0,
+    explanation: "Website ini adalah portofolio interaktif resmi karya Samuel B K — Pelajar, Duta Intelegensia SMAN 1 Kandangan, dan AI Design Engineer."
+  },
+  {
+    id: 2,
     category: "Almamater & Duta Intelegensia",
     categoryBadge: "DUTA INTELEGENSIA",
     question: "Di sekolah manakah Samuel B K terpilih dan mengabdi sebagai Duta Intelegensia periode 2025–2026?",
@@ -42,133 +56,119 @@ const quizQuestions: QuizQuestion[] = [
       "SMAN 1 Surabaya"
     ],
     correctIndex: 1,
-    explanation: "Samuel B K merupakan Duta Intelegensia terpilih SMAN 1 Kandangan (SMANSAKA) di Kabupaten Kediri, Jawa Timur."
-  },
-  {
-    id: 2,
-    category: "Organisasi PBB & LKBB",
-    categoryBadge: "CODASKA KANDANGAN",
-    question: "Apakah arti kepanjangan resmi dari CODASKA yang merupakan organisasi pleton baris-berbaris kebanggaan SMANSAKA?",
-    options: [
-      "Comando Garuda SMANSAKA (SMAN 1 Kandangan)",
-      "Korps Pasukan Garuda Kandangan",
-      "Komando Pandu SMANSAKA",
-      "Korps Bhayangkara Garuda"
-    ],
-    correctIndex: 0,
-    explanation: "CODASKA adalah singkatan dari Comando Garuda SMANSAKA, pleton LKBB dan Paskibra kebanggaan SMAN 1 Kandangan."
+    explanation: "Samuel B K mengemban amanah sebagai Duta Intelegensia di SMAN 1 Kandangan (SMANSAKA), Kediri, Jawa Timur."
   },
   {
     id: 3,
-    category: "Taktis Formasi LKBB",
-    categoryBadge: "PBB DRILL",
-    question: "Berapakah jumlah standar personil pasukan dalam satu formasi pleton variasi baris-berbaris resmi CODASKA?",
+    category: "Panggung Proyek Arcade Stage 01",
+    categoryBadge: "KARYA UNGGULAN",
+    question: "Pada etalase panggung arcade proyek (Stage 01), aplikasi apa yang ditampilkan sebagai asisten belajar cerdas siswa?",
     options: [
-      "8 Personil",
-      "12 Personil",
-      "16 Personil (Termasuk Komandan Pleton/Danton)",
-      "24 Personil"
+      "Intelegensia AI",
+      "Crypto Trading Bot",
+      "Music Player X",
+      "Weather Radar App"
     ],
-    correctIndex: 2,
-    explanation: "Satu pleton resmi CODASKA terdiri dari 16 personil tersusun rapi dalam matriks formasi variasi dan ketangkasan komando."
+    correctIndex: 0,
+    explanation: "Intelegensia AI adalah proyek unggulan pertama Samuel untuk membantu siswa membedah soal dan materi belajar sekolah."
   },
   {
     id: 4,
-    category: "Riwayat Kepanduan Pramuka",
-    categoryBadge: "PRAMUKA GARUDA",
-    question: "Tingkatan kehormatan Pramuka tertinggi golongan Penggalang yang berhasil diraih Samuel pada tahun 2023 adalah...?",
+    category: "Simulator Taktis CODASKA",
+    categoryBadge: "CODASKA KANDANGAN",
+    question: "Berapakah jumlah total personil pasukan yang disimulasikan dalam fitur Simulator Formasi LKBB CODASKA di portofolio ini?",
     options: [
-      "Pramuka Ramu",
-      "Pramuka Rakit",
-      "Pramuka Garuda",
-      "Pramuka Terap"
+      "8 Pasukan",
+      "12 Pasukan",
+      "16 Pasukan (Termasuk Danton)",
+      "24 Pasukan"
     ],
     correctIndex: 2,
-    explanation: "Samuel meraih penghargaan tertinggi Pramuka Garuda Penggalang pada tahun 2023 sebelum melanjutkan ke jenjang Penegak Bantara."
+    explanation: "Simulator CODASKA di portofolio ini menampilkan pergerakan taktis 16 personil pleton dalam 4 variasi formasi."
   },
   {
     id: 5,
-    category: "Ketertiban & Disiplin Masyarakat",
-    categoryBadge: "SAKA BHAYANGKARA",
-    question: "Satuan Karya Pramuka (SAKA) Bhayangkara yang ditekuni Samuel berfokus pada pembinaan di bidang...?",
+    category: "Formasi Khas PBB CODASKA",
+    categoryBadge: "VARIASI FORMASI",
+    question: "Salah satu formasi variasi kebanggaan yang dapat diuji pada Simulator LKBB portofolio ini dengan simbol lambang elang adalah...?",
     options: [
-      "Kebaharian dan Kelautan",
-      "Keamanan dan Ketertiban Masyarakat (Kamtibmas)",
-      "Kedirgantaraan & Penerbangan",
-      "Kehutanan & Wanabakti"
+      "Sayap Garuda CODASKA 🦅",
+      "Benteng Kura-Kura",
+      "Naga Laut",
+      "Barisan Persegi"
     ],
-    correctIndex: 1,
-    explanation: "SAKA Bhayangkara dibina langsung oleh kepolisian untuk mendidik pemuda dalam pencegahan kejahatan dan ketertiban kamtibmas."
+    correctIndex: 0,
+    explanation: "Formasi Sayap Garuda CODASKA 🦅 adalah formasi variasi andalan yang menempatkan Danton di kepala dan personil di kedua sayap serta ekor."
   },
   {
     id: 6,
-    category: "Kecerdasan Buatan (AI)",
-    categoryBadge: "AI & PROMPT",
-    question: "Seni dan teknik merancang instruksi kontekstual berstruktur tinggi agar Model AI menghasilkan output presisi disebut...?",
+    category: "Sistem Game & Pengumpulan Bintang",
+    categoryBadge: "GAME RPG HUD",
+    question: "Fitur game apakah yang melayang di pojok layar portofolio untuk memantau Level Player, HP, MP, dan Star Coins yang kamu kumpulkan?",
     options: [
-      "Prompt Engineering",
-      "Hard Resetting",
-      "Overclocking CPU",
-      "Data Scraping"
+      "Cyber Player HUD Bar",
+      "Pop-up Iklan Banner",
+      "Widget Stopwatch",
+      "Kalkulator Nilai"
     ],
     correctIndex: 0,
-    explanation: "Prompt Engineering adalah keahlian menyusun instruksi terstruktur untuk memaksimalkan nalar dan akurasi model Generative AI / LLM."
+    explanation: "Cyber Player HUD di pojok layar menampilkan Level P1 (Samuel), Status HP/MP, XP Bar, dan jumlah Bintang Emas (⭐) yang berhasil kamu klaim."
   },
   {
     id: 7,
-    category: "Arsitektur Web Modern",
-    categoryBadge: "NEXT.JS & REACT",
-    question: "Framework React full-stack modern berbasis TypeScript yang menjadi fondasi website portofolio interaktif ini adalah...?",
+    category: "Navigasi Gamepad Proyek",
+    categoryBadge: "ARCADE CONTROLLER",
+    question: "Pada konsol Cyber Arcade Proyek portofolio ini, tombol keyboard apa yang dapat ditekan untuk melompat ke stage misi berikutnya?",
     options: [
-      "Next.js 14",
-      "AngularJS 1.0",
-      "jQuery UI",
-      "CodeIgniter 3"
+      "Tombol [D] atau Panah Kanan",
+      "Tombol [Z]",
+      "Tombol Spasi",
+      "Tombol [Esc]"
     ],
     correctIndex: 0,
-    explanation: "Website portofolio ini dibangun menggunakan Next.js 14 App Router, React, TypeScript, Tailwind CSS, dan Web Audio API."
+    explanation: "Pengunjung dapat menekan tombol [A] (Prev) dan [D] (Next) atau tombol panah keyboard untuk berpindah stage proyek layaknya bermain game konsol!"
   },
   {
     id: 8,
-    category: "Astrofisika & Konstelasi Kosmik",
-    categoryBadge: "ZODIAC LORE",
-    question: "Bintang mahaterang berwarna merah raksasa yang menjadi jantung utama dari rasi bintang Scorpio adalah...?",
+    category: "Generator Kartu Hologram Medsos",
+    categoryBadge: "VIRAL SHARE CARD",
+    question: "Fitur interaktif di pojok layar yang memungkinkan pengunjung membuat kartu pas hologram untuk dibagikan ke Instagram Story & WhatsApp adalah...?",
     options: [
-      "Sirius",
-      "Polaris (Bintang Kutub)",
-      "Antares (Alpha Scorpii)",
-      "Betelgeuse"
+      "Generator Kartu Hologram (Cosmic ID)",
+      "Form Cetak KTP",
+      "Pembuat Tiket Konser",
+      "Scanner Barcode Belanja"
     ],
-    correctIndex: 2,
-    explanation: "Antares adalah bintang superraksasa merah terang yang melambangkan jantung kalajengking kosmik pada rasi Scorpio."
+    correctIndex: 0,
+    explanation: "Generator Kartu Hologram memungkinkan pengunjung mengetik nama, memilih zodiak/archetype, dan mengunduh kartu gambar HD beresolusi 1080x1400."
   },
   {
     id: 9,
-    category: "Standar Ketukan Baris-Berbaris",
-    categoryBadge: "TEMPO METRONOM",
-    question: "Berapakah standar ketukan tempo metronom resmi untuk langkah tegap baris-berbaris (PBB/LKBB) di Indonesia?",
+    category: "Shortcut Pencarian Cepat",
+    categoryBadge: "SPOTLIGHT PALETTE",
+    question: "Kombinasi tombol pintas keyboard apakah yang dapat ditekan untuk membuka Spotlight Command Palette pencarian instan di portofolio ini?",
     options: [
-      "60 BPM",
-      "80 BPM",
-      "110 – 120 BPM",
-      "180 BPM"
+      "Ctrl + K (atau Cmd + K)",
+      "Alt + F4",
+      "Shift + Delete",
+      "Ctrl + Z"
     ],
-    correctIndex: 2,
-    explanation: "Langkah tegap dan langkah biasa baris-berbaris resmi memiliki standar tempo 110 hingga 120 langkah per menit (BPM)."
+    correctIndex: 0,
+    explanation: "Menekan tombol Ctrl + K membuka Command Palette instan untuk berpindah kategori, melihat resume, dan beralih tema secara cepat."
   },
   {
     id: 10,
-    category: "Filosofi & Nalar Kepemimpinan",
-    categoryBadge: "INTEGRITAS UTAMA",
-    question: "Prinsip utama yang senantiasa dipegang teguh oleh Samuel dalam memadukan teknologi AI dan kepemimpinan sekolah adalah...?",
+    category: "Asisten AI Portofolio",
+    categoryBadge: "CHATBOT CERDAS",
+    question: "Fitur cerdas apakah yang melayang di pojok kanan bawah portofolio yang siap menjawab segala pertanyaan pengunjung tentang Samuel secara interaktif?",
     options: [
-      "Integritas, Nalar Cerdas & Pengabdian Berkelanjutan",
-      "Mengejar Popularitas Instan Tanpa Kerja Nyata",
-      "Menghindari Kolaborasi dan Gotong Royong",
-      "Teori Tanpa Realisasi Eksekusi"
+      "Tanya Samuel AI Chatbot",
+      "Auto-Translate Tool",
+      "Radio Streaming",
+      "Formulir Survey"
     ],
     correctIndex: 0,
-    explanation: "Sebagai Duta Intelegensia dan AI Design Engineer, integritas, kecerdasan nalar, dan ketulusan mengabdi adalah pondasi terpenting."
+    explanation: "Widget Tanya Samuel AI adalah chatbot cerdas yang dapat menjawab pertanyaan seputar CODASKA, riwayat sekolah, kontak WhatsApp, dan keahlian teknologi Samuel."
   }
 ];
 
