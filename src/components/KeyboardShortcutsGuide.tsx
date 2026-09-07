@@ -1,0 +1,359 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { Keyboard, X, Sparkles, Zap, Compass, Gamepad2, Search, Moon, Sun, Star, ExternalLink } from "lucide-react";
+import { useGame } from "@/context/GameContext";
+
+interface ShortcutGroup {
+  category: string;
+  categoryBadge: string;
+  items: {
+    keys: string[];
+    label: string;
+    description: string;
+    action: () => void;
+  }[];
+}
+
+interface KeyboardShortcutsGuideProps {
+  darkMode: boolean;
+  setDarkMode: (val: boolean | ((prev: boolean) => boolean)) => void;
+}
+
+export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
+  darkMode,
+  setDarkMode
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeKeyHit, setActiveKeyHit] = useState<string | null>(null);
+  const { playGameSfx, gainXp } = useGame();
+
+  const scrollToSection = (id: string, name: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      playGameSfx("powerup");
+      gainXp(15, `Shortcut Navigasi: Ke ${name}`);
+    }
+  };
+
+  const openElementBySelector = (selector: string, soundType: "star" | "coin" | "powerup" = "coin") => {
+    const btn = document.querySelector(selector) as HTMLButtonElement | null;
+    if (btn) {
+      btn.click();
+      playGameSfx(soundType);
+    }
+  };
+
+  const shortcutGroups: ShortcutGroup[] = [
+    {
+      category: "Navigasi Cepat Antar Halaman",
+      categoryBadge: "FAST JUMP",
+      items: [
+        {
+          keys: ["1", "H"],
+          label: "Beranda / Profil Utama",
+          description: "Melompat langsung ke panggung utama & kartu avatar",
+          action: () => scrollToSection("home", "Beranda")
+        },
+        {
+          keys: ["2", "P"],
+          label: "Arcade Proyek",
+          description: "Melihat etalase karya dan stage misi",
+          action: () => scrollToSection("projects", "Proyek")
+        },
+        {
+          keys: ["3", "L"],
+          label: "Simulator LKBB CODASKA",
+          description: "Membuka simulasi taktis baris-berbaris 16 personil",
+          action: () => scrollToSection("lkbb-simulator", "Simulator LKBB")
+        },
+        {
+          keys: ["4", "S"],
+          label: "Matriks Keahlian & Radar",
+          description: "Melihat grafik kemampuan AI, Web & Desain",
+          action: () => scrollToSection("skills", "Keahlian")
+        },
+        {
+          keys: ["5", "E"],
+          label: "Rekam Jejak & Prestasi",
+          description: "Menelusuri pengalaman Duta Intelegensia & Pramuka",
+          action: () => scrollToSection("experience", "Prestasi")
+        },
+        {
+          keys: ["6", "C"],
+          label: "Hubungi Kontak",
+          description: "Menuju formulir pesan & kontak WhatsApp",
+          action: () => scrollToSection("contact", "Kontak")
+        }
+      ]
+    },
+    {
+      category: "Fitur Game & Interaktif",
+      categoryBadge: "GAMEPLAY & APPS",
+      items: [
+        {
+          keys: ["Q"],
+          label: "Kuis Intelegensia (10 Soal)",
+          description: "Membuka game trivia seputar portofolio",
+          action: () => openElementBySelector("button[title*='Game Kuis']", "star")
+        },
+        {
+          keys: ["Z"],
+          label: "Kompendium Zodiak Kosmik",
+          description: "Membuka ensiklopedia 12 rasi bintang & filosofi",
+          action: () => openElementBySelector("button[title*='Kompendium Konstelasi']", "star")
+        },
+        {
+          keys: ["I"],
+          label: "Generator Kartu Hologram",
+          description: "Membuat kartu pas nama untuk IG Story / WA",
+          action: () => openElementBySelector("button[title*='Buat Kartu Hologram']", "coin")
+        },
+        {
+          keys: ["A", "D"],
+          label: "Geser Slide Proyek (Prev / Next)",
+          description: "Mengganti panggung proyek dengan tombol gamepad",
+          action: () => {}
+        }
+      ]
+    },
+    {
+      category: "Pintasan Sistem & Kontrol",
+      categoryBadge: "SYSTEM UTILS",
+      items: [
+        {
+          keys: ["Ctrl", "K"],
+          label: "Spotlight Command Palette",
+          description: "Pencarian cepat dan menu perintah instan",
+          action: () => openElementBySelector("button[aria-label='Buka Command Palette']", "powerup")
+        },
+        {
+          keys: ["D"],
+          label: "Beralih Mode Gelap / Terang",
+          description: "Mengubah tema atmosfer pencahayaan visual",
+          action: () => {
+            setDarkMode((prev) => !prev);
+            playGameSfx("powerup");
+          }
+        },
+        {
+          keys: ["?"],
+          label: "Buka / Tutup Daftar Shortcut",
+          description: "Menampilkan panduan tombol pintas ini",
+          action: () => setIsOpen((prev) => !prev)
+        },
+        {
+          keys: ["Esc"],
+          label: "Tutup Jendela / Modal",
+          description: "Menutup jendela aktif yang sedang terbuka",
+          action: () => setIsOpen(false)
+        }
+      ]
+    }
+  ];
+
+  // Global Keyboard Event Listener
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Ignore if user is currently typing in input or textarea
+      const target = e.target as HTMLElement;
+      if (["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName) || target.isContentEditable) {
+        return;
+      }
+
+      const key = e.key.toUpperCase();
+
+      // Toggle Shortcut Guide: ? or Shift + /
+      if (e.key === "?" || (e.shiftKey && e.key === "/")) {
+        e.preventDefault();
+        setIsOpen((prev) => !prev);
+        setActiveKeyHit("?");
+        playGameSfx("powerup");
+        setTimeout(() => setActiveKeyHit(null), 1000);
+        return;
+      }
+
+      if (e.key === "Escape" && isOpen) {
+        setIsOpen(false);
+        return;
+      }
+
+      // Check numeric shortcuts: 1, 2, 3, 4, 5, 6
+      if (e.key === "1" || key === "H") {
+        e.preventDefault();
+        scrollToSection("home", "Beranda");
+        setActiveKeyHit(e.key);
+      } else if (e.key === "2" || key === "P") {
+        e.preventDefault();
+        scrollToSection("projects", "Proyek");
+        setActiveKeyHit(e.key);
+      } else if (e.key === "3" || key === "L") {
+        e.preventDefault();
+        scrollToSection("lkbb-simulator", "Simulator LKBB");
+        setActiveKeyHit(e.key);
+      } else if (e.key === "4" || key === "S") {
+        e.preventDefault();
+        scrollToSection("skills", "Keahlian");
+        setActiveKeyHit(e.key);
+      } else if (e.key === "5" || key === "E") {
+        e.preventDefault();
+        scrollToSection("experience", "Prestasi");
+        setActiveKeyHit(e.key);
+      } else if (e.key === "6" || key === "C") {
+        e.preventDefault();
+        scrollToSection("contact", "Kontak");
+        setActiveKeyHit(e.key);
+      } else if (key === "Q") {
+        e.preventDefault();
+        openElementBySelector("button[title*='Game Kuis']", "star");
+        setActiveKeyHit("Q");
+      } else if (key === "Z") {
+        e.preventDefault();
+        openElementBySelector("button[title*='Kompendium Konstelasi']", "star");
+        setActiveKeyHit("Z");
+      } else if (key === "I") {
+        e.preventDefault();
+        openElementBySelector("button[title*='Buat Kartu Hologram']", "coin");
+        setActiveKeyHit("I");
+      } else if (key === "D" && !e.ctrlKey && !e.metaKey) {
+        // Toggle theme (only if not in arcade stage controls)
+        // If Projects is in viewport, [D] is for next stage
+        const projectsEl = document.getElementById("projects");
+        const rect = projectsEl?.getBoundingClientRect();
+        const isInProjects = rect && rect.top <= 200 && rect.bottom >= 200;
+        if (!isInProjects) {
+          e.preventDefault();
+          setDarkMode((prev) => !prev);
+          playGameSfx("powerup");
+          setActiveKeyHit("D");
+        }
+      }
+
+      if (activeKeyHit) {
+        setTimeout(() => setActiveKeyHit(null), 1000);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, setDarkMode, playGameSfx, gainXp]);
+
+  return (
+    <>
+      {/* Floating Shortcut Quick-Trigger Pill on Bottom-Right / Center */}
+      <div className="fixed bottom-20 sm:bottom-6 right-36 sm:right-48 z-40 hidden min-[500px]:block">
+        <button
+          onClick={() => {
+            setIsOpen(true);
+            playGameSfx("powerup");
+          }}
+          className="group flex items-center space-x-2 px-3 py-2 rounded-full glass-card border border-emerald-500/30 hover:border-emerald-400 bg-slate-950/85 hover:bg-slate-900 text-slate-300 hover:text-white text-xs font-mono font-semibold shadow-lg shadow-emerald-950/40 transition-all duration-300 backdrop-blur-md active:scale-95"
+          title="Buka Daftar Pintasan Keyboard (Tekan '?')"
+        >
+          <Keyboard className="w-3.5 h-3.5 text-emerald-400 group-hover:rotate-12 transition-transform" />
+          <span className="text-[11px] text-emerald-300">
+            [ ? ] SHORTCUTS
+          </span>
+        </button>
+      </div>
+
+      {/* Main Keyboard Shortcuts Cheatsheet Modal */}
+      {isOpen && (
+        <div className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-xl flex items-center justify-center p-3 sm:p-6 animate-cloud-enter overflow-y-auto">
+          <div className="relative w-full max-w-3xl glass-card rounded-3xl border-2 border-emerald-500/40 shadow-2xl shadow-emerald-950/60 overflow-hidden flex flex-col max-h-[90vh] my-auto bg-slate-950/95 font-sans">
+            
+            {/* Header */}
+            <div className="p-4 sm:p-5 bg-slate-900/90 border-b border-emerald-500/25 flex items-center justify-between backdrop-blur-md">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-500 via-teal-400 to-cyan-400 flex items-center justify-center text-slate-950 shadow-md font-bold">
+                  <Keyboard className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="flex items-center space-x-2">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-emerald-400">
+                      // CYBER HOTKEY COMMAND MATRIX
+                    </span>
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-black text-white tracking-tight">
+                    Pintasan Keyboard Super Cepat
+                  </h3>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setIsOpen(false)}
+                className="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors border border-emerald-500/20"
+                aria-label="Tutup Panduan Shortcut"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Quick Hint Bar */}
+            <div className="px-4 sm:px-6 py-2.5 bg-slate-900/60 border-b border-white/5 flex items-center justify-between text-xs font-mono text-slate-300">
+              <span>💡 Tekan tombol di keyboard atau klik kartu untuk langsung mengeksekusi aksi!</span>
+              <span className="text-emerald-400 font-bold hidden sm:inline">PINTASAN AKTIF</span>
+            </div>
+
+            {/* Modal Body with Shortcut Groups */}
+            <div className="p-4 sm:p-6 overflow-y-auto space-y-6 flex-1">
+              {shortcutGroups.map((group, gIdx) => (
+                <div key={gIdx} className="space-y-3">
+                  <div className="flex items-center space-x-2">
+                    <span className="px-2.5 py-0.5 rounded-lg text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                      {group.categoryBadge}
+                    </span>
+                    <h4 className="text-xs font-mono font-bold text-white uppercase tracking-wider">
+                      {group.category}
+                    </h4>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {group.items.map((item, iIdx) => (
+                      <button
+                        key={iIdx}
+                        onClick={() => {
+                          item.action();
+                          setIsOpen(false);
+                        }}
+                        className="p-3 rounded-2xl bg-slate-900/70 hover:bg-slate-900 border border-white/10 hover:border-emerald-400/60 transition-all text-left flex items-start justify-between group active:scale-[0.99]"
+                      >
+                        <div className="space-y-0.5">
+                          <div className="text-xs font-bold text-white group-hover:text-emerald-300 transition-colors">
+                            {item.label}
+                          </div>
+                          <div className="text-[10px] text-slate-400">
+                            {item.description}
+                          </div>
+                        </div>
+
+                        {/* Keycap Badge Visual */}
+                        <div className="flex items-center space-x-1 flex-shrink-0 ml-2">
+                          {item.keys.map((k, kIdx) => (
+                            <kbd
+                              key={kIdx}
+                              className="px-2 py-1 rounded-lg bg-slate-950 border border-emerald-500/40 text-emerald-400 font-mono font-bold text-xs shadow-inner min-w-[24px] text-center"
+                            >
+                              {k}
+                            </kbd>
+                          ))}
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Footer */}
+            <div className="p-4 bg-slate-900/80 border-t border-emerald-500/20 text-center font-mono text-[11px] text-slate-400">
+              <span>Tekan <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-emerald-300 border border-emerald-500/30">Esc</kbd> kapan saja untuk menutup jendela.</span>
+            </div>
+
+          </div>
+        </div>
+      )}
+    </>
+  );
+};

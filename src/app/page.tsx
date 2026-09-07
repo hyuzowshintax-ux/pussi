@@ -32,6 +32,7 @@ import { VisitorQuestBadge } from "@/components/VisitorQuestBadge";
 import { GameProvider } from "@/context/GameContext";
 import { CyberPlayerHud } from "@/components/CyberPlayerHud";
 import { CyberQuizGame } from "@/components/CyberQuizGame";
+import { KeyboardShortcutsGuide } from "@/components/KeyboardShortcutsGuide";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
@@ -99,6 +100,9 @@ export default function Home() {
 
         {/* Gamification Quest & Explorer Badge Tracker */}
         <VisitorQuestBadge />
+
+        {/* Global Keyboard Shortcuts Cheatsheet & Hotkey Engine */}
+        <KeyboardShortcutsGuide darkMode={darkMode} setDarkMode={setDarkMode} />
 
       {/* Living Breathing Aurora Mesh Ribbons */}
       <div className="aurora-mesh-container">
