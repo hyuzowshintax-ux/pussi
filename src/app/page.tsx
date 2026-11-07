@@ -24,14 +24,9 @@ import { GuestbookSupport } from "@/components/GuestbookSupport";
 import { HolographicTrophyShowcase } from "@/components/HolographicTrophyShowcase";
 import { LkbbDrillSimulator } from "@/components/LkbbDrillSimulator";
 import { SkillRadarMatrix } from "@/components/SkillRadarMatrix";
-import { SecretTerminalGame } from "@/components/SecretTerminalGame";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 import { ZodiacCelestialCompendium } from "@/components/ZodiacCelestialCompendium";
 import { CosmicCardShareGenerator } from "@/components/CosmicCardShareGenerator";
-import { VisitorQuestBadge } from "@/components/VisitorQuestBadge";
-import { GameProvider } from "@/context/GameContext";
-import { CyberPlayerHud } from "@/components/CyberPlayerHud";
-import { CyberQuizGame } from "@/components/CyberQuizGame";
 import { KeyboardShortcutsGuide } from "@/components/KeyboardShortcutsGuide";
 
 export default function Home() {
@@ -81,28 +76,18 @@ export default function Home() {
   }, [darkMode, mounted]);
 
   return (
-    <GameProvider>
-      <div className="relative min-h-screen overflow-x-hidden">
-        {/* Interactive Cyber Game Player HUD (Health, Energy, Level & Stars) */}
-        <CyberPlayerHud />
+    <div className="relative min-h-screen overflow-x-hidden">
+      {/* Interactive Living Atmosphere Canvas (Stardust, Constellations & Shooting Stars) */}
+      <DynamicAtmosphereCanvas darkMode={darkMode} />
 
-        {/* Interactive Living Atmosphere Canvas (Stardust, Constellations & Shooting Stars) */}
-        <DynamicAtmosphereCanvas darkMode={darkMode} />
+      {/* Interactive Celestial Zodiac Constellations & Astro-Philosophy Compendium */}
+      <ZodiacCelestialCompendium />
 
-        {/* Interactive Celestial Zodiac Constellations & Astro-Philosophy Compendium */}
-        <ZodiacCelestialCompendium />
+      {/* Viral Holographic ID Card & Story Share Generator */}
+      <CosmicCardShareGenerator />
 
-        {/* Viral Holographic ID Card & Story Share Generator */}
-        <CosmicCardShareGenerator />
-
-        {/* 10-Question Cyber Intelligence Trivia Quiz Game */}
-        <CyberQuizGame />
-
-        {/* Gamification Quest & Explorer Badge Tracker */}
-        <VisitorQuestBadge />
-
-        {/* Global Keyboard Shortcuts Cheatsheet & Hotkey Engine */}
-        <KeyboardShortcutsGuide darkMode={darkMode} setDarkMode={setDarkMode} />
+      {/* Global Keyboard Shortcuts Cheatsheet & Hotkey Engine */}
+      <KeyboardShortcutsGuide darkMode={darkMode} setDarkMode={setDarkMode} />
 
       {/* Living Breathing Aurora Mesh Ribbons */}
       <div className="aurora-mesh-container">
@@ -199,15 +184,11 @@ export default function Home() {
       {/* Intelligent Interactive AI Chatbot Assistant */}
       <AiChatbot data={portfolioData} />
 
-      {/* Secret Cyber Challenge Mini-Game Easter Egg */}
-      <SecretTerminalGame />
-
       {/* Mobile Floating Bottom Dock Navigation */}
       <MobileBottomNav />
 
       {/* Footer */}
       <Footer profile={portfolioData.profile} />
     </div>
-  </GameProvider>
   );
 }

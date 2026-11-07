@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Keyboard, X, Sparkles, Zap, Compass, Gamepad2, Search, Moon, Sun, Star, ExternalLink } from "lucide-react";
-import { useGame } from "@/context/GameContext";
+import { Keyboard, X } from "lucide-react";
 
 interface ShortcutGroup {
   category: string;
@@ -21,27 +20,22 @@ interface KeyboardShortcutsGuideProps {
 }
 
 export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
-  darkMode,
   setDarkMode
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeKeyHit, setActiveKeyHit] = useState<string | null>(null);
-  const { playGameSfx, gainXp } = useGame();
 
-  const scrollToSection = (id: string, name: string) => {
+  const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
-      playGameSfx("powerup");
-      gainXp(15, `Shortcut Navigasi: Ke ${name}`);
     }
   };
 
-  const openElementBySelector = (selector: string, soundType: "star" | "coin" | "powerup" = "coin") => {
+  const openElementBySelector = (selector: string) => {
     const btn = document.querySelector(selector) as HTMLButtonElement | null;
     if (btn) {
       btn.click();
-      playGameSfx(soundType);
     }
   };
 
@@ -54,67 +48,61 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
           keys: ["1", "H"],
           label: "Beranda / Profil Utama",
           description: "Melompat langsung ke panggung utama & kartu avatar",
-          action: () => scrollToSection("home", "Beranda")
+          action: () => scrollToSection("home")
         },
         {
           keys: ["2", "P"],
-          label: "Arcade Proyek",
-          description: "Melihat etalase karya dan stage misi",
-          action: () => scrollToSection("projects", "Proyek")
+          label: "Etalase Proyek",
+          description: "Melihat etalase karya dan stage proyek",
+          action: () => scrollToSection("projects")
         },
         {
           keys: ["3", "L"],
           label: "Simulator LKBB CODASKA",
           description: "Membuka simulasi taktis baris-berbaris 16 personil",
-          action: () => scrollToSection("lkbb-simulator", "Simulator LKBB")
+          action: () => scrollToSection("lkbb-simulator")
         },
         {
           keys: ["4", "S"],
           label: "Matriks Keahlian & Radar",
           description: "Melihat grafik kemampuan AI, Web & Desain",
-          action: () => scrollToSection("skills", "Keahlian")
+          action: () => scrollToSection("skills")
         },
         {
           keys: ["5", "E"],
           label: "Rekam Jejak & Prestasi",
           description: "Menelusuri pengalaman Duta Intelegensia & Pramuka",
-          action: () => scrollToSection("experience", "Prestasi")
+          action: () => scrollToSection("experience")
         },
         {
           keys: ["6", "C"],
           label: "Hubungi Kontak",
           description: "Menuju formulir pesan & kontak WhatsApp",
-          action: () => scrollToSection("contact", "Kontak")
+          action: () => scrollToSection("contact")
         }
       ]
     },
     {
-      category: "Fitur Game & Interaktif",
-      categoryBadge: "GAMEPLAY & APPS",
+      category: "Fitur Interaktif",
+      categoryBadge: "INTERACTIVE APPS",
       items: [
-        {
-          keys: ["Q"],
-          label: "Kuis Intelegensia (10 Soal)",
-          description: "Membuka game trivia seputar portofolio",
-          action: () => openElementBySelector("button[title*='Game Kuis']", "star")
-        },
         {
           keys: ["Z"],
           label: "Kompendium Zodiak Kosmik",
           description: "Membuka ensiklopedia 12 rasi bintang & filosofi",
-          action: () => openElementBySelector("button[title*='Kompendium Konstelasi']", "star")
+          action: () => openElementBySelector("button[title*='Kompendium Konstelasi']")
         },
         {
           keys: ["I"],
           label: "Generator Kartu Hologram",
           description: "Membuat kartu pas nama untuk IG Story / WA",
-          action: () => openElementBySelector("button[title*='Buat Kartu Hologram']", "coin")
+          action: () => openElementBySelector("button[title*='Buat Kartu Hologram']")
         },
         {
           keys: ["A", "D"],
           label: "Geser Slide Proyek (Prev / Next)",
-          description: "Mengganti panggung proyek dengan tombol gamepad",
-          action: () => {}
+          description: "Mengganti slide proyek saat berada di bagian Proyek",
+          action: () => scrollToSection("projects")
         }
       ]
     },
@@ -126,7 +114,7 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
           keys: ["Ctrl", "K"],
           label: "Spotlight Command Palette",
           description: "Pencarian cepat dan menu perintah instan",
-          action: () => openElementBySelector("button[aria-label='Buka Command Palette']", "powerup")
+          action: () => openElementBySelector("button[aria-label='Buka Command Palette']")
         },
         {
           keys: ["D"],
@@ -134,7 +122,6 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
           description: "Mengubah tema atmosfer pencahayaan visual",
           action: () => {
             setDarkMode((prev) => !prev);
-            playGameSfx("powerup");
           }
         },
         {
@@ -169,7 +156,6 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
         e.preventDefault();
         setIsOpen((prev) => !prev);
         setActiveKeyHit("?");
-        playGameSfx("powerup");
         setTimeout(() => setActiveKeyHit(null), 1000);
         return;
       }
@@ -182,50 +168,43 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
       // Check numeric shortcuts: 1, 2, 3, 4, 5, 6
       if (e.key === "1" || key === "H") {
         e.preventDefault();
-        scrollToSection("home", "Beranda");
+        scrollToSection("home");
         setActiveKeyHit(e.key);
       } else if (e.key === "2" || key === "P") {
         e.preventDefault();
-        scrollToSection("projects", "Proyek");
+        scrollToSection("projects");
         setActiveKeyHit(e.key);
       } else if (e.key === "3" || key === "L") {
         e.preventDefault();
-        scrollToSection("lkbb-simulator", "Simulator LKBB");
+        scrollToSection("lkbb-simulator");
         setActiveKeyHit(e.key);
       } else if (e.key === "4" || key === "S") {
         e.preventDefault();
-        scrollToSection("skills", "Keahlian");
+        scrollToSection("skills");
         setActiveKeyHit(e.key);
       } else if (e.key === "5" || key === "E") {
         e.preventDefault();
-        scrollToSection("experience", "Prestasi");
+        scrollToSection("experience");
         setActiveKeyHit(e.key);
       } else if (e.key === "6" || key === "C") {
         e.preventDefault();
-        scrollToSection("contact", "Kontak");
+        scrollToSection("contact");
         setActiveKeyHit(e.key);
-      } else if (key === "Q") {
-        e.preventDefault();
-        openElementBySelector("button[title*='Game Kuis']", "star");
-        setActiveKeyHit("Q");
       } else if (key === "Z") {
         e.preventDefault();
-        openElementBySelector("button[title*='Kompendium Konstelasi']", "star");
+        openElementBySelector("button[title*='Kompendium Konstelasi']");
         setActiveKeyHit("Z");
       } else if (key === "I") {
         e.preventDefault();
-        openElementBySelector("button[title*='Buat Kartu Hologram']", "coin");
+        openElementBySelector("button[title*='Buat Kartu Hologram']");
         setActiveKeyHit("I");
       } else if (key === "D" && !e.ctrlKey && !e.metaKey) {
-        // Toggle theme (only if not in arcade stage controls)
-        // If Projects is in viewport, [D] is for next stage
         const projectsEl = document.getElementById("projects");
         const rect = projectsEl?.getBoundingClientRect();
         const isInProjects = rect && rect.top <= 200 && rect.bottom >= 200;
         if (!isInProjects) {
           e.preventDefault();
           setDarkMode((prev) => !prev);
-          playGameSfx("powerup");
           setActiveKeyHit("D");
         }
       }
@@ -237,7 +216,7 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, setDarkMode, playGameSfx, gainXp]);
+  }, [isOpen, setDarkMode, activeKeyHit]);
 
   return (
     <>
@@ -246,7 +225,6 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
         <button
           onClick={() => {
             setIsOpen(true);
-            playGameSfx("powerup");
           }}
           className="group flex items-center space-x-2 px-3 py-2 rounded-full glass-card border border-emerald-500/30 hover:border-emerald-400 bg-slate-950/85 hover:bg-slate-900 text-slate-300 hover:text-white text-xs font-mono font-semibold shadow-lg shadow-emerald-950/40 transition-all duration-300 backdrop-blur-md active:scale-95"
           title="Buka Daftar Pintasan Keyboard (Tekan '?')"

@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { ArrowRight, MessageSquare, Github, Linkedin, Twitter, Instagram, Mail, Sparkles, Share2 } from "lucide-react";
 import { Profile } from "@/types/portfolio";
-import { FloatingStarItem } from "@/components/GameStarPickups";
 
 interface HeroProps {
   profile: Profile;
@@ -66,7 +65,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
           {/* Left Column: Intro */}
           <div className="lg:col-span-7 text-center lg:text-left space-y-5 sm:space-y-6 order-2 lg:order-1">
             
-            {/* Status Pill & Collectible Pioneer Star */}
+            {/* Status Pill */}
             <div className="flex items-center justify-center lg:justify-start gap-3 flex-wrap">
               <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 backdrop-blur-md">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -74,9 +73,6 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                   {profile.status}
                 </span>
               </div>
-
-              {/* Game Star Pickup */}
-              <FloatingStarItem id="star-hero" name="Pioneer Star (Spawn Point)" xpValue={100} />
             </div>
 
             {/* Heading & Role */}
