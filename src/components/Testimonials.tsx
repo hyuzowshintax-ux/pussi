@@ -17,7 +17,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-indigo-400 dark:text-indigo-400 light:text-indigo-600">
+          <span className="text-xs font-bold uppercase tracking-widest text-indigo-400 dark:text-indigo-400 light:text-indigo-600">
             // Rekomendasi
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white dark:text-white light:text-slate-900 tracking-tight">

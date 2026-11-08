@@ -19,7 +19,7 @@ export const Certificates: React.FC<CertificatesProps> = ({ certificates = [] })
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">
             // Ruang Apresiasi & Lisensi
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -42,7 +42,7 @@ export const Certificates: React.FC<CertificatesProps> = ({ certificates = [] })
               <div className="space-y-4">
                 {/* Top Row: Year & Badge */}
                 <div className="flex items-center justify-between">
-                  <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
                     {cert.year}
                   </span>
                   <div className="flex items-center space-x-1 text-emerald-400 text-xs font-semibold">
@@ -65,7 +65,7 @@ export const Certificates: React.FC<CertificatesProps> = ({ certificates = [] })
 
                 {/* Certificate Meta */}
                 <div className="text-center space-y-1">
-                  <span className="text-[11px] font-mono text-emerald-400 uppercase tracking-wider block">
+                  <span className="text-[11px] text-emerald-400 uppercase tracking-wider block">
                     {cert.category}
                   </span>
                   <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-2">
@@ -81,7 +81,7 @@ export const Certificates: React.FC<CertificatesProps> = ({ certificates = [] })
 
               {/* Action Preview */}
               <div className="pt-3 border-t border-emerald-500/15 flex items-center justify-between text-xs text-emerald-400 group-hover:text-teal-300 transition-colors">
-                <span className="font-mono text-[11px]">ID: {cert.credentialId || "VERIFIED"}</span>
+                <span className="text-[11px]">ID: {cert.credentialId || "VERIFIED"}</span>
                 <a
                   href={cert.badgeUrl}
                   target="_blank"
@@ -122,7 +122,7 @@ export const Certificates: React.FC<CertificatesProps> = ({ certificates = [] })
               </div>
 
               <div className="space-y-1.5">
-                <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 inline-block">
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 inline-block">
                   {selectedCert.year} &bull; {selectedCert.category}
                 </span>
                 <h3 className="text-xl sm:text-2xl font-extrabold text-white">
@@ -135,7 +135,7 @@ export const Certificates: React.FC<CertificatesProps> = ({ certificates = [] })
                 {selectedCert.description}
               </p>
 
-              <div className="flex items-center justify-between text-xs text-slate-400 font-mono pt-2">
+              <div className="flex items-center justify-between text-xs text-slate-400 pt-2">
                 <span>Credential ID: <strong className="text-white">{selectedCert.credentialId || "VALIDATED"}</strong></span>
                 <a
                   href={selectedCert.badgeUrl}

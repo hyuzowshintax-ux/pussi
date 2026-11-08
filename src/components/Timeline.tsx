@@ -36,7 +36,7 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 dark:text-emerald-400 light:text-emerald-600">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 dark:text-emerald-400 light:text-emerald-600">
             // Rekam Jejak Resmi (Klik untuk Buka Tab Baru)
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white dark:text-white light:text-slate-900 tracking-tight">
@@ -85,10 +85,10 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
 
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between mb-1.5">
-                          <span className="inline-block px-2 sm:px-2.5 py-0.5 text-[11px] sm:text-xs font-semibold font-mono rounded-md bg-emerald-500/10 text-emerald-300 border border-emerald-500/25">
+                          <span className="inline-block px-2 sm:px-2.5 py-0.5 text-[11px] sm:text-xs font-semibold rounded-md bg-emerald-500/10 text-emerald-300 border border-emerald-500/25">
                             {item.period}
                           </span>
-                          <span className="text-[11px] sm:text-xs text-emerald-400 flex items-center space-x-1 font-mono">
+                          <span className="text-[11px] sm:text-xs text-emerald-400 flex items-center space-x-1">
                             <span>Tab Baru</span>
                             <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                           </span>
@@ -107,7 +107,7 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
                             {item.skills.map((s, sIdx) => (
                               <span
                                 key={sIdx}
-                                className="text-[10px] sm:text-[11px] font-mono px-2 py-0.5 rounded-md bg-slate-900/80 text-slate-300 border border-emerald-500/20"
+                                className="text-[10px] sm:text-[11px] px-2 py-0.5 rounded-md bg-slate-900/80 text-slate-300 border border-emerald-500/20"
                               >
                                 {s}
                               </span>
@@ -161,10 +161,10 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
 
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between mb-1.5">
-                          <span className="inline-block px-2 sm:px-2.5 py-0.5 text-[11px] sm:text-xs font-semibold font-mono rounded-md bg-teal-500/10 text-teal-300 border border-teal-500/20">
+                          <span className="inline-block px-2 sm:px-2.5 py-0.5 text-[11px] sm:text-xs font-semibold rounded-md bg-teal-500/10 text-teal-300 border border-teal-500/20">
                             {item.period}
                           </span>
-                          <span className="text-[11px] sm:text-xs text-teal-400 flex items-center space-x-1 font-mono">
+                          <span className="text-[11px] sm:text-xs text-teal-400 flex items-center space-x-1">
                             <span>Tab Baru</span>
                             <ExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                           </span>

@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Fira_Code } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const jakartaSans = Plus_Jakarta_Sans({
+// Font 1 — Inter: sans-serif formal untuk teks isi, label, tombol, dan badge
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
-const firaCode = Fira_Code({
+// Font 2 — Playfair Display: serif elegan untuk judul (h1–h4)
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  variable: "--font-mono",
-  weight: ["400", "500", "600"],
+  variable: "--font-heading",
+  weight: ["500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -70,7 +74,7 @@ export default function RootLayout({
   return (
     <html lang="id" className="dark scroll-smooth">
       <body
-        className={`${jakartaSans.variable} ${firaCode.variable} antialiased text-slate-100 selection:bg-pink-500 selection:text-white transition-colors duration-300 relative min-h-screen`}
+        className={`${inter.variable} ${playfair.variable} antialiased text-slate-100 selection:bg-pink-500 selection:text-white transition-colors duration-300 relative min-h-screen`}
       >
         {children}
       </body>

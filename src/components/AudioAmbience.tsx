@@ -132,12 +132,12 @@ export const AudioAmbience: React.FC = () => {
             <span className="w-0.5 bg-emerald-300 rounded-full animate-[pulse_0.7s_ease-in-out_infinite] h-3"></span>
             <span className="w-0.5 bg-amber-300 rounded-full animate-[pulse_0.8s_ease-in-out_infinite] h-1.5"></span>
           </div>
-          <span className="hidden sm:inline font-mono text-emerald-300">Lo-Fi ON</span>
+          <span className="hidden sm:inline text-emerald-300">Lo-Fi ON</span>
         </>
       ) : (
         <>
           <VolumeX className="w-4 h-4 text-slate-400" />
-          <span className="hidden sm:inline font-mono text-slate-400">Lo-Fi</span>
+          <span className="hidden sm:inline text-slate-400">Lo-Fi</span>
         </>
       )}
     </button>

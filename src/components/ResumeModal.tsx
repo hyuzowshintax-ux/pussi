@@ -57,7 +57,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose, data 
                   Duta Intelegensia &bull; AI Design Engineer &bull; Pramuka Penegak Bantara
                 </p>
               </div>
-              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 self-start sm:self-center">
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 self-start sm:self-center">
                 {data.profile.status}
               </span>
             </div>
@@ -80,7 +80,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose, data 
 
           {/* Ringkasan Profil */}
           <div className="space-y-2">
-            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 flex items-center space-x-2">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center space-x-2">
               <ShieldCheck className="w-4 h-4" />
               <span>// Ringkasan Eksekutif</span>
             </h3>
@@ -91,7 +91,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose, data 
 
           {/* Riwayat Prestasi & Organisasi */}
           <div className="space-y-3">
-            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 flex items-center space-x-2">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center space-x-2">
               <Award className="w-4 h-4" />
               <span>// Prestasi, Kepemimpinan & Organisasi</span>
             </h3>
@@ -100,7 +100,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose, data 
                 <div key={idx} className="p-3.5 rounded-xl bg-slate-900/60 border border-emerald-500/20 space-y-1">
                   <div className="flex justify-between items-center text-xs">
                     <strong className="text-white text-sm">{item.role}</strong>
-                    <span className="font-mono text-emerald-300 font-semibold">{item.period}</span>
+                    <span className="text-emerald-300 font-semibold">{item.period}</span>
                   </div>
                   <p className="text-xs text-emerald-300 font-medium">{item.company} &bull; {item.location}</p>
                   <p className="text-xs text-slate-300 leading-relaxed">{item.description}</p>
@@ -111,7 +111,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose, data 
 
           {/* Riwayat Pendidikan */}
           <div className="space-y-3">
-            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-teal-400 flex items-center space-x-2">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-teal-400 flex items-center space-x-2">
               <GraduationCap className="w-4 h-4" />
               <span>// Riwayat Pendidikan</span>
             </h3>
@@ -120,7 +120,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose, data 
                 <div key={idx} className="p-3.5 rounded-xl bg-slate-900/60 border border-teal-500/20 space-y-1">
                   <div className="flex justify-between items-center text-xs">
                     <strong className="text-white text-sm">{edu.institution}</strong>
-                    <span className="font-mono text-teal-300 font-semibold">{edu.period}</span>
+                    <span className="text-teal-300 font-semibold">{edu.period}</span>
                   </div>
                   <p className="text-xs text-teal-300 font-medium">{edu.degree} &bull; {edu.location}</p>
                   <p className="text-xs text-slate-300 leading-relaxed">{edu.description}</p>
@@ -131,7 +131,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose, data 
 
           {/* Keahlian & Teknologi */}
           <div className="space-y-3">
-            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 flex items-center space-x-2">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center space-x-2">
               <Cpu className="w-4 h-4" />
               <span>// Keahlian AI, Teknologi & Pengembangan Web</span>
             </h3>
@@ -141,7 +141,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose, data 
                   <h4 className="text-xs font-bold text-white uppercase">{cat.title}</h4>
                   <div className="flex flex-wrap gap-1.5">
                     {cat.items.map((skill, sIdx) => (
-                      <span key={sIdx} className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+                      <span key={sIdx} className="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
                         {skill.name} ({skill.level}%)
                       </span>
                     ))}

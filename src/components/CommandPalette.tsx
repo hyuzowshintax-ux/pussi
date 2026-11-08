@@ -151,7 +151,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       <div className="fixed bottom-6 left-6 z-40 hidden sm:block">
         <button
           onClick={() => setIsOpen(true)}
-          className="px-3.5 py-2 rounded-2xl glass-card border border-emerald-500/25 hover:border-emerald-400 text-slate-300 hover:text-white flex items-center space-x-2 text-xs font-mono shadow-lg hover:scale-105 transition-all"
+          className="px-3.5 py-2 rounded-2xl glass-card border border-emerald-500/25 hover:border-emerald-400 text-slate-300 hover:text-white flex items-center space-x-2 text-xs shadow-lg hover:scale-105 transition-all"
           title="Buka Menu Perintah Cepat (Ctrl + K)"
         >
           <Search className="w-3.5 h-3.5 text-emerald-400" />
@@ -182,7 +182,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                 placeholder="Ketik perintah atau cari (contoh: Proyek, AI, CV, Prestasi)..."
                 className="w-full bg-transparent border-none text-white text-sm focus:outline-none placeholder-slate-400 font-sans"
               />
-              <kbd className="hidden sm:inline px-2 py-0.5 rounded bg-slate-800 text-[10px] font-mono text-slate-400 border border-slate-700">
+              <kbd className="hidden sm:inline px-2 py-0.5 rounded bg-slate-800 text-[10px] text-slate-400 border border-slate-700">
                 ESC
               </kbd>
             </div>
@@ -207,7 +207,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                       </div>
                       <div>
                         <span className="text-xs font-semibold block">{item.title}</span>
-                        <span className="text-[10px] font-mono text-emerald-300/80 uppercase">
+                        <span className="text-[10px] text-emerald-300/80 uppercase">
                           {item.category}
                         </span>
                       </div>
@@ -215,7 +215,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 
                     <div className="flex items-center space-x-2">
                       {item.shortcut && (
-                        <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-[10px] font-mono text-slate-400 border border-slate-700">
+                        <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-[10px] text-slate-400 border border-slate-700">
                           {item.shortcut}
                         </kbd>
                       )}
@@ -231,7 +231,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             </div>
 
             {/* Footer Tip */}
-            <div className="p-3 bg-slate-950/70 border-t border-emerald-500/15 flex items-center justify-between text-[11px] text-slate-400 font-mono">
+            <div className="p-3 bg-slate-950/70 border-t border-emerald-500/15 flex items-center justify-between text-[11px] text-slate-400">
               <span>Gunakan tombol panah <strong>↑ ↓</strong> untuk navigasi, <strong>Enter</strong> untuk memilih</span>
               <span className="text-emerald-400 font-semibold">Samuel Command Palette</span>
             </div>

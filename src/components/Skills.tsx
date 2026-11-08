@@ -60,7 +60,7 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 dark:text-emerald-400 light:text-emerald-600">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 dark:text-emerald-400 light:text-emerald-600">
             // Tech Stack & Keahlian (Klik untuk Buka Tab Baru)
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white dark:text-white light:text-slate-900 tracking-tight">
@@ -88,7 +88,7 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
                       {group.title}
                     </h3>
                     {group.category === "AI" && (
-                      <span className="text-[11px] font-mono font-semibold text-emerald-400">
+                      <span className="text-[11px] font-semibold text-emerald-400">
                         *Tahap Pembelajaran & Eksplorasi Dasar
                       </span>
                     )}
@@ -121,7 +121,7 @@ export const Skills: React.FC<SkillsProps> = ({ skills }) => {
                             {skill.name}
                           </span>
                         </div>
-                        <span className="text-xs font-mono text-emerald-400 dark:text-emerald-400 light:text-emerald-600 font-semibold">
+                        <span className="text-xs text-emerald-400 dark:text-emerald-400 light:text-emerald-600 font-semibold">
                           {skill.level}%
                         </span>
                       </div>

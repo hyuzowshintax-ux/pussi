@@ -99,7 +99,7 @@ $$E_p + E_k = \\text{Konstan} \\quad \\rightarrow \\quad mgh_1 + \\frac{1}{2}mv_
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">
             // Laboratorium Interaktif
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -157,7 +157,7 @@ $$E_p + E_k = \\text{Konstan} \\quad \\rightarrow \\quad mgh_1 + \\frac{1}{2}mv_
             </div>
 
             {/* Neural Status */}
-            <div className="flex items-center space-x-2 text-xs font-mono text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/30">
+            <div className="flex items-center space-x-2 text-xs text-emerald-400 bg-emerald-500/10 px-3 py-1.5 rounded-full border border-emerald-500/30">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
               <span>Model: Samuel-AI-Engine-v2.0</span>
             </div>
@@ -168,7 +168,7 @@ $$E_p + E_k = \\text{Konstan} \\quad \\rightarrow \\quad mgh_1 + \\frac{1}{2}mv_
             
             {/* Input Prompt Box */}
             <div className="space-y-2">
-              <label className="text-xs font-mono text-emerald-400 uppercase tracking-wider block">
+              <label className="text-xs text-emerald-400 uppercase tracking-wider block">
                 Prompt Masukan:
               </label>
               <div className="flex flex-col sm:flex-row gap-3">
@@ -202,20 +202,20 @@ $$E_p + E_k = \\text{Konstan} \\quad \\rightarrow \\quad mgh_1 + \\frac{1}{2}mv_
             {/* Output Display Terminal */}
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <label className="text-xs font-mono text-teal-300 uppercase tracking-wider flex items-center space-x-1.5">
+                <label className="text-xs text-teal-300 uppercase tracking-wider flex items-center space-x-1.5">
                   <Terminal className="w-3.5 h-3.5" />
                   <span>Hasil Inferensi AI (Live Stream):</span>
                 </label>
                 <button
                   onClick={handleCopy}
-                  className="text-xs font-mono text-slate-400 hover:text-white flex items-center space-x-1 transition-colors"
+                  className="text-xs text-slate-400 hover:text-white flex items-center space-x-1 transition-colors"
                 >
                   {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                   <span>{copied ? "Tersalin!" : "Salin Output"}</span>
                 </button>
               </div>
 
-              <div className="p-5 sm:p-6 rounded-2xl bg-slate-950/90 border border-emerald-500/20 font-mono text-xs sm:text-sm text-slate-200 leading-relaxed overflow-x-auto min-h-[160px] whitespace-pre-line shadow-inner">
+              <div className="p-5 sm:p-6 rounded-2xl bg-slate-950/90 border border-emerald-500/20 text-xs sm:text-sm text-slate-200 leading-relaxed overflow-x-auto min-h-[160px] whitespace-pre-line shadow-inner">
                 {outputResult || (
                   <span className="text-slate-500 animate-pulse">Menunggu eksekusi prompt...</span>
                 )}

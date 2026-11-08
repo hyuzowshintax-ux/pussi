@@ -72,7 +72,7 @@ export const MobileBottomNav: React.FC = () => {
                 <span className="absolute inset-0 bg-emerald-500/20 rounded-xl border border-emerald-500/40 -z-10 animate-fade-in" />
               )}
               <Icon className={`w-4 h-4 mb-0.5 ${isActive ? "text-emerald-400 scale-110" : "opacity-80"}`} />
-              <span className="text-[10px] font-mono tracking-tight leading-none">
+              <span className="text-[10px] tracking-tight leading-none">
                 {item.label}
               </span>
             </button>

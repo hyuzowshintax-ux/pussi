@@ -226,7 +226,7 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
           onClick={() => {
             setIsOpen(true);
           }}
-          className="group flex items-center space-x-2 px-3 py-2 rounded-full glass-card border border-emerald-500/30 hover:border-emerald-400 bg-slate-950/85 hover:bg-slate-900 text-slate-300 hover:text-white text-xs font-mono font-semibold shadow-lg shadow-emerald-950/40 transition-all duration-300 backdrop-blur-md active:scale-95"
+          className="group flex items-center space-x-2 px-3 py-2 rounded-full glass-card border border-emerald-500/30 hover:border-emerald-400 bg-slate-950/85 hover:bg-slate-900 text-slate-300 hover:text-white text-xs font-semibold shadow-lg shadow-emerald-950/40 transition-all duration-300 backdrop-blur-md active:scale-95"
           title="Buka Daftar Pintasan Keyboard (Tekan '?')"
         >
           <Keyboard className="w-3.5 h-3.5 text-emerald-400 group-hover:rotate-12 transition-transform" />
@@ -249,7 +249,7 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
                 </div>
                 <div>
                   <div className="flex items-center space-x-2">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-emerald-400">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-400">
                       // CYBER HOTKEY COMMAND MATRIX
                     </span>
                   </div>
@@ -269,7 +269,7 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
             </div>
 
             {/* Quick Hint Bar */}
-            <div className="px-4 sm:px-6 py-2.5 bg-slate-900/60 border-b border-white/5 flex items-center justify-between text-xs font-mono text-slate-300">
+            <div className="px-4 sm:px-6 py-2.5 bg-slate-900/60 border-b border-white/5 flex items-center justify-between text-xs text-slate-300">
               <span>💡 Tekan tombol di keyboard atau klik kartu untuk langsung mengeksekusi aksi!</span>
               <span className="text-emerald-400 font-bold hidden sm:inline">PINTASAN AKTIF</span>
             </div>
@@ -279,10 +279,10 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
               {shortcutGroups.map((group, gIdx) => (
                 <div key={gIdx} className="space-y-3">
                   <div className="flex items-center space-x-2">
-                    <span className="px-2.5 py-0.5 rounded-lg text-[10px] font-mono font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                    <span className="px-2.5 py-0.5 rounded-lg text-[10px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
                       {group.categoryBadge}
                     </span>
-                    <h4 className="text-xs font-mono font-bold text-white uppercase tracking-wider">
+                    <h4 className="text-xs font-bold text-white uppercase tracking-wider">
                       {group.category}
                     </h4>
                   </div>
@@ -311,7 +311,7 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
                           {item.keys.map((k, kIdx) => (
                             <kbd
                               key={kIdx}
-                              className="px-2 py-1 rounded-lg bg-slate-950 border border-emerald-500/40 text-emerald-400 font-mono font-bold text-xs shadow-inner min-w-[24px] text-center"
+                              className="px-2 py-1 rounded-lg bg-slate-950 border border-emerald-500/40 text-emerald-400 font-bold text-xs shadow-inner min-w-[24px] text-center"
                             >
                               {k}
                             </kbd>
@@ -325,7 +325,7 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
             </div>
 
             {/* Footer */}
-            <div className="p-4 bg-slate-900/80 border-t border-emerald-500/20 text-center font-mono text-[11px] text-slate-400">
+            <div className="p-4 bg-slate-900/80 border-t border-emerald-500/20 text-center text-[11px] text-slate-400">
               <span>Tekan <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-emerald-300 border border-emerald-500/30">Esc</kbd> kapan saja untuk menutup jendela.</span>
             </div>
 

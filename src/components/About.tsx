@@ -17,7 +17,7 @@ export const About: React.FC<AboutProps> = ({ about, cvLink, onOpenResume }) => 
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 dark:text-emerald-400 light:text-emerald-600">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 dark:text-emerald-400 light:text-emerald-600">
             // Mengenal Saya
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white dark:text-white light:text-slate-900 tracking-tight">
@@ -89,7 +89,7 @@ export const About: React.FC<AboutProps> = ({ about, cvLink, onOpenResume }) => 
                     >
                       <div className="w-2 h-2 rounded-full bg-emerald-400 mt-2 flex-shrink-0 group-hover/item:scale-125 transition-transform" />
                       <div>
-                        <span className="text-xs font-semibold text-slate-400 dark:text-slate-400 light:text-slate-500 uppercase tracking-wider block font-mono">
+                        <span className="text-xs font-semibold text-slate-400 dark:text-slate-400 light:text-slate-500 uppercase tracking-wider block">
                           {item.label}
                         </span>
                         <span className="text-sm font-medium text-white dark:text-white light:text-slate-900 group-hover/item:text-emerald-300 transition-colors">

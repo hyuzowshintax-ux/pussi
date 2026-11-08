@@ -52,7 +52,7 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 dark:text-emerald-400 light:text-emerald-600">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 dark:text-emerald-400 light:text-emerald-600">
             // Hubungi Saya
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white dark:text-white light:text-slate-900 tracking-tight">
@@ -75,7 +75,7 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
                 <Mail className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500 font-mono">Email</h4>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500">Email</h4>
                 <p className="text-base font-bold text-white dark:text-white light:text-slate-900 mt-0.5">{contact.email}</p>
                 <a href={`mailto:${contact.email}`} target="_blank" rel="noopener noreferrer" className="text-xs text-emerald-400 dark:text-emerald-400 light:text-emerald-600 hover:underline mt-1 inline-block">
                   Kirim email langsung &rarr;
@@ -89,7 +89,7 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
                 <Phone className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500 font-mono">WhatsApp / Telepon</h4>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500">WhatsApp / Telepon</h4>
                 <p className="text-base font-bold text-white dark:text-white light:text-slate-900 mt-0.5">{contact.phone}</p>
                 <a
                   href={`https://wa.me/${contact.phone.replace(/[^0-9]/g, "").replace(/^0/, "62")}?text=Halo%20Samuel,%20saya%20tertarik%20dengan%20portofolio%20Anda!`}
@@ -108,7 +108,7 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
                 <MapPin className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500 font-mono">Lokasi & Domisili</h4>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-500">Lokasi & Domisili</h4>
                 <p className="text-base font-bold text-white dark:text-white light:text-slate-900 mt-0.5">{contact.location}</p>
                 <a
                   href="https://maps.google.com/?q=Kediri,+Jawa+Timur,+Indonesia"
@@ -129,7 +129,7 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2 font-mono">
+                    <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2">
                       Nama Lengkap *
                     </label>
                     <input
@@ -143,7 +143,7 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2 font-mono">
+                    <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2">
                       Alamat Email *
                     </label>
                     <input
@@ -159,7 +159,7 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2 font-mono">
+                  <label htmlFor="subject" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2">
                     Subjek / Topik
                   </label>
                   <input
@@ -173,7 +173,7 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2 font-mono">
+                  <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-400 light:text-slate-600 mb-2">
                     Pesan Anda *
                   </label>
                   <textarea

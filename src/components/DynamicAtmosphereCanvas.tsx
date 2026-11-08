@@ -180,7 +180,7 @@ export const DynamicAtmosphereCanvas: React.FC<{ darkMode?: boolean }> = ({ dark
 
       // 2. Draw Ethereal Floating Zodiac Glyphs in the Deep Background
       const zodiacGlyphs = ["♈", "♉", "♊", "♋", "♌", "♍", "♎", "♏", "♐", "♑", "♒", "♓"];
-      ctx.font = "16px 'Courier New', monospace";
+      ctx.font = `16px ${getComputedStyle(document.body).getPropertyValue("--font-sans").trim() || "Inter, sans-serif"}`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
 

@@ -95,7 +95,7 @@ export const CosmicCardShareGenerator: React.FC = () => {
     window.open(`https://wa.me/?text=${msg}`, "_blank");
   };
 
-  const handleDownloadCard = () => {
+  const handleDownloadCard = async () => {
     setIsDownloading(true);
 
     try {
@@ -106,6 +106,12 @@ export const CosmicCardShareGenerator: React.FC = () => {
         setIsDownloading(false);
         return;
       }
+
+      // Ambil 2 font resmi (Inter & Playfair Display) dari variabel CSS next/font
+      const rootStyle = getComputedStyle(document.body);
+      const bodyFont = rootStyle.getPropertyValue("--font-sans").trim() || "Inter, sans-serif";
+      const headingFont = rootStyle.getPropertyValue("--font-heading").trim() || "'Playfair Display', serif";
+      await document.fonts.ready;
 
       canvas.width = 1080;
       canvas.height = 1400;
@@ -142,11 +148,11 @@ export const CosmicCardShareGenerator: React.FC = () => {
       ctx.fillRect(80, 80, 920, 120);
 
       ctx.fillStyle = "#34d399";
-      ctx.font = "bold 28px 'Fira Code', monospace";
+      ctx.font = `bold 28px ${bodyFont}`;
       ctx.fillText("✦ SAMUEL B K // OFFICIAL VISITOR IDENTITY PASS", 120, 140);
 
       ctx.fillStyle = "#94a3b8";
-      ctx.font = "22px 'Fira Code', monospace";
+      ctx.font = `22px ${bodyFont}`;
       ctx.fillText("SMAN 1 KANDANGAN • DUTA INTELEGENSIA • CODASKA", 120, 175);
 
       // Main Badge Center
@@ -156,27 +162,27 @@ export const CosmicCardShareGenerator: React.FC = () => {
       // Symbol Badge Circle
       drawGlow(540, 360, 120, "rgba(45, 212, 191, 0.35)");
       ctx.fillStyle = "#ffffff";
-      ctx.font = "72px sans-serif";
+      ctx.font = `72px ${bodyFont}`;
       ctx.textAlign = "center";
       ctx.fillText(selectedArchetype.symbol, 540, 385);
 
       // Visitor Name
       ctx.fillStyle = "#ffffff";
-      ctx.font = "bold 52px 'Plus Jakarta Sans', sans-serif";
+      ctx.font = `bold 52px ${headingFont}`;
       ctx.fillText(visitorName.toUpperCase(), 540, 470);
 
       // Archetype Tag
       ctx.fillStyle = "#38bdf8";
-      ctx.font = "bold 32px 'Fira Code', monospace";
+      ctx.font = `bold 32px ${bodyFont}`;
       ctx.fillText(selectedArchetype.name, 540, 530);
 
       // Tagline & Zodiac
       ctx.fillStyle = "#cbd5e1";
-      ctx.font = "italic 26px 'Plus Jakarta Sans', sans-serif";
+      ctx.font = `italic 26px ${headingFont}`;
       ctx.fillText(`"${selectedArchetype.tagline}"`, 540, 580);
 
       ctx.fillStyle = "#34d399";
-      ctx.font = "bold 26px 'Fira Code', monospace";
+      ctx.font = `bold 26px ${bodyFont}`;
       ctx.fillText(`ZODIAC: ${selectedZodiac.toUpperCase()} • ELEMEN: ${selectedArchetype.element.toUpperCase()}`, 540, 630);
 
       // Stat Bars
@@ -191,11 +197,11 @@ export const CosmicCardShareGenerator: React.FC = () => {
       let startY = 700;
       stats.forEach((s) => {
         ctx.fillStyle = "#94a3b8";
-        ctx.font = "bold 22px 'Fira Code', monospace";
+        ctx.font = `bold 22px ${bodyFont}`;
         ctx.fillText(s.label, 150, startY);
 
         ctx.fillStyle = "#34d399";
-        ctx.font = "bold 22px 'Fira Code', monospace";
+        ctx.font = `bold 22px ${bodyFont}`;
         ctx.fillText(`${s.val}%`, 850, startY);
 
         // Background Bar
@@ -219,11 +225,11 @@ export const CosmicCardShareGenerator: React.FC = () => {
 
       ctx.textAlign = "center";
       ctx.fillStyle = "#38bdf8";
-      ctx.font = "bold 28px 'Fira Code', monospace";
+      ctx.font = `bold 28px ${bodyFont}`;
       ctx.fillText("🔗 Buka Portofolio: samuelbk.vercel.app", 540, 1190);
 
       ctx.fillStyle = "#64748b";
-      ctx.font = "20px 'Fira Code', monospace";
+      ctx.font = `20px ${bodyFont}`;
       ctx.fillText("Next.js 14 • Cyber Arcade Game Stage • LKBB CODASKA Simulator", 540, 1240);
 
       // Export & Trigger Download
@@ -247,7 +253,7 @@ export const CosmicCardShareGenerator: React.FC = () => {
       <div className="fixed top-24 left-4 sm:left-6 z-30 pointer-events-auto">
         <button
           onClick={() => setIsOpen(true)}
-          className="group flex items-center space-x-2 px-3.5 py-2 rounded-full glass-card border border-cyan-500/30 hover:border-cyan-400/60 bg-slate-950/80 hover:bg-slate-900 text-slate-200 hover:text-white text-xs font-mono font-semibold shadow-lg shadow-cyan-950/40 hover:shadow-cyan-500/20 transition-all duration-300 backdrop-blur-md active:scale-95"
+          className="group flex items-center space-x-2 px-3.5 py-2 rounded-full glass-card border border-cyan-500/30 hover:border-cyan-400/60 bg-slate-950/80 hover:bg-slate-900 text-slate-200 hover:text-white text-xs font-semibold shadow-lg shadow-cyan-950/40 hover:shadow-cyan-500/20 transition-all duration-300 backdrop-blur-md active:scale-95"
           title="Buat Kartu Hologram & Bagikan Portofolio"
         >
           <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-cyan-400 via-teal-400 to-emerald-400 flex items-center justify-center text-slate-950 text-[11px] font-bold shadow-sm">
@@ -275,7 +281,7 @@ export const CosmicCardShareGenerator: React.FC = () => {
                 </div>
                 <div>
                   <div className="flex items-center space-x-2">
-                    <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest text-cyan-400">
+                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-cyan-400">
                       // VIRAL SHARE & HOLOGRAPHIC ID GENERATOR
                     </span>
                   </div>
@@ -302,7 +308,7 @@ export const CosmicCardShareGenerator: React.FC = () => {
                 
                 {/* Input Name */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-mono text-slate-300 font-semibold uppercase tracking-wider block">
+                  <label className="text-xs text-slate-300 font-semibold uppercase tracking-wider block">
                     Nama Kamu:
                   </label>
                   <input
@@ -317,7 +323,7 @@ export const CosmicCardShareGenerator: React.FC = () => {
 
                 {/* Pick Zodiac */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-mono text-slate-300 font-semibold uppercase tracking-wider block">
+                  <label className="text-xs text-slate-300 font-semibold uppercase tracking-wider block">
                     Pilih Zodiak Kamu:
                   </label>
                   <select
@@ -335,7 +341,7 @@ export const CosmicCardShareGenerator: React.FC = () => {
 
                 {/* Archetype Selector */}
                 <div className="space-y-2">
-                  <label className="text-xs font-mono text-slate-300 font-semibold uppercase tracking-wider block">
+                  <label className="text-xs text-slate-300 font-semibold uppercase tracking-wider block">
                     Pilih Karakter AI:
                   </label>
                   <div className="space-y-2">
@@ -370,7 +376,7 @@ export const CosmicCardShareGenerator: React.FC = () => {
                   <button
                     onClick={handleDownloadCard}
                     disabled={isDownloading}
-                    className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 hover:from-cyan-400 hover:to-emerald-300 text-slate-950 font-mono font-black text-xs sm:text-sm shadow-xl shadow-cyan-500/30 flex items-center justify-center space-x-2 active:scale-95 transition-all"
+                    className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 hover:from-cyan-400 hover:to-emerald-300 text-slate-950 font-black text-xs sm:text-sm shadow-xl shadow-cyan-500/30 flex items-center justify-center space-x-2 active:scale-95 transition-all"
                   >
                     <Download className="w-4 h-4" />
                     <span>{isDownloading ? "Memproses Kartu..." : "Unduh Gambar Kartu (HD)"}</span>
@@ -379,13 +385,13 @@ export const CosmicCardShareGenerator: React.FC = () => {
                   <div className="grid grid-cols-2 gap-2">
                     <button
                       onClick={handleShareToWhatsApp}
-                      className="py-2.5 px-3 rounded-xl bg-emerald-600/30 hover:bg-emerald-600/50 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold flex items-center justify-center space-x-1.5 transition-all"
+                      className="py-2.5 px-3 rounded-xl bg-emerald-600/30 hover:bg-emerald-600/50 border border-emerald-500/40 text-emerald-300 text-xs font-bold flex items-center justify-center space-x-1.5 transition-all"
                     >
                       <span>Share WA</span>
                     </button>
                     <button
                       onClick={handleCopyShareLink}
-                      className="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-cyan-500/30 text-cyan-300 text-xs font-mono font-bold flex items-center justify-center space-x-1.5 transition-all"
+                      className="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-cyan-500/30 text-cyan-300 text-xs font-bold flex items-center justify-center space-x-1.5 transition-all"
                     >
                       {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                       <span>{copied ? "Tersalin!" : "Salin Link"}</span>
@@ -406,7 +412,7 @@ export const CosmicCardShareGenerator: React.FC = () => {
                   <div className="opening-shine-overlay animate-beam-sweep" />
 
                   {/* Top Badge Info */}
-                  <div className="flex items-center justify-between text-[10px] font-mono text-cyan-400 border-b border-cyan-500/20 pb-2">
+                  <div className="flex items-center justify-between text-[10px] text-cyan-400 border-b border-cyan-500/20 pb-2">
                     <span>✦ SAMUEL B K PORTFOLIO</span>
                     <span className="px-2 py-0.5 rounded-full bg-cyan-500/20 border border-cyan-500/40">
                       LEVEL 01 PASS
@@ -423,7 +429,7 @@ export const CosmicCardShareGenerator: React.FC = () => {
                     <h4 className="text-xl sm:text-2xl font-black text-white tracking-tight">
                       {visitorName}
                     </h4>
-                    <p className="text-xs font-mono text-cyan-300 font-bold">
+                    <p className="text-xs text-cyan-300 font-bold">
                       {selectedArchetype.name}
                     </p>
                     <p className="text-[11px] text-slate-400 italic">
@@ -433,16 +439,16 @@ export const CosmicCardShareGenerator: React.FC = () => {
 
                   {/* Meta Pills */}
                   <div className="flex items-center justify-center gap-2 pt-1">
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                       {selectedZodiac}
                     </span>
-                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
                       Elemen: {selectedArchetype.element}
                     </span>
                   </div>
 
                   {/* Stat Progress Bar */}
-                  <div className="space-y-1.5 text-left p-3 rounded-2xl bg-slate-950/80 border border-cyan-500/20 text-[10px] font-mono">
+                  <div className="space-y-1.5 text-left p-3 rounded-2xl bg-slate-950/80 border border-cyan-500/20 text-[10px]">
                     <div className="flex justify-between text-slate-300">
                       <span>INTELLIGENCE:</span>
                       <span className="text-cyan-400 font-bold">{selectedArchetype.stats.intel}%</span>
@@ -461,14 +467,14 @@ export const CosmicCardShareGenerator: React.FC = () => {
                   </div>
 
                   {/* Bottom Footer Watermark */}
-                  <div className="pt-2 border-t border-cyan-500/20 text-[9px] font-mono text-slate-400 flex items-center justify-between">
+                  <div className="pt-2 border-t border-cyan-500/20 text-[9px] text-slate-400 flex items-center justify-between">
                     <span>SMAN 1 KANDANGAN</span>
                     <span className="text-cyan-400">samuelbk.portfolio</span>
                   </div>
 
                 </div>
 
-                <span className="text-[11px] font-mono text-slate-400 mt-2">
+                <span className="text-[11px] text-slate-400 mt-2">
                   ✨ Bagikan kartu ini ke IG Story / WhatsApp Status untuk pamer ke teman-teman!
                 </span>
               </div>

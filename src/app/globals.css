@@ -3,12 +3,29 @@
 @tailwind utilities;
 
 :root {
-  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-mono: 'Fira Code', monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Tipografi formal: judul memakai Playfair Display, sisanya Inter */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
 }
 
 /* ==========================================================================

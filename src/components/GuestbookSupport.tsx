@@ -105,7 +105,7 @@ export const GuestbookSupport: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">
             // Papan Dukungan & Interaksi
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
@@ -126,7 +126,7 @@ export const GuestbookSupport: React.FC = () => {
               className="px-4 py-2.5 rounded-2xl glass-card border border-emerald-500/20 hover:border-emerald-400/50 hover:scale-110 active:scale-95 transition-all flex items-center space-x-2 text-white shadow-lg"
             >
               <span className="text-lg">{emoji}</span>
-              <span className="font-mono text-xs font-bold text-emerald-300">+{count}</span>
+              <span className="text-xs font-bold text-emerald-300">+{count}</span>
             </button>
           ))}
         </div>
@@ -145,7 +145,7 @@ export const GuestbookSupport: React.FC = () => {
               </h3>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-mono text-slate-300">Nama Anda:</label>
+                <label className="text-xs text-slate-300">Nama Anda:</label>
                 <input
                   type="text"
                   required
@@ -157,7 +157,7 @@ export const GuestbookSupport: React.FC = () => {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-mono text-slate-300">Profesi / Status:</label>
+                <label className="text-xs text-slate-300">Profesi / Status:</label>
                 <input
                   type="text"
                   value={role}
@@ -168,7 +168,7 @@ export const GuestbookSupport: React.FC = () => {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-mono text-slate-300">Pilih Reaksi:</label>
+                <label className="text-xs text-slate-300">Pilih Reaksi:</label>
                 <div className="flex gap-2">
                   {["🔥", "🚀", "🧠", "⚜️", "❤️"].map((em) => (
                     <button
@@ -188,7 +188,7 @@ export const GuestbookSupport: React.FC = () => {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-mono text-slate-300">Pesan / Doa:</label>
+                <label className="text-xs text-slate-300">Pesan / Doa:</label>
                 <textarea
                   required
                   rows={3}
@@ -229,7 +229,7 @@ export const GuestbookSupport: React.FC = () => {
 
                   <div className="flex items-center space-x-2">
                     <span className="text-lg">{msg.reaction}</span>
-                    <span className="text-[10px] font-mono text-slate-400">{msg.time}</span>
+                    <span className="text-[10px] text-slate-400">{msg.time}</span>
                   </div>
                 </div>
 

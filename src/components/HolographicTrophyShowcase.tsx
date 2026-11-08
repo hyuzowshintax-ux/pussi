@@ -114,7 +114,7 @@ export const HolographicTrophyShowcase: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 flex items-center justify-center space-x-1.5">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 flex items-center justify-center space-x-1.5">
             <Trophy className="w-4 h-4" />
             <span>// 3D Holographic Vault</span>
           </span>
@@ -171,10 +171,10 @@ export const HolographicTrophyShowcase: React.FC = () => {
 
               {/* Rarity & Year Badge */}
               <div className="w-full flex items-center justify-between z-10">
-                <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow">
+                <span className="px-3 py-1 rounded-full text-[11px] font-bold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow">
                   ⭐ {currentTrophy.rarity}
                 </span>
-                <span className="text-xs font-mono text-slate-300 font-semibold">
+                <span className="text-xs text-slate-300 font-semibold">
                   {currentTrophy.year}
                 </span>
               </div>
@@ -202,7 +202,7 @@ export const HolographicTrophyShowcase: React.FC = () => {
               </div>
 
               {/* 3D Tilt Hint */}
-              <span className="text-[10px] font-mono text-slate-400/80 z-10 flex items-center space-x-1">
+              <span className="text-[10px] text-slate-400/80 z-10 flex items-center space-x-1">
                 <RotateCw className="w-3 h-3" />
                 <span>Gerakkan mouse untuk memutar 3D</span>
               </span>
@@ -212,7 +212,7 @@ export const HolographicTrophyShowcase: React.FC = () => {
           {/* Trophy Metadata & Unlocked Skill Buffs */}
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-3">
-              <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 inline-block">
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 inline-block">
                 // Rincian Akreditasi
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
@@ -225,7 +225,7 @@ export const HolographicTrophyShowcase: React.FC = () => {
 
             {/* Unlocked Capabilities / Skill Buffs */}
             <div className="space-y-3">
-              <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 flex items-center space-x-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center space-x-2">
                 <Sparkles className="w-4 h-4" />
                 <span>// Kemampuan & Kompetensi yang Terbuka</span>
               </h4>

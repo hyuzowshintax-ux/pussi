@@ -95,7 +95,7 @@ export const SkillRadarMatrix: React.FC = () => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 flex items-center justify-center space-x-1.5">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 flex items-center justify-center space-x-1.5">
             <Target className="w-4 h-4" />
             <span>// Matriks Kompetensi 360°</span>
           </span>
@@ -225,7 +225,7 @@ export const SkillRadarMatrix: React.FC = () => {
                       </div>
                       <span className="text-xs font-bold text-white line-clamp-1">{pillar.name}</span>
                     </div>
-                    <span className="font-mono text-xs font-extrabold text-emerald-400">{currentVal}%</span>
+                    <span className="text-xs font-extrabold text-emerald-400">{currentVal}%</span>
                   </div>
 
                   {/* Progress Bar */}

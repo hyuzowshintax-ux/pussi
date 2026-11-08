@@ -323,7 +323,7 @@ export const ZodiacCelestialCompendium: React.FC = () => {
       <div className="fixed top-24 right-4 sm:right-6 z-30 pointer-events-auto">
         <button
           onClick={() => setIsOpen(true)}
-          className="group flex items-center space-x-2 px-3.5 py-2 rounded-full glass-card border border-emerald-500/30 hover:border-emerald-400/60 bg-slate-950/80 hover:bg-slate-900 text-slate-200 hover:text-white text-xs font-mono font-semibold shadow-lg shadow-emerald-950/40 hover:shadow-emerald-500/20 transition-all duration-300 backdrop-blur-md active:scale-95"
+          className="group flex items-center space-x-2 px-3.5 py-2 rounded-full glass-card border border-emerald-500/30 hover:border-emerald-400/60 bg-slate-950/80 hover:bg-slate-900 text-slate-200 hover:text-white text-xs font-semibold shadow-lg shadow-emerald-950/40 hover:shadow-emerald-500/20 transition-all duration-300 backdrop-blur-md active:scale-95"
           title="Buka Kompendium Konstelasi Zodiak & Filosofi Kosmik"
         >
           <div className="w-5 h-5 rounded-full bg-gradient-to-tr from-cyan-400 via-teal-400 to-emerald-400 flex items-center justify-center text-slate-950 text-[11px] font-bold shadow-sm">
@@ -352,7 +352,7 @@ export const ZodiacCelestialCompendium: React.FC = () => {
                 </div>
                 <div>
                   <div className="flex items-center space-x-2">
-                    <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest text-emerald-400">
+                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-400">
                       // CELESTIAL ZODIAC COMPENDIUM & ASTRO-PHILOSOPHY
                     </span>
                   </div>
@@ -383,7 +383,7 @@ export const ZodiacCelestialCompendium: React.FC = () => {
                 <button
                   key={tab.id}
                   onClick={() => setSelectedElementFilter(tab.id)}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-semibold whitespace-nowrap transition-all ${
+                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                     selectedElementFilter === tab.id
                       ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-md shadow-emerald-600/30"
                       : "bg-slate-900/80 text-slate-400 hover:text-slate-200 border border-white/5"
@@ -399,7 +399,7 @@ export const ZodiacCelestialCompendium: React.FC = () => {
               
               {/* Left Column: 12 Zodiac Cards Selector Strip */}
               <div className="lg:col-span-4 space-y-2.5 max-h-[500px] overflow-y-auto pr-1">
-                <span className="text-[11px] font-mono text-slate-400 uppercase tracking-wider block mb-1">
+                <span className="text-[11px] text-slate-400 uppercase tracking-wider block mb-1">
                   Pilih Rasi Bintang Zodiak:
                 </span>
                 {filteredZodiacs.map((sign) => {
@@ -423,11 +423,11 @@ export const ZodiacCelestialCompendium: React.FC = () => {
                             <h4 className="text-sm font-bold text-white group-hover:text-emerald-300 transition-colors">
                               {sign.name}
                             </h4>
-                            <span className="text-[10px] font-mono text-slate-400">
+                            <span className="text-[10px] text-slate-400">
                               {sign.period}
                             </span>
                           </div>
-                          <span className="text-[11px] text-emerald-400/90 font-mono flex items-center space-x-1 mt-0.5">
+                          <span className="text-[11px] text-emerald-400/90 flex items-center space-x-1 mt-0.5">
                             {getElementIcon(sign.element)}
                             <span>{sign.element}</span>
                           </span>
@@ -451,20 +451,20 @@ export const ZodiacCelestialCompendium: React.FC = () => {
                     </span>
                     <div>
                       <div className="flex items-center space-x-2">
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                           {selectedZodiac.period}
                         </span>
-                        <span className="px-2 py-0.5 rounded-full text-[10px] font-mono bg-slate-800 text-slate-300 border border-white/10">
+                        <span className="px-2 py-0.5 rounded-full text-[10px] bg-slate-800 text-slate-300 border border-white/10">
                           Penguasa: {selectedZodiac.rulingPlanet}
                         </span>
                       </div>
                       <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
-                        {selectedZodiac.name} <span className="text-sm font-normal text-slate-400 font-mono">({selectedZodiac.constellation})</span>
+                        {selectedZodiac.name} <span className="text-sm font-normal text-slate-400">({selectedZodiac.constellation})</span>
                       </h2>
                     </div>
                   </div>
 
-                  <div className="flex items-center space-x-1.5 self-start sm:self-auto px-3 py-1.5 rounded-xl bg-slate-950/80 border border-emerald-500/30 text-xs font-mono text-emerald-300">
+                  <div className="flex items-center space-x-1.5 self-start sm:self-auto px-3 py-1.5 rounded-xl bg-slate-950/80 border border-emerald-500/30 text-xs text-emerald-300">
                     {getElementIcon(selectedZodiac.element)}
                     <span>{selectedZodiac.element}</span>
                   </div>
@@ -482,7 +482,7 @@ export const ZodiacCelestialCompendium: React.FC = () => {
 
                 {/* Philosophical Traits Grid */}
                 <div className="space-y-2.5">
-                  <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 flex items-center space-x-1.5">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center space-x-1.5">
                     <Zap className="w-3.5 h-3.5" />
                     <span>// Karakteristik Filosofis & Nalar Kepemimpinan</span>
                   </h4>
@@ -492,7 +492,7 @@ export const ZodiacCelestialCompendium: React.FC = () => {
                         key={idx}
                         className="p-3 rounded-xl bg-slate-950/80 border border-emerald-500/20 flex items-start space-x-2 text-xs text-slate-200"
                       >
-                        <span className="text-emerald-400 font-bold font-mono">0{idx + 1}.</span>
+                        <span className="text-emerald-400 font-bold">0{idx + 1}.</span>
                         <span className="leading-relaxed">{trait}</span>
                       </div>
                     ))}
@@ -501,7 +501,7 @@ export const ZodiacCelestialCompendium: React.FC = () => {
 
                 {/* Major Astronomical Stars of Constellation */}
                 <div className="p-4 rounded-2xl bg-slate-950/90 border border-emerald-500/25 space-y-2">
-                  <div className="flex items-center justify-between text-xs font-mono text-slate-400">
+                  <div className="flex items-center justify-between text-xs text-slate-400">
                     <span className="flex items-center space-x-1 text-emerald-300 font-bold">
                       <Star className="w-3.5 h-3.5 text-emerald-400" />
                       <span>BINTANG UTAMA KONSTELASI:</span>
@@ -512,7 +512,7 @@ export const ZodiacCelestialCompendium: React.FC = () => {
                     {selectedZodiac.majorStars.map((star, idx) => (
                       <span
                         key={idx}
-                        className="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-900 text-teal-300 border border-teal-500/30"
+                        className="px-2.5 py-1 rounded-lg text-xs bg-slate-900 text-teal-300 border border-teal-500/30"
                       >
                         ⭐ {star}
                       </span>
@@ -522,7 +522,7 @@ export const ZodiacCelestialCompendium: React.FC = () => {
 
                 {/* Cosmic Wisdom Quote */}
                 <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-950/40 via-slate-900 to-teal-950/40 border-l-4 border-emerald-400 border-y border-r border-emerald-500/20 space-y-1.5">
-                  <span className="text-[11px] font-mono uppercase text-emerald-400 font-bold tracking-widest block">
+                  <span className="text-[11px] uppercase text-emerald-400 font-bold tracking-widest block">
                     KUTIPAN KEBIJAKSANAAN KOSMIK:
                   </span>
                   <p className="text-xs sm:text-sm text-slate-100 italic leading-relaxed">
@@ -531,7 +531,7 @@ export const ZodiacCelestialCompendium: React.FC = () => {
                 </div>
 
                 {/* Modern Insight Link */}
-                <div className="p-3.5 rounded-xl bg-slate-950/60 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-300 font-mono">
+                <div className="p-3.5 rounded-xl bg-slate-950/60 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-300">
                   <span>💡 Refleksi Modern: {selectedZodiac.article.modernInsight}</span>
                   <a
                     href={`https://en.wikipedia.org/wiki/${selectedZodiac.name}_(astrology)`}

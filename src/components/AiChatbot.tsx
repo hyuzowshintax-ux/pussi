@@ -184,11 +184,11 @@ export const AiChatbot: React.FC<AiChatbotProps> = ({ data }) => {
               <div>
                 <div className="flex items-center space-x-1.5">
                   <h4 className="text-sm font-bold text-white">Samuel AI Assistant</h4>
-                  <span className="px-1.5 py-0.2 rounded text-[9px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  <span className="px-1.5 py-0.2 rounded text-[9px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                     Online
                   </span>
                 </div>
-                <p className="text-[11px] text-emerald-300/80 font-mono">Duta Intelegensia & AI Explorer</p>
+                <p className="text-[11px] text-emerald-300/80">Duta Intelegensia & AI Explorer</p>
               </div>
             </div>
 

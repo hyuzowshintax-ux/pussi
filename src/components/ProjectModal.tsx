@@ -62,7 +62,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         {/* Modal Body */}
         <div className="p-6 sm:p-8 space-y-6">
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400 dark:text-emerald-400 light:text-emerald-600 mb-2 font-mono">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400 dark:text-emerald-400 light:text-emerald-600 mb-2">
               Tentang Proyek
             </h4>
             <p className="text-slate-300 dark:text-slate-300 light:text-slate-700 text-sm sm:text-base leading-relaxed">
@@ -72,7 +72,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
           {project.highlights && (
             <div>
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400 dark:text-emerald-400 light:text-emerald-600 mb-3 font-mono">
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400 dark:text-emerald-400 light:text-emerald-600 mb-3">
                 Fitur Utama & Keunggulan
               </h4>
               <ul className="space-y-2">
@@ -87,14 +87,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           )}
 
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400 dark:text-emerald-400 light:text-emerald-600 mb-2 font-mono">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400 dark:text-emerald-400 light:text-emerald-600 mb-2">
               Teknologi yang Digunakan
             </h4>
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag, idx) => (
                 <span
                   key={idx}
-                  className="px-2.5 py-1 text-xs font-mono rounded bg-slate-800 dark:bg-slate-800 light:bg-slate-200 text-slate-200 dark:text-slate-200 light:text-slate-800 border border-emerald-500/20"
+                  className="px-2.5 py-1 text-xs rounded bg-slate-800 dark:bg-slate-800 light:bg-slate-200 text-slate-200 dark:text-slate-200 light:text-slate-800 border border-emerald-500/20"
                 >
                   {tag}
                 </span>

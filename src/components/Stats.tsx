@@ -39,7 +39,7 @@ export const Stats: React.FC<StatsProps> = ({ stats }) => {
               <div className="text-3xl font-extrabold text-white dark:text-white light:text-slate-900 mb-1 tracking-tight gradient-text">
                 {stat.number}
               </div>
-              <div className="text-xs font-medium text-slate-300 dark:text-slate-300 light:text-slate-600 font-mono">
+              <div className="text-xs font-medium text-slate-300 dark:text-slate-300 light:text-slate-600">
                 {stat.label}
               </div>
             </div>

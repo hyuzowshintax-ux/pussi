@@ -69,7 +69,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
             <div className="flex items-center justify-center lg:justify-start gap-3 flex-wrap">
               <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 backdrop-blur-md">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-xs sm:text-sm font-semibold text-emerald-300 dark:text-emerald-300 light:text-emerald-700 font-mono">
+                <span className="text-xs sm:text-sm font-semibold text-emerald-300 dark:text-emerald-300 light:text-emerald-700">
                   {profile.status}
                 </span>
               </div>
@@ -114,7 +114,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
 
             {/* Social Links */}
             <div className="pt-5 border-t border-slate-800/80 dark:border-slate-800/80 light:border-slate-200/80">
-              <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3 font-mono">// Media Sosial & Tautan Resmi</p>
+              <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">// Media Sosial & Tautan Resmi</p>
               <div className="flex items-center justify-center lg:justify-start gap-2.5 sm:gap-3 flex-wrap">
                 <a
                   href={profile.socials.github}
@@ -174,7 +174,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                     const msg = encodeURIComponent(`Halo! Cek portofolio interaktif Cyber Arcade & AI Design Engineer karya Samuel B K di: ${shareUrl}`);
                     window.open(`https://wa.me/?text=${msg}`, "_blank");
                   }}
-                  className="px-3.5 h-11 sm:h-10 rounded-xl flex items-center space-x-1.5 bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 text-xs font-mono font-semibold transition-all shadow-sm active:scale-95"
+                  className="px-3.5 h-11 sm:h-10 rounded-xl flex items-center space-x-1.5 bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 text-xs font-semibold transition-all shadow-sm active:scale-95"
                   title="Bagikan portofolio ini ke WhatsApp"
                 >
                   <Share2 className="w-4 h-4" />

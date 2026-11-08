@@ -155,7 +155,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode, 
                 className="text-left text-sm font-medium text-slate-200 dark:text-slate-200 light:text-slate-800 hover:text-emerald-400 transition-colors py-2 flex items-center justify-between border-b border-white/5"
               >
                 <span>{link.name}</span>
-                <span className="text-xs text-emerald-400 font-mono">Lihat ➔</span>
+                <span className="text-xs text-emerald-400">Lihat ➔</span>
               </button>
             ))}
             <div className="pt-3 border-t border-slate-800">

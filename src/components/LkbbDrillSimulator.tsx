@@ -128,7 +128,7 @@ export const LkbbDrillSimulator: React.FC = () => {
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 flex items-center justify-center space-x-1.5">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 flex items-center justify-center space-x-1.5">
             <Flag className="w-4 h-4" />
             <span>// Simulasi Taktis CODASKA (Comando Garuda SMANSAKA)</span>
           </span>
@@ -145,7 +145,7 @@ export const LkbbDrillSimulator: React.FC = () => {
         <div className="glass-card rounded-3xl border border-emerald-500/25 shadow-2xl shadow-emerald-950/30 overflow-hidden max-w-4xl mx-auto">
           
           {/* Top Status Bar */}
-          <div className="p-4 bg-slate-900/90 border-b border-emerald-500/20 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
+          <div className="p-4 bg-slate-900/90 border-b border-emerald-500/20 flex flex-wrap items-center justify-between gap-3 text-xs">
             <div className="flex items-center space-x-2 text-white">
               <Compass className="w-4 h-4 text-emerald-400" />
               <span>Pleton: <strong>16 Pasukan CODASKA (Comando Garuda SMANSAKA)</strong></span>
@@ -189,7 +189,7 @@ export const LkbbDrillSimulator: React.FC = () => {
                   <div
                     className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-[11px] shadow-lg transition-transform group-hover:scale-125 ${
                       isLeader
-                        ? "bg-gradient-to-tr from-amber-400 to-emerald-500 text-slate-950 ring-4 ring-amber-400/40 font-mono font-extrabold"
+                        ? "bg-gradient-to-tr from-amber-400 to-emerald-500 text-slate-950 ring-4 ring-amber-400/40 font-extrabold"
                         : "bg-gradient-to-tr from-emerald-600 to-teal-500 text-white ring-2 ring-emerald-500/30"
                     }`}
                   >
@@ -197,7 +197,7 @@ export const LkbbDrillSimulator: React.FC = () => {
                   </div>
 
                   {/* Tooltip Hover */}
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover:block whitespace-nowrap px-2.5 py-1 rounded-lg bg-slate-900 text-white text-[10px] font-mono border border-emerald-500/40 shadow-xl pointer-events-none z-30">
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover:block whitespace-nowrap px-2.5 py-1 rounded-lg bg-slate-900 text-white text-[10px] border border-emerald-500/40 shadow-xl pointer-events-none z-30">
                     #{soldier.id} {soldier.role}
                   </div>
                 </div>
@@ -258,7 +258,7 @@ export const LkbbDrillSimulator: React.FC = () => {
                 setStepCount(0);
                 setFormation("standard");
               }}
-              className="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white text-xs font-mono flex items-center justify-center space-x-1.5 transition-colors self-end sm:self-auto w-full sm:w-auto"
+              className="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white text-xs flex items-center justify-center space-x-1.5 transition-colors self-end sm:self-auto w-full sm:w-auto"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Reset Posisi</span>
