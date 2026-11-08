@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { portfolioData } from "@/lib/data";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
-import { Stats } from "@/components/Stats";
 import { About } from "@/components/About";
 import { Skills } from "@/components/Skills";
 import { Projects } from "@/components/Projects";
@@ -15,17 +14,13 @@ import { Footer } from "@/components/Footer";
 import { CategoryModal, CategoryTab } from "@/components/CategoryModal";
 import { InteractiveClickFX } from "@/components/InteractiveClickFX";
 import { Certificates } from "@/components/Certificates";
-import { AiChatbot } from "@/components/AiChatbot";
 import { ResumeModal } from "@/components/ResumeModal";
-import { CommandPalette } from "@/components/CommandPalette";
 import { AiPromptLab } from "@/components/AiPromptLab";
 import { GuestbookSupport } from "@/components/GuestbookSupport";
 import { HolographicTrophyShowcase } from "@/components/HolographicTrophyShowcase";
 import { LkbbDrillSimulator } from "@/components/LkbbDrillSimulator";
 import { SkillRadarMatrix } from "@/components/SkillRadarMatrix";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
-import { ZodiacCelestialCompendium } from "@/components/ZodiacCelestialCompendium";
-import { CosmicCardShareGenerator } from "@/components/CosmicCardShareGenerator";
 import { KeyboardShortcutsGuide } from "@/components/KeyboardShortcutsGuide";
 
 export default function Home() {
@@ -51,22 +46,8 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-white text-slate-900">
-      {/* Interactive Celestial Zodiac Constellations & Astro-Philosophy Compendium */}
-      <ZodiacCelestialCompendium />
-
-      {/* Viral Holographic ID Card & Story Share Generator */}
-      <CosmicCardShareGenerator />
-
       {/* Global Keyboard Shortcuts Cheatsheet & Hotkey Engine */}
       <KeyboardShortcutsGuide darkMode={darkMode} setDarkMode={setDarkMode} />
-
-      {/* Quick Navigation Spotlight Command Palette (Ctrl + K) */}
-      <CommandPalette
-        onOpenCategory={handleOpenCategory}
-        onOpenResume={() => setResumeModalOpen(true)}
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
-      />
 
       {/* Navigation */}
       <Navbar
@@ -99,7 +80,6 @@ export default function Home() {
       {/* Main Content */}
       <main className="relative z-10 pt-20">
         <Hero profile={portfolioData.profile} />
-        <Stats stats={portfolioData.stats} />
         <About
           about={portfolioData.about}
           cvLink={portfolioData.profile.cvLink}
@@ -133,9 +113,6 @@ export default function Home() {
         <Testimonials testimonials={portfolioData.testimonials} />
         <Contact contact={portfolioData.contact} />
       </main>
-
-      {/* Intelligent Interactive AI Chatbot Assistant */}
-      <AiChatbot data={portfolioData} />
 
       {/* Mobile Floating Bottom Dock Navigation */}
       <MobileBottomNav />

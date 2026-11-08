@@ -32,13 +32,6 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
     }
   };
 
-  const openElementBySelector = (selector: string) => {
-    const btn = document.querySelector(selector) as HTMLButtonElement | null;
-    if (btn) {
-      btn.click();
-    }
-  };
-
   const shortcutGroups: ShortcutGroup[] = [
     {
       category: "Navigasi Cepat Antar Halaman",
@@ -83,38 +76,14 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
       ]
     },
     {
-      category: "Fitur Interaktif",
-      categoryBadge: "INTERACTIVE APPS",
+      category: "Pintasan Sistem & Kontrol",
+      categoryBadge: "SYSTEM UTILS",
       items: [
-        {
-          keys: ["Z"],
-          label: "Kompendium Zodiak Kosmik",
-          description: "Membuka ensiklopedia 12 rasi bintang & filosofi",
-          action: () => openElementBySelector("button[title*='Kompendium Konstelasi']")
-        },
-        {
-          keys: ["I"],
-          label: "Generator Kartu Hologram",
-          description: "Membuat kartu pas nama untuk IG Story / WA",
-          action: () => openElementBySelector("button[title*='Buat Kartu Hologram']")
-        },
         {
           keys: ["A", "D"],
           label: "Geser Slide Proyek (Prev / Next)",
           description: "Mengganti slide proyek saat berada di bagian Proyek",
           action: () => scrollToSection("projects")
-        }
-      ]
-    },
-    {
-      category: "Pintasan Sistem & Kontrol",
-      categoryBadge: "SYSTEM UTILS",
-      items: [
-        {
-          keys: ["Ctrl", "K"],
-          label: "Spotlight Command Palette",
-          description: "Pencarian cepat dan menu perintah instan",
-          action: () => openElementBySelector("button[aria-label='Buka Command Palette']")
         },
         {
           keys: ["?"],
@@ -182,14 +151,6 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
         e.preventDefault();
         scrollToSection("contact");
         setActiveKeyHit(e.key);
-      } else if (key === "Z") {
-        e.preventDefault();
-        openElementBySelector("button[title*='Kompendium Konstelasi']");
-        setActiveKeyHit("Z");
-      } else if (key === "I") {
-        e.preventDefault();
-        openElementBySelector("button[title*='Buat Kartu Hologram']");
-        setActiveKeyHit("I");
       }
 
       if (activeKeyHit) {
@@ -203,8 +164,8 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
 
   return (
     <>
-      {/* Floating Shortcut Quick-Trigger Pill on Bottom-Right / Center */}
-      <div className="fixed bottom-20 sm:bottom-6 right-36 sm:right-48 z-40 hidden min-[500px]:block">
+      {/* Floating Shortcut Quick-Trigger Pill on Bottom-Right */}
+      <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-40 hidden min-[500px]:block">
         <button
           onClick={() => {
             setIsOpen(true);
