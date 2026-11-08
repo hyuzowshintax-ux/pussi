@@ -62,7 +62,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       id: "nav-projects",
       title: "Buka Proyek Unggulan (Intelegensia AI, ScoutPulse, dsb)",
       category: "Navigasi",
-      icon: <FolderGit2 className="w-4 h-4 text-purple-400" />,
+      icon: <FolderGit2 className="w-4 h-4 text-emerald-600" />,
       action: () => {
         onOpenCategory("projects");
         setIsOpen(false);
@@ -73,7 +73,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       id: "nav-exp",
       title: "Lihat Rekam Jejak Duta Intelegensia & Pramuka Bantara",
       category: "Prestasi",
-      icon: <Award className="w-4 h-4 text-pink-400" />,
+      icon: <Award className="w-4 h-4 text-teal-600" />,
       action: () => {
         onOpenCategory("experience");
         setIsOpen(false);
@@ -84,7 +84,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       id: "nav-skills",
       title: "Eksplorasi Keahlian AI & Pemrograman Web",
       category: "Navigasi",
-      icon: <Sparkles className="w-4 h-4 text-cyan-400" />,
+      icon: <Sparkles className="w-4 h-4 text-sky-600" />,
       action: () => {
         onOpenCategory("skills");
         setIsOpen(false);
@@ -95,7 +95,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       id: "open-resume",
       title: "Buka & Cetak Curriculum Vitae (Resume PDF)",
       category: "Aksi Cepat",
-      icon: <FileText className="w-4 h-4 text-amber-400" />,
+      icon: <FileText className="w-4 h-4 text-amber-600" />,
       action: () => {
         onOpenResume();
         setIsOpen(false);
@@ -103,21 +103,10 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       shortcut: "CV"
     },
     {
-      id: "toggle-theme",
-      title: darkMode ? "Ganti ke Mode Terang (Light Mode)" : "Ganti ke Mode Gelap (Dark Mode)",
-      category: "Aksi Cepat",
-      icon: darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-purple-400" />,
-      action: () => {
-        setDarkMode((prev) => !prev);
-        setIsOpen(false);
-      },
-      shortcut: "T"
-    },
-    {
       id: "contact-wa",
       title: "Hubungi Samuel Langsung via WhatsApp",
       category: "Aksi Cepat",
-      icon: <Send className="w-4 h-4 text-emerald-400" />,
+      icon: <Send className="w-4 h-4 text-emerald-600" />,
       action: () => {
         window.open("https://wa.me/628133726102", "_blank");
         setIsOpen(false);
@@ -151,12 +140,13 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       <div className="fixed bottom-6 left-6 z-40 hidden sm:block">
         <button
           onClick={() => setIsOpen(true)}
-          className="px-3.5 py-2 rounded-2xl glass-card border border-emerald-500/25 hover:border-emerald-400 text-slate-300 hover:text-white flex items-center space-x-2 text-xs shadow-lg hover:scale-105 transition-all"
+          aria-label="Buka Command Palette"
+          className="px-3.5 py-2 rounded-2xl glass-card bg-white border border-slate-200 hover:border-emerald-500 text-slate-700 hover:text-slate-900 flex items-center space-x-2 text-xs font-medium shadow-md hover:scale-105 transition-all"
           title="Buka Menu Perintah Cepat (Ctrl + K)"
         >
-          <Search className="w-3.5 h-3.5 text-emerald-400" />
+          <Search className="w-3.5 h-3.5 text-emerald-600" />
           <span>Cari / Menu Cepat</span>
-          <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-[10px] text-emerald-300 border border-emerald-500/30">
+          <kbd className="px-1.5 py-0.5 rounded bg-slate-100 text-[10px] font-semibold text-emerald-700 border border-slate-200">
             Ctrl K
           </kbd>
         </button>
@@ -164,12 +154,12 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 
       {/* Modal Dialog */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-start justify-center pt-[12vh] p-4 animate-cloud-enter">
-          <div className="relative w-full max-w-xl glass-card rounded-3xl border border-emerald-500/30 shadow-2xl shadow-emerald-950/50 overflow-hidden">
+        <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-start justify-center pt-[12vh] p-4 animate-cloud-enter">
+          <div className="relative w-full max-w-xl glass-card bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden">
             
             {/* Search Input Bar */}
-            <div className="p-4 border-b border-emerald-500/20 flex items-center space-x-3 bg-slate-900/90">
-              <Search className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+            <div className="p-4 border-b border-slate-200 flex items-center space-x-3 bg-slate-50">
+              <Search className="w-5 h-5 text-emerald-600 flex-shrink-0" />
               <input
                 ref={inputRef}
                 type="text"
@@ -180,15 +170,15 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                 }}
                 onKeyDown={handleKeyDownList}
                 placeholder="Ketik perintah atau cari (contoh: Proyek, AI, CV, Prestasi)..."
-                className="w-full bg-transparent border-none text-white text-sm focus:outline-none placeholder-slate-400 font-sans"
+                className="w-full bg-transparent border-none text-slate-900 text-sm focus:outline-none placeholder-slate-400 font-sans"
               />
-              <kbd className="hidden sm:inline px-2 py-0.5 rounded bg-slate-800 text-[10px] text-slate-400 border border-slate-700">
+              <kbd className="hidden sm:inline px-2 py-0.5 rounded bg-white text-[10px] text-slate-500 border border-slate-200">
                 ESC
               </kbd>
             </div>
 
             {/* Results List */}
-            <div className="p-2 max-h-[340px] overflow-y-auto space-y-1">
+            <div className="p-2 max-h-[340px] overflow-y-auto space-y-1 bg-white">
               {filteredItems.length > 0 ? (
                 filteredItems.map((item, idx) => (
                   <button
@@ -197,17 +187,17 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                     onMouseEnter={() => setSelectedIndex(idx)}
                     className={`w-full p-3 rounded-2xl flex items-center justify-between text-left transition-all ${
                       selectedIndex === idx
-                        ? "bg-gradient-to-r from-emerald-600/30 via-teal-600/20 to-transparent border border-emerald-500/40 text-white"
-                        : "hover:bg-slate-800/50 text-slate-300"
+                        ? "bg-emerald-50 border border-emerald-300 text-slate-900"
+                        : "hover:bg-slate-50 text-slate-700 border border-transparent"
                     }`}
                   >
                     <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 rounded-xl bg-slate-900/80 flex items-center justify-center border border-emerald-500/20 text-emerald-400">
+                      <div className="w-8 h-8 rounded-xl bg-white flex items-center justify-center border border-slate-200 shadow-sm">
                         {item.icon}
                       </div>
                       <div>
                         <span className="text-xs font-semibold block">{item.title}</span>
-                        <span className="text-[10px] text-emerald-300/80 uppercase">
+                        <span className="text-[10px] font-semibold text-emerald-700 uppercase">
                           {item.category}
                         </span>
                       </div>
@@ -215,25 +205,25 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
 
                     <div className="flex items-center space-x-2">
                       {item.shortcut && (
-                        <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-[10px] text-slate-400 border border-slate-700">
+                        <kbd className="px-1.5 py-0.5 rounded bg-white text-[10px] text-slate-600 border border-slate-200">
                           {item.shortcut}
                         </kbd>
                       )}
-                      <ArrowRight className="w-3.5 h-3.5 text-emerald-400" />
+                      <ArrowRight className="w-3.5 h-3.5 text-emerald-600" />
                     </div>
                   </button>
                 ))
               ) : (
-                <div className="p-8 text-center text-slate-400 text-xs">
-                  Tidak ditemukan hasil untuk "{query}". Coba kata kunci lain.
+                <div className="p-8 text-center text-slate-500 text-xs">
+                  Tidak ditemukan hasil untuk &ldquo;{query}&rdquo;. Coba kata kunci lain.
                 </div>
               )}
             </div>
 
             {/* Footer Tip */}
-            <div className="p-3 bg-slate-950/70 border-t border-emerald-500/15 flex items-center justify-between text-[11px] text-slate-400">
+            <div className="p-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500">
               <span>Gunakan tombol panah <strong>↑ ↓</strong> untuk navigasi, <strong>Enter</strong> untuk memilih</span>
-              <span className="text-emerald-400 font-semibold">Samuel Command Palette</span>
+              <span className="text-emerald-700 font-semibold">Samuel Command Palette</span>
             </div>
           </div>
         </div>

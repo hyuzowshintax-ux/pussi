@@ -29,13 +29,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md transition-all">
-      <div className="glass-card rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-white/10 shadow-2xl relative animate-in fade-in zoom-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm transition-all">
+      <div className="glass-card rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-slate-200 shadow-2xl relative animate-in fade-in zoom-in duration-200">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-slate-800/80 dark:bg-slate-800/80 light:bg-slate-200 hover:bg-slate-700 text-white dark:text-white light:text-slate-800 flex items-center justify-center transition-all"
+          className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/95 hover:bg-white text-slate-800 shadow-md flex items-center justify-center transition-all border border-slate-200"
           aria-label="Tutup Modal"
         >
           <X className="w-5 h-5" />
@@ -48,7 +48,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             alt={project.title}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
           <div className="absolute bottom-4 left-6">
             <span className="px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow">
               {project.categoryLabel}
@@ -60,25 +60,25 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 sm:p-8 space-y-6">
+        <div className="p-6 sm:p-8 space-y-6 bg-white">
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400 dark:text-emerald-400 light:text-emerald-600 mb-2">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-700 mb-2">
               Tentang Proyek
             </h4>
-            <p className="text-slate-300 dark:text-slate-300 light:text-slate-700 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
               {project.fullDescription || project.description}
             </p>
           </div>
 
           {project.highlights && (
             <div>
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400 dark:text-emerald-400 light:text-emerald-600 mb-3">
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-700 mb-3">
                 Fitur Utama & Keunggulan
               </h4>
               <ul className="space-y-2">
                 {project.highlights.map((highlight, idx) => (
-                  <li key={idx} className="flex items-start space-x-2 text-sm text-slate-300 dark:text-slate-300 light:text-slate-600">
-                    <Check className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
+                  <li key={idx} className="flex items-start space-x-2 text-sm text-slate-700">
+                    <Check className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
                     <span>{highlight}</span>
                   </li>
                 ))}
@@ -87,14 +87,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           )}
 
           <div>
-            <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-400 dark:text-emerald-400 light:text-emerald-600 mb-2">
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-emerald-700 mb-2">
               Teknologi yang Digunakan
             </h4>
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag, idx) => (
                 <span
                   key={idx}
-                  className="px-2.5 py-1 text-xs rounded bg-slate-800 dark:bg-slate-800 light:bg-slate-200 text-slate-200 dark:text-slate-200 light:text-slate-800 border border-emerald-500/20"
+                  className="px-2.5 py-1 text-xs font-medium rounded bg-slate-100 text-slate-800 border border-slate-200"
                 >
                   {tag}
                 </span>
@@ -103,12 +103,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </div>
 
           {/* Action Links */}
-          <div className="flex items-center gap-4 pt-4 border-t border-slate-700/50 dark:border-slate-700/50 light:border-slate-200">
+          <div className="flex items-center gap-4 pt-4 border-t border-slate-200">
             <a
               href={project.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 py-3 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white text-center font-bold text-sm shadow-md shadow-emerald-600/30 transition-all flex items-center justify-center space-x-2"
+              className="flex-1 py-3 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white text-center font-bold text-sm shadow-md shadow-emerald-600/25 transition-all flex items-center justify-center space-x-2"
             >
               <ExternalLink className="w-4 h-4" />
               <span>Buka Live Demo</span>
@@ -117,7 +117,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 py-3 rounded-xl bg-slate-800 dark:bg-slate-800 light:bg-slate-200 hover:bg-slate-700 dark:hover:bg-slate-700 light:hover:bg-slate-300 text-slate-200 dark:text-slate-200 light:text-slate-800 text-center font-bold text-sm transition-all flex items-center justify-center space-x-2 border border-slate-700"
+              className="flex-1 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-center font-bold text-sm transition-all flex items-center justify-center space-x-2 border border-slate-200"
             >
               <Github className="w-4 h-4" />
               <span>Source Code</span>

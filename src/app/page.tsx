@@ -14,7 +14,6 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { CategoryModal, CategoryTab } from "@/components/CategoryModal";
 import { InteractiveClickFX } from "@/components/InteractiveClickFX";
-import { DynamicAtmosphereCanvas } from "@/components/DynamicAtmosphereCanvas";
 import { Certificates } from "@/components/Certificates";
 import { AiChatbot } from "@/components/AiChatbot";
 import { ResumeModal } from "@/components/ResumeModal";
@@ -30,8 +29,7 @@ import { CosmicCardShareGenerator } from "@/components/CosmicCardShareGenerator"
 import { KeyboardShortcutsGuide } from "@/components/KeyboardShortcutsGuide";
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useState<boolean>(true);
-  const [mounted, setMounted] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(false);
   const [categoryModalOpen, setCategoryModalOpen] = useState<boolean>(false);
   const [activeCategory, setActiveCategory] = useState<CategoryTab>("home");
   const [resumeModalOpen, setResumeModalOpen] = useState<boolean>(false);
@@ -42,44 +40,17 @@ export default function Home() {
   };
 
   useEffect(() => {
-    setMounted(true);
-    // Pastikan user langsung melihat layar utama profil saat pertama kali membuka link
+    // Pastikan user langsung melihat layar utama profil dengan background putih polos
     if (typeof window !== "undefined" && !window.location.hash) {
       window.scrollTo(0, 0);
     }
-
-    const savedTheme = localStorage.getItem("theme");
-    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    if (savedTheme === "light") {
-      setDarkMode(false);
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.add("light");
-    } else {
-      setDarkMode(true);
-      document.documentElement.classList.add("dark");
-      document.documentElement.classList.remove("light");
-    }
+    document.documentElement.classList.remove("dark");
+    document.documentElement.classList.add("light");
+    localStorage.setItem("theme", "light");
   }, []);
 
-  useEffect(() => {
-    if (!mounted) return;
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      document.documentElement.classList.remove("light");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      document.documentElement.classList.add("light");
-      localStorage.setItem("theme", "light");
-    }
-  }, [darkMode, mounted]);
-
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
-      {/* Interactive Living Atmosphere Canvas (Stardust, Constellations & Shooting Stars) */}
-      <DynamicAtmosphereCanvas darkMode={darkMode} />
-
+    <div className="relative min-h-screen overflow-x-hidden bg-white text-slate-900">
       {/* Interactive Celestial Zodiac Constellations & Astro-Philosophy Compendium */}
       <ZodiacCelestialCompendium />
 
@@ -88,24 +59,6 @@ export default function Home() {
 
       {/* Global Keyboard Shortcuts Cheatsheet & Hotkey Engine */}
       <KeyboardShortcutsGuide darkMode={darkMode} setDarkMode={setDarkMode} />
-
-      {/* Living Breathing Aurora Mesh Ribbons */}
-      <div className="aurora-mesh-container">
-        <div className="aurora-ribbon aurora-ribbon-1" />
-        <div className="aurora-ribbon aurora-ribbon-2" />
-        <div className="aurora-ribbon aurora-ribbon-3" />
-      </div>
-
-      {/* Elegant Wallpaper Grid Texture */}
-      <div className="wallpaper-grid" />
-
-      {/* Ambient Glowing Abstract Celestial Orbs */}
-      <div className="ambient-glow ambient-glow-1" />
-      <div className="ambient-glow ambient-glow-2" />
-      <div className="ambient-glow ambient-glow-3" />
-      <div className="ambient-glow ambient-glow-4" />
-      <div className="ambient-glow ambient-glow-5" />
-      <div className="ambient-glow ambient-glow-6" />
 
       {/* Quick Navigation Spotlight Command Palette (Ctrl + K) */}
       <CommandPalette

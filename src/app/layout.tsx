@@ -72,9 +72,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="dark scroll-smooth">
+    <html lang="id" className="scroll-smooth bg-white">
       <body
-        className={`${inter.variable} ${playfair.variable} antialiased text-slate-100 selection:bg-pink-500 selection:text-white transition-colors duration-300 relative min-h-screen`}
+        className={`${inter.variable} ${playfair.variable} antialiased bg-white text-slate-900 selection:bg-emerald-600 selection:text-white relative min-h-screen`}
       >
         {children}
       </body>

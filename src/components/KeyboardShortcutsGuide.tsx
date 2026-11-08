@@ -117,14 +117,6 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
           action: () => openElementBySelector("button[aria-label='Buka Command Palette']")
         },
         {
-          keys: ["D"],
-          label: "Beralih Mode Gelap / Terang",
-          description: "Mengubah tema atmosfer pencahayaan visual",
-          action: () => {
-            setDarkMode((prev) => !prev);
-          }
-        },
-        {
           keys: ["?"],
           label: "Buka / Tutup Daftar Shortcut",
           description: "Menampilkan panduan tombol pintas ini",
@@ -198,15 +190,6 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
         e.preventDefault();
         openElementBySelector("button[title*='Buat Kartu Hologram']");
         setActiveKeyHit("I");
-      } else if (key === "D" && !e.ctrlKey && !e.metaKey) {
-        const projectsEl = document.getElementById("projects");
-        const rect = projectsEl?.getBoundingClientRect();
-        const isInProjects = rect && rect.top <= 200 && rect.bottom >= 200;
-        if (!isInProjects) {
-          e.preventDefault();
-          setDarkMode((prev) => !prev);
-          setActiveKeyHit("D");
-        }
       }
 
       if (activeKeyHit) {
@@ -226,11 +209,11 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
           onClick={() => {
             setIsOpen(true);
           }}
-          className="group flex items-center space-x-2 px-3 py-2 rounded-full glass-card border border-emerald-500/30 hover:border-emerald-400 bg-slate-950/85 hover:bg-slate-900 text-slate-300 hover:text-white text-xs font-semibold shadow-lg shadow-emerald-950/40 transition-all duration-300 backdrop-blur-md active:scale-95"
+          className="group flex items-center space-x-2 px-3.5 py-2 rounded-full glass-card bg-white border border-slate-200 hover:border-emerald-500 text-slate-700 hover:text-emerald-700 text-xs font-semibold shadow-md transition-all duration-300 active:scale-95"
           title="Buka Daftar Pintasan Keyboard (Tekan '?')"
         >
-          <Keyboard className="w-3.5 h-3.5 text-emerald-400 group-hover:rotate-12 transition-transform" />
-          <span className="text-[11px] text-emerald-300">
+          <Keyboard className="w-3.5 h-3.5 text-emerald-600 group-hover:rotate-12 transition-transform" />
+          <span className="text-[11px] font-semibold text-slate-700 group-hover:text-emerald-700">
             [ ? ] SHORTCUTS
           </span>
         </button>
@@ -238,30 +221,30 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
 
       {/* Main Keyboard Shortcuts Cheatsheet Modal */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-xl flex items-center justify-center p-3 sm:p-6 animate-cloud-enter overflow-y-auto">
-          <div className="relative w-full max-w-3xl glass-card rounded-3xl border-2 border-emerald-500/40 shadow-2xl shadow-emerald-950/60 overflow-hidden flex flex-col max-h-[90vh] my-auto bg-slate-950/95 font-sans">
+        <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 animate-cloud-enter overflow-y-auto">
+          <div className="relative w-full max-w-3xl glass-card bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden flex flex-col max-h-[90vh] my-auto font-sans">
             
             {/* Header */}
-            <div className="p-4 sm:p-5 bg-slate-900/90 border-b border-emerald-500/25 flex items-center justify-between backdrop-blur-md">
+            <div className="p-4 sm:p-5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-500 via-teal-400 to-cyan-400 flex items-center justify-center text-slate-950 shadow-md font-bold">
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-500 flex items-center justify-center text-white shadow-md font-bold">
                   <Keyboard className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="flex items-center space-x-2">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-400">
-                      // CYBER HOTKEY COMMAND MATRIX
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-700">
+                      // HOTKEY COMMAND MATRIX
                     </span>
                   </div>
-                  <h3 className="text-lg sm:text-xl font-black text-white tracking-tight">
-                    Pintasan Keyboard Super Cepat
+                  <h3 className="text-lg sm:text-xl font-black text-slate-900 tracking-tight">
+                    Pintasan Keyboard Cepat
                   </h3>
                 </div>
               </div>
 
               <button
                 onClick={() => setIsOpen(false)}
-                className="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors border border-emerald-500/20"
+                className="w-8 h-8 rounded-full bg-white hover:bg-slate-100 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors border border-slate-200"
                 aria-label="Tutup Panduan Shortcut"
               >
                 <X className="w-4 h-4" />
@@ -269,20 +252,20 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
             </div>
 
             {/* Quick Hint Bar */}
-            <div className="px-4 sm:px-6 py-2.5 bg-slate-900/60 border-b border-white/5 flex items-center justify-between text-xs text-slate-300">
+            <div className="px-4 sm:px-6 py-2.5 bg-white border-b border-slate-200 flex items-center justify-between text-xs text-slate-600">
               <span>💡 Tekan tombol di keyboard atau klik kartu untuk langsung mengeksekusi aksi!</span>
-              <span className="text-emerald-400 font-bold hidden sm:inline">PINTASAN AKTIF</span>
+              <span className="text-emerald-700 font-bold hidden sm:inline">PINTASAN AKTIF</span>
             </div>
 
             {/* Modal Body with Shortcut Groups */}
-            <div className="p-4 sm:p-6 overflow-y-auto space-y-6 flex-1">
+            <div className="p-4 sm:p-6 overflow-y-auto space-y-6 flex-1 bg-white">
               {shortcutGroups.map((group, gIdx) => (
                 <div key={gIdx} className="space-y-3">
                   <div className="flex items-center space-x-2">
-                    <span className="px-2.5 py-0.5 rounded-lg text-[10px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                    <span className="px-2.5 py-0.5 rounded-lg text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
                       {group.categoryBadge}
                     </span>
-                    <h4 className="text-xs font-bold text-white uppercase tracking-wider">
+                    <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
                       {group.category}
                     </h4>
                   </div>
@@ -295,13 +278,13 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
                           item.action();
                           setIsOpen(false);
                         }}
-                        className="p-3 rounded-2xl bg-slate-900/70 hover:bg-slate-900 border border-white/10 hover:border-emerald-400/60 transition-all text-left flex items-start justify-between group active:scale-[0.99]"
+                        className="p-3 rounded-2xl bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-400 transition-all text-left flex items-start justify-between group active:scale-[0.99]"
                       >
                         <div className="space-y-0.5">
-                          <div className="text-xs font-bold text-white group-hover:text-emerald-300 transition-colors">
+                          <div className="text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
                             {item.label}
                           </div>
-                          <div className="text-[10px] text-slate-400">
+                          <div className="text-[10px] text-slate-600">
                             {item.description}
                           </div>
                         </div>
@@ -311,7 +294,7 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
                           {item.keys.map((k, kIdx) => (
                             <kbd
                               key={kIdx}
-                              className="px-2 py-1 rounded-lg bg-slate-950 border border-emerald-500/40 text-emerald-400 font-bold text-xs shadow-inner min-w-[24px] text-center"
+                              className="px-2 py-1 rounded-lg bg-white border border-slate-300 text-emerald-700 font-bold text-xs shadow-sm min-w-[24px] text-center"
                             >
                               {k}
                             </kbd>
@@ -325,8 +308,8 @@ export const KeyboardShortcutsGuide: React.FC<KeyboardShortcutsGuideProps> = ({
             </div>
 
             {/* Footer */}
-            <div className="p-4 bg-slate-900/80 border-t border-emerald-500/20 text-center text-[11px] text-slate-400">
-              <span>Tekan <kbd className="px-1.5 py-0.5 rounded bg-slate-800 text-emerald-300 border border-emerald-500/30">Esc</kbd> kapan saja untuk menutup jendela.</span>
+            <div className="p-4 bg-slate-50 border-t border-slate-200 text-center text-[11px] text-slate-600">
+              <span>Tekan <kbd className="px-1.5 py-0.5 rounded bg-white text-emerald-700 font-semibold border border-slate-300">Esc</kbd> kapan saja untuk menutup jendela.</span>
             </div>
 
           </div>

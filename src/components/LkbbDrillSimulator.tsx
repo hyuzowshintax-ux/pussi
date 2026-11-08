@@ -123,53 +123,53 @@ export const LkbbDrillSimulator: React.FC = () => {
   const positions = getPositions();
 
   return (
-    <section id="lkbb-simulator" className="py-24 relative">
+    <section id="lkbb-simulator" className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 flex items-center justify-center space-x-1.5">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 flex items-center justify-center space-x-1.5">
             <Flag className="w-4 h-4" />
             <span>// Simulasi Taktis CODASKA (Comando Garuda SMANSAKA)</span>
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Simulator Formasi Variasi Baris-Berbaris (LKBB)
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600 mx-auto rounded-full" />
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+          <div className="w-16 h-1 bg-emerald-600 mx-auto rounded-full" />
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             Eksplorasi simulasi 2D interaktif pergerakan 16 personil pleton <strong>CODASKA (Comando Garuda SMANSAKA - SMAN 1 Kandangan)</strong> dalam menyusun formasi variasi ketangkasan PBB.
           </p>
         </div>
 
         {/* Simulator Grid & Controls */}
-        <div className="glass-card rounded-3xl border border-emerald-500/25 shadow-2xl shadow-emerald-950/30 overflow-hidden max-w-4xl mx-auto">
+        <div className="glass-card rounded-3xl border border-slate-200 shadow-xl overflow-hidden max-w-4xl mx-auto">
           
           {/* Top Status Bar */}
-          <div className="p-4 bg-slate-900/90 border-b border-emerald-500/20 flex flex-wrap items-center justify-between gap-3 text-xs">
-            <div className="flex items-center space-x-2 text-white">
-              <Compass className="w-4 h-4 text-emerald-400" />
+          <div className="p-4 bg-slate-50 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div className="flex items-center space-x-2 text-slate-800">
+              <Compass className="w-4 h-4 text-emerald-600" />
               <span>Pleton: <strong>16 Pasukan CODASKA (Comando Garuda SMANSAKA)</strong></span>
             </div>
 
             <div className="flex items-center space-x-3 sm:space-x-4">
-              <span className="text-slate-300 hidden sm:inline">Tempo: <strong>110 BPM</strong></span>
-              <span className="text-emerald-400 font-bold">Langkah: {stepCount}</span>
-              <span className={`px-2.5 py-0.5 rounded-full font-bold ${isMarching ? "bg-amber-500/20 text-amber-300 animate-pulse" : "bg-emerald-500/20 text-emerald-400"}`}>
+              <span className="text-slate-600 hidden sm:inline">Tempo: <strong>110 BPM</strong></span>
+              <span className="text-emerald-700 font-bold">Langkah: {stepCount}</span>
+              <span className={`px-2.5 py-0.5 rounded-full font-bold ${isMarching ? "bg-amber-50 text-amber-700 border border-amber-200 animate-pulse" : "bg-emerald-50 text-emerald-700 border border-emerald-200"}`}>
                 {isMarching ? "BERPINDAH..." : "SIAP SEMPURNA"}
               </span>
             </div>
           </div>
 
-          {/* 2D Drill Field (Canvas Area) */}
-          <div className="relative w-full h-[360px] sm:h-[420px] bg-slate-950/95 p-4 sm:p-8 overflow-hidden">
+          {/* 2D Drill Field */}
+          <div className="relative w-full h-[360px] sm:h-[420px] bg-white p-4 sm:p-8 overflow-hidden">
             
             {/* Tactical Grid Background Lines */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(16,185,129,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(16,185,129,0.08)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(16,185,129,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(16,185,129,0.10)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
             
             {/* Compass Center Marker */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
-              <div className="w-48 h-48 rounded-full border border-emerald-500/50 flex items-center justify-center">
-                <div className="w-24 h-24 rounded-full border border-dashed border-emerald-500/60"></div>
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
+              <div className="w-48 h-48 rounded-full border border-emerald-500/40 flex items-center justify-center">
+                <div className="w-24 h-24 rounded-full border border-dashed border-emerald-500/50"></div>
               </div>
             </div>
 
@@ -184,20 +184,20 @@ export const LkbbDrillSimulator: React.FC = () => {
                     top: `${soldier.y}%`,
                     transition: "all 0.85s cubic-bezier(0.34, 1.56, 0.64, 1)"
                   }}
-                  className={`absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-10`}
+                  className="absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer z-10"
                 >
                   <div
-                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-[11px] shadow-lg transition-transform group-hover:scale-125 ${
+                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center font-bold text-[11px] shadow-md transition-transform group-hover:scale-125 ${
                       isLeader
-                        ? "bg-gradient-to-tr from-amber-400 to-emerald-500 text-slate-950 ring-4 ring-amber-400/40 font-extrabold"
-                        : "bg-gradient-to-tr from-emerald-600 to-teal-500 text-white ring-2 ring-emerald-500/30"
+                        ? "bg-amber-500 text-white ring-4 ring-amber-300/60 font-extrabold"
+                        : "bg-emerald-600 text-white ring-2 ring-emerald-200"
                     }`}
                   >
                     {isLeader ? "★" : soldier.id}
                   </div>
 
                   {/* Tooltip Hover */}
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover:block whitespace-nowrap px-2.5 py-1 rounded-lg bg-slate-900 text-white text-[10px] border border-emerald-500/40 shadow-xl pointer-events-none z-30">
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 hidden group-hover:block whitespace-nowrap px-2.5 py-1 rounded-lg bg-slate-900 text-white text-[10px] shadow-lg pointer-events-none z-30">
                     #{soldier.id} {soldier.role}
                   </div>
                 </div>
@@ -206,14 +206,14 @@ export const LkbbDrillSimulator: React.FC = () => {
           </div>
 
           {/* Drill Formations Selector Bar */}
-          <div className="p-3.5 sm:p-6 bg-slate-900/90 border-t border-emerald-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="p-3.5 sm:p-6 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2 w-full sm:w-auto">
               <button
                 onClick={() => handleSwitchFormation("standard")}
                 className={`px-3 sm:px-4 py-2 rounded-xl text-[11px] sm:text-xs font-semibold text-center transition-all ${
                   formation === "standard"
-                    ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/30"
-                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                    ? "bg-emerald-600 text-white shadow-sm"
+                    : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-100"
                 }`}
               >
                 1. Standar (4x4)
@@ -223,8 +223,8 @@ export const LkbbDrillSimulator: React.FC = () => {
                 onClick={() => handleSwitchFormation("garuda")}
                 className={`px-3 sm:px-4 py-2 rounded-xl text-[11px] sm:text-xs font-semibold text-center transition-all ${
                   formation === "garuda"
-                    ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/30"
-                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                    ? "bg-emerald-600 text-white shadow-sm"
+                    : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-100"
                 }`}
               >
                 2. Sayap Garuda 🦅
@@ -234,8 +234,8 @@ export const LkbbDrillSimulator: React.FC = () => {
                 onClick={() => handleSwitchFormation("shield")}
                 className={`px-3 sm:px-4 py-2 rounded-xl text-[11px] sm:text-xs font-semibold text-center transition-all ${
                   formation === "shield"
-                    ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/30"
-                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                    ? "bg-emerald-600 text-white shadow-sm"
+                    : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-100"
                 }`}
               >
                 3. Cakra Perisai 🛡️
@@ -245,8 +245,8 @@ export const LkbbDrillSimulator: React.FC = () => {
                 onClick={() => handleSwitchFormation("varrow")}
                 className={`px-3 sm:px-4 py-2 rounded-xl text-[11px] sm:text-xs font-semibold text-center transition-all ${
                   formation === "varrow"
-                    ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white shadow-lg shadow-emerald-600/30"
-                    : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                    ? "bg-emerald-600 text-white shadow-sm"
+                    : "bg-white border border-slate-200 text-slate-700 hover:bg-slate-100"
                 }`}
               >
                 4. V-Arrow ⚡
@@ -258,7 +258,7 @@ export const LkbbDrillSimulator: React.FC = () => {
                 setStepCount(0);
                 setFormation("standard");
               }}
-              className="px-3 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white text-xs flex items-center justify-center space-x-1.5 transition-colors self-end sm:self-auto w-full sm:w-auto"
+              className="px-3 py-2 rounded-xl bg-white border border-slate-200 hover:bg-slate-100 text-slate-600 hover:text-slate-900 text-xs flex items-center justify-center space-x-1.5 transition-colors self-end sm:self-auto w-full sm:w-auto"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>Reset Posisi</span>

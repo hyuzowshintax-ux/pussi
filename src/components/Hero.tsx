@@ -42,16 +42,15 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
   }, [text, isDeleting, roleIndex, profile.roles]);
 
   return (
-    <section id="home" className="min-h-[calc(100vh-5rem)] flex items-center justify-center py-12 sm:py-20 lg:py-28 relative">
+    <section id="home" className="min-h-[calc(100vh-5rem)] flex items-center justify-center py-12 sm:py-20 lg:py-28 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Avatar Card on Mobile (placed ergonomically) */}
+          {/* Avatar Card on Mobile */}
           <div className="lg:hidden flex justify-center order-1">
             <div className="relative w-40 h-40 sm:w-56 sm:h-56">
-              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 opacity-30 blur-lg animate-pulse" />
-              <div className="glass-card rounded-3xl p-2.5 relative border border-emerald-500/40 shadow-xl w-full h-full">
-                <div className="aspect-square rounded-2xl overflow-hidden bg-slate-900 w-full h-full relative">
+              <div className="glass-card rounded-3xl p-2.5 relative border border-slate-200 shadow-lg w-full h-full">
+                <div className="aspect-square rounded-2xl overflow-hidden bg-slate-100 w-full h-full relative">
                   <img
                     src={profile.avatarUrl}
                     alt={profile.name}
@@ -67,9 +66,9 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
             
             {/* Status Pill */}
             <div className="flex items-center justify-center lg:justify-start gap-3 flex-wrap">
-              <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 backdrop-blur-md">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-xs sm:text-sm font-semibold text-emerald-300 dark:text-emerald-300 light:text-emerald-700">
+              <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse" />
+                <span className="text-xs sm:text-sm font-semibold text-emerald-800">
                   {profile.status}
                 </span>
               </div>
@@ -77,20 +76,20 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
 
             {/* Heading & Role */}
             <div className="space-y-2">
-              <p className="text-base sm:text-lg font-medium text-slate-400 dark:text-slate-400 light:text-slate-600">
+              <p className="text-base sm:text-lg font-medium text-slate-500">
                 Halo, Nama saya
               </p>
-              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white dark:text-white light:text-slate-900 leading-tight">
+              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-tight">
                 {profile.name}
               </h1>
               <div className="text-xl sm:text-3xl lg:text-4xl font-bold pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-1 sm:gap-2">
-                <span className="text-slate-300 dark:text-slate-300 light:text-slate-700">Saya seorang</span>
+                <span className="text-slate-700">Saya seorang</span>
                 <span className="gradient-text typing-cursor min-h-[36px] sm:min-h-[44px]">{text}</span>
               </div>
             </div>
 
             {/* Tagline */}
-            <p className="text-sm sm:text-base lg:text-lg text-slate-300 dark:text-slate-300 light:text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed px-1 sm:px-0">
+            <p className="text-sm sm:text-base lg:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed px-1 sm:px-0">
               {profile.tagline}
             </p>
 
@@ -98,29 +97,29 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
               <a
                 href="#projects"
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-semibold text-sm shadow-lg shadow-emerald-600/30 hover:shadow-emerald-500/50 flex items-center justify-center space-x-2 active:scale-95 transition-all"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-md shadow-emerald-600/20 flex items-center justify-center space-x-2 active:scale-95 transition-all"
               >
                 <span>Lihat Karya & Proyek</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
                 href="#contact"
-                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-slate-900/80 dark:bg-slate-900/80 light:bg-slate-200 hover:bg-slate-800 text-slate-200 dark:text-slate-200 light:text-slate-800 font-semibold text-sm border border-emerald-500/25 flex items-center justify-center space-x-2 active:scale-95 transition-all"
+                className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 shadow-sm flex items-center justify-center space-x-2 active:scale-95 transition-all"
               >
-                <MessageSquare className="w-4 h-4 text-emerald-400" />
+                <MessageSquare className="w-4 h-4 text-emerald-600" />
                 <span>Hubungi Saya</span>
               </a>
             </div>
 
             {/* Social Links */}
-            <div className="pt-5 border-t border-slate-800/80 dark:border-slate-800/80 light:border-slate-200/80">
-              <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">// Media Sosial & Tautan Resmi</p>
+            <div className="pt-5 border-t border-slate-200">
+              <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">// Media Sosial & Tautan Resmi</p>
               <div className="flex items-center justify-center lg:justify-start gap-2.5 sm:gap-3 flex-wrap">
                 <a
                   href={profile.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center bg-slate-900/80 text-slate-300 hover:text-white hover:bg-emerald-600 transition-all shadow-sm border border-emerald-500/20 active:scale-95"
+                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center bg-white text-slate-700 hover:text-white hover:bg-emerald-600 transition-all shadow-sm border border-slate-200 active:scale-95"
                   aria-label="GitHub"
                   title="Buka profil GitHub"
                 >
@@ -130,7 +129,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                   href={profile.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center bg-slate-900/80 text-slate-300 hover:text-white hover:bg-emerald-600 transition-all shadow-sm border border-emerald-500/20 active:scale-95"
+                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center bg-white text-slate-700 hover:text-white hover:bg-emerald-600 transition-all shadow-sm border border-slate-200 active:scale-95"
                   aria-label="LinkedIn"
                   title="Buka profil LinkedIn"
                 >
@@ -140,7 +139,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                   href={profile.socials.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center bg-slate-900/80 text-slate-300 hover:text-white hover:bg-emerald-600 transition-all shadow-sm border border-emerald-500/20 active:scale-95"
+                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center bg-white text-slate-700 hover:text-white hover:bg-emerald-600 transition-all shadow-sm border border-slate-200 active:scale-95"
                   aria-label="Twitter"
                   title="Buka Twitter"
                 >
@@ -150,7 +149,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                   href={profile.socials.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center bg-slate-900/80 text-slate-300 hover:text-white hover:bg-emerald-600 transition-all shadow-sm border border-emerald-500/20 active:scale-95"
+                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center bg-white text-slate-700 hover:text-white hover:bg-emerald-600 transition-all shadow-sm border border-slate-200 active:scale-95"
                   aria-label="Instagram"
                   title="Buka Instagram"
                 >
@@ -160,7 +159,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                   href={`mailto:${profile.email}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center bg-slate-900/80 text-slate-300 hover:text-white hover:bg-emerald-600 transition-all shadow-sm border border-emerald-500/20 active:scale-95"
+                  className="w-11 h-11 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center bg-white text-slate-700 hover:text-white hover:bg-emerald-600 transition-all shadow-sm border border-slate-200 active:scale-95"
                   aria-label="Email"
                   title="Kirim email di tab baru"
                 >
@@ -171,10 +170,10 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                 <button
                   onClick={() => {
                     const shareUrl = typeof window !== "undefined" ? window.location.origin : "https://github.com/hyuzowshintax-ux/pussi";
-                    const msg = encodeURIComponent(`Halo! Cek portofolio interaktif Cyber Arcade & AI Design Engineer karya Samuel B K di: ${shareUrl}`);
+                    const msg = encodeURIComponent(`Halo! Cek portofolio resmi Samuel B K di: ${shareUrl}`);
                     window.open(`https://wa.me/?text=${msg}`, "_blank");
                   }}
-                  className="px-3.5 h-11 sm:h-10 rounded-xl flex items-center space-x-1.5 bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/30 text-xs font-semibold transition-all shadow-sm active:scale-95"
+                  className="px-3.5 h-11 sm:h-10 rounded-xl flex items-center space-x-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 text-xs font-semibold transition-all shadow-sm active:scale-95"
                   title="Bagikan portofolio ini ke WhatsApp"
                 >
                   <Share2 className="w-4 h-4" />
@@ -188,10 +187,8 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
           {/* Right Column: Visual Avatar Card for Desktop */}
           <div className="hidden lg:flex lg:col-span-5 justify-center order-2">
             <div className="relative w-72 sm:w-84 lg:w-96">
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-r from-emerald-500 via-teal-400 to-green-600 opacity-25 blur-xl animate-pulse" />
-              
-              <div className="glass-card rounded-3xl p-4 sm:p-5 relative border border-emerald-500/30 shadow-2xl">
-                <div className="aspect-square rounded-2xl overflow-hidden bg-slate-900 relative group">
+              <div className="glass-card rounded-3xl p-4 sm:p-5 relative border border-slate-200 shadow-xl">
+                <div className="aspect-square rounded-2xl overflow-hidden bg-slate-100 relative group">
                   <img
                     src={profile.avatarUrl}
                     alt={profile.name}

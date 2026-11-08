@@ -109,21 +109,21 @@ export const HolographicTrophyShowcase: React.FC = () => {
   };
 
   return (
-    <section id="holographic-trophies" className="py-24 relative overflow-hidden">
+    <section id="holographic-trophies" className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 flex items-center justify-center space-x-1.5">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 flex items-center justify-center space-x-1.5">
             <Trophy className="w-4 h-4" />
-            <span>// 3D Holographic Vault</span>
+            <span>// Galeri Lencana Kehormatan</span>
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Galeri Lencana & Rekam Kehormatan 3D
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-600 mx-auto rounded-full" />
-          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Arahkan kursor ke kartu lencana untuk mengaktifkan efek hologram 3D interaktif dan rincian kemampuan yang terbuka (*skills unlocked*).
+          <div className="w-16 h-1 bg-emerald-600 mx-auto rounded-full" />
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Arahkan kursor ke kartu lencana untuk mengaktifkan efek 3D interaktif dan rincian kompetensi yang dikuasai.
           </p>
         </div>
 
@@ -135,11 +135,11 @@ export const HolographicTrophyShowcase: React.FC = () => {
               onClick={() => setActiveTrophyId(trophy.id)}
               className={`px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold flex items-center space-x-2 transition-all duration-300 ${
                 activeTrophyId === trophy.id
-                  ? "bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-600/40 scale-105 border border-emerald-400/40"
-                  : "glass-card text-slate-300 hover:text-white border border-emerald-500/20 hover:border-emerald-400/40"
+                  ? "bg-emerald-600 text-white shadow-md scale-105 border border-emerald-600"
+                  : "bg-slate-50 text-slate-700 hover:text-emerald-700 border border-slate-200 hover:border-emerald-400"
               }`}
             >
-              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+              <span className={`w-2 h-2 rounded-full ${activeTrophyId === trophy.id ? "bg-white" : "bg-emerald-500"}`}></span>
               <span>{trophy.title}</span>
             </button>
           ))}
@@ -148,7 +148,7 @@ export const HolographicTrophyShowcase: React.FC = () => {
         {/* 3D Holographic Stage */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto">
           
-          {/* Holographic 3D Card */}
+          {/* 3D Card */}
           <div className="lg:col-span-6 flex justify-center perspective-[1000px]">
             <div
               ref={cardRef}
@@ -158,51 +158,49 @@ export const HolographicTrophyShowcase: React.FC = () => {
                 transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
                 transition: "transform 0.1s ease-out"
               }}
-              className="relative w-full max-w-[340px] sm:max-w-[380px] h-[460px] rounded-3xl p-6 sm:p-8 glass-card border-2 border-emerald-500/35 shadow-2xl shadow-emerald-950/60 flex flex-col justify-between items-center text-center overflow-hidden cursor-pointer group select-none"
+              className="relative w-full max-w-[340px] sm:max-w-[380px] h-[460px] rounded-3xl p-6 sm:p-8 glass-card border-2 border-slate-200 shadow-xl flex flex-col justify-between items-center text-center overflow-hidden cursor-pointer group select-none"
             >
-              {/* Holographic Emerald Sheen Gradient Overlay */}
+              {/* Subtle Sheen Overlay */}
               <div
                 className="absolute inset-0 pointer-events-none opacity-40 group-hover:opacity-75 transition-opacity duration-300 rounded-3xl"
                 style={{
-                  background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255, 255, 255, 0.4) 0%, rgba(52, 211, 153, 0.25) 30%, rgba(20, 184, 166, 0.2) 60%, transparent 80%)`,
-                  mixBlendMode: "overlay"
+                  background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(16, 185, 129, 0.18) 0%, rgba(20, 184, 166, 0.08) 45%, transparent 80%)`,
                 }}
               />
 
               {/* Rarity & Year Badge */}
               <div className="w-full flex items-center justify-between z-10">
-                <span className="px-3 py-1 rounded-full text-[11px] font-bold uppercase bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow">
+                <span className="px-3 py-1 rounded-full text-[11px] font-bold uppercase bg-amber-50 text-amber-700 border border-amber-300">
                   ⭐ {currentTrophy.rarity}
                 </span>
-                <span className="text-xs text-slate-300 font-semibold">
+                <span className="text-xs text-slate-500 font-semibold">
                   {currentTrophy.year}
                 </span>
               </div>
 
-              {/* Center Emblem with Floating Halo */}
+              {/* Center Emblem */}
               <div className="relative my-auto z-10">
-                <div className="absolute inset-0 bg-gradient-to-tr from-emerald-600/30 to-teal-500/30 rounded-full blur-2xl group-hover:blur-3xl transition-all"></div>
-                <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-3xl bg-slate-900/90 p-4 border-2 border-emerald-500/40 shadow-2xl shadow-emerald-600/30 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 flex items-center justify-center">
+                <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-3xl bg-slate-50 p-4 border-2 border-slate-200 shadow-md group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 flex items-center justify-center">
                   <img
                     src={currentTrophy.badgeUrl}
                     alt={currentTrophy.title}
-                    className="w-full h-full object-contain filter drop-shadow-xl"
+                    className="w-full h-full object-contain filter drop-shadow"
                   />
                 </div>
               </div>
 
               {/* Title & Organization */}
               <div className="z-10 space-y-1">
-                <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
                   {currentTrophy.title}
                 </h3>
-                <p className="text-xs sm:text-sm font-semibold text-emerald-300">
+                <p className="text-xs sm:text-sm font-semibold text-emerald-700">
                   {currentTrophy.role}
                 </p>
               </div>
 
               {/* 3D Tilt Hint */}
-              <span className="text-[10px] text-slate-400/80 z-10 flex items-center space-x-1">
+              <span className="text-[10px] text-slate-400 z-10 flex items-center space-x-1">
                 <RotateCw className="w-3 h-3" />
                 <span>Gerakkan mouse untuk memutar 3D</span>
               </span>
@@ -212,30 +210,30 @@ export const HolographicTrophyShowcase: React.FC = () => {
           {/* Trophy Metadata & Unlocked Skill Buffs */}
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-3">
-              <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 inline-block">
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 inline-block">
                 // Rincian Akreditasi
               </span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
                 {currentTrophy.title}
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed p-4 rounded-2xl bg-slate-900/60 border border-emerald-500/20">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed p-4 rounded-2xl bg-slate-50 border border-slate-200">
                 {currentTrophy.description}
               </p>
             </div>
 
-            {/* Unlocked Capabilities / Skill Buffs */}
+            {/* Unlocked Capabilities */}
             <div className="space-y-3">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-400 flex items-center space-x-2">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center space-x-2">
                 <Sparkles className="w-4 h-4" />
-                <span>// Kemampuan & Kompetensi yang Terbuka</span>
+                <span>// Kemampuan & Kompetensi Utama</span>
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {currentTrophy.skillsUnlocked.map((skill, idx) => (
                   <div
                     key={idx}
-                    className="p-3 rounded-xl bg-slate-900/80 border border-emerald-500/30 flex items-center space-x-2.5 text-xs text-white font-medium"
+                    className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center space-x-2.5 text-xs text-slate-800 font-medium"
                   >
-                    <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                     <span>{skill}</span>
                   </div>
                 ))}
@@ -243,8 +241,8 @@ export const HolographicTrophyShowcase: React.FC = () => {
             </div>
 
             {/* Official Authentication Note */}
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-950/40 via-teal-950/30 to-transparent border border-emerald-500/30 flex items-center space-x-3 text-xs text-slate-300">
-              <Shield className="w-5 h-5 text-amber-400 flex-shrink-0" />
+            <div className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200 flex items-center space-x-3 text-xs text-slate-700">
+              <Shield className="w-5 h-5 text-amber-600 flex-shrink-0" />
               <span>
                 Dokumentasi terotentikasi dan terdaftar secara sah dalam portofolio resmi Samuel B K.
               </span>

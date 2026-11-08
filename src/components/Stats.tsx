@@ -25,21 +25,21 @@ export const Stats: React.FC<StatsProps> = ({ stats }) => {
   };
 
   return (
-    <section className="py-12 border-y border-slate-800/80 dark:border-slate-800/80 light:border-slate-200/80 bg-slate-900/40 dark:bg-slate-900/40 light:bg-slate-50/50">
+    <section className="py-12 border-y border-slate-200 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           {stats.map((stat, idx) => (
             <div
               key={idx}
-              className="glass-card rounded-2xl p-6 text-center transform transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="glass-card rounded-2xl p-6 text-center transform transition duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-emerald-500/15 flex items-center justify-center text-emerald-400 dark:text-emerald-400 light:text-emerald-600 border border-emerald-500/25">
+              <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 border border-emerald-200">
                 {getIcon(stat.iconName)}
               </div>
-              <div className="text-3xl font-extrabold text-white dark:text-white light:text-slate-900 mb-1 tracking-tight gradient-text">
+              <div className="text-3xl font-extrabold text-slate-900 mb-1 tracking-tight gradient-text">
                 {stat.number}
               </div>
-              <div className="text-xs font-medium text-slate-300 dark:text-slate-300 light:text-slate-600">
+              <div className="text-xs font-medium text-slate-600">
                 {stat.label}
               </div>
             </div>

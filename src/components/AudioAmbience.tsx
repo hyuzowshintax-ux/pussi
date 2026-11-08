@@ -118,8 +118,8 @@ export const AudioAmbience: React.FC = () => {
       onClick={toggleAudio}
       className={`px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center space-x-2 transition-all border ${
         isPlaying
-          ? "bg-emerald-600/25 text-emerald-300 border-emerald-400/50 shadow-lg shadow-emerald-950/40"
-          : "bg-slate-800/80 hover:bg-slate-700 text-slate-300 border-slate-700/60"
+          ? "bg-emerald-50 text-emerald-700 border-emerald-300 shadow-sm"
+          : "bg-slate-100 hover:bg-slate-200 text-slate-600 border-slate-200"
       }`}
       title={isPlaying ? "Matikan Musik Lo-Fi Ambient" : "Nyalakan Musik Lo-Fi Ambient"}
       aria-label="Toggle Audio Ambience"
@@ -127,17 +127,17 @@ export const AudioAmbience: React.FC = () => {
       {isPlaying ? (
         <>
           <div className="flex items-end space-x-0.5 h-3.5">
-            <span className="w-0.5 bg-emerald-400 rounded-full animate-[pulse_0.6s_ease-in-out_infinite] h-full"></span>
-            <span className="w-0.5 bg-teal-400 rounded-full animate-[pulse_0.9s_ease-in-out_infinite] h-2"></span>
-            <span className="w-0.5 bg-emerald-300 rounded-full animate-[pulse_0.7s_ease-in-out_infinite] h-3"></span>
-            <span className="w-0.5 bg-amber-300 rounded-full animate-[pulse_0.8s_ease-in-out_infinite] h-1.5"></span>
+            <span className="w-0.5 bg-emerald-600 rounded-full animate-[pulse_0.6s_ease-in-out_infinite] h-full"></span>
+            <span className="w-0.5 bg-teal-600 rounded-full animate-[pulse_0.9s_ease-in-out_infinite] h-2"></span>
+            <span className="w-0.5 bg-emerald-500 rounded-full animate-[pulse_0.7s_ease-in-out_infinite] h-3"></span>
+            <span className="w-0.5 bg-amber-500 rounded-full animate-[pulse_0.8s_ease-in-out_infinite] h-1.5"></span>
           </div>
-          <span className="hidden sm:inline text-emerald-300">Lo-Fi ON</span>
+          <span className="hidden sm:inline text-emerald-700">Lo-Fi ON</span>
         </>
       ) : (
         <>
-          <VolumeX className="w-4 h-4 text-slate-400" />
-          <span className="hidden sm:inline text-slate-400">Lo-Fi</span>
+          <VolumeX className="w-4 h-4 text-slate-500" />
+          <span className="hidden sm:inline text-slate-600">Lo-Fi</span>
         </>
       )}
     </button>

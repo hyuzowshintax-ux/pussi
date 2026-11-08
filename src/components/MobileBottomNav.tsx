@@ -53,7 +53,7 @@ export const MobileBottomNav: React.FC = () => {
 
   return (
     <div className="fixed bottom-3 inset-x-3 z-40 md:hidden transition-all duration-300">
-      <nav className="glass-card rounded-2xl p-1.5 border border-emerald-500/30 shadow-[0_10px_30px_-5px_rgba(16,185,129,0.4)] backdrop-blur-2xl bg-slate-950/90 flex items-center justify-around">
+      <nav className="rounded-2xl p-1.5 border border-slate-200 shadow-xl backdrop-blur-xl bg-white/95 flex items-center justify-around">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeSection === item.id;
@@ -63,15 +63,15 @@ export const MobileBottomNav: React.FC = () => {
               onClick={() => scrollTo(item.id)}
               className={`flex-1 py-1.5 px-1 rounded-xl flex flex-col items-center justify-center transition-all duration-200 relative ${
                 isActive
-                  ? "text-emerald-300 font-bold"
-                  : "text-slate-400 hover:text-slate-200"
+                  ? "text-emerald-700 font-bold"
+                  : "text-slate-500 hover:text-slate-800"
               }`}
               aria-label={item.label}
             >
               {isActive && (
-                <span className="absolute inset-0 bg-emerald-500/20 rounded-xl border border-emerald-500/40 -z-10 animate-fade-in" />
+                <span className="absolute inset-0 bg-emerald-50 rounded-xl border border-emerald-200 -z-10 animate-fade-in" />
               )}
-              <Icon className={`w-4 h-4 mb-0.5 ${isActive ? "text-emerald-400 scale-110" : "opacity-80"}`} />
+              <Icon className={`w-4 h-4 mb-0.5 ${isActive ? "text-emerald-600 scale-110" : "opacity-80"}`} />
               <span className="text-[10px] tracking-tight leading-none">
                 {item.label}
               </span>

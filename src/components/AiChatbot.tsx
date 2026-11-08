@@ -152,15 +152,15 @@ export const AiChatbot: React.FC<AiChatbotProps> = ({ data }) => {
         {!isOpen && (
           <button
             onClick={() => setIsOpen(true)}
-            className="group relative flex items-center space-x-2.5 sm:space-x-3 px-3.5 sm:px-4 py-2.5 sm:py-3.5 rounded-full bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 text-white shadow-2xl shadow-emerald-600/40 hover:shadow-emerald-500/60 hover:scale-105 active:scale-95 transition-all duration-300 border border-emerald-400/30 animate-opening-pop"
+            className="group relative flex items-center space-x-2.5 sm:space-x-3 px-3.5 sm:px-4 py-2.5 sm:py-3.5 rounded-full bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 text-white shadow-xl shadow-emerald-600/25 hover:shadow-emerald-500/40 hover:scale-105 active:scale-95 transition-all duration-300 border border-emerald-400/30 animate-opening-pop"
             aria-label="Buka AI Assistant"
           >
             {/* Pulsing indicator */}
             <span className="relative flex h-3 w-3 sm:h-3.5 sm:w-3.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 sm:h-3.5 sm:w-3.5 bg-emerald-300 border-2 border-slate-900"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 sm:h-3.5 sm:w-3.5 bg-emerald-200 border-2 border-emerald-700"></span>
             </span>
-            <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-100 group-hover:rotate-12 transition-transform" />
+            <Bot className="w-4 h-4 sm:w-5 sm:h-5 text-white group-hover:rotate-12 transition-transform" />
             <span className="text-xs sm:text-sm font-bold tracking-wide">
               Tanya Samuel AI
             </span>
@@ -170,38 +170,38 @@ export const AiChatbot: React.FC<AiChatbotProps> = ({ data }) => {
 
       {/* Chat Drawer Box */}
       {isOpen && (
-        <div className="fixed bottom-3 sm:bottom-6 right-3 sm:right-6 z-50 w-[calc(100vw-1.5rem)] sm:w-[400px] h-[520px] max-h-[84vh] glass-card rounded-3xl border border-emerald-500/30 shadow-2xl shadow-emerald-950/40 flex flex-col overflow-hidden animate-opening-aperture">
+        <div className="fixed bottom-3 sm:bottom-6 right-3 sm:right-6 z-50 w-[calc(100vw-1.5rem)] sm:w-[400px] h-[520px] max-h-[84vh] glass-card rounded-3xl border border-slate-200 shadow-2xl flex flex-col overflow-hidden animate-opening-aperture bg-white">
           
           {/* Header */}
-          <div className="p-4 bg-slate-900/90 border-b border-emerald-500/20 flex items-center justify-between backdrop-blur-md">
+          <div className="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white shadow-md shadow-emerald-600/30">
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white shadow-md shadow-emerald-600/25">
                   <Bot className="w-5 h-5" />
                 </div>
-                <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-400 border-2 border-slate-900"></div>
+                <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white"></div>
               </div>
               <div>
                 <div className="flex items-center space-x-1.5">
-                  <h4 className="text-sm font-bold text-white">Samuel AI Assistant</h4>
-                  <span className="px-1.5 py-0.2 rounded text-[9px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  <h4 className="text-sm font-bold text-slate-900">Samuel AI Assistant</h4>
+                  <span className="px-1.5 py-0.2 rounded text-[9px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
                     Online
                   </span>
                 </div>
-                <p className="text-[11px] text-emerald-300/80">Duta Intelegensia & AI Explorer</p>
+                <p className="text-[11px] text-emerald-700 font-medium">Duta Intelegensia & AI Explorer</p>
               </div>
             </div>
 
             <button
               onClick={() => setIsOpen(false)}
-              className="w-8 h-8 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors"
+              className="w-8 h-8 rounded-full bg-white hover:bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200 flex items-center justify-center transition-colors"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
           {/* Messages Feed */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-3.5 text-xs sm:text-sm">
+          <div className="flex-1 p-4 overflow-y-auto space-y-3.5 text-xs sm:text-sm bg-white">
             {messages.map((msg) => (
               <div
                 key={msg.id}
@@ -211,17 +211,17 @@ export const AiChatbot: React.FC<AiChatbotProps> = ({ data }) => {
                   className={`w-7 h-7 rounded-xl flex items-center justify-center flex-shrink-0 text-xs ${
                     msg.sender === "user"
                       ? "bg-gradient-to-tr from-emerald-600 to-teal-500 text-white shadow"
-                      : "bg-slate-800 border border-emerald-500/30 text-emerald-300"
+                      : "bg-emerald-50 border border-emerald-200 text-emerald-700"
                   }`}
                 >
                   {msg.sender === "user" ? <User className="w-3.5 h-3.5" /> : <Bot className="w-3.5 h-3.5" />}
                 </div>
 
                 <div
-                  className={`max-w-[78%] rounded-2xl p-3 shadow-md space-y-2 ${
+                  className={`max-w-[78%] rounded-2xl p-3 shadow-sm space-y-2 ${
                     msg.sender === "user"
                       ? "bg-gradient-to-r from-emerald-600 to-teal-500 text-white rounded-tr-none"
-                      : "bg-slate-900/90 text-slate-200 border border-emerald-500/20 rounded-tl-none leading-relaxed"
+                      : "bg-slate-50 text-slate-800 border border-slate-200 rounded-tl-none leading-relaxed"
                   }`}
                 >
                   <p className="whitespace-pre-line text-xs sm:text-[13px]">{msg.text}</p>
@@ -238,17 +238,19 @@ export const AiChatbot: React.FC<AiChatbotProps> = ({ data }) => {
                     </a>
                   )}
 
-                  <span className="block text-[10px] text-slate-400/80 text-right">{msg.time}</span>
+                  <span className={`block text-[10px] text-right ${msg.sender === "user" ? "text-emerald-100" : "text-slate-400"}`}>
+                    {msg.time}
+                  </span>
                 </div>
               </div>
             ))}
 
             {isTyping && (
-              <div className="flex items-center space-x-2 text-slate-400 text-xs pl-9">
+              <div className="flex items-center space-x-2 text-slate-500 text-xs pl-9">
                 <span className="flex space-x-1">
-                  <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce"></span>
-                  <span className="w-1.5 h-1.5 bg-teal-400 rounded-full animate-bounce delay-150"></span>
-                  <span className="w-1.5 h-1.5 bg-emerald-300 rounded-full animate-bounce delay-300"></span>
+                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-bounce"></span>
+                  <span className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-bounce delay-150"></span>
+                  <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce delay-300"></span>
                 </span>
                 <span>Samuel AI sedang mengetik...</span>
               </div>
@@ -257,12 +259,12 @@ export const AiChatbot: React.FC<AiChatbotProps> = ({ data }) => {
           </div>
 
           {/* Quick Prompts */}
-          <div className="px-3 py-2 bg-slate-950/40 border-t border-emerald-500/10 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+          <div className="px-3 py-2 bg-slate-50 border-t border-slate-200 flex items-center gap-1.5 overflow-x-auto no-scrollbar">
             {quickPrompts.map((prompt, i) => (
               <button
                 key={i}
                 onClick={() => handleSend(prompt)}
-                className="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-slate-800/80 hover:bg-emerald-900/40 hover:text-emerald-300 text-slate-300 border border-emerald-500/20 transition-all flex-shrink-0"
+                className="px-2.5 py-1 rounded-lg text-[11px] font-medium bg-white hover:bg-emerald-50 hover:text-emerald-700 text-slate-700 border border-slate-200 transition-all flex-shrink-0"
               >
                 {prompt}
               </button>
@@ -275,14 +277,14 @@ export const AiChatbot: React.FC<AiChatbotProps> = ({ data }) => {
               e.preventDefault();
               handleSend();
             }}
-            className="p-3 bg-slate-900/90 border-t border-emerald-500/20 flex items-center gap-2"
+            className="p-3 bg-white border-t border-slate-200 flex items-center gap-2"
           >
             <input
               type="text"
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               placeholder="Tanya sesuatu tentang Samuel..."
-              className="flex-1 bg-slate-800/80 border border-emerald-500/30 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-emerald-400 transition-colors"
+              className="flex-1 bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:bg-white transition-colors"
             />
             <button
               type="submit"
