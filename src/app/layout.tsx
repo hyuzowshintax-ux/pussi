@@ -1,27 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-// Font 1 — Inter: sans-serif formal untuk teks isi, label, tombol, dan badge
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  display: "swap",
-});
-
-// Font 2 — Playfair Display: serif elegan untuk judul (h1–h4)
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-heading",
-  weight: ["500", "600", "700", "800", "900"],
+// Font Utama — Bremlin (local OpenType font dari bremlin.zip)
+const bremlin = localFont({
+  src: "./fonts/Bremlin.otf",
+  variable: "--font-bremlin",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Samuel B K | AI Design Engineer, Duta Intelegensia & Cyber Arcade Portfolio",
+  title: "Samuel B K | AI Design Engineer & Duta Intelegensia SMAN 1 Kandangan",
   description:
-    "Portofolio interaktif resmi Samuel B K — Duta Intelegensia SMAN 1 Kandangan (2025–2026), AI Design Engineer, Pramuka Penegak Bantara, dan CODASKA. Jelajahi proyek game arcade, simulator formasi LKBB, dan artikel konstelasi zodiak kosmik.",
+    "Portofolio resmi Samuel B K — Duta Intelegensia SMAN 1 Kandangan (2025–2026), AI Design Engineer, Pramuka Penegak Bantara, dan CODASKA.",
   keywords: [
     "Samuel B K",
     "Duta Intelegensia",
@@ -31,7 +22,7 @@ export const metadata: Metadata = {
     "AI Design Engineer",
     "Pramuka Penegak Bantara",
     "Paskibra Kandangan",
-    "Portofolio Interaktif",
+    "Portofolio Resmi",
     "Next.js Developer Kediri",
     "LKBB Simulator"
   ],
@@ -40,24 +31,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: "https://github.com/hyuzowshintax-ux/pussi",
+    url: "https://portf-shintax1.vercel.app",
     title: "Samuel B K | AI Design Engineer & Duta Intelegensia SMAN 1 Kandangan",
     description:
-      "Jelajahi portofolio interaktif bergaya Cyber Arcade Game, simulator taktis LKBB 2D, dan inovasi AI Design Engineering oleh Samuel B K.",
-    siteName: "Samuel B K Interactive Portfolio",
+      "Portofolio resmi Samuel B K — eksplorasi AI Design Engineering, pengembangan web modern, kepemimpinan Duta Intelegensia, dan simulator LKBB CODASKA.",
+    siteName: "Samuel B K Portfolio",
     images: [
       {
         url: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop",
         width: 1200,
         height: 630,
-        alt: "Samuel B K Interactive Portfolio Preview",
+        alt: "Samuel B K Portfolio Preview",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Samuel B K | AI Design Engineer & Duta Intelegensia",
-    description: "Portofolio interaktif Web & AI dengan konsep Game Arcade dan Simulator Taktis LKBB.",
+    description: "Portofolio resmi Web & AI Design Engineering karya Samuel B K.",
     creator: "@samuelbk",
     images: ["https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop"],
   },
@@ -72,9 +63,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="scroll-smooth bg-white">
+    <html lang="id" className={`${bremlin.variable} scroll-smooth bg-white`}>
       <body
-        className={`${inter.variable} ${playfair.variable} antialiased bg-white text-slate-900 selection:bg-emerald-600 selection:text-white relative min-h-screen`}
+        className={`${bremlin.className} ${bremlin.variable} antialiased bg-white text-slate-900 selection:bg-emerald-600 selection:text-white relative min-h-screen`}
       >
         {children}
       </body>

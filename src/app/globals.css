@@ -2,31 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Bremlin';
+  src: url('/fonts/Bremlin.otf') format('opentype');
+  font-display: swap;
+}
+
 :root {
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-sans: var(--font-bremlin), 'Bremlin', Georgia, serif;
+  --font-heading: var(--font-bremlin), 'Bremlin', Georgia, serif;
 }
 
 html {
   scroll-behavior: smooth;
   background-color: #ffffff;
+  font-family: var(--font-bremlin), 'Bremlin', Georgia, serif;
 }
 
-/* Tipografi formal: judul memakai Playfair Display, sisanya Inter */
+/* Seluruh tipografi menggunakan font Bremlin */
 h1,
 h2,
 h3,
-h4 {
-  font-family: var(--font-heading);
-  letter-spacing: -0.01em;
-}
-
+h4,
+h5,
+h6,
+button,
+input,
+textarea,
+select,
 code,
 kbd,
 pre,
 samp {
-  font-family: var(--font-sans);
-  font-variant-numeric: tabular-nums;
+  font-family: var(--font-bremlin), 'Bremlin', Georgia, serif;
 }
 
 /* ==========================================================================
@@ -36,7 +44,7 @@ body,
 .light body,
 .dark body {
   overflow-x: hidden;
-  font-family: var(--font-sans);
+  font-family: var(--font-bremlin), 'Bremlin', Georgia, serif;
   background-color: #ffffff !important;
   background-image: none !important;
   color: #0f172a;

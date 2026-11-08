@@ -10,12 +10,11 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        // Hanya 2 font: Inter (sans) & Playfair Display (heading/serif)
-        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        heading: ["var(--font-heading)", "Georgia", "serif"],
-        serif: ["var(--font-heading)", "Georgia", "serif"],
-        // mono diarahkan ke Inter agar tidak muncul font ketiga (kbd, code, pre)
-        mono: ["var(--font-sans)", "system-ui", "sans-serif"],
+        // Seluruh utilitas font menggunakan Bremlin
+        sans: ["var(--font-bremlin)", "Bremlin", "Georgia", "serif"],
+        heading: ["var(--font-bremlin)", "Bremlin", "Georgia", "serif"],
+        serif: ["var(--font-bremlin)", "Bremlin", "Georgia", "serif"],
+        mono: ["var(--font-bremlin)", "Bremlin", "Georgia", "serif"],
       },
       colors: {
         brand: {
