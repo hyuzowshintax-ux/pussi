@@ -63,9 +63,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${bremlin.variable} scroll-smooth bg-white`}>
+    <html lang="id" className={`${bremlin.variable} scroll-smooth bg-slate-100`}>
       <body
-        className={`${bremlin.className} ${bremlin.variable} antialiased bg-white text-slate-900 selection:bg-emerald-600 selection:text-white relative min-h-screen`}
+        className={`${bremlin.className} ${bremlin.variable} antialiased bg-slate-100 text-slate-900 selection:bg-emerald-600 selection:text-white relative min-h-screen`}
       >
         {children}
       </body>

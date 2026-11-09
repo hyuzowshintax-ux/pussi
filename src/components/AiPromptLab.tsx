@@ -94,7 +94,7 @@ $$E_p + E_k = \\text{Konstan} \\quad \\rightarrow \\quad mgh_1 + \\frac{1}{2}mv_
   };
 
   return (
-    <section id="ai-lab" className="py-24 bg-white relative">
+    <section id="ai-lab" className="py-24 bg-slate-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

@@ -65,7 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode, 
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass-nav" : "bg-white/95 border-b border-slate-100"}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass-nav" : "bg-slate-100/95 border-b border-slate-200"}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
@@ -130,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, darkMode, setDarkMode, 
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-slate-200 shadow-lg px-6 py-5">
+        <div className="md:hidden bg-slate-100 border-t border-slate-200 shadow-lg px-6 py-5">
           <div className="flex flex-col space-y-3">
             {navLinks.map((link) => (
               <button

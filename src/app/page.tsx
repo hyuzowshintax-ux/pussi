@@ -45,7 +45,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-white text-slate-900">
+    <div className="relative min-h-screen overflow-x-hidden bg-slate-100 text-slate-900">
       {/* Global Keyboard Shortcuts Cheatsheet & Hotkey Engine */}
       <KeyboardShortcutsGuide darkMode={darkMode} setDarkMode={setDarkMode} />
 

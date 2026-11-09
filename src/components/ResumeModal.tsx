@@ -19,7 +19,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose, data 
 
   return (
     <div className="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto animate-cloud-enter">
-      <div className="relative w-full max-w-3xl glass-card rounded-3xl border border-slate-200 shadow-2xl my-auto overflow-hidden bg-white">
+      <div className="relative w-full max-w-3xl glass-card rounded-3xl border border-slate-200 shadow-2xl my-auto overflow-hidden bg-slate-50">
         
         {/* Top Header Bar */}
         <div className="p-4 sm:p-5 bg-slate-50 border-b border-slate-200 flex items-center justify-between no-print">
@@ -46,7 +46,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose, data 
         </div>
 
         {/* Printable Resume Content */}
-        <div className="p-6 sm:p-10 space-y-8 max-h-[80vh] overflow-y-auto print:max-h-none print:p-0 text-slate-800 bg-white">
+        <div className="p-6 sm:p-10 space-y-8 max-h-[80vh] overflow-y-auto print:max-h-none print:p-0 text-slate-800 bg-slate-50 print:bg-white">
           
           {/* Header Profile */}
           <div className="border-b border-slate-200 pb-6 space-y-3">

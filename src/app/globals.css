@@ -15,7 +15,7 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #ffffff;
+  background-color: #f1f5f9;
   font-family: var(--font-bremlin), 'Bremlin', Georgia, serif;
 }
 
@@ -38,14 +38,14 @@ samp {
 }
 
 /* ==========================================================================
-   Clean Formal Plain White Background (#ffffff)
+   Clean Formal Plain Gray Background (#f1f5f9)
    ========================================================================== */
 body,
 .light body,
 .dark body {
   overflow-x: hidden;
   font-family: var(--font-bremlin), 'Bremlin', Georgia, serif;
-  background-color: #ffffff !important;
+  background-color: #f1f5f9 !important;
   background-image: none !important;
   color: #0f172a;
 }
@@ -56,7 +56,7 @@ body,
 }
 
 ::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: #f1f5f9;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -68,9 +68,9 @@ body,
   background: #10b981;
 }
 
-/* Clean White Navigation & Card Surfaces */
+/* Clean Gray Navigation & Card Surfaces */
 .glass-nav {
-  background: rgba(255, 255, 255, 0.97);
+  background: rgba(241, 245, 249, 0.97);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid #e2e8f0;

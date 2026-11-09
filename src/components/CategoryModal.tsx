@@ -81,7 +81,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-900/50 backdrop-blur-sm animate-in fade-in duration-300">
       
       {/* Centered Modal Container */}
-      <div className="glass-card w-full max-w-4xl max-h-[88vh] rounded-3xl border border-slate-200 shadow-2xl flex flex-col overflow-hidden relative animate-opening-aperture bg-white">
+      <div className="glass-card w-full max-w-4xl max-h-[88vh] rounded-3xl border border-slate-200 shadow-2xl flex flex-col overflow-hidden relative animate-opening-aperture bg-slate-50">
         
         {/* Modal Top Header */}
         <div className="p-4 sm:p-6 border-b border-slate-200 flex items-center justify-between bg-slate-50 relative z-10">
@@ -122,7 +122,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
         </div>
 
         {/* Category Tabs Quick Bar */}
-        <div className="px-4 sm:px-6 py-2.5 bg-white border-b border-slate-200 flex items-center gap-2 overflow-x-auto no-scrollbar relative z-10">
+        <div className="px-4 sm:px-6 py-2.5 bg-slate-100 border-b border-slate-200 flex items-center gap-2 overflow-x-auto no-scrollbar relative z-10">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -133,7 +133,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold flex items-center space-x-1.5 transition-all flex-shrink-0 ${
                   isActive
                     ? "bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-500 text-white shadow-md shadow-emerald-600/25"
-                    : "bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200 border border-slate-200"
+                    : "bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-200 border border-slate-200"
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
@@ -144,7 +144,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
         </div>
 
         {/* Modal Scrollable Body */}
-        <div className="p-5 sm:p-8 overflow-y-auto flex-1 space-y-6 relative z-10 bg-white">
+        <div className="p-5 sm:p-8 overflow-y-auto flex-1 space-y-6 relative z-10 bg-slate-50">
 
           {/* ================================================================
               1. BERANDA (HOME)

@@ -53,7 +53,7 @@ export const MobileBottomNav: React.FC = () => {
 
   return (
     <div className="fixed bottom-3 inset-x-3 z-40 md:hidden transition-all duration-300">
-      <nav className="rounded-2xl p-1.5 border border-slate-200 shadow-xl backdrop-blur-xl bg-white/95 flex items-center justify-around">
+      <nav className="rounded-2xl p-1.5 border border-slate-200 shadow-xl backdrop-blur-xl bg-slate-100/95 flex items-center justify-around">
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = activeSection === item.id;

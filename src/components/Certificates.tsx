@@ -14,7 +14,7 @@ export const Certificates: React.FC<CertificatesProps> = ({ certificates = [] })
   if (!certificates || certificates.length === 0) return null;
 
   return (
-    <section id="certificates" className="py-24 bg-white relative">
+    <section id="certificates" className="py-24 bg-slate-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

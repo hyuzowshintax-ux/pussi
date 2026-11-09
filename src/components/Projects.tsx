@@ -163,7 +163,7 @@ export const Projects: React.FC<ProjectsProps> = ({ projects }) => {
   };
 
   return (
-    <section id="projects" className="py-16 sm:py-24 bg-white relative overflow-hidden">
+    <section id="projects" className="py-16 sm:py-24 bg-slate-100 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* =========================================================================

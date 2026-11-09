@@ -45,7 +45,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
   }, [text, isDeleting, roleIndex, profile.roles]);
 
   return (
-    <section id="home" className="min-h-[calc(100vh-5rem)] flex items-center justify-center py-12 sm:py-20 lg:py-28 bg-white relative">
+    <section id="home" className="min-h-[calc(100vh-5rem)] flex items-center justify-center py-12 sm:py-20 lg:py-28 bg-slate-100 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
