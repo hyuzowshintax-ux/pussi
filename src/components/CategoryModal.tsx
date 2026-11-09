@@ -156,7 +156,7 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                   <img
                     src={data.profile.avatarUrl}
                     alt={data.profile.name}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
                 <div className="text-left space-y-2 flex-1">
