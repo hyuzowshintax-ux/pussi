@@ -94,15 +94,15 @@ export const SkillRadarMatrix: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 flex items-center justify-center space-x-1.5">
+        <div className="text-left max-w-3xl mb-16 space-y-3">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 flex items-center justify-start space-x-1.5">
             <Target className="w-4 h-4" />
             <span>// Matriks Kompetensi 360°</span>
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Radar Keahlian & Peta Visi Strategis
           </h2>
-          <div className="w-16 h-1 bg-emerald-600 mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-emerald-600 rounded-full" />
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             Visualisasi integratif 6 pilar kekuatan Samuel B K yang memadukan teknologi AI, rekam jejak kepemimpinan Duta Intelegensia, dan ketangguhan kepanduan.
           </p>

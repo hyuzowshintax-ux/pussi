@@ -98,14 +98,14 @@ $$E_p + E_k = \\text{Konstan} \\quad \\rightarrow \\quad mgh_1 + \\frac{1}{2}mv_
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-left max-w-3xl mb-16 space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-emerald-600">
             // Laboratorium Interaktif
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             AI Prompt Playground & Neural Simulation Lab
           </h2>
-          <div className="w-16 h-1 bg-emerald-600 mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-emerald-600 rounded-full" />
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             Eksperimen langsung dengan model inferensi AI rancangan Samuel: mulai dari asisten belajar siswa, taktik formasi LKBB, hingga peracik palet desain antarmuka.
           </p>

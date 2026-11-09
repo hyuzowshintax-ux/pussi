@@ -51,14 +51,14 @@ export const Contact: React.FC<ContactProps> = ({ contact }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-left max-w-3xl mb-16 space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-emerald-700">
             // Hubungi Saya
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             {contact.heading}
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-600 mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-gradient-to-r from-emerald-600 via-teal-500 to-emerald-600 rounded-full" />
           <p className="text-slate-600 text-sm sm:text-base">
             {contact.subheading}
           </p>

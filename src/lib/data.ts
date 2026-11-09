@@ -11,7 +11,7 @@ export const portfolioData: PortfolioData = {
     ],
     tagline: "Seorang pelajar yang bersemangat mempelajari teknologi web modern, antusias mengeksplorasi AI, dan terus berkembang dalam membangun solusi digital.",
     aboutShort: "Halo! Saya Samuel B K, seorang pelajar yang penuh antusiasme dan dedikasi untuk terus belajar, mengeksplorasi teknologi baru, dan menciptakan proyek-proyek kreatif.",
-    avatarUrl: "/profile.jpg",
+    avatarUrl: "/profile.png",
     location: "Kediri, Jawa Timur, Indonesia",
     email: "hyuzowshintax@gmail.com",
     phone: "08133726102",

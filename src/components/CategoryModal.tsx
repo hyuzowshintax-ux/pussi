@@ -156,10 +156,10 @@ export const CategoryModal: React.FC<CategoryModalProps> = ({
                   <img
                     src={data.profile.avatarUrl}
                     alt={data.profile.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
-                <div className="text-center md:text-left space-y-2 flex-1">
+                <div className="text-left space-y-2 flex-1">
                   <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold">
                     <Sparkles className="w-3.5 h-3.5" />
                     <span>Duta Intelegensia & Pelajar Berprestasi</span>

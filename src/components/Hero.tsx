@@ -57,7 +57,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                   <img
                     src={profile.avatarUrl}
                     alt={profile.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
               </div>
@@ -65,10 +65,10 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
           </div>
 
           {/* Left Column: Intro */}
-          <div className="lg:col-span-7 text-center lg:text-left space-y-5 sm:space-y-6 order-2 lg:order-1">
+          <div className="lg:col-span-7 text-left space-y-5 sm:space-y-6 order-2 lg:order-1">
             
             {/* Status Pill */}
-            <div className="flex items-center justify-center lg:justify-start gap-3 flex-wrap">
+            <div className="flex items-center justify-start gap-3 flex-wrap">
               <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse" />
                 <span className="text-xs sm:text-sm font-semibold text-emerald-800">
@@ -85,19 +85,19 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
               <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-tight">
                 {profile.name}
               </h1>
-              <div className="text-xl sm:text-3xl lg:text-4xl font-bold pt-1 flex flex-wrap items-center justify-center lg:justify-start gap-1 sm:gap-2">
+              <div className="text-xl sm:text-3xl lg:text-4xl font-bold pt-1 flex flex-wrap items-center justify-start gap-1 sm:gap-2">
                 <span className="text-slate-700">Saya seorang</span>
                 <span className="gradient-text typing-cursor min-h-[36px] sm:min-h-[44px]">{text}</span>
               </div>
             </div>
 
             {/* Tagline */}
-            <p className="text-sm sm:text-base lg:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed px-1 sm:px-0">
+            <p className="text-sm sm:text-base lg:text-lg text-slate-600 max-w-2xl leading-relaxed">
               {profile.tagline}
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-3 sm:gap-4 pt-2">
               <a
                 href="#projects"
                 className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-md shadow-emerald-600/20 flex items-center justify-center space-x-2 active:scale-95 transition-all"
@@ -117,7 +117,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
             {/* Social Links */}
             <div className="pt-5 border-t border-slate-200">
               <p className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">// Media Sosial & Tautan Resmi</p>
-              <div className="flex items-center justify-center lg:justify-start gap-2.5 sm:gap-3 flex-wrap">
+              <div className="flex items-center justify-start gap-2.5 sm:gap-3 flex-wrap">
                 <a
                   href={profile.socials.instagram}
                   target="_blank"
@@ -155,7 +155,7 @@ export const Hero: React.FC<HeroProps> = ({ profile }) => {
                   <img
                     src={profile.avatarUrl}
                     alt={profile.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>

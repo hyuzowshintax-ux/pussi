@@ -127,15 +127,15 @@ export const LkbbDrillSimulator: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 flex items-center justify-center space-x-1.5">
+        <div className="text-left max-w-3xl mb-16 space-y-3">
+          <span className="text-xs font-bold uppercase tracking-widest text-emerald-600 flex items-center justify-start space-x-1.5">
             <Flag className="w-4 h-4" />
             <span>// Simulasi Taktis CODASKA (Comando Garuda SMANSAKA)</span>
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Simulator Formasi Variasi Baris-Berbaris (LKBB)
           </h2>
-          <div className="w-16 h-1 bg-emerald-600 mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-emerald-600 rounded-full" />
           <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             Eksplorasi simulasi 2D interaktif pergerakan 16 personil pleton <strong>CODASKA (Comando Garuda SMANSAKA - SMAN 1 Kandangan)</strong> dalam menyusun formasi variasi ketangkasan PBB.
           </p>

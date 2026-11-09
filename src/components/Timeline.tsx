@@ -35,14 +35,14 @@ export const Timeline: React.FC<TimelineProps> = ({ experience, education }) => 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+        <div className="text-left max-w-3xl mb-16 space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-emerald-600">
             // Rekam Jejak Resmi (Klik untuk Buka Tab Baru)
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Pengalaman, Kepemimpinan & Pendidikan
           </h2>
-          <div className="w-16 h-1 bg-emerald-600 mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-emerald-600 rounded-full" />
         </div>
 
         <div className={`grid grid-cols-1 ${hasExp && hasEdu ? "lg:grid-cols-2 gap-12" : "max-w-3xl mx-auto"}`}>
